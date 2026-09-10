@@ -202,16 +202,26 @@ All Routines: fresh session per firing, environment `env_01Ez371HQbzkEd8jfxtaAf3
 notifications on. Cron is **UTC** — the times below are US Eastern and shift by an hour at
 daylight-saving changeover; re-check each November and March.
 
-| Routine | Cron (UTC) | Eastern | Stages | Connectors |
-|---|---|---|---|---|
-| Blog: Idea Capture | `30 11 * * *` | 07:30 daily | 02 (+ research on Mondays) | Microsoft 365, Asana |
-| Blog: Weekly Draft | `0 12 * * 5` | 08:00 Friday | 04–07 | Asana, Microsoft 365 |
-| Blog: Review Loop | `30 12 * * *` | 08:30 daily | 09 (+ stall alert) | Asana, Microsoft 365 |
-| Blog: Publish | `30 13 * * *` | 09:30 daily | 11–12 | Asana, novamira, Microsoft 365 |
+| Routine | Trigger ID | Cron (UTC) | Eastern | Stages | Connectors needed |
+|---|---|---|---|---|---|
+| Blog: Idea Capture | `trig_01KcHdSfdZpQpgNDr8CFAGmj` | `30 11 * * *` | 07:30 daily | 02 (+ research Mondays) | Microsoft 365, Asana |
+| Blog: Weekly Draft (Friday) | `trig_01TETYWmmJXn4iPJjcnd4jiu` | `0 12 * * 5` | 08:00 Friday | 04–07 | Asana, Microsoft 365 |
+| Blog: Review Loop | `trig_017V1PhyYC3FgRK113ysB1Jz` | `30 12 * * *` | 08:30 daily | 09 (+ stall alert) | Asana, Microsoft 365 |
+| Blog: Publish | `trig_01PwUZUGC9u71a36xbMcoGhj` | `30 13 * * *` | 09:30 daily | 11–12 | Asana, novamira, Microsoft 365 |
 
-Retired 2026-09-10, left disabled rather than deleted so their history survives:
-`Blog Pipeline: Daily Maintenance` (`trig_01Bo6Ueo1h1y1NsaFd6CPa9h`),
-`Blog Pipeline: New Draft Cadence` (`trig_01LffXzfaEVnXvs1auYDmn4x`).
+**All four are currently DISABLED.** See §10 for what has to happen before they are switched on.
+They were deliberately left off rather than allowed to fire half-equipped, because a Routine
+that runs without its connectors produces exactly the silent partial failures this rebuild
+exists to eliminate.
+
+Retired 2026-09-10, left disabled rather than deleted so their run history survives:
+`RETIRED — Blog Pipeline: Daily Maintenance` (`trig_01Bo6Ueo1h1y1NsaFd6CPa9h`),
+`RETIRED — Blog Pipeline: New Draft Cadence` (`trig_01LffXzfaEVnXvs1auYDmn4x`).
+
+**Connectors cannot be attached to a Routine through the API in this organization** — the
+`create_trigger` tool rejects the parameter, and a Routine created that way stores none. They
+must be attached by a human in the claude.ai Routines UI. Verify with `list_triggers`: a
+healthy Routine shows a populated `mcp_connections`, not `[]`.
 
 ### Research pass (Mondays, inside Idea Capture)
 
@@ -249,3 +259,42 @@ Not automated, and deliberately so: **Monday, 15 minutes** — Matt and Bill pro
 Friday's draft run takes the *oldest* topic in `Approved Ideas`. If that section is empty the
 run posts a note and stops. Promotion is the throttle that sets real publishing volume; the
 2-posts-per-month target means roughly one promotion every other week, not one per idea.
+
+---
+
+## 10. Activation checklist
+
+The rebuild is in place but **the pipeline is switched off** pending three things only a human
+can do. Recorded 2026-09-10.
+
+**1. Grant the Claude GitHub App write access to `mpocockch/ch-content`.**
+Without this the repo is unreachable and every Routine stops at its precondition, because the
+playbook it needs to read is this file. Both write paths currently fail:
+
+- `git push` → `403` — "Claude doesn't have GitHub access to mpocockch/ch-content for your
+  organization"
+- GitHub API contents endpoint → `403 Resource not accessible by integration`
+
+Fix at https://github.com/apps/claude/installations/select_target (an org admin installs or
+re-scopes the app to include this repo), or reconnect GitHub from claude.ai settings to
+re-link an existing installation. Until then this repo exists only on the branch
+`claude/blog-automation-process-flbewl` inside the session that built it.
+
+**2. Attach connectors to each of the four Routines** in the claude.ai Routines UI — per the
+table in §8. This cannot be done from the API in this org.
+
+**3. Enable the four Routines** once 1 and 2 are done.
+
+### Optional, and worth doing
+
+- **Asana `Stage` custom field + Rule** (§7) — removes three "please drag this card" chores.
+- **Install an image-generation connector** (§6) — restores stage 05 to automation. Record its
+  exact tool name in §6 and the draft Routine picks it up with no prompt change.
+
+### Verifying it works
+
+Fire `Blog: Idea Capture` manually before trusting the schedule. A healthy run reads this
+playbook, reports what it captured, and appends an entry to `pipeline/STATE.md`. Check
+`list_triggers`: a real run shows `last_run.finished_at` minutes after `fired_at`. A
+`finished_at` within milliseconds of `fired_at` means nothing ran — that was the old
+session-bound failure mode.
