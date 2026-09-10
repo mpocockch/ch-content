@@ -177,22 +177,42 @@ So stage 05 is **agent brief → human generates → agent packages**:
 Because the image arrives after the draft, the Friday run normally hands off text-only and the
 image lands during the review loop. That is the expected path, not a failure.
 
-### Re-automating this later
+### Automating it via the Gemini API — built, NOT yet verified
 
-Two routes, if the manual step becomes the bottleneck:
+`pipeline/bin/generate-hero-image.py` calls the Gemini API directly. Verified 2026-09-10:
 
-- **Gemini API key.** AI Studio issues API keys, and this environment has trusted network
-  access, so a Routine could call the image endpoint directly over HTTPS. Store the key as an
-  environment variable on `env_01Ez371HQbzkEd8jfxtaAf3x` (environment settings in the
-  claude.ai UI — never commit a key to this repo) and record the variable name and endpoint
-  here. Note the image models are generally paid-tier; verify the key's plan covers image
-  generation before wiring it up.
-- **An image-generation MCP connector,** if one is ever installed.
+- **The API host is reachable from these containers.** A keyless request to
+  `generativelanguage.googleapis.com/v1beta/models` returns Google's own
+  `403 PERMISSION_DENIED — "Method doesn't allow unregistered callers"`, not a proxy error,
+  and the egress proxy reports `selective: false` with no relay failures. Note that the
+  *docs* domain `ai.google.dev` IS blocked by the proxy, which is unrelated and harmless.
+- **The billing account is paid Tier 1** (`mattpocock@chelectric.com`, cap $250), so image
+  models are in scope for this key. An earlier check against a different, free account
+  (`mdpocock24@gmail.com`) was what made this look impossible.
 
-Either way: record the exact tool name or env var below. The draft Routine checks this section
-for a named tool on every run and uses it if present, so no prompt change is needed.
+The script takes a prompt file and an output path, reads the key from `GEMINI_API_KEY`, and
+**exits 3 when no key is set — which the caller must treat as "use the manual brief", not as a
+failure.** It discovers the image model from the models endpoint rather than hard-coding one,
+so a model rename or retirement degrades to the next choice. It never prints the key.
 
-Named image tool: _(none — manual via AI Studio, fallback to brief)_
+**Still to do before the Friday Routine relies on it:**
+
+1. Set `GEMINI_API_KEY` in environment settings for `env_01Ez371HQbzkEd8jfxtaAf3x` (claude.ai
+   UI). **Never commit a key to this repo, and never paste one into a chat transcript.**
+2. Run the script once by hand and confirm it writes a valid image. The no-key and
+   usage-error paths are tested; **the live API call is not** — the session that wrote it had
+   no key. Until that one run passes, treat this as untested code.
+3. Only then record the working model name below. The draft Routine checks this section every
+   run and uses a named tool if present, so nothing else needs editing.
+
+**Operational risk worth fixing first: auto-reload is OFF** with a $24.37 prepay balance.
+Gemini credits are spent before the service runs, so when the balance hits zero image
+generation starts failing — quietly, in an unattended Friday run. Turn on auto-reload, or
+accept that the pipeline silently reverts to manual briefs. Credits also expire a year after
+purchase ($25 added 2026-08-05). At two posts a month the spend is negligible; the balance
+running dry unnoticed is the real hazard, not the cost.
+
+Named image tool: _(none yet — manual via AI Studio until step 2 above passes)_
 
 ---
 

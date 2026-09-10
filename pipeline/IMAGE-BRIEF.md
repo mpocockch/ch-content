@@ -4,6 +4,11 @@
 Routine can drive. See `PLAYBOOK.md` §6. The draft run writes the brief; Matt generates the
 image and commits the file.
 
+An API path exists (`pipeline/bin/generate-hero-image.py`) but is not live yet — it needs
+`GEMINI_API_KEY` set on the environment and one successful manual test run first. The brief
+below is what the pipeline uses until then, and remains the fallback afterwards: the script
+exits 3 with no key, which means "write the brief", not "fail the run".
+
 ## What the draft run produces
 
 `drafts/<slug>/image-brief.md` containing:
