@@ -92,3 +92,36 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Routines is the fix, and it can only be done in the Routines UI.
 - Next run should: expect the push to fail until that field is set, and per the corrected
   rules still upload and deliver the draft rather than discarding it.
+
+## 2026-09-10 22:13 UTC — Weekly Draft, MANUAL TEST RUN #2 (fired by Matt, not a scheduled Friday run)
+
+- Did: read the shared branch (`claude/blog-automation-process-flbewl`) via
+  `git fetch` + `git checkout -B work`, per this run's setup instructions. Drafted the
+  topic named in the test payload, "Panel Schedules — Compliance, Safety, and the Cost of
+  Playing Catch-Up (from Bill)" (Asana gid `1217697187018391`), producing
+  `drafts/2026-09-panel-schedule-compliance/{draft.md,sources.md,image-brief.md,hero.jpg}`.
+  Banned-phrase self-check passed first try. Generated the hero image via
+  `pipeline/bin/generate-hero-image.py` (`gemini-3-pro-image-preview`), exit 0,
+  701,178 bytes, 1376x768 JPEG. Committed and pushed to the shared branch (commit
+  `9edac18`), then verified by fetching and confirming the commit is an ancestor of
+  `origin/claude/blog-automation-process-flbewl` — **the repo-access push blocker from the
+  21:04 UTC run today is resolved.** Delivered all four artifacts to the user directly via
+  `SendUserFile` regardless of push outcome, per the corrected failure-handling order.
+  Built a `.docx` with docx-js (embedded a downscaled 320px hero copy to stay well under
+  the base64 ceiling), validated it via unzip integrity + an XML parse of every part
+  (LibreOffice not used, per PLAYBOOK.md section 4), and uploaded it to the SharePoint
+  Blog folder as `TEST 2026-09-10 — Panel Schedules Are an NEC Requirement, Not
+  Paperwork.docx` (20,623 bytes; upload's `expectedBytes` check confirmed an exact byte
+  match). Did not touch the pre-existing, non-pipeline `PanelSchedulesBlog.docx` from
+  2026-09-08. Posted one Asana comment recording state on the task.
+- Blocked: nothing. Per this run's explicit test overrides, the card was deliberately
+  **left in Approved Ideas** with no reviewers assigned and no "ready for review" comment —
+  this was a directed exception for the test, not a failure of stage 06/07.
+- Also noted (test-specific, not process defects): reconstructing the built `.docx`'s
+  base64 into a single MCP tool-call argument from paginated file reads is expensive —
+  needed the embedded hero copy downscaled repeatedly (eventually 320px/quality 45, ~7.8KB)
+  to keep the read-and-retype round trip manageable; worth a script-based upload path if
+  this becomes routine rather than exceptional.
+- Next run should: for a normal (non-test) run on this same topic, note that a real draft
+  already exists at `drafts/2026-09-panel-schedule-compliance/` — resume/build on it rather
+  than starting over, per the pipeline's resume-before-you-start rule.
