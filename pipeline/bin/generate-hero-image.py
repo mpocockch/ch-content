@@ -3,8 +3,18 @@
 
 Usage:  generate-hero-image.py <prompt-file> <output.png> [--model NAME]
 
-Reads the API key from GEMINI_API_KEY. Exits 3 if the key is absent, which the
-caller must treat as "fall back to the manual AI Studio brief" — not as an error.
+Two auth modes, because a cloud environment offers two ways to hold a secret:
+
+  key mode (default)  GEMINI_API_KEY holds the key; it is sent as ?key=...
+                      Simple, but anyone using the environment can read the value.
+  proxy mode          Set GEMINI_AUTH=proxy and store the key as an API credential
+                      on the environment (host generativelanguage.googleapis.com,
+                      header x-goog-api-key). The agent proxy attaches it after the
+                      request leaves the VM, so the key never reaches this script.
+                      Preferred where the plan supports it.
+
+Exits 3 when neither is configured, which the caller must treat as "fall back to
+the manual AI Studio brief" — not as an error.
 
 Deliberately dependency-free (stdlib only): these run in fresh containers with no
 install step. The key is never printed, logged, or written to disk.
@@ -12,7 +22,7 @@ install step. The key is never printed, logged, or written to disk.
 Exit codes
   0  image written and validated
   2  usage error
-  3  no API key -> fall back to the manual brief (NOT a failure)
+  3  no auth configured -> fall back to the manual brief (NOT a failure)
   4  no image-capable model available to this key
   5  API call failed
   6  response contained no usable image data
@@ -56,10 +66,15 @@ def redact(text, key):
     return text.replace(key, "***") if key else text
 
 
+def auth_suffix(key):
+    """Query-string auth in key mode; nothing in proxy mode (header is injected)."""
+    return f"key={key}&" if key else ""
+
+
 def pick_model(key):
-    """Ask the key what it can actually use, rather than trusting a hard-coded id."""
+    """Ask the API what this caller can actually use, rather than trusting a hard-coded id."""
     try:
-        listing = call(f"{API_ROOT}/models?key={key}&pageSize=200")
+        listing = call(f"{API_ROOT}/models?{auth_suffix(key)}pageSize=200")
     except urllib.error.HTTPError as e:
         print(f"could not list models: HTTP {e.code} {redact(e.read().decode()[:300], key)}",
               file=sys.stderr)
@@ -117,10 +132,16 @@ def main():
     prompt_file, out_path = args
 
     key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not key:
-        print("GEMINI_API_KEY not set - fall back to the manual AI Studio brief "
-              "(see pipeline/IMAGE-BRIEF.md). This is not a failure.", file=sys.stderr)
+    proxy_mode = os.environ.get("GEMINI_AUTH", "").strip().lower() == "proxy"
+    if not key and not proxy_mode:
+        print("No Gemini auth configured (set GEMINI_API_KEY, or GEMINI_AUTH=proxy with "
+              "an API credential on the environment) - fall back to the manual AI Studio "
+              "brief, see pipeline/IMAGE-BRIEF.md. This is not a failure.", file=sys.stderr)
         return 3
+    if proxy_mode and key:
+        print("both GEMINI_AUTH=proxy and GEMINI_API_KEY are set; using proxy mode and "
+              "ignoring the key", file=sys.stderr)
+        key = ""
 
     with open(prompt_file) as f:
         prompt = f.read().strip()
@@ -134,7 +155,7 @@ def main():
 
     try:
         resp = call(
-            f"{API_ROOT}/models/{model}:generateContent?key={key}",
+            f"{API_ROOT}/models/{model}:generateContent?{auth_suffix(key)}".rstrip("?&"),
             {"contents": [{"parts": [{"text": prompt}]}]},
         )
     except urllib.error.HTTPError as e:

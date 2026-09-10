@@ -202,15 +202,42 @@ image lands during the review loop. That is the expected path, not a failure.
   models are in scope for this key. An earlier check against a different, free account
   (`mdpocock24@gmail.com`) was what made this look impossible.
 
-The script takes a prompt file and an output path, reads the key from `GEMINI_API_KEY`, and
-**exits 3 when no key is set — which the caller must treat as "use the manual brief", not as a
-failure.** It discovers the image model from the models endpoint rather than hard-coding one,
-so a model rename or retirement degrades to the next choice. It never prints the key.
+The script takes a prompt file and an output path, supports both auth modes above, and
+**exits 3 when neither is configured — which the caller must treat as "use the manual brief",
+not as a failure.** It discovers the image model from the models endpoint rather than
+hard-coding one, so a model rename or retirement degrades to the next choice. It never prints
+the key: a canary value passed as `GEMINI_API_KEY` appears nowhere in its output.
+
+Verified 2026-09-10: exit 3 with no auth, exit 4 in proxy mode with no credential yet (the
+call reaches Google and returns its own `PERMISSION_DENIED`), and a clean `400 API key not
+valid` for a bogus key. The success path is still untested — see below.
+
+**Where the key goes — NOT in GitHub, and not in this repo.** It goes on the *cloud
+environment* the Routine sessions run inside (`env_01Ez371HQbzkEd8jfxtaAf3x`). At
+claude.ai/code, click the cloud icon showing the environment name in the row above the message
+box — there is no settings page or direct URL for it — then hover the environment and click the
+gear that appears. The dialog holds name, network access, environment variables and setup
+script. Two ways to store the key there:
+
+- **API credential (preferred; Pro/Max plans only).** In the same dialog, below **Environment
+  variables**, choose **Add credential** — type Bearer, allowed website
+  `generativelanguage.googleapis.com`, custom header `x-goog-api-key`. The agent proxy attaches
+  it after the request leaves the VM, so **the key never reaches Claude, the session's
+  environment, or any command it runs.** Then set `GEMINI_AUTH=proxy` as an environment
+  variable so the script omits `?key=` and lets the proxy authenticate. Requires an org admin
+  role; the section does not appear on Team or Enterprise plans.
+- **Environment variable (simpler, less private).** Add `GEMINI_API_KEY=<key>` in the
+  **Environment variables** box, `.env` format, one `KEY=value` per line. Note the tradeoff the
+  docs state plainly: *"Anyone who uses the environment can read the values."*
+
+Either way: **never commit a key to this repo, and never paste one into a chat transcript.**
+Variables are copied once at session startup, so a change takes effect on the *next* run — a
+session already running keeps what it started with. There are two environments both named
+"Default"; the Routines use `env_01Ez371HQbzkEd8jfxtaAf3x`, so edit that one.
 
 **Still to do before the Friday Routine relies on it:**
 
-1. Set `GEMINI_API_KEY` in environment settings for `env_01Ez371HQbzkEd8jfxtaAf3x` (claude.ai
-   UI). **Never commit a key to this repo, and never paste one into a chat transcript.**
+1. Store the key by one of the two routes above.
 2. Run the script once by hand and confirm it writes a valid image. The no-key and
    usage-error paths are tested; **the live API call is not** — the session that wrote it had
    no key. Until that one run passes, treat this as untested code.
