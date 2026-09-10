@@ -281,26 +281,22 @@ run posts a note and stops. Promotion is the throttle that sets real publishing 
 
 ## 10. Activation checklist
 
-The rebuild is in place but **the pipeline is switched off** pending three things only a human
+The rebuild is in place but **the pipeline is switched off** pending two things only a human
 can do. Recorded 2026-09-10.
 
-**1. Grant the Claude GitHub App write access to `mpocockch/ch-content`.**
-Without this the repo is unreachable and every Routine stops at its precondition, because the
-playbook it needs to read is this file. Both write paths currently fail:
-
-- `git push` → `403` — "Claude doesn't have GitHub access to mpocockch/ch-content for your
-  organization"
-- GitHub API contents endpoint → `403 Resource not accessible by integration`
-
-Fix at https://github.com/apps/claude/installations/select_target (an org admin installs or
-re-scopes the app to include this repo), or reconnect GitHub from claude.ai settings to
-re-link an existing installation. Until then this repo exists only on the branch
-`claude/blog-automation-process-flbewl` inside the session that built it.
+**1. ~~Grant the Claude GitHub App write access to `mpocockch/ch-content`.~~ DONE 2026-09-10.**
+The app was installed but scoped to a repository list that predated this repo. Both write
+paths had been failing with `403` (`git push`, and `403 Resource not accessible by
+integration` on the API contents endpoint). Adding `ch-content` to the app's selected
+repositories fixed it; the branch `claude/blog-automation-process-flbewl` is now pushed and
+verified against the remote.
 
 **2. Attach connectors to each of the four Routines** in the claude.ai Routines UI — per the
-table in §8. This cannot be done from the API in this org.
+table in §8. This cannot be done from the API in this org: `create_trigger` rejects the
+parameter, so all four currently store `mcp_connections: []` and their sessions would have no
+Asana, Teams, SharePoint or WordPress tools at all.
 
-**3. Enable the four Routines** once 1 and 2 are done.
+**3. Enable the four Routines** once 2 is done. They are disabled today; see §8.
 
 ### Optional, and worth doing
 

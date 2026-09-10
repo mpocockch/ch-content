@@ -23,6 +23,7 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: no image-generation connector exists in the org, so stage 05 is a human step
   (`PLAYBOOK.md` §6). Asana section moves still need a human drag until the custom-field
   workaround in §7 is configured by a project admin.
-- Next run should: nothing — all four Routines are DISABLED pending the activation checklist
-  in PLAYBOOK.md section 10. GitHub write access for the Claude app is the hard blocker; the
-  repo could not be pushed from the session that built it.
+- Next run should: nothing yet — all four Routines are DISABLED pending the activation
+  checklist in PLAYBOOK.md section 10. GitHub write access was granted the same day and this
+  repo is pushed, so the remaining gate is attaching connectors to the four Routines in the
+  claude.ai Routines UI, then enabling them.
