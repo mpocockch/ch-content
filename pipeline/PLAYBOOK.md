@@ -146,9 +146,21 @@ late one.
 Name: which stage failed, which tool was unavailable, what work *is* finished, and what the
 next run should pick up — precisely enough that the next run resumes instead of redoing it.
 
-**Commit before you upload.** The container is ephemeral. Committing the draft and image to
-`drafts/` is what makes the work survive; `SendUserFile` is a convenience for the human, not
-the backup.
+**Commit AND PUSH — a local commit is worthless here.** The container is ephemeral and is
+reclaimed when the run ends, so a commit that is never pushed dies with it. Every run that
+writes anything to this repo must finish with:
+
+```
+git add -A && git commit -m "..." && git push origin HEAD
+```
+
+then verify the push landed (`git fetch` and compare `HEAD` to the remote ref). If the push
+fails, say so loudly in the run summary — an unpushed ledger entry means the next run cannot
+see what this one did, which defeats the entire design.
+
+This bit us on 2026-09-10: the first verification run of `Blog: Idea Capture` completed
+normally in 3m47s but left no commit on the branch, because the Routine prompts said "commit"
+and never said "push". `SendUserFile` is a convenience for the human, never the backup.
 
 **Report the block plainly.** End every run by naming what could not be done and the specific
 human action that would unblock it.

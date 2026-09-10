@@ -15,8 +15,9 @@ For drafting work, also read `pipeline/DRAFTING.md` and `pipeline/VOICE.md` — 
 - **Never bind a pipeline Routine to a persistent session.** `PLAYBOOK.md` §1 explains what
   happened last time.
 - **Asana is the state machine.** Read a card's stage from its section; never assume it.
-- **Commit before you upload.** Git is the durable store; SharePoint and Word are the review
-  surface.
+- **Commit AND push before you upload.** Git is the durable store; SharePoint and Word are
+  the review surface. The container is reclaimed at the end of a run, so an unpushed commit is
+  lost work — always `git push origin HEAD` and verify it landed.
 - **Never report a write that did not return success** — not a saved file, not a published
   post, not a moved card.
 - **Append to `pipeline/STATE.md` every run,** including quiet ones.
