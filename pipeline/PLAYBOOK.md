@@ -146,6 +146,30 @@ late one.
 Name: which stage failed, which tool was unavailable, what work *is* finished, and what the
 next run should pick up — precisely enough that the next run resumes instead of redoing it.
 
+**Fired Routine sessions need the Claude Code Remote connector to push.** Root cause of two
+failed runs on 2026-09-10: a session fired by a Routine can *read* this repo but is not
+authorized to *push* to it, and the `add_repo` tool that would fix that lives in the Claude
+Code Remote connector, which was not attached to the Blog Routines. The Weekly Industry Event
+Tracker Routine — the one that has always worked — does have it attached. **Fix: attach the
+Claude Code Remote connector to all four Blog Routines in the claude.ai Routines UI**, which
+cannot be done from the API in this organization. Until that is done, expect every run to
+reach the push step and stop there.
+
+**If git is unavailable, DELIVER THE WORK ANYWAY — never discard a finished draft.** The
+2026-09-10 test run wrote a full draft and generated a hero image, then threw both away
+because it could not push, citing the commit-before-upload rule. That was the wrong call and
+the rule was wrong to invite it. Corrected order of preference:
+
+1. Commit and push, then upload. This is the normal path.
+2. If the push fails: **still upload to SharePoint**, prefixing the filename
+   `UNVERSIONED — `, and **still deliver the file with `SendUserFile`** so it survives the
+   container. The work existing in one place beats existing in none.
+3. Either way, if the push failed, do **not** move the card and do **not** assign reviewers.
+   Record state on the Asana task naming the blocker.
+
+The prohibition is on **half-completed handoffs** — telling a reviewer something is ready when
+it is not — never on saving finished work. Discarding a draft to honor a storage rule is a bug.
+
 **Commit AND PUSH — a local commit is worthless here.** The container is ephemeral and is
 reclaimed when the run ends, so a commit that is never pushed dies with it. Every run that
 writes anything to this repo must finish with:

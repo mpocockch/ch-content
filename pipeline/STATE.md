@@ -67,3 +67,24 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   candidates are three days old and reviewed in the same pass as team pitches.
 - Blocked: nothing. No Routine schedule changed — triage was never automated.
 - Next run should: proceed normally.
+
+## 2026-09-10 21:04 UTC — Weekly Draft, manual test run — FAILED, two defects found
+
+- Did: drafted "Panel Schedules Are a Compliance Requirement, Not Paperwork" and generated a
+  hero image in 11.5 minutes, then recorded an accurate, self-diagnosed blocker on the Asana
+  task. The state-recording behaviour worked exactly as designed.
+- Blocked: **could not push to this repo.** A Routine-fired session can read it but is not
+  authorized to push, and `add_repo` — which would fix that — is in the Claude Code Remote
+  connector, which is not attached to the Blog Routines. Same root cause as the Idea Capture
+  run earlier today, which the commit-and-push wording change did not address because the
+  problem is authorization, not instructions.
+- **Second defect, worse: the draft and image were discarded.** Having failed to push, the run
+  uploaded nothing and delivered nothing, citing commit-before-upload. A finished draft was
+  destroyed to honor a storage rule. PLAYBOOK.md section 5 now requires delivering the work by
+  any available route when git is unavailable, and confines the prohibition to half-completed
+  handoffs. Routine prompts updated to match.
+- Also surfaced: the 2026-09-08 `PanelSchedulesBlog.docx` in SharePoint was not produced by
+  this pipeline and has no git history. Matt moved that card back to Approved Ideas at 21:02,
+  two minutes before this run fired, which is why the topic was available to draft.
+- Next run should: expect the push to fail until the connector is attached, and per the
+  corrected rules still upload and deliver the draft rather than discarding it.
