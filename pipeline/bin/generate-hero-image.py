@@ -30,6 +30,7 @@ Exit codes
 
 import json
 import os
+import pathlib
 import sys
 import urllib.error
 import urllib.request
@@ -45,8 +46,15 @@ PREFERRED = [
     "gemini-2.0-flash-preview-image-generation",
 ]
 
-# PNG, JPEG, WEBP(RIFF) magic bytes.
-MAGIC = (b"\x89PNG\r\n\x1a\n", b"\xff\xd8\xff", b"RIFF")
+# Magic bytes -> real extension. Gemini returns JPEG even when asked for a .png
+# filename, and anything downstream that trusts the extension (an upload
+# content-type, a CMS that sniffs, WordPress media handling) would then be looking
+# at a mislabeled file. So the extension is corrected from the bytes.
+MAGIC = {
+    b"\x89PNG\r\n\x1a\n": ".png",
+    b"\xff\xd8\xff": ".jpg",
+    b"RIFF": ".webp",
+}
 
 
 def call(url, payload=None, timeout=180):
@@ -113,7 +121,7 @@ def extract_image(resp):
                     raw = base64.b64decode(blob["data"], validate=True)
                 except Exception:
                     raw = None
-                if raw and raw.startswith(MAGIC):
+                if raw and raw.startswith(tuple(MAGIC)):
                     return raw
             stack.extend(node.values())
         elif isinstance(node, list):
@@ -184,9 +192,15 @@ def main():
               f"{' | '.join(texts)[:400] or '(nothing)'}", file=sys.stderr)
         return 6
 
-    with open(out_path, "wb") as f:
-        f.write(raw)
-    print(f"wrote {out_path} ({len(raw)} bytes) using {model}")
+    real_ext = next(ext for magic, ext in MAGIC.items() if raw.startswith(magic))
+    out = pathlib.Path(out_path)
+    if out.suffix.lower() not in (real_ext, ".jpeg" if real_ext == ".jpg" else real_ext):
+        out = out.with_suffix(real_ext)
+        print(f"note: response was {real_ext[1:].upper()}, not {out_path.rsplit('.', 1)[-1]}"
+              f" - writing {out} so the extension matches the bytes", file=sys.stderr)
+
+    out.write_bytes(raw)
+    print(f"wrote {out} ({len(raw)} bytes) using {model}")
     return 0
 
 

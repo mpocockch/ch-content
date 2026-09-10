@@ -189,7 +189,7 @@ So stage 05 is **agent brief → human generates → agent packages**:
 Because the image arrives after the draft, the Friday run normally hands off text-only and the
 image lands during the review loop. That is the expected path, not a failure.
 
-### Automating it via the Gemini API — built, NOT yet verified
+### Automating it via the Gemini API — VERIFIED WORKING 2026-09-10
 
 `pipeline/bin/generate-hero-image.py` calls the Gemini API directly. Verified 2026-09-10:
 
@@ -235,9 +235,28 @@ Variables are copied once at session startup, so a change takes effect on the *n
 session already running keeps what it started with. There are two environments both named
 "Default"; the Routines use `env_01Ez371HQbzkEd8jfxtaAf3x`, so edit that one.
 
-**Still to do before the Friday Routine relies on it:**
+**Verified end to end on 2026-09-10.** `GEMINI_API_KEY` is set on both Default environments.
+A real run in a fresh session produced a photorealistic 1376x768 hero image (760,159 bytes)
+via `gemini-3-pro-image-preview`, exit 0, empty stderr. Evidence is committed at
+`drafts/_imagegen-test/` (the image plus a full report). Two defects that run exposed are now
+fixed or documented:
 
-1. Store the key by one of the two routes above.
+- The API returns **JPEG bytes even when asked for a `.png` path.** The script now corrects
+  the extension from the magic bytes, so a JPEG lands as `hero.jpg`. **Downstream, look for
+  `hero.*`, never specifically `hero.png`** — anything trusting the extension would otherwise
+  read a mislabeled file, and WordPress media handling is exactly that kind of consumer.
+- Aspect came out **1376x768 (1.792), not a strict 16:9** (1.7778). Close, but crop-sensitive
+  layouts must not assume exactness.
+
+**A human must still eyeball the PPE before a generated image ships.** In the verification
+image the gear read as credible arc-flash equipment at a glance — hard hat, gold-tinted face
+shield, head sock, arc-rated coat — but it was *not* what you would specify for energized
+480 V switchboard work: a coat-and-shield combination rather than a full suit and hood, and
+plain leather gloves with no rubber insulating gloves underneath. C&H's readers do this for a
+living and can spot it. Incorrect PPE in the hero image of an electrical safety post is a
+credibility problem, not a styling one. The model also does not fully honor "no text in
+frame": expect small illegible label-like marks, which are acceptable only because they are
+unreadable rather than visibly garbled.
 2. Run the script once by hand and confirm it writes a valid image. The no-key and
    usage-error paths are tested; **the live API call is not** — the session that wrote it had
    no key. Until that one run passes, treat this as untested code.
@@ -251,7 +270,9 @@ accept that the pipeline silently reverts to manual briefs. Credits also expire 
 purchase ($25 added 2026-08-05). At two posts a month the spend is negligible; the balance
 running dry unnoticed is the real hazard, not the cost.
 
-Named image tool: _(none yet — manual via AI Studio until step 2 above passes)_
+Named image tool: **`pipeline/bin/generate-hero-image.py`** (model
+`gemini-3-pro-image-preview`, key mode). Verified 2026-09-10. Falls back to the manual AI
+Studio brief automatically if the key is ever removed or the balance runs dry.
 
 ---
 

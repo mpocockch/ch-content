@@ -45,3 +45,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   likely cause is re-reading the full Teams history and every long Asana task note each run;
   a stored watermark would fix it.
 - Next run should: proceed normally, and push its ledger entry.
+
+## 2026-09-10 20:23 UTC — Gemini image generation verified
+
+- Did: ran the image script end to end in a fresh session with the key now on both Default
+  environments. Exit 0, a real 1376x768 photorealistic hero image via
+  `gemini-3-pro-image-preview`. Evidence committed at `drafts/_imagegen-test/`. Stage 05 is
+  now automated; PLAYBOOK.md section 6 names the tool.
+- Blocked: nothing.
+- Fixed as a result: the API returns JPEG even for a `.png` path, so the script now names the
+  file after the real bytes and everything downstream matches `hero.*`.
+- Standing caveat: a human must check the PPE in any generated image before it ships, and
+  aspect is 1.792 rather than exactly 16:9.
+- Next run should: proceed normally. Friday's draft will generate its own image.

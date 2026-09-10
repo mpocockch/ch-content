@@ -4,10 +4,17 @@
 Routine can drive. See `PLAYBOOK.md` §6. The draft run writes the brief; Matt generates the
 image and commits the file.
 
-An API path exists (`pipeline/bin/generate-hero-image.py`) but is not live yet — it needs
-`GEMINI_API_KEY` set on the environment and one successful manual test run first. The brief
-below is what the pipeline uses until then, and remains the fallback afterwards: the script
-exits 3 with no key, which means "write the brief", not "fail the run".
+**As of 2026-09-10 this is automated** — `pipeline/bin/generate-hero-image.py` generates the
+image during the draft run (see `PLAYBOOK.md` §6). The brief below is still written every
+time: it is the prompt the script uses, and the fallback if the key is removed or the Gemini
+balance runs dry, in which case the script exits 3 meaning "write the brief", not "fail".
+
+Two things the automated path does not remove:
+
+- **Check the PPE.** Generated arc-flash gear often looks right at a glance and wrong to a
+  practitioner. Verify before it ships.
+- **The file may be `hero.jpg`, not `hero.png`.** The API returns JPEG; the script names the
+  file after the real bytes. Match on `hero.*`.
 
 ## What the draft run produces
 
@@ -39,7 +46,7 @@ safety post is a credibility problem, not a style one.
 Matt's side of the handoff, so the brief should be short enough to action in a couple of
 minutes:
 
-- File: `drafts/<slug>/hero.png`, 16:9, ≥1600px wide.
+- File: `drafts/<slug>/hero.*` — `hero.jpg` from the API, `hero.png` if hand-made. 16:9.
 - Keep the full-resolution original in the repo — it becomes the WordPress featured image.
 - Embed a downscaled copy in the Word doc (see `PLAYBOOK.md` §4 on the base64 ceiling).
 - If no `hero.png` is present at packaging time, proceed with a placeholder and say so. A
