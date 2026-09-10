@@ -58,3 +58,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Standing caveat: a human must check the PPE in any generated image before it ships, and
   aspect is 1.792 rather than exactly 16:9.
 - Next run should: proceed normally. Friday's draft will generate its own image.
+
+## 2026-09-10 — Triage moved to Thursday
+
+- Did: moved the weekly human triage from Monday to Thursday morning, to run inside Matt and
+  Bill's standing 1:1. A topic approved there is drafted the next morning by the Friday run
+  instead of waiting most of a week. The Monday research pass stays where it is, so researched
+  candidates are three days old and reviewed in the same pass as team pitches.
+- Blocked: nothing. No Routine schedule changed — triage was never automated.
+- Next run should: proceed normally.

@@ -52,8 +52,8 @@ These exist because the previous build broke. Do not undo them without reading w
 
 Stage 09 may loop back to 08 more than once before reaching 10.
 
-Human gates: **03, 08, 10** — plus the image pick at 05 until image generation is
-re-automated (§6).
+Human gates: **03** (Thursday 1:1 triage), **08** (review, including the PPE check in §6) and
+**10** (final approval). Stage 05 is automated as of 2026-09-10.
 
 ---
 
@@ -306,6 +306,9 @@ daylight-saving changeover; re-check each November and March.
 | Blog: Review Loop | `trig_017V1PhyYC3FgRK113ysB1Jz` | `30 12 * * *` | 08:30 daily | 09 (+ stall alert) | Asana, Microsoft 365 |
 | Blog: Publish | `trig_01PwUZUGC9u71a36xbMcoGhj` | `30 13 * * *` | 09:30 daily | 11–12 | Asana, novamira, Microsoft 365 |
 
+The one human step on the weekly clock is not a Routine: **Thursday-morning triage in Matt and
+Bill's 1:1** (§9). It feeds the Friday draft run.
+
 **All four are currently DISABLED.** See §10 for what has to happen before they are switched on.
 They were deliberately left off rather than allowed to fire half-equipped, because a Routine
 that runs without its connectors produces exactly the silent partial failures this rebuild
@@ -323,8 +326,9 @@ healthy Routine shows a populated `mcp_connections`, not `[]`.
 ### Research pass (Mondays, inside Idea Capture)
 
 A light pass — a handful of candidates, not a flood — for timely topics, added to
-`Unapproved Ideas` with `Source: Agent Research`. Monday placement is deliberate: it gives
-reviewers the week to triage before Friday drafting.
+`Unapproved Ideas` with `Source: Agent Research`. Monday placement is deliberate: candidates
+are in the queue three days before the Thursday 1:1 triage (§9), so they are reviewed in the
+same pass as anything the team posted to Teams, and drafted that Friday.
 
 Check existing Unapproved/Approved Ideas first to avoid near-duplicates. **If
 `Unapproved Ideas` already holds roughly ten or more untriaged topics and few have been
@@ -350,8 +354,14 @@ This makes the human bottleneck visible instead of silent.
 
 ## 9. Weekly human triage
 
-Not automated, and deliberately so: **Monday, 15 minutes** — Matt and Bill promote ideas
-`Unapproved Ideas` → `Approved Ideas` in one batch pass.
+Not automated, and deliberately so: **Thursday morning, 15 minutes, in Matt and Bill's
+standing 1:1** — they promote ideas `Unapproved Ideas` → `Approved Ideas` in one batch pass.
+
+Thursday is chosen to sit right before Friday's draft run: a topic approved in the 1:1 is
+drafted the next morning, rather than waiting out the week. The cost of that tightness is that
+a cancelled or rescheduled 1:1 leaves Friday with only whatever was already approved — which
+is survivable while the backlog holds several approved topics, and worth watching if it
+doesn't.
 
 Friday's draft run takes the *oldest* topic in `Approved Ideas`. If that section is empty the
 run posts a note and stops. Promotion is the throttle that sets real publishing volume; the
