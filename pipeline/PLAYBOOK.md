@@ -146,14 +146,23 @@ late one.
 Name: which stage failed, which tool was unavailable, what work *is* finished, and what the
 next run should pick up — precisely enough that the next run resumes instead of redoing it.
 
-**Fired Routine sessions need the Claude Code Remote connector to push.** Root cause of two
-failed runs on 2026-09-10: a session fired by a Routine can *read* this repo but is not
-authorized to *push* to it, and the `add_repo` tool that would fix that lives in the Claude
-Code Remote connector, which was not attached to the Blog Routines. The Weekly Industry Event
-Tracker Routine — the one that has always worked — does have it attached. **Fix: attach the
-Claude Code Remote connector to all four Blog Routines in the claude.ai Routines UI**, which
-cannot be done from the API in this organization. Until that is done, expect every run to
-reach the push step and stop there.
+**Each Routine must have this repository selected in its own settings.** Root cause of two
+failed runs on 2026-09-10: a session fired by a Routine could *read* this repo but was not
+authorized to *push* to it, so no ledger entry and no draft ever landed.
+
+**The fix is the "Select a repository" field** in the Edit-routine dialog at
+claude.ai/code/routines, directly beneath the Instructions box. Set it to
+`mpocockch/ch-content` on all four Blog Routines. That gives each fired session a proper
+checkout with push access, and it is the field the API cannot set — `create_trigger` exposes
+no repository parameter, which is why every Routine created from this session started with it
+empty.
+
+Do not go looking for a "Claude Code Remote" connector to add instead; it is not offered in
+the connector picker. The connector list for these Routines is Asana, Microsoft 365 and, for
+Publish, novamira-chelectric-com. Repository access is a separate setting from connectors.
+
+Verify after setting it: a run's ledger entry appearing as a new commit on the branch is the
+proof. Until it is set, expect every run to reach the push step and stop there.
 
 **If git is unavailable, DELIVER THE WORK ANYWAY — never discard a finished draft.** The
 2026-09-10 test run wrote a full draft and generated a hero image, then threw both away

@@ -86,5 +86,9 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Also surfaced: the 2026-09-08 `PanelSchedulesBlog.docx` in SharePoint was not produced by
   this pipeline and has no git history. Matt moved that card back to Approved Ideas at 21:02,
   two minutes before this run fired, which is why the topic was available to draft.
-- Next run should: expect the push to fail until the connector is attached, and per the
-  corrected rules still upload and deliver the draft rather than discarding it.
+- Correction, same day: the push blocker is NOT a missing connector. It is the "Select a
+  repository" field in each Routine's own settings, which was empty because create_trigger
+  exposes no repository parameter. Setting it to mpocockch/ch-content on each of the four
+  Routines is the fix, and it can only be done in the Routines UI.
+- Next run should: expect the push to fail until that field is set, and per the corrected
+  rules still upload and deliver the draft rather than discarding it.
