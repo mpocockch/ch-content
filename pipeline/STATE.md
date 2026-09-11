@@ -229,3 +229,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Word session), so the copy in the Blog folder is still the broken one until it is replaced
   by hand or on retry.
 - PLAYBOOK.md section 4 now specifies the five checks that actually catch this.
+
+## 2026-09-11 — Rebuilt Equipment Room .docx uploaded to SharePoint
+
+- The `replace` upload stayed blocked by the 412 lock, so the rebuilt file was uploaded beside
+  the broken one under a new name: **How Do You Ensure Reliability in an Electrical Equipment
+  Room (rebuilt).docx** — 15,491 bytes, itemId `01W45A5EVVM2LPDJBCT5GZUE4VH4ZDRZQV`, in the
+  same Blog folder. The upload returned success and the byte count matched.
+- Waiting on a human to confirm it opens. If it does, that confirms the diagnosis in the entry
+  above and the broken original should be deleted.
+- Still to do: update the Weekly Draft / Review Loop routine prompts to build .docx with the
+  `docx` npm library and run the five checks now in PLAYBOOK.md section 4. The playbook
+  records the requirement; the routine prompts do not yet carry it.
