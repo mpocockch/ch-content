@@ -241,3 +241,77 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still to do: update the Weekly Draft / Review Loop routine prompts to build .docx with the
   `docx` npm library and run the five checks now in PLAYBOOK.md section 4. The playbook
   records the requirement; the routine prompts do not yet carry it.
+
+## 2026-09-11 — Review Loop (manual fire) — Panel Schedules rebuild, SharePoint upload BLOCKED
+
+- This run was a manual trigger fire naming Panel Schedules (gid `1217697187018391`,
+  currently in Waiting Approval) directly, with the reviewer feedback (an editorial pass from
+  Matt) included in the fire payload rather than needing to be found in Asana comments.
+- Did: rewrote `drafts/2026-09-panel-schedule-compliance/draft.md` and `sources.md` from
+  scratch against the current DRAFTING.md/VOICE.md (rewritten 2026-09-11), matching the
+  breaker-testing exemplar and the equipment-room-reliability sibling draft. New word count
+  ~2,470 (old draft was 1,227). Added the metadata block, a stakes hook + roadmap (no Key
+  Takeaways box), bolded answer sentences, a Misconceptions section, a Recent trends section,
+  and a dedicated Safety section (beyond the eleven canonical types) per Bill's original title
+  "Compliance, Safety, and the Cost of Playing Catch-Up" — safety was previously reduced to one
+  sentence. Fixed the garbled actions-list sentence, moved drafting-process commentary
+  ("we're not aware of a published industry figure...") out of the article and into
+  `sources.md`, and replaced the truncated/under-supported NEC 408.4(A) quote with the full
+  untruncated code text (now includes the directory-location sentence the old draft asserted
+  without quoting), cross-checked against several independent secondary sources. `hero.jpg`
+  and `image-brief.md` left byte-identical/untouched, per instruction.
+  Self-check passed (word count, metadata, bolded answers, Misconceptions/Recent trends
+  present, 4 internal links spread through the body, no em-dash pileups, no banned phrases).
+  Committed and pushed to `claude/blog-automation-process-flbewl` (commit `d0fec82`), verified
+  as an ancestor of the remote branch via `git fetch` + `git merge-base --is-ancestor`.
+- Blocked: **the SharePoint replace-in-place upload is not done, and the live file may
+  currently be corrupted.** Sequence:
+  1. First `sharepoint_update_file` call hit a transient 423 "resource locked"; retried ~8s
+     later.
+  2. The retry returned success, but reported writing **25,250 bytes** against a local file
+     that was **18,204 bytes** and an `expectedBytes` of 18,204 passed explicitly — a mismatch
+     the tool's own documented behavior says should have been refused, but wasn't. Per
+     PLAYBOOK.md §5 ("confirm a write that returns a byte count matches the local file
+     exactly"), this should not have been treated as a completed write, and wasn't caught in
+     time.
+  3. A subsequent `read_resource` on that same file now fails with `notSupported` ("Graph
+     refused to convert this file for text extraction"), where the same file converted fine
+     before this run touched it — strong circumstantial evidence the live `.docx` in the Blog
+     folder is now corrupted.
+  4. A retry with a smaller (image-free) rebuild of the doc was rejected outright by the
+     upload tool's own base64 validation: it reported receiving **28,513 characters against a
+     20,596-character payload actually sent** (`sha256`/`wc -c` confirmed locally before
+     sending). So the corruption is happening in transit for very large single-string tool-call
+     arguments in this session, not in the docx-building step — matching (and worse than) the
+     transcription-risk this playbook and past runs' notes already flagged for large base64
+     payloads (§4, and the 2026-09-10/09-11 entries above).
+  5. A further retry hit an unrelated SharePoint 412 conflict (sensitivity-label precondition).
+  At that point, per explicit instruction, stopped retrying rather than keep hammering a
+  demonstrably unreliable path, and left SharePoint as-is rather than risk compounding the
+  corruption.
+- **Per PLAYBOOK.md §5's half-completed-handoff rule: did NOT post a "ready for review" Asana
+  comment and did NOT send the revision email.** The card stays in Waiting Approval (its
+  current, correct section) with Matt/Bill still assigned/following; no section move or
+  reviewer change was made. A state-only comment was posted on the Asana task instead, naming
+  the blocker.
+- Next run should:
+  1. Check whether `Panel Schedules Are an NEC Requirement, Not Paperwork.docx` in the
+     SharePoint Blog folder opens correctly by hand (Matt/Bill can check directly, or a future
+     run can try `read_resource` on it again). If it's corrupted, prior versions should still
+     be in SharePoint's version history for that file — restore from there rather than
+     re-uploading over a further-corrupted copy.
+  2. Retry the replace-in-place upload from the current, correct `drafts/2026-09-panel-schedule-compliance/draft.md`
+     (git has the good copy regardless of SharePoint's state), but do not repeat the
+     large-single-string-argument approach uncritically — this run's evidence suggests base64
+     payloads in roughly the 20K+ character range are being corrupted in transit through this
+     tool call in at least some sessions. Worth trying a materially smaller embedded-image size,
+     verifying the tool's own reported byte count matches `expectedBytes` (and treating any
+     mismatch as a failed write regardless of what the tool call returns), and/or reading the
+     file back afterward before treating the write as verified.
+  3. Only after a verified, non-corrupted upload succeeds: post the "ready for another look"
+     Asana comment and send the revision email per §7b — neither happened this run.
+  4. A concurrent session's entry above (Equipment Room .docx) found the same class of
+     problem from a different angle: a docx that passed unzip+XML-parse validation but was
+     still not valid OOXML, which Graph then refused to convert. PLAYBOOK.md §4 was updated
+     with five checks meant to catch that. Worth checking whether that gap (rather than, or in
+     addition to, base64-transit corruption) explains this run's broken file too.
