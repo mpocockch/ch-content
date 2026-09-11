@@ -164,3 +164,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: nothing pending on this card. If Approved Ideas is non-empty next Friday,
   take the new oldest topic ("How to Ensure Electrical Equipment Room Reliability", gid
   `1217698634586206`, is next in line once this one moves out of the section).
+
+## 2026-09-11 — Why no Teams alert fired
+
+- Observed: the Friday run assigned Matt, added Bill as a follower and posted a ready-for-review
+  comment at 13:49 UTC. No Teams alert. The alert only appeared when Matt dragged the card to
+  Waiting Approval at 14:39.
+- Cause: the alert is keyed to the section change, which the Asana connector cannot perform,
+  and every agent action in Asana is attributed to Matt because the connector authenticates as
+  him — so Asana suppresses the notification as a self-action. The playbook's claim that the
+  comment triggers the alert was wrong and is now corrected in §4.
+- Fix: §7 (Stage custom field + Asana Rule) now solves both the move and the alert. Fallback is
+  an Outlook email direct to the reviewers.

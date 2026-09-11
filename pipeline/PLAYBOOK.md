@@ -99,6 +99,23 @@ Published through the `novamira-chelectric-com` connector.
 at task creation; there is no move operation. Stages 07, 12 and the publish handoff therefore
 cannot complete their card move by API today.
 
+**This also breaks the Teams alert — the comment does NOT trigger it.** Earlier versions of
+this playbook claimed a ready-for-review comment surfaces as a Teams notification. Observed
+2026-09-11: the Friday run assigned Matt, added Bill as a follower and posted the comment at
+13:49 UTC, and no Teams alert appeared. The alert only fired when a human dragged the card into
+Waiting Approval at 14:39. Two things are working against it:
+
+1. **The Asana→Teams integration is keyed to the section change,** which is precisely the one
+   action the connector cannot perform.
+2. **Everything the agent does in Asana is attributed to Matt Pocock,** because the connector
+   authenticates as him. Every agent comment in the task history shows `created_by: Matt
+   Pocock`. Asana does not notify you about your own comment or your own assignment, so the
+   handoff is invisible to the very person it is addressed to.
+
+Until §7 is configured, a completed draft sits silently until someone happens to look. Treat
+the "please drag this card" line in the run's comment as the actual handoff mechanism, and know
+that nobody is told it is there.
+
 Until the custom-field workaround in §7 is in place: do the real work, comment on the card
 saying exactly which section it needs to be dragged to, and say so plainly in the run
 summary. Never pretend the move happened.
@@ -322,7 +339,15 @@ Sections stay exactly as they are for human visibility. This removes three "plea
 card" chores from the pipeline. **Requires a human with Asana project-admin rights** — record
 here when done, and update §4.
 
-Status: **not yet configured.**
+Status: **not yet configured — now the highest-value fix in this playbook.** It solves two
+problems at once: the card move, and the Teams alert that depends on it (§4). A Rule-driven
+move is performed by Asana itself rather than by the agent-as-Matt, so the existing Teams
+integration fires normally.
+
+If the Rule route is unavailable, the fallback is to notify out of band rather than through
+Asana: `mcp__Microsoft_365__outlook_send_mail` is available to these Routines and can email
+Matt and Bill directly with the SharePoint link. Less tidy, but it does not depend on Asana's
+notification wiring or on who the connector authenticates as.
 
 ---
 
