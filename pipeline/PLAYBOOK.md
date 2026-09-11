@@ -368,6 +368,43 @@ notification wiring or on who the connector authenticates as.
 
 ---
 
+## 7b. Reviewer notification by email — the working handoff
+
+Because the Teams alert cannot fire (§4), **email is the handoff mechanism** until §7 is
+configured. Verified 2026-09-11: the Microsoft 365 connector holds `Mail.Send`, so
+`mcp__Microsoft_365__outlook_send_mail` works from a Routine session.
+
+**Recipients** (confirmed from their own mail signatures, not guessed):
+
+- Matt Pocock — `mattpocock@chelectric.com`
+- Bill Concannon — `billconcannon@chelectric.com`
+
+`People.Read` is NOT granted, so `search_people` returns 403. Do not try to resolve names
+through the directory at run time; use the addresses above.
+
+**When to send.** Exactly at the two handoff moments, and only when the artifact the mail
+points at actually exists:
+
+| Stage | Send when | Subject |
+|---|---|---|
+| 07 draft handoff | the SharePoint upload returned success | `Blog draft ready for review: <title>` |
+| 09 revision ready | the revised doc saved back successfully | `Blog draft revised, ready for another look: <title>` |
+
+**Never send** on a quiet run, when the upload failed, or twice for the same event. An email
+saying something is ready when it is not is worse than no email — the same rule that governs
+the Asana comment (§5, half-completed handoffs).
+
+**Link, do not attach.** Attachments go through the same model-output base64 ceiling as
+SharePoint uploads (§4), so they are impractical and would be low quality anyway. Send links:
+the SharePoint document, and the Asana task.
+
+**Body should contain**, in plain prose, not a form dump: what the post is and its angle in a
+sentence; the SharePoint link; the Asana task link; the reminder to check the hero image PPE
+before it ships (§6); and the current manual step — that the card needs dragging from Approved
+Ideas to Waiting Approval, since the connector cannot move it.
+
+Keep it short. These are two busy people, and the mail is a pointer, not a report.
+
 ## 8. Routine registry
 
 All Routines: fresh session per firing, environment `env_01Ez371HQbzkEd8jfxtaAf3x`,
