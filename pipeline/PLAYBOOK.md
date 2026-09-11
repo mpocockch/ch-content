@@ -134,26 +134,41 @@ summary. Never pretend the move happened.
 (`soffice` returns "source file could not be loaded" even on a plain text file). Rendering is
 not available as a check, and `pandoc` is not installed either.
 
-**Unzip integrity plus an XML parse is NOT sufficient validation — it passes files Word
-refuses to open.** Proven 2026-09-11: the Equipment Room `.docx` passed exactly that check,
-and then Word Online refused it with "this document can't be opened for editing" while
-Microsoft Graph refused to convert it at all (`notSupported`). A human-authored file in the
-same folder converts fine, so it was the file, not a library policy. A zip full of well-formed
-XML is not an OOXML document.
+**A `.docx` uploaded to SharePoint above roughly 10 KB arrives damaged.** This is the real
+cause of the "this document can't be opened for editing" failures, corrected 2026-09-11 after
+an earlier entry here wrongly blamed the document builder. The evidence is a bisect: the same
+builder, the same source draft and the same target folder, differing only in size —
 
-**Build `.docx` with the `docx` npm library** (`npm install docx` into a scratch dir if the
-require fails), never by hand-assembling XML, and then validate all of the following:
+| Probe | Size | Opens |
+|---|---|---|
+| Minimal three-paragraph document | 8.6 KB | yes |
+| Every formatting feature the builder emits | 9.0 KB | yes |
+| First 40 lines of the Equipment Room draft | 9.8 KB | yes |
+| The interval table section of that draft | 9.6 KB | yes |
+| Second half of the same draft | 11.8 KB | no |
+| Full Equipment Room document | 15.5 KB | no |
+| Earlier Equipment Room document, hand-assembled XML | 18.1 KB | no |
 
-1. zip integrity, and every `.xml`/`.rels` part parses;
-2. `[Content_Types].xml` contains `wordprocessingml.document.main+xml`;
-3. `_rels/.rels` has a relationship whose Type ends `/officeDocument`, and whose Target
-   resolves to a part that actually exists in the archive;
-4. `word/document.xml`'s root element is `w:document` in the wordprocessingml namespace and
-   contains a `w:body`;
-5. the body holds a plausible number of `w:p` elements for the draft's length.
+A slice of the very same text opens; the whole does not. Two unrelated builders fail at the
+same boundary. Content, formatting and OOXML structure are all exonerated.
 
-Checks 2–4 are the ones that catch this class of corruption. A file failing any of them must
-not be uploaded and must not be announced to reviewers.
+A second signal distinguishes the two cases without opening anything: on a good upload the tool
+reports a stored size several KB **larger** than what was sent, because SharePoint opened the
+file and stamped its own metadata into it. On a bad upload the reported size matches the sent
+bytes exactly — SharePoint never managed to open it.
+
+So: **treat ~10 KB as the working ceiling for a `.docx` upload, not the ~18 KB below.** Under
+that ceiling, files are fine. Over it, the upload will appear to succeed and the reviewer will
+not be able to open the result.
+
+Until this is solved, a full-length draft cannot be handed off as a Word file in the Blog
+folder. Deliver it with `SendUserFile` instead, and say plainly in the Asana comment that the
+Word copy is coming through chat rather than SharePoint. Do not announce a SharePoint `.docx`
+over ~10 KB as ready for review.
+
+**Still build `.docx` with the `docx` npm library** (`npm install docx` into a scratch dir if
+the require fails) rather than hand-assembling XML — that part of the earlier entry stands on
+its own merits, even though hand-assembled XML was not the cause here.
 
 **Binary uploads to SharePoint are capped at roughly 18 KB in practice.** Verified against the
 tool schema 2026-09-11: `sharepoint_upload_file` accepts only `content` (text) or

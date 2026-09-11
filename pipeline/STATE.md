@@ -315,3 +315,23 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
      still not valid OOXML, which Graph then refused to convert. PLAYBOOK.md §4 was updated
      with five checks meant to catch that. Worth checking whether that gap (rather than, or in
      addition to, base64-transit corruption) explains this run's broken file too.
+## 2026-09-11 — Correction: the .docx was never corrupt; the upload is
+
+- Matt reported the rebuilt file still would not open (Mac, no Word desktop, opening in Chrome
+  → Word Online). Investigated properly instead of rebuilding again.
+- **The earlier diagnosis in this file and in PLAYBOOK.md section 4 was wrong.** A copy of the
+  rebuilt file made server-side fails identically, so it is not the item or its name. A
+  40-line slice of the very same draft, built by the very same script, uploads and opens fine.
+- Ran a size bisect with six probe documents. Everything at or under 9.8 KB opens; everything
+  at or over 11.8 KB does not — across two completely different document builders. Content,
+  formatting, table, headings and OOXML structure are all exonerated.
+- Free oracle found: a good upload reports a stored size several KB larger than the bytes sent
+  (SharePoint opened the file and wrote its metadata in). A bad upload reports exactly the sent
+  byte count.
+- PLAYBOOK.md section 4 rewritten with the bisect table and a ~10 KB working ceiling, replacing
+  the incorrect "unzip-plus-XML-parse is insufficient validation" entry. The five structural
+  checks are no longer presented as the fix, because they were not the problem.
+- Probe files ZZ-probe-A through ZZ-probe-F removed from the Blog folder (recycle bin).
+- Delivered the rebuilt file to Matt via SendUserFile to confirm it opens locally. If it does,
+  the upload path is the bug and the handoff needs to stop going through SharePoint for
+  full-length drafts.
