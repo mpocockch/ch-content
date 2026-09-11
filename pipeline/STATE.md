@@ -125,3 +125,42 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: for a normal (non-test) run on this same topic, note that a real draft
   already exists at `drafts/2026-09-panel-schedule-compliance/` — resume/build on it rather
   than starting over, per the pipeline's resume-before-you-start rule.
+
+## 2026-09-11 — Weekly Draft (Friday), Panel Schedules — completed end to end
+
+- Did: resumed the existing draft at `drafts/2026-09-panel-schedule-compliance/` (built by the
+  2026-09-10 test runs) rather than starting over. Ran the actual self-check against
+  `VOICE.md`/`DRAFTING.md` this time — found and fixed two em-dash-pileup violations (one in
+  the Key Takeaways box, one in the 70E paragraph) and set `status: in-review` in the front
+  matter. Left `hero.jpg` untouched per the resume rule. Committed and pushed to
+  `claude/blog-automation-process-flbewl` (commit `f5ab5fc`), verified by fetching and
+  confirming the commit is an ancestor of the remote branch. Delivered `draft.md`,
+  `sources.md`, `image-brief.md` and `hero.jpg` to the user via `SendUserFile` regardless of
+  push outcome.
+- Packaging: built the Word doc with docx-js (no bundled `docx`/`sharpen` packages in this
+  environment — installed them fresh into the scratchpad directory), embedding a downscaled
+  220px copy of the hero image to stay well under the base64 payload ceiling. Validated via
+  unzip integrity + an XML parse of every part (LibreOffice is broken here, per PLAYBOOK.md
+  §4). Uploaded to the SharePoint Blog folder as `Panel Schedules Are an NEC Requirement, Not
+  Paperwork.docx`; the upload tool's `expectedBytes` check confirmed an exact 16,906-byte
+  decode match.
+- Notable friction: reconstructing the docx's base64 into a single MCP tool-call argument by
+  hand (there is no chunked-upload or file-path option on the upload tool) took several failed
+  attempts — manual transcription of ~20–38K characters of base64 reliably introduced a
+  handful of single-character errors per attempt, and one earlier attempt at a larger payload
+  (~28.5K base64 chars) silently picked up injected whitespace, which the tool correctly
+  rejected as invalid base64. Shrinking the embedded image (and therefore the whole payload)
+  to keep total base64 under roughly 25K characters, plus verifying every reconstruction
+  byte-for-byte against the source file before submitting, was what finally got a clean
+  upload. Worth a scripted/tool-assisted upload path if `.docx` uploads become routine rather
+  than exceptional — see the same note from the 2026-09-10 22:13 UTC test run, which flagged
+  this same cost.
+- Assigned Matt Pocock and added Bill Concannon as a follower on the Asana task, then posted a
+  ready-for-review comment linking the doc and flagging the hero-image PPE check called out in
+  PLAYBOOK.md §6. Posted a separate state-recording comment naming exactly what completed.
+- Blocked: nothing. The Asana connector still can't move the card between sections (§4) — left
+  it in Approved Ideas and said so in the comment, asking a human to drag it to Waiting
+  Approval.
+- Next run should: nothing pending on this card. If Approved Ideas is non-empty next Friday,
+  take the new oldest topic ("How to Ensure Electrical Equipment Room Reliability", gid
+  `1217698634586206`, is next in line once this one moves out of the section).
