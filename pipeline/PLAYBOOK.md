@@ -125,10 +125,27 @@ summary. Never pretend the move happened.
 **LibreOffice is broken in this environment.** Do not rely on rendering to validate a
 `.docx`. Validate by unzip integrity plus an XML parse of every part.
 
-**Base64 payload ceiling on uploads.** File bytes are base64-encoded into the tool call, so a
-full-resolution embedded image can exceed what one call can emit. Downscale the copy embedded
-in the Word doc; keep the full-resolution original in the repo for the WordPress featured
-image.
+**Binary uploads to SharePoint are capped at roughly 18 KB in practice.** Verified against the
+tool schema 2026-09-11: `sharepoint_upload_file` accepts only `content` (text) or
+`contentBase64` (one unbroken base64 string in the tool call). There is no file-path argument
+and no chunked upload — the schema says so explicitly. So every uploaded byte has to pass
+through the model's own output, and two runs found the reliable ceiling to be about **25,000
+base64 characters, roughly 18 KB of binary**. Past that, transcription introduces
+single-character errors and the upload is correctly rejected.
+
+Consequences, all of them real:
+
+- A `.docx` must come in under ~18 KB **including** any embedded image. That leaves room for a
+  preview of roughly 300–400 px, which is enough to judge composition and spot a PPE problem,
+  and not enough for anything finer.
+- **Uploading the full-resolution `hero.jpg` as a separate file does not work either** — same
+  ceiling, same mechanism. The existing `Ultrasonic-Testing-Hero-Preview.jpg` in the Blog
+  folder is 6 KB, which suggests whoever made it hit exactly this wall.
+- The full-resolution original stays in git and goes to WordPress at publish time, where the
+  Novamira connector handles it — that path does not go through this ceiling.
+
+If reviewers need to see the hero at full quality before approval, the image has to reach them
+by some route other than a SharePoint upload. See §6.
 
 ---
 
