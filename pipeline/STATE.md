@@ -125,3 +125,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: for a normal (non-test) run on this same topic, note that a real draft
   already exists at `drafts/2026-09-panel-schedule-compliance/` — resume/build on it rather
   than starting over, per the pipeline's resume-before-you-start rule.
+
+## 2026-09-11 11:35 UTC — Blog: Idea Capture
+
+- Did: read this playbook first, per the precondition. Found the designated branch
+  `claude/beautiful-mayer-ki7elq` gone from the remote with no PR against it, so restarted it
+  from the current default (`origin/claude/blog-automation-process-flbewl`, matching the
+  repo-restart rule for a branch whose work already landed upstream) before doing anything
+  else. Determined the watermark from the newest Teams-sourced task across Unapproved Ideas
+  and Approved Ideas — `1787259801114` ("How to Ensure Electrical Equipment Room Reliability,"
+  posted 2026-08-20) — then listed the `Blog Ideas` channel's top-level messages via
+  `teams_list_channel_messages` (cheaper than a full `read_resource` dump, per the prior run's
+  cost note) instead of re-reading full history. That watermark message is the newest message
+  in the channel: nothing above it, so there is nothing new to capture. Confirmed today
+  (2026-09-11) is Friday, not Monday, so the research pass does not apply this run.
+- Blocked: nothing.
+- Next run should: proceed normally. No open capture or research work pending from this run.
