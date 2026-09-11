@@ -125,3 +125,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: for a normal (non-test) run on this same topic, note that a real draft
   already exists at `drafts/2026-09-panel-schedule-compliance/` — resume/build on it rather
   than starting over, per the pipeline's resume-before-you-start rule.
+
+## 2026-09-11 — Blog: Review Loop (stage 09)
+
+- Did: read `pipeline/PLAYBOOK.md`, then queried Asana section `Waiting Approval`
+  (`1216997967900170`) directly. It is empty — zero tasks. Nothing to check for new comments
+  or SharePoint edits, and nothing eligible for the 5-day stall alert (§8), since no card is
+  sitting in the section at all.
+- Blocked: nothing.
+- Also noted: the only draft in flight, "Panel Schedules Are an NEC Requirement, Not
+  Paperwork" (`drafts/2026-09-panel-schedule-compliance/`), was deliberately left in
+  `Approved Ideas` by the 2026-09-10 22:13 UTC test run and has not been packaged into a
+  Word doc or moved to `Waiting Approval` (stages 06/07 not yet run). PLAYBOOK.md §10 also
+  still shows all four Routines as DISABLED pending connector attachment in the Routines UI —
+  that record has not been updated since 2026-09-10, so if this firing was a real schedule
+  fire rather than a manual test, the activation checklist should be confirmed and §8/§10
+  updated to match reality.
+- Next run should: re-check `Waiting Approval` for the outcome of stages 06/07 on the panel
+  schedule draft, and confirm whether §10's activation checklist is actually complete.
