@@ -125,3 +125,28 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: for a normal (non-test) run on this same topic, note that a real draft
   already exists at `drafts/2026-09-panel-schedule-compliance/` — resume/build on it rather
   than starting over, per the pipeline's resume-before-you-start rule.
+
+## 2026-09-11 13:42 UTC — Blog: Publish (stages 11–12)
+
+- Did: read `Approved Blogs` (2 cards). Published nothing — neither card was a live publish
+  candidate this run.
+- Found: "What is Ultrasonic Testing in Electrical Systems? Process Explained" (gid
+  `1217369002256407`) carries notes from 2026-08-12 claiming it is PUBLISHED at
+  `https://chelectric.com/ultrasonic-testing-electrical-systems-explained/` (WP post 14114).
+  Queried WordPress directly (per this stage's precondition — a card is never proof of live
+  status) and found post 14114's `post_status` is actually `draft`, last modified 2026-09-03
+  16:09:34 UTC, well after the card's notes were written. Not a scheduled post; genuinely
+  unpublished right now, cause unknown. Per the ambiguous-state rule in `PLAYBOOK.md` section
+  5, did not guess: did not republish, did not edit the post, did not move the card. Posted a
+  comment on the card naming the mismatch and asking for a human decision (republish vs. the
+  card/notes are stale). Featured image is still the placeholder (attachment 14113), per the
+  linked chore card.
+- Ignored: "Replace placeholder hero on published ultrasonic testing post" (gid
+  `1217383348938728`) — self-identifies as a chore, not a blog topic, per its own notes and
+  per this stage's instruction to skip chores.
+- Blocked: nothing tool-wise. Asana and novamira connectors were both present and working
+  (novamira's `run-wp-cli` ability is disabled server-side — `proc_open`/`exec` blocked in
+  PHP — so WordPress state was read via `novamira/execute-php` instead, which worked fine).
+- Next run should: nothing pending from this run. A human needs to resolve the ultrasonic
+  testing post's status (see the Asana comment on gid `1217369002256407`) before that card can
+  move again.
