@@ -3,7 +3,7 @@ title: "Panel Schedules Are an NEC Requirement, Not Paperwork"
 slug: panel-schedule-compliance-nec-408-4
 target_keyword: panel schedule compliance
 asana_task: "1217697187018391"
-status: drafting
+status: in-review
 ---
 
 ## Key takeaways
@@ -18,8 +18,8 @@ status: drafting
   inside a facility's required Electrical Maintenance Program record-keeping, not outside it.
 - A stale directory is a code violation on its own, independent of whether the wiring behind
   it is safe. An inspector or insurer doesn't need to find a hazard to write it up.
-- Updating a directory at the time of each circuit change is inexpensive. Reconstructing one
-  years later — tracing every circuit in an energized panel from scratch — is not.
+- Updating a directory at the time of each circuit change is inexpensive. Reconstructing
+  one years later, tracing every circuit in an energized panel from scratch, is not.
 
 ## What NEC 408.4(A) actually requires
 
@@ -46,8 +46,8 @@ was written in a way the code specifically prohibits.
 ## The circuit directory and the arc-flash label are not the same document
 
 NFPA 70E 130.5(H) requires equipment likely to be examined, adjusted, serviced or maintained
-while energized — switchboards, panelboards, industrial control panels, motor control
-centers — to carry a field-applied label. That label has to show the nominal system voltage
+while energized (switchboards, panelboards, industrial control panels, motor control
+centers) to carry a field-applied label. That label has to show the nominal system voltage
 and the arc-flash boundary, plus at least one of: incident energy and working distance,
 minimum arc rating for clothing, or a PPE category. It exists to tell a qualified person what
 to put on before they open the door.
