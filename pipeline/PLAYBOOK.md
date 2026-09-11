@@ -5,14 +5,15 @@ live page on chelectric.com. Every scheduled Routine starts by reading this file
 
 **Owners:** Matt Pocock, Bill Concannon
 
-**Cadence — UNRESOLVED CONFLICT, needs Matt's decision.** This pipeline was built to a target of
-2 posts / month, taken from the REV D process map. But `C&H Electric Blog Strategy.docx` in the
-SharePoint Blog folder states **8–10 posts per month, averaging 2 per week** — four to five times
-that. The weekly Friday drafting cadence serves the lower number. If the strategy doc is current,
-the pipeline needs to draft roughly twice a week and the triage session has to promote at that
-rate, which makes reviewer capacity the binding constraint. Until this is settled the pipeline
-runs weekly; if no topic is approved the run stops cleanly, which is the throttle working, not a
-failure.
+**Cadence target: 2–3 blog posts per month.** Settled by Matt 2026-09-11. Note that
+`C&H Electric Blog Strategy.docx` says 8–10 posts per month — that figure refers to **social
+posts, not blog articles**, and does not apply here. Do not "correct" the cadence upward from
+that document.
+
+Drafting runs weekly on Friday, which gives headroom above the target: if no topic is approved
+the run stops cleanly, and that is the throttle working, not a failure. Promotion into
+`Approved Ideas` at the Thursday triage (§9) is what actually sets volume — roughly one
+promotion a fortnight sustains the target.
 
 ---
 
