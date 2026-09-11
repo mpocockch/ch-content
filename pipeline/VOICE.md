@@ -27,8 +27,10 @@ Do not use these. The list is not exhaustive — it is a sample of the register 
 - leverage *(as a verb)*
 - delve
 - crucial
-- elevate
-- robust
+- elevate *(the marketing verb — "elevate your operations". **"Elevated" as a technical
+  adjective is fine and correct**: elevated ambient temperature, elevated fault current. Do not
+  let the self-check rewrite good technical writing to satisfy this entry.)*
+- robust *(as vague praise. A "robust enclosure" with a defined rating is fine.)*
 - unlock
 - in today's fast-paced world
 - it's important to note that
@@ -41,6 +43,11 @@ Do not use these. The list is not exhaustive — it is a sample of the register 
 Also avoid: opening a paragraph with "Additionally" or "Furthermore"; hedging stacks
 ("may potentially be able to"); and headings phrased as questions the section then restates
 instead of answering.
+
+**On running the check:** this list targets register, not vocabulary. Several entries are
+ordinary technical words in their literal sense. Judge the usage, not the string — a match that
+is correct technical English stays. Flagging it and rewriting around it makes the piece worse,
+which is the opposite of the point.
 
 ## Formatting
 
