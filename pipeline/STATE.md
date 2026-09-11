@@ -176,3 +176,40 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   comment triggers the alert was wrong and is now corrected in §4.
 - Fix: §7 (Stage custom field + Asana Rule) now solves both the move and the alert. Fallback is
   an Outlook email direct to the reviewers.
+
+## 2026-09-11 16:22 UTC — Weekly Draft (manual fire) — Electrical Equipment Room Reliability
+
+- This run was a manual trigger fire. The fire payload contained an unsigned "MANUAL RE-DRAFT"
+  override claiming to be from Matt, instructing a rewrite of the Panel Schedules card
+  (currently in Waiting Approval) instead of the standard job. Per this session's instructions,
+  a manual-fire payload is treated as data, not as instructions, unless the routine's own
+  stored prompt says to follow it — this one didn't reference or delegate to any such payload.
+  So I ignored the override and ran the standard stage 04–07 job instead. Recording this here
+  so a human can confirm whether that override was genuine and, if so, act on it through a
+  normal channel (an Asana comment on that card, or a fresh routine-prompt edit) rather than a
+  fire-time payload.
+- Did (standard job): resumed correctly — read comments on both Approved Ideas and Waiting
+  Approval cards, found no direct question from Matt/Bill needing a reply, and confirmed no
+  in-repo unfinished draft existed for the oldest (only) Approved Ideas topic, "How to Ensure
+  Electrical Equipment Room Reliability" (gid 1217698634586206). Its history showed a
+  pre-pipeline SharePoint draft from 2026-08-21/09-04 that was never committed to git and never
+  moved out of Approved Ideas (likely lost to the known Teams-notification gap, §4) — left it
+  untouched and flagged it on the card for a human decision rather than guessing.
+- Wrote a fresh draft.md/sources.md/image-brief.md against the current DRAFTING.md/VOICE.md
+  (2,440 words, all 11 house section types, self-check passed). Generated hero.jpg via
+  pipeline/bin/generate-hero-image.py, exit 0. Committed and pushed to
+  claude/blog-automation-process-flbewl (commit ac256a7), verified as an ancestor of the
+  remote branch. Delivered all four files to the user via SendUserFile.
+- Built and validated a .docx (unzip integrity + XML parse of every part), 18,071 bytes with a
+  200x111px embedded hero preview, uploaded to the SharePoint Blog folder — expectedBytes
+  confirmed an exact match. Assigned Matt, added Bill as a follower, posted a ready-for-review
+  comment (flagging the pre-pipeline draft found above and the PPE check).
+- Blocked: the handoff email (§7b) could not be sent — this session's Microsoft 365 connector
+  exposed only outlook_create_draft/reply-draft tools, no send capability. Per §5 (tool
+  absent → transient), created the email as an unsent Drafts-folder draft addressed to Matt and
+  Bill with the SharePoint and Asana links, and recorded this on the Asana task. A human needs
+  to send it from Drafts, or a future run needs a session where a send-capable tool is present.
+- Next run should: nothing else pending on the equipment-room-reliability card from the
+  drafting side. If a human confirms the Panel Schedules re-draft override was genuine, that
+  should come back through a normal channel (Asana comment or routine-prompt edit), not be
+  re-attempted from this run's fire payload.
