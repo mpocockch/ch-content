@@ -9,20 +9,32 @@ Write or revise a C&H Electric blog post.
 
 ## Before writing
 
-1. Read `pipeline/DRAFTING.md` — structure, source tiers, accuracy discipline, output layout.
+1. Read `pipeline/DRAFTING.md` in full — it is the house standard and it is specific. Length
+   target, metadata block, section architecture, bolded answer sentences, conditional CTA.
 2. Read `pipeline/VOICE.md` — tone and the banned-phrase list.
-3. Read `pipeline/PLAYBOOK.md` §3 for the Asana IDs, and §5 for failure handling.
-4. Check `drafts/` for an existing folder for this topic. **If one exists, resume it** — do
+3. **Read a published post before drafting.** `What is Breaker Testing in Electrical
+   Systems.docx` in the SharePoint Blog folder is the reference exemplar. Matching the real
+   thing beats following a description of it, and the folder holds a dozen more.
+4. Read `pipeline/PLAYBOOK.md` §3 for the Asana and SharePoint IDs, and §5 for failure handling.
+5. Check `drafts/` for an existing folder for this topic. **If one exists, resume it** — do
    not start over, and do not regenerate an image or rewrite a section a prior run finished.
 
 ## Writing
 
-Follow `DRAFTING.md` exactly: Key Takeaways box, answer-first openings, tiered citations,
-internal-link placeholders, one CTA, optional FAQ, and an SVG chart only if the topic has 3+
-genuinely comparable data points.
+Follow `DRAFTING.md` exactly. The things most often got wrong:
+
+- **2,000–2,500 words.** Short drafts are the commonest defect. If you are coming in under,
+  you are missing sections, not sentences.
+- **No Key Takeaways box.** Open with a stakes hook, then a roadmap paragraph.
+- **Bold the answer sentence** that opens each section.
+- **Include Misconceptions and Recent trends** — the two sections that most differentiate a
+  C&H post and the two most often skipped.
+- **CTA only if the topic intersects a C&H service**, placed mid-article, and close on
+  Final thoughts.
 
 Verify what standards actually say before asserting it. A claim a practitioner can falsify
-destroys the piece.
+destroys the piece. If a figure cannot be verified, leave it out of the body and note why in
+`sources.md` — do not narrate the omission to the reader.
 
 ## Revising
 

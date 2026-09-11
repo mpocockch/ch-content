@@ -11,7 +11,11 @@ technical, busy, and sceptical of marketing language.
   electrical infrastructure."
 - Confident about what we know, explicit about what we don't.
 - Never talk down. Assume the reader knows what a breaker is.
-- Second person is fine. Corporate first-person-plural throughout is not.
+- Second person is the default — "your facility", "if you're unsure".
+- **First-person plural is allowed where it carries field experience**, which is how the
+  published posts use it: "Our technicians at C&H Electric are certified to NETA QEMC
+  standards." What is banned is corporate we-speak that asserts rather than informs — "we are
+  committed to excellence", "we pride ourselves on". Two or three such mentions per post.
 
 ## Banned phrases
 

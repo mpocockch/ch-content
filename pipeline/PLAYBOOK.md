@@ -4,8 +4,15 @@ The single source of truth for how a C&H Electric blog post gets from an idea in
 live page on chelectric.com. Every scheduled Routine starts by reading this file.
 
 **Owners:** Matt Pocock, Bill Concannon
-**Cadence target:** 2 posts / month. Drafting runs weekly (Friday); if no topic is approved,
-the run stops cleanly — that is the throttle working, not a failure.
+
+**Cadence — UNRESOLVED CONFLICT, needs Matt's decision.** This pipeline was built to a target of
+2 posts / month, taken from the REV D process map. But `C&H Electric Blog Strategy.docx` in the
+SharePoint Blog folder states **8–10 posts per month, averaging 2 per week** — four to five times
+that. The weekly Friday drafting cadence serves the lower number. If the strategy doc is current,
+the pipeline needs to draft roughly twice a week and the triage session has to promote at that
+rate, which makes reviewer capacity the binding constraint. Until this is settled the pipeline
+runs weekly; if no topic is approved the run stops cleanly, which is the throttle working, not a
+failure.
 
 ---
 
