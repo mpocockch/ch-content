@@ -130,8 +130,30 @@ summary. Never pretend the move happened.
 
 **No image-generation connector is installed.** See §6.
 
-**LibreOffice is broken in this environment.** Do not rely on rendering to validate a
-`.docx`. Validate by unzip integrity plus an XML parse of every part.
+**LibreOffice is broken in every session here** — Routine-fired and interactive alike
+(`soffice` returns "source file could not be loaded" even on a plain text file). Rendering is
+not available as a check, and `pandoc` is not installed either.
+
+**Unzip integrity plus an XML parse is NOT sufficient validation — it passes files Word
+refuses to open.** Proven 2026-09-11: the Equipment Room `.docx` passed exactly that check,
+and then Word Online refused it with "this document can't be opened for editing" while
+Microsoft Graph refused to convert it at all (`notSupported`). A human-authored file in the
+same folder converts fine, so it was the file, not a library policy. A zip full of well-formed
+XML is not an OOXML document.
+
+**Build `.docx` with the `docx` npm library** (`npm install docx` into a scratch dir if the
+require fails), never by hand-assembling XML, and then validate all of the following:
+
+1. zip integrity, and every `.xml`/`.rels` part parses;
+2. `[Content_Types].xml` contains `wordprocessingml.document.main+xml`;
+3. `_rels/.rels` has a relationship whose Type ends `/officeDocument`, and whose Target
+   resolves to a part that actually exists in the archive;
+4. `word/document.xml`'s root element is `w:document` in the wordprocessingml namespace and
+   contains a `w:body`;
+5. the body holds a plausible number of `w:p` elements for the draft's length.
+
+Checks 2–4 are the ones that catch this class of corruption. A file failing any of them must
+not be uploaded and must not be announced to reviewers.
 
 **Binary uploads to SharePoint are capped at roughly 18 KB in practice.** Verified against the
 tool schema 2026-09-11: `sharepoint_upload_file` accepts only `content` (text) or

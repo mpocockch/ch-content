@@ -213,3 +213,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   drafting side. If a human confirms the Panel Schedules re-draft override was genuine, that
   should come back through a normal channel (Asana comment or routine-prompt edit), not be
   re-attempted from this run's fire payload.
+
+## 2026-09-11 — Equipment Room .docx was corrupt; validation gap found
+
+- Symptom: Matt could not open the Equipment Room Word doc — "this document can't be opened
+  for editing". Confirmed independently: Microsoft Graph also refused to convert it
+  (notSupported), while a human-authored file in the same folder converts fine.
+- Cause: the run's .docx passed the documented validation (unzip integrity + XML parse of
+  every part) but was not a valid OOXML document. That check cannot detect a missing or wrong
+  content-type declaration or a broken officeDocument relationship, which is exactly this
+  failure mode.
+- Fixed: rebuilt the document with the docx npm library, validated content types,
+  relationships and the document root, and delivered it to Matt directly. The SharePoint
+  replace was refused with a 412 conflict (the file was locked, most likely by Matt's own open
+  Word session), so the copy in the Blog folder is still the broken one until it is replaced
+  by hand or on retry.
+- PLAYBOOK.md section 4 now specifies the five checks that actually catch this.
