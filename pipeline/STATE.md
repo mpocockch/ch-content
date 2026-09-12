@@ -382,3 +382,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   workaround, consider whether the handoff can complete via the git/chat copy already delivered
   rather than waiting on a SharePoint upload that is unlikely to succeed for a draft this
   length.
+
+## 2026-09-12 13:39 UTC — Blog: Publish
+
+- Did: read `Approved Blogs` (2 cards). "What is Ultrasonic Testing in Electrical Systems?"
+  (gid `1217369002256407`) is already `completed: true` with its own notes confirming it is
+  live (chelectric.com, WordPress post ID 14114) — correctly took no publish action, since
+  publishing it again would be the double-publish this stage exists to prevent. Its only open
+  item is the manual drag to `Posted Blogs`, already recorded on the card as the known
+  Asana-connector limitation (§4); not new work this run. "Replace placeholder hero on
+  published ultrasonic testing post" (gid `1217383348938728`) self-identifies in its own notes
+  as a chore, not a blog topic — ignored per instruction.
+- Blocked: nothing. No unpublished blog topic was sitting in `Approved Blogs` this run.
+- Next run should: proceed normally. If a human drags the ultrasonic-testing card into
+  `Posted Blogs`, no further action needed on it. Watch for a genuinely new card landing in
+  `Approved Blogs` from stage 10 (Matt & Bill's final approval) — none has yet.
