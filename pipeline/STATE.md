@@ -335,3 +335,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Delivered the rebuilt file to Matt via SendUserFile to confirm it opens locally. If it does,
   the upload path is the bug and the handoff needs to stop going through SharePoint for
   full-length drafts.
+
+## 2026-09-12 11:34 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the most-recently-created task in the project (gid
+  `1217698634586206`, "How to Ensure Electrical Equipment Room Reliability", Original message
+  id `1787259801114`, posted 2026-08-20). Listed the Teams channel's top-level messages
+  (single page, 9 messages, no `read_resource` full-thread dump) and found that message is
+  itself the newest one in the channel — nothing posted since. Created no Asana tasks; nothing
+  new to capture. Today is Saturday, so the Monday research pass did not apply.
+- Blocked: nothing.
+- Next run should: proceed normally. `Unapproved Ideas` still holds 10 untriaged topics
+  (unchanged since 2026-08-14) — still at/over the queue-depth line in PLAYBOOK.md §8, so a
+  Monday research pass here should keep adding nothing until Thursday triage promotes some out.
