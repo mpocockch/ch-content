@@ -348,3 +348,37 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: proceed normally. `Unapproved Ideas` still holds 10 untriaged topics
   (unchanged since 2026-08-14) — still at/over the queue-depth line in PLAYBOOK.md §8, so a
   Monday research pass here should keep adding nothing until Thursday triage promotes some out.
+
+## 2026-09-12 12:43 UTC — Review Loop
+
+- Did: checked the single card in Waiting Approval (Panel Schedules, gid `1217697187018391`)
+  for genuine reviewer feedback since the last recorded check (the 2026-09-11 19:22 UTC entry).
+  Read the full story history — every story on the task, including that one, is attributed to
+  Matt Pocock (the connector authenticates as him), and none of them read as fresh human
+  feedback distinct from the pipeline's own run-state reporting. No new comments, and nothing
+  that looked like a genuine reviewer edit. So there was no new revision to implement this run.
+- Confirmed the standing blocker from 2026-09-11 is unchanged: "Panel Schedules Are an NEC
+  Requirement, Not Paperwork.docx" in the SharePoint Blog folder still refuses to convert
+  (Graph: `notSupported`) — still the copy corrupted by that run's failed replace-in-place
+  upload.
+- New data point: rebuilt the already-revised draft (git `d0fec82`, unchanged) as a fresh,
+  validated `.docx` via the `docx` npm library with **no embedded image at all** — it came to
+  15,675 bytes on its own, well above the ~10 KB working ceiling in PLAYBOOK.md §4. This rules
+  out the embedded hero image as the cause: a full-length draft this size (~2,470 words) is not
+  expected to survive an upload through this connector regardless of the image, so I did not
+  repeat the SharePoint write and risk corrupting the live file further.
+- Per §4's documented fallback, delivered the rebuilt `.docx` and `hero.jpg` directly via
+  `SendUserFile`, and posted a state comment on the Asana task explaining the same, since the
+  full text is otherwise only in git. Did NOT post a ready-for-review comment and did NOT send
+  the revision email — the SharePoint save has not succeeded, so per §5/§7b this is not a
+  completed handoff.
+- Stall check (§8): card entered Waiting Approval 2026-09-11 14:39 UTC — under a day old, well
+  short of the 5-day threshold. No nudge sent.
+- Blocked: the SharePoint copy of this doc needs a human to restore it from version history or
+  replace it by hand — this connector does not reliably support uploading a full-length draft
+  (PLAYBOOK.md §4). No scripted/chunked upload path exists yet either.
+- Next run should: re-check Waiting Approval for genuine reviewer comments as normal. If the
+  SharePoint file has been fixed or replaced by a human, and there is still no chunked-upload
+  workaround, consider whether the handoff can complete via the git/chat copy already delivered
+  rather than waiting on a SharePoint upload that is unlikely to succeed for a draft this
+  length.
