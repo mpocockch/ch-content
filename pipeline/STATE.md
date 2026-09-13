@@ -382,3 +382,29 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   workaround, consider whether the handoff can complete via the git/chat copy already delivered
   rather than waiting on a SharePoint upload that is unlikely to succeed for a draft this
   length.
+
+## 2026-09-13 12:38 UTC — Review Loop
+
+- Did: checked the single card in Waiting Approval (Panel Schedules, gid `1217697187018391`)
+  for genuine reviewer feedback since the last recorded check (2026-09-12 12:43 UTC). Read the
+  full story history — the only story since that timestamp is the 2026-09-12 12:43 UTC entry
+  itself (the pipeline's own prior state comment); nothing posted after it. No genuine reviewer
+  comment or question to act on.
+- Also checked the SharePoint doc directly rather than relying only on Asana: "Panel Schedules
+  Are an NEC Requirement, Not Paperwork.docx" (itemId `01W45A5ESKEOYIJGOUSNC2IMWSQT4TD7VP`) shows
+  `lastModifiedDateTime` 2026-09-11T16:38:52Z, unchanged since before the last check — no new
+  edit to react to. Did not re-open it to re-test whether it still converts; that diagnosis is
+  unchanged from the prior two entries and re-probing it wasn't needed to answer "is there new
+  reviewer input," which is what this stage checks for.
+- Stall check (§8): card entered Waiting Approval 2026-09-11 14:39 UTC — about 1 day 22 hours
+  old, well under the 5-day threshold. No nudge sent.
+- Blocked: nothing new. The standing blocker from 2026-09-11/12 is unchanged: the live
+  SharePoint copy may still be the corrupted replace-in-place upload, and this connector does
+  not reliably upload a full-length (~2,470-word) draft (~10 KB working ceiling, PLAYBOOK.md
+  §4). No new revision work was triggered this run, so no attempt was made to touch the
+  SharePoint file.
+- No Asana comment posted and no email sent — a quiet run with nothing new to report beyond
+  what the 2026-09-12 comment already said on the card itself.
+- Next run should: same as the 2026-09-12 entry — re-check for genuine reviewer comments, and if
+  a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
+  actual revision can complete the SharePoint save and the ready-for-another-look handoff.
