@@ -382,3 +382,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   workaround, consider whether the handoff can complete via the git/chat copy already delivered
   rather than waiting on a SharePoint upload that is unlikely to succeed for a draft this
   length.
+
+## 2026-09-13 11:34 UTC — Blog: Idea Capture
+
+- Did: confirmed the watermark independently by scanning the whole project (not just Unapproved
+  Ideas) for the newest task carrying an "Original message" link — "How to Ensure Electrical
+  Equipment Room Reliability" (gid `1217698634586206`, now in Approved Ideas), Original message
+  id `1787259801114`, posted 2026-08-20. Read the Teams channel with a single `read_resource`
+  call: it returned the full history newest-first, and that watermark message is itself the
+  newest item — nothing posted to the channel since 2026-08-20. Created no Asana tasks; nothing
+  new to capture. Today is Sunday, so the Monday research pass did not apply.
+- Blocked: nothing.
+- Next run should: proceed normally. `Unapproved Ideas` is unchanged at 10 untriaged topics
+  (oldest from 2026-08-11) — still at/over the queue-depth line in PLAYBOOK.md §8, so Monday's
+  research pass should keep adding nothing until Thursday triage promotes some out.
