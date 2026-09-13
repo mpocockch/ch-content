@@ -408,3 +408,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: same as the 2026-09-12 entry — re-check for genuine reviewer comments, and if
   a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
   actual revision can complete the SharePoint save and the ready-for-another-look handoff.
+
+## 2026-09-13 13:40 UTC — Blog: Publish
+
+- Did: read `Approved Blogs` (2 tasks). Skipped "Replace placeholder hero on published
+  ultrasonic testing post" (gid `1217383348938728`) per its own notes — a chore, not a blog
+  topic, exactly as PLAYBOOK.md's instructions say to treat it.
+  For "What is Ultrasonic Testing in Electrical Systems? Process Explained" (gid
+  `1217369002256407`), queried WordPress directly before touching anything, per the
+  precondition that a card sitting in Approved Blogs is not proof of anything either way.
+  Post 14114: `post_status` is `draft`, `post_modified_gmt` `2026-09-03 16:09:34`, featured
+  image still attachment 14113 (the placeholder) — all unchanged from the 2026-09-11 13:42 UTC
+  finding recorded as a comment on this same task. So: the task's own notes/description say
+  PUBLISHED, but WordPress currently disagrees, and nothing has moved in either direction in
+  the two days since that was first flagged.
+- Did not publish, republish, edit, or touch WordPress in any way for this post: whether the
+  2026-08-11 unpublish (relative to this card's "PUBLISHED" notes) was deliberate (e.g. pulled
+  for a content/compliance reason) or accidental is exactly the kind of ambiguity PLAYBOOK.md
+  §5 and this stage's own instructions say to stop and report on rather than guess. Guessing
+  wrong here means either double-publishing a pulled post or leaving a real outage unfixed.
+- Did not move the card, comment again, or send email — nothing changed since the existing
+  2026-09-11 comment already asked for exactly this decision, and repeating an unanswered ask
+  verbatim would just be noise on the card.
+- Blocked: post 14114's true intended state is a human decision, still unresolved after 2 days.
+  If it should be live: republish it (Yoast metadata/categories already set per the 2026-08-11
+  history) and separately fix the featured image — still the 260x145 placeholder either way,
+  tracked in the sibling chore card. If it was pulled deliberately: this card's notes, its
+  "PUBLISHED" line, and its presence in Approved Blogs are all stale and should be corrected or
+  the card moved/closed by a human, since this stage cannot infer intent from the card alone.
+- Next run should: re-query post 14114's status the same way before acting. If it is still
+  `draft` with no new human comment, keep standing down — do not re-ask on the card again
+  unless the state changes or enough time has passed that a fresh nudge is warranted.
