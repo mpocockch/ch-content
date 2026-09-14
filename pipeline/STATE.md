@@ -380,3 +380,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
    are enabled.
 3. **Asana `Stage` custom field + Rule (§7)** — unchanged, still needs project admin, and Rules
    appear to be a paid-tier feature.
+
+### Routine status — corrected the same run
+
+- `list_triggers` shows **all four Blog Routines enabled, fresh-session, connectors attached**,
+  each with a recent `SUCCEEDED` run whose `finished_at` is minutes after `fired_at` (the
+  healthy signature §10 defines). PLAYBOOK §8 and §10 both still said the pipeline was switched
+  off pending connector attachment; corrected.
+- **The routine prompts were deliberately NOT rewritten.** The previous session planned to
+  repoint them at a chat-based handoff because SharePoint looked unusable. It is usable, so the
+  prompts' existing SharePoint wording is right in substance and a blind rewrite would only
+  risk losing detail — `list_triggers` does not return prompt text, so it cannot be edited
+  surgically from a session anyway. The `expectedBytes` rule reaches every run through
+  PLAYBOOK §4, which each fresh session reads first; that is the mechanism this repo is built
+  on, and it needs no prompt change.

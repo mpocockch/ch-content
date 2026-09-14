@@ -472,10 +472,14 @@ daylight-saving changeover; re-check each November and March.
 The one human step on the weekly clock is not a Routine: **Thursday-morning triage in Matt and
 Bill's 1:1** (§9). It feeds the Friday draft run.
 
-**All four are currently DISABLED.** See §10 for what has to happen before they are switched on.
-They were deliberately left off rather than allowed to fire half-equipped, because a Routine
-that runs without its connectors produces exactly the silent partial failures this rebuild
-exists to eliminate.
+**All four are LIVE as of 2026-09-14** — enabled, fresh-session-per-fire
+(`persist_session: false`), with connectors attached. Verified this date via `list_triggers`:
+every one stores a populated `mcp_connections`, and every one has a recent `last_run` with
+status `SUCCEEDED` and a `finished_at` minutes after `fired_at` (Idea Capture 2m37s, Review
+Loop 1m22s, Publish 2m37s, Weekly Draft 23m57s on 2026-09-11) — the healthy signature §10
+describes, not the millisecond gap that meant a dead session-bound run. An earlier version of
+this section said all four were disabled; that is no longer true, so treat the pipeline as
+running and assume a change here reaches production on the next firing.
 
 Retired 2026-09-10, left disabled rather than deleted so their run history survives:
 `RETIRED — Blog Pipeline: Daily Maintenance` (`trig_01Bo6Ueo1h1y1NsaFd6CPa9h`),
@@ -534,8 +538,9 @@ run posts a note and stops. Promotion is the throttle that sets real publishing 
 
 ## 10. Activation checklist
 
-The rebuild is in place but **the pipeline is switched off** pending two things only a human
-can do. Recorded 2026-09-10.
+**All three blocking items below are now DONE and the pipeline is running** (confirmed
+2026-09-14 — see §8 for the evidence). The list is kept because it records what had to be true
+and how each was verified; it is history, not a to-do.
 
 **1. ~~Grant the Claude GitHub App write access to `mpocockch/ch-content`.~~ DONE 2026-09-10.**
 The app was installed but scoped to a repository list that predated this repo. Both write
@@ -544,12 +549,12 @@ integration` on the API contents endpoint). Adding `ch-content` to the app's sel
 repositories fixed it; the branch `claude/blog-automation-process-flbewl` is now pushed and
 verified against the remote.
 
-**2. Attach connectors to each of the four Routines** in the claude.ai Routines UI — per the
-table in §8. This cannot be done from the API in this org: `create_trigger` rejects the
-parameter, so all four currently store `mcp_connections: []` and their sessions would have no
-Asana, Teams, SharePoint or WordPress tools at all.
+**2. ~~Attach connectors to each of the four Routines~~ DONE.** It had to be done by hand in
+the claude.ai Routines UI, because `create_trigger` rejects the parameter in this org, so every
+Routine created from a session started with `mcp_connections: []`. All four now store their
+connectors per the §8 table.
 
-**3. Enable the four Routines** once 2 is done. They are disabled today; see §8.
+**3. ~~Enable the four Routines~~ DONE.** All four are enabled and firing on schedule.
 
 ### Optional, and worth doing
 
