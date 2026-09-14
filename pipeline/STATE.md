@@ -335,3 +335,48 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Delivered the rebuilt file to Matt via SendUserFile to confirm it opens locally. If it does,
   the upload path is the bug and the handoff needs to stop going through SharePoint for
   full-length drafts.
+
+## 2026-09-14 — Correction #2: there is no size ceiling; the missing piece was `expectedBytes`
+
+- **Both earlier diagnoses were wrong.** First this file blamed the document builder, then it
+  blamed a ~10 KB SharePoint upload ceiling. Neither holds.
+- `sharepoint_upload_file` / `sharepoint_update_file` accept an **`expectedBytes`** parameter
+  that no previous run passed. It is a server-side integrity check: the connector compares the
+  decoded byte length to the value supplied and refuses the write on a mismatch, turning a
+  silent corruption into a loud failure.
+- Three uploads verified this run, all built by the new `pipeline/bin/build-docx.js`:
+  9,766 B → stored 16,910; 15,348 B → stored 22,492; 15,326 B → stored 22,473. Every one grew
+  by several KB (SharePoint parsed and stamped it) and every one was confirmed by reading the
+  stored file back with `read_resource`, which returns text only if Graph can convert the file.
+- So **full-length drafts go to the Blog folder as Word files normally.** The previous bisect
+  read a hard threshold into six probes of what is really transit corruption that simply gets
+  likelier as the payload grows. `expectedBytes` is what makes it safe.
+- Gotcha recorded in PLAYBOOK §4: a `.docx` is a ZIP with per-entry timestamps, so rebuilding
+  the same Markdown yields a slightly different byte count. `expectedBytes` must come from the
+  build that produced the exact bytes being sent, never from an earlier run.
+- **`outlook_send_mail` has no attachment parameter at all** (tool schema, checked this run).
+  The "attach the .docx to the reviewer email instead" option from the previous session is not
+  blocked by a missing scope — it does not exist. §7b corrected to say so; email stays a
+  pointer carrying links.
+
+### SharePoint Blog folder — what changed
+
+- `How Do You Ensure Reliability in an Electrical Equipment Room.docx` — replaced in place with
+  a good build (15,326 B). Verified openable. Version history retains the damaged copy.
+- `Panel Schedules Are an NEC Requirement, Not Paperwork.docx` — the old 25,250 B copy would
+  not convert; renamed to `SUPERSEDED damaged upload - ...` and the verified-good build put in
+  its place under the canonical name.
+- Probe files from this run removed.
+
+### Still open
+
+1. **Awaiting go-ahead to delete three dead files** in the Blog folder: the
+   `(rebuilt)` Equipment Room copy, `SUPERSEDED damaged upload - Panel Schedules ...`, and
+   `TEST 2026-09-10 — Panel Schedules ...`. Nothing depends on them; left in place pending Matt.
+2. **Routine prompts still unreviewed against the corrected §4.** They were about to be
+   rewritten around a chat-based handoff that is no longer necessary — the SharePoint path
+   works, so the existing SharePoint-based wording is right in substance. They should be
+   checked for the `expectedBytes` step and the stored-size confirmation before the Routines
+   are enabled.
+3. **Asana `Stage` custom field + Rule (§7)** — unchanged, still needs project admin, and Rules
+   appear to be a paid-tier feature.

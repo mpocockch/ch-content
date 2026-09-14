@@ -48,6 +48,7 @@ minutes:
 
 - File: `drafts/<slug>/hero.*` — `hero.jpg` from the API, `hero.png` if hand-made. 16:9.
 - Keep the full-resolution original in the repo — it becomes the WordPress featured image.
-- Embed a downscaled copy in the Word doc (see `PLAYBOOK.md` §4 on the base64 ceiling).
+- Embed a downscaled copy in the Word doc (see `PLAYBOOK.md` §4 on upload size and
+  `expectedBytes`).
 - If no `hero.png` is present at packaging time, proceed with a placeholder and say so. A
   missing image must not block review of the text.
