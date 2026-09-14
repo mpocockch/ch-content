@@ -408,3 +408,20 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: same as the 2026-09-12 entry — re-check for genuine reviewer comments, and if
   a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
   actual revision can complete the SharePoint save and the ready-for-another-look handoff.
+
+## 2026-09-14 11:34 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the most-recently-created Unapproved/Approved Ideas task
+  (gid `1217698634586206`, "How to Ensure Electrical Equipment Room Reliability", Original
+  message id `1787259801114`, posted 2026-08-20). Listed the Teams channel's top-level messages
+  (`teams_list_channel_messages`, one page, 8 messages) and confirmed that message is still the
+  newest thing in the channel — nothing posted since. Created no Asana tasks; nothing new to
+  capture. Today is Monday, so checked the research-pass queue-depth rule (PLAYBOOK.md §8):
+  `Unapproved Ideas` still holds exactly 10 untriaged topics (unchanged since 2026-08-14, per
+  the 2026-09-12 entry) and `Approved Ideas` holds only 1 leftover task (the already-drafted
+  Equipment Room piece, un-moveable per §4) — few promotions since, so per the rule this run
+  added no research candidates.
+- Blocked: nothing.
+- Next run should: proceed normally. Keep skipping the Monday research pass until Thursday
+  triage promotes several topics out of `Unapproved Ideas` and the ~10-topic queue actually
+  drains.
