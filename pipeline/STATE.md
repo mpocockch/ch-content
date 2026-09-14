@@ -408,3 +408,32 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: same as the 2026-09-12 entry — re-check for genuine reviewer comments, and if
   a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
   actual revision can complete the SharePoint save and the ready-for-another-look handoff.
+
+## 2026-09-14 — Review Loop
+
+- Did: checked the single card in Waiting Approval (Panel Schedules, gid `1217697187018391`) for
+  genuine reviewer feedback since the last recorded check (2026-09-13 12:38 UTC). Read the full
+  story history — nothing posted after the 2026-09-13 12:38 UTC entry, which is itself the
+  pipeline's own prior state comment. No genuine reviewer comment or direct question to act on.
+- Also checked the SharePoint doc directly: "Panel Schedules Are an NEC Requirement, Not
+  Paperwork.docx" (itemId `01W45A5ESKEOYIJGOUSNC2IMWSQT4TD7VP`) still shows `lastModifiedDateTime`
+  2026-09-11T16:38:52Z — unchanged, so no new Word-doc edit either.
+- No other card is in Waiting Approval (Equipment Room reliability is still in Approved Ideas,
+  untouched by a reviewer since 2026-09-11), so no hero-image arrival to check and nothing else
+  in scope for this stage.
+- Stall check (§8): card entered Waiting Approval 2026-09-11 14:39 UTC — about 2 days 22 hours
+  old, still under the 5-day threshold. No nudge sent.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail` is not exposed in this session (only
+  `outlook_create_draft` and other non-send Outlook tools resolved via ToolSearch) — same gap
+  the 2026-09-11 16:22 UTC run hit. Moot this run since nothing needed sending, but the next run
+  that has real revision work to hand off should check for this tool before promising an email,
+  and fall back to a Drafts-folder draft per §5's transient-tool-absence rule if it's still
+  missing.
+- Blocked: nothing new. Standing blocker unchanged: the live SharePoint copy may still be the
+  corrupted replace-in-place upload from 2026-09-11, and this connector does not reliably upload
+  a full-length (~2,470-word) draft (~10 KB working ceiling, PLAYBOOK.md §4).
+- No Asana comment posted and no email sent — a quiet run, nothing new beyond what the
+  2026-09-12/13 comments already said on the card.
+- Next run should: same as the 2026-09-13 entry — re-check for genuine reviewer comments, and if
+  a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
+  actual revision can complete the SharePoint save and the ready-for-another-look handoff.
