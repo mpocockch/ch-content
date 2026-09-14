@@ -134,63 +134,69 @@ summary. Never pretend the move happened.
 (`soffice` returns "source file could not be loaded" even on a plain text file). Rendering is
 not available as a check, and `pandoc` is not installed either.
 
-**A `.docx` uploaded to SharePoint above roughly 10 KB arrives damaged.** This is the real
-cause of the "this document can't be opened for editing" failures, corrected 2026-09-11 after
-an earlier entry here wrongly blamed the document builder. The evidence is a bisect: the same
-builder, the same source draft and the same target folder, differing only in size —
+**There is no ~10 KB size ceiling on a `.docx` upload. The earlier entry here was wrong, and
+the "damaged file" failures have two unrelated causes, neither of which is size.** Corrected
+2026-09-14 by a live round-trip test into the real Blog folder:
 
-| Probe | Size | Opens |
-|---|---|---|
-| Minimal three-paragraph document | 8.6 KB | yes |
-| Every formatting feature the builder emits | 9.0 KB | yes |
-| First 40 lines of the Equipment Room draft | 9.8 KB | yes |
-| The interval table section of that draft | 9.6 KB | yes |
-| Second half of the same draft | 11.8 KB | no |
-| Full Equipment Room document | 15.5 KB | no |
-| Earlier Equipment Room document, hand-assembled XML | 18.1 KB | no |
+| Probe | Bytes sent | Stored | Built by | Opens |
+|---|---|---|---|---|
+| `CH-Upload-Test.docx` | 9,140 | 16,359 | `docx` npm library | yes |
+| `ZZ-Upload-Test-FullDraft.docx` | 8,475 | 17,159 | hand-rolled minimal OOXML | **no** |
+| `ZZ-Upload-Test-15KB.docx` | 15,407 | 22,575 | `docx` npm library | yes |
+| `Blog Content Ideas.docx` (human-uploaded) | — | 23,199 | Word | yes |
 
-A slice of the very same text opens; the whole does not. Two unrelated builders fail at the
-same boundary. Content, formatting and OOXML structure are all exonerated.
+The **smallest** file is the one that fails and a **15.4 KB** file uploaded through this exact
+connector opens and renders all four pages. The Blog folder also already holds human-uploaded
+`.docx` files of 47 KB, 283 KB, 824 KB and 1.78 MB that open fine. Size is exonerated at every
+scale that matters here. The `sharepoint_upload_file` schema puts the real cap at **1,048,576
+bytes**.
 
-A second signal distinguishes the two cases without opening anything: on a good upload the tool
-reports a stored size several KB **larger** than what was sent, because SharePoint opened the
-file and stamped its own metadata into it. On a bad upload the reported size matches the sent
-bytes exactly — SharePoint never managed to open it.
+The two real failure modes:
 
-So: **treat ~10 KB as the working ceiling for a `.docx` upload, not the ~18 KB below.** Under
-that ceiling, files are fine. Over it, the upload will appear to succeed and the reviewer will
-not be able to open the result.
+1. **Invalid OOXML from a hand-rolled document builder.** `ZZ-Upload-Test-FullDraft.docx`
+   above was hand-built and omitted the required `<w:tblGrid>` element from its table. It
+   passes `unzip` and an XML well-formedness check, and still Word and Graph both refuse it.
+   This is why **`.docx` must be built with the `docx` npm library** (`npm install docx` into a
+   scratch dir) and never by assembling XML by hand. A file that unzips and parses is *not*
+   thereby valid OOXML.
+2. **Base64 corruption in transit on large payloads.** `sharepoint_upload_file` takes only
+   `content` (text) or `contentBase64` — one unbroken string, no chunked upload — so every byte
+   passes through the model's own output. On 2026-09-11 a 20,596-character payload was received
+   as 28,513 characters. This is real, it gets worse with length, and it is the one thing that
+   genuinely scales with size.
 
-Until this is solved, a full-length draft cannot be handed off as a Word file in the Blog
-folder. Deliver it with `SendUserFile` instead, and say plainly in the Asana comment that the
-Word copy is coming through chat rather than SharePoint. Do not announce a SharePoint `.docx`
-over ~10 KB as ready for review.
+**Both failure modes are now catchable, so neither should ever reach a reviewer again:**
 
-**Still build `.docx` with the `docx` npm library** (`npm install docx` into a scratch dir if
-the require fails) rather than hand-assembling XML — that part of the earlier entry stands on
-its own merits, even though hand-assembled XML was not the cause here.
+- **Always pass `expectedBytes`** (the exact decoded byte count, taken from the build step).
+  The connector refuses the write when what it receives decodes to a different length, which
+  converts silent corruption into a loud failure. This closes failure mode 2.
+- **Always verify with `read_resource` on the returned `resourceUri` after uploading.** If the
+  text comes back, the file opens. If Graph answers `notSupported`, it does not — delete or
+  replace it and do not announce it as ready. This closes failure mode 1.
 
-**Binary uploads to SharePoint are capped at roughly 18 KB in practice.** Verified against the
-tool schema 2026-09-11: `sharepoint_upload_file` accepts only `content` (text) or
-`contentBase64` (one unbroken base64 string in the tool call). There is no file-path argument
-and no chunked upload — the schema says so explicitly. So every uploaded byte has to pass
-through the model's own output, and two runs found the reliable ceiling to be about **25,000
-base64 characters, roughly 18 KB of binary**. Past that, transcription introduces
-single-character errors and the upload is correctly rejected.
+**Do NOT use the "stored size grew" oracle** that an earlier version of this file recommended.
+It is false: the broken 8,475-byte probe above also grew (to 17,159 bytes). SharePoint grows
+files it stores regardless of whether they are valid. `read_resource` is the only trustworthy
+check.
 
-Consequences, all of them real:
+`pipeline/tools/md2docx.mjs` implements the verified build path: it turns a `draft.md` into a
+`.docx` with the `docx` library (headings, bold, bullets, tables) and prints the byte count to
+pass as `expectedBytes`.
 
-- A `.docx` must come in under ~18 KB **including** any embedded image. That leaves room for a
-  preview of roughly 300–400 px, which is enough to judge composition and spot a PPE problem,
-  and not enough for anything finer.
-- **Uploading the full-resolution `hero.jpg` as a separate file does not work either** — same
-  ceiling, same mechanism. The existing `Ultrasonic-Testing-Hero-Preview.jpg` in the Blog
-  folder is 6 KB, which suggests whoever made it hit exactly this wall.
-- The full-resolution original stays in git and goes to WordPress at publish time, where the
-  Novamira connector handles it — that path does not go through this ceiling.
+**Full-length drafts CAN be handed off as Word files in the Blog folder.** The previous
+instruction to route them through `SendUserFile` instead was based on the incorrect size
+ceiling and no longer applies.
 
-If reviewers need to see the hero at full quality before approval, the image has to reach them
-by some route other than a SharePoint upload. See §6.
+**Images are still impractical to upload, but for the transit reason, not a platform cap.** A
+full-resolution `hero.jpg` in this repo is around 690 KB, which is roughly 920,000 base64
+characters of model output in a single tool call. That is far past the length where failure
+mode 2 becomes a certainty, so it will not arrive intact. It is comfortably under the
+connector's 1 MB limit — the obstacle is the transit, not SharePoint. The full-resolution
+original stays in git and goes to WordPress at publish time through the Novamira connector,
+which does not route through the model's output at all. A small embedded preview (a few KB,
+300–400 px) inside the `.docx` is fine and is enough to judge composition and spot a PPE
+problem. If reviewers need the hero at full quality before approval, it has to reach them by
+some route other than a SharePoint upload — see §6.
 
 ---
 
@@ -432,15 +438,15 @@ points at actually exists:
 
 | Stage | Send when | Subject |
 |---|---|---|
-| 07 draft handoff | the SharePoint upload returned success | `Blog draft ready for review: <title>` |
+| 07 draft handoff | the upload was verified readable with `read_resource` (§4) | `Blog draft ready for review: <title>` |
 | 09 revision ready | the revised doc saved back successfully | `Blog draft revised, ready for another look: <title>` |
 
 **Never send** on a quiet run, when the upload failed, or twice for the same event. An email
 saying something is ready when it is not is worse than no email — the same rule that governs
 the Asana comment (§5, half-completed handoffs).
 
-**Link, do not attach.** Attachments go through the same model-output base64 ceiling as
-SharePoint uploads (§4), so they are impractical and would be low quality anyway. Send links:
+**Link, do not attach.** Attachments go through the same model-output base64 transit as
+SharePoint uploads (§4, failure mode 2), so anything sizeable is unreliable. Send links:
 the SharePoint document, and the Asana task.
 
 **Body should contain**, in plain prose, not a form dump: what the post is and its angle in a

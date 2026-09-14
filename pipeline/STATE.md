@@ -335,3 +335,58 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Delivered the rebuilt file to Matt via SendUserFile to confirm it opens locally. If it does,
   the upload path is the bug and the handoff needs to stop going through SharePoint for
   full-length drafts.
+
+## 2026-09-14 — Correction: there is no 10 KB ceiling; the builder and the transit are the bugs
+
+Triggered by Matt: "write a test word doc and add it to the blog folder — we need to figure out
+why I can't open the files on my browser." Ran a live round-trip test into the real Blog folder
+rather than another rebuild.
+
+**The 2026-09-11 entry in this file, and PLAYBOOK.md §4, were wrong. There is no ~10 KB size
+ceiling.** Evidence, all verified this run:
+
+| Probe | Sent | Stored | Built by | Opens |
+|---|---|---|---|---|
+| `CH-Upload-Test.docx` | 9,140 | 16,359 | `docx` npm | yes |
+| `ZZ-Upload-Test-FullDraft.docx` | 8,475 | 17,159 | hand-rolled OOXML | **no** |
+| `ZZ-Upload-Test-15KB.docx` | 15,407 | 22,575 | `docx` npm | yes |
+
+The smallest file is the one that fails, and a 15.4 KB file — squarely inside the range the
+playbook banned — uploaded through this exact connector and renders all four pages. The Blog
+folder also already holds human-uploaded `.docx` files of 47 KB, 283 KB, 824 KB and 1.78 MB
+that open fine; `Blog Content Ideas.docx` (23 KB) extracts text without complaint while the
+agent-built `How Do You Ensure Reliability ... (rebuilt).docx` (15.5 KB) returns
+`notSupported`. The upload schema's real cap is 1,048,576 bytes.
+
+**Two real causes, neither of them size:**
+
+1. **Invalid OOXML from hand-rolled builders.** Reproduced deliberately: a minimal builder I
+   wrote omitted the required `<w:tblGrid>` element. The file unzipped cleanly, every part
+   parsed as well-formed XML, and Word/Graph still refused it — at 8,475 bytes. This vindicates
+   the *original* (later overturned) note that unzip-plus-XML-parse is insufficient validation.
+   The fix is to build with the `docx` npm library, not to validate harder.
+2. **Base64 transit corruption**, exactly as the 2026-09-11 entry recorded (20,596 characters
+   sent, 28,513 received). Real, and the one thing that genuinely scales with length.
+
+**The "stored size grew" oracle is false and has been removed from the playbook.** The broken
+8,475-byte probe also grew, to 17,159 bytes. SharePoint grows what it stores either way.
+
+**Both causes are now catchable:** pass `expectedBytes` on every upload (refuses a
+length-mismatched write, closing cause 2), then `read_resource` the returned `resourceUri`
+(text back = opens, `notSupported` = does not, closing cause 1). Neither should reach a
+reviewer again.
+
+Changes landed: PLAYBOOK.md §4 rewritten; the `SendUserFile`-instead-of-SharePoint workaround
+withdrawn (full-length drafts can go in the Blog folder again); the §7 email trigger changed
+from "upload returned success" to "upload verified with `read_resource`"; new
+`pipeline/tools/md2docx.mjs` + README implementing the verified build path.
+
+Left in the Blog folder: `CH-Upload-Test.docx` (the test doc Matt asked for) and the two `ZZ-`
+probes, kept deliberately so the working and failing cases can be clicked side by side. They
+are safe to delete once he has looked.
+
+Not done this run: the live broken files are untouched. `How Do You Ensure Reliability in an
+Electrical Equipment Room (rebuilt).docx` and `Panel Schedules Are an NEC Requirement, Not
+Paperwork.docx` are still unopenable in SharePoint and still need re-uploading from the good
+copies in git — deliberately not done here, since both are attached to review cycles and
+replacing them is Matt's call. No Asana card was touched and no email was sent.
