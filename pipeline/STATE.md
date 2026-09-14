@@ -437,3 +437,39 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: same as the 2026-09-13 entry — re-check for genuine reviewer comments, and if
   a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
   actual revision can complete the SharePoint save and the ready-for-another-look handoff.
+
+## 2026-09-14 — Blog: Publish
+
+- Did: read `Approved Blogs` (gid `1216997967900172`). Two tasks in the section:
+  1. "Replace placeholder hero on published ultrasonic testing post" (gid `1217383348938728`) —
+     its own notes say plainly "this is a chore task, not a blog topic." Ignored per this
+     routine's instructions §6.
+  2. "What is Ultrasonic Testing in Electrical Systems? Process Explained" (gid
+     `1217369002256407`) — the only actual blog-topic card here. Before touching anything,
+     queried WordPress directly (`novamira/execute-php`, `get_post(14114)`) rather than trusting
+     the card, per this routine's precondition. Result: post 14114 is `post_status: draft`,
+     `post_modified_gmt` 2026-09-03 16:09:34 — unchanged from the 2026-09-11 13:42 UTC check
+     recorded on the task. The card's own notes still say "PUBLISHED," and the task is marked
+     completed in Asana, but the live site currently does not have this post published.
+- Did NOT publish, republish, or touch WordPress, the card, or the draft. The 2026-09-11 run
+  already identified this exact ambiguity (deliberate pull for a content/compliance reason, vs.
+  an accidental unpublish) and correctly stopped rather than guess; nothing has changed since —
+  no new Asana story, no change in WordPress state — so there is still no basis to decide either
+  way. Per PLAYBOOK.md §5, an ambiguous post state stops the run rather than being resolved by
+  assumption; re-publishing on a guess is exactly the double-publish/undo risk this stage exists
+  to avoid.
+- No new Asana comment posted (the 2026-09-11 comment already states the blocker accurately and
+  nothing new has happened since — a repeat comment would be noise, not information). No
+  SharePoint, WordPress, or git write attempted, so no push was needed this run beyond this
+  ledger entry.
+- Blocked: **this card cannot proceed without a human decision.** Needs Matt or Bill to say
+  either (a) republish post 14114 as-is, in which case a future run can do that and then update
+  this card's notes/section, or (b) confirm the unpublish was deliberate, in which case this
+  card's stale "PUBLISHED" notes and its placement in `Approved Blogs` should be corrected (and
+  the sibling chore card re-scoped or closed) so future runs stop re-flagging it. Also standing:
+  the featured-image chore (gid `1217383348938728`) is unaffected by this and remains open
+  regardless of which way the republish decision goes.
+- Next run should: re-check post 14114's status and the Asana story history before doing
+  anything else with this card — if a human has answered either way, act on it; if not, stop
+  again exactly as this run and the 2026-09-11 run did, rather than re-posting the same comment
+  or guessing.
