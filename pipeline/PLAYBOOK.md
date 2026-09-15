@@ -213,6 +213,25 @@ published, or a card as moved unless the tool returned success. Where a write re
 count, confirm it matches the local file exactly — a truncated payload can pass validation and
 silently write a corrupt file.
 
+**Never pass an item ID to a destructive call without confirming what it points at.** A
+`read_resource` folder listing returns entries as `Name (file, N bytes) file:///driveId/itemId`
+run together with no separator between them, and the ID belongs to the entry it *follows*. Read
+by eye and it is very easy to take the ID of the previous file. That happened on 2026-09-14: a
+delete aimed at a leftover test artifact removed
+`Preventive vs Predictive Maintenance. Key Differences Explained.docx` instead, because its ID
+sat immediately before the intended one in the listing text.
+
+Confirm the ID first, by either route:
+
+- `sharepoint_search` returns structured results with `name` and `id` as separate fields — no
+  parsing needed. Prefer this.
+- `read_resource` on the item itself names the file: on success you see its text, and even the
+  `notSupported` conversion refusal echoes the filename back in the error.
+
+Deletes go to the recycle bin and are recoverable there for 93 days, but **this connector has
+no restore tool** — recovery is a human clicking through the SharePoint UI. Check before you
+delete, not after.
+
 **Distinguish the two failure modes.**
 - Tool absent, connector disconnected or not enabled → **transient**. Commit what is done,
   record state, stop that stage, let the next run retry.

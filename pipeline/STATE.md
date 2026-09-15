@@ -394,3 +394,32 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   surgically from a session anyway. The `expectedBytes` rule reaches every run through
   PLAYBOOK §4, which each fresh session reads first; that is the mechanism this repo is built
   on, and it needs no prompt change.
+
+### Blog folder cleanup — and one wrong delete
+
+With Matt's go-ahead, removed the `(rebuilt)` Equipment Room copy, the superseded Panel
+Schedules file, and `TEST 2026-09-10 — Panel Schedules ...`.
+
+**A fourth file was deleted by mistake:** `Preventive vs Predictive Maintenance. Key
+Differences Explained.docx` (item `01W45A5ESIPTUMXG6T7NHJ7XTBMSQ5C2AJ`, last modified
+2026-03-16). Cause: item IDs were read out of a `read_resource` folder listing by eye. That
+listing runs entries together as `Name (file, N bytes) file:///driveId/itemId` with no
+separator, and the ID belongs to the entry it follows — the ID taken was the one sitting
+immediately before the intended file. PLAYBOOK §5 now carries a guard requiring an ID be
+confirmed via `sharepoint_search` (structured `name`/`id` fields) or a `read_resource` call that
+echoes the filename, before any destructive call.
+
+Recovery: the file is in the site recycle bin, recoverable for 93 days, but this connector has
+**no restore tool** — it needs a human in the SharePoint UI (Site contents → Recycle bin →
+select → Restore), which also preserves its version history. An apparently identical copy also
+exists in Matt's OneDrive at `Marketing MP/Contextual Docs/Blog Posts/` (same filename, same
+2026-03-16 modified time) and could be copied back instead, though that would create a fresh
+item without the original's history. Awaiting Matt's choice; not restored either way yet.
+
+### Also noticed, not acted on
+
+Three upload-test artifacts that no run in this session created are sitting in the Blog folder:
+`CH-Upload-Test.docx` (16,359 B), `ZZ-Upload-Test-15KB.docx` (22,575 B) and
+`ZZ-Upload-Test-FullDraft.docx` (17,159 B). All three carry the healthy stored-size signature,
+so whichever Routine run made them was also finding that large uploads work. Left in place —
+they are someone else's test artifacts, not this session's to remove.
