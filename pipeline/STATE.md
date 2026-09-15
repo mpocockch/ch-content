@@ -437,3 +437,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: same as the 2026-09-13 entry — re-check for genuine reviewer comments, and if
   a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
   actual revision can complete the SharePoint save and the ready-for-another-look handoff.
+
+## 2026-09-15 11:34 UTC — Blog: Idea Capture
+
+- Did: confirmed the watermark first (Asana: newest task across Unapproved/Approved Ideas is
+  still gid `1217698634586206`, Original message id `1787259801114`, unchanged since the
+  2026-09-12 run), then read the Teams channel via `read_resource` — a single unpaginated call,
+  no history re-walk. The watermark message is itself still the newest message in the channel;
+  nothing has been posted to Blog Ideas since 2026-08-20. Created no Asana tasks. Today is
+  Tuesday, so the Monday research pass did not apply.
+- Blocked: nothing.
+- Next run should: proceed normally. `Unapproved Ideas` still holds 10 untriaged topics
+  (unchanged since 2026-08-14) — still at/over the queue-depth line in PLAYBOOK.md §8, so a
+  Monday research pass should keep adding nothing until Thursday triage promotes some out.
