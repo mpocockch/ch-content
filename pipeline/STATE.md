@@ -437,3 +437,42 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: same as the 2026-09-13 entry — re-check for genuine reviewer comments, and if
   a human has restored/replaced the SharePoint file or a chunked-upload path appears, the next
   actual revision can complete the SharePoint save and the ready-for-another-look handoff.
+
+## 2026-09-15 12:41 UTC — Review Loop — corrected a 4-day-old false blocker, completed the delayed handoff
+
+- Did: checked the single card in Waiting Approval (Panel Schedules, gid `1217697187018391`) for
+  genuine reviewer feedback since the last recorded check (2026-09-14). Read the full story
+  history — nothing posted since the 2026-09-12 12:43 UTC entry (the pipeline's own prior state
+  comment); no genuine reviewer comment or question to act on, so no new revision to implement.
+- **Correction: the "corrupted SharePoint doc" blocker standing since 2026-09-11 was wrong.**
+  Rather than trust the note, searched SharePoint directly and found the file at the correct
+  name, "Panel Schedules Are an NEC Requirement, Not Paperwork.docx", now has a *different item
+  ID* than the one every prior run (09-11 through 09-14) had been checking. That old item ID
+  was renamed to "SUPERSEDED damaged upload - ..." at 2026-09-11T19:30:58Z, and a working copy
+  was placed under the correct name at that same timestamp — almost certainly a human fix that
+  landed between the 09-11 19:22 UTC revision run and the first 09-12 check, which every
+  subsequent run missed because it kept re-checking the old (now-renamed) item ID instead of
+  re-searching by name. Read the live file back via Graph: it converts cleanly and its full text
+  matches the current revised draft (git `d0fec82`, unchanged since 09-11) word for word.
+- Since the save is now confirmed good, completed the handoff that 09-11's revision run withheld
+  pending exactly this confirmation: posted a "ready for another look" comment on the Asana task
+  (correcting the record and linking the doc), per PLAYBOOK.md §7b/stage 09 step 4a.
+- Attempted the revision email per §7b/step 4b. **This session's Microsoft 365 connector
+  exposes no send tool** (only `outlook_create_draft`/reply-draft — no
+  `outlook_send_mail`/`outlook_send_draft`), the same gap the 2026-09-11 16:22 UTC and 2026-09-14
+  runs hit. Per §5 (tool absent → transient), created an unsent Drafts-folder draft addressed to
+  Matt and Bill with the SharePoint and Asana links and the PPE reminder, rather than treating
+  this as blocking the already-completed Asana handoff.
+- Stall check (§8): card entered Waiting Approval 2026-09-11 14:39 UTC — about 4 days old, still
+  under the 5-day threshold. No nudge sent.
+- No hero-image action needed — already embedded in the doc since 09-11, and no new `hero.*`
+  arrived.
+- Blocked: **the revision email is sitting as an unsent draft, not sent** — a human needs to
+  send it from Outlook Drafts, or a future run needs a session with a send-capable Microsoft 365
+  connector. No other blocker.
+- Next run should: nothing pending on this card from the drafting side. If the email is still
+  unsent and a send-capable tool is available, send it (or a human already sent it manually —
+  check Sent Items for "ready for another look" before re-drafting). Also worth flagging to a
+  human: three consecutive runs (09-12, 09-13, 09-14) reported a false blocker because they
+  checked a stale SharePoint item ID instead of re-searching by filename — worth deciding whether
+  future runs should always re-search by name rather than reuse a remembered item ID.
