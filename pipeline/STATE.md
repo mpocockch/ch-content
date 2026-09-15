@@ -476,3 +476,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   human: three consecutive runs (09-12, 09-13, 09-14) reported a false blocker because they
   checked a stale SharePoint item ID instead of re-searching by filename — worth deciding whether
   future runs should always re-search by name rather than reuse a remembered item ID.
+
+## 2026-09-15 13:41 UTC — Blog: Publish — found a stale "already published" note, did not publish
+
+- Did: read `Approved Blogs` (2 tasks). One is the chore "Replace placeholder hero on published
+  ultrasonic testing post" — skipped per this stage's "ignore chore tasks" instruction. The other,
+  "What is Ultrasonic Testing in Electrical Systems? Process Explained" (gid
+  `1217369002256407`, `completed: true`), carries a note claiming it is already published (live
+  URL, WordPress post ID 14114) and just needs the card dragged to Posted Blogs.
+- Per this stage's precondition, queried WordPress directly instead of trusting the note.
+  **The note is wrong: post 14114 is currently `post_status: draft`**, last modified
+  2026-09-03T16:09:34, not publicly reachable at the slugged permalink. Its featured image is
+  still attachment 14113, the 260x145 `...-PLACEHOLDER.jpg` that the sibling chore task exists to
+  replace — so even the known-outstanding problem from the last "publish" is unresolved.
+- Did NOT publish it. Reasons: (1) no `drafts/<slug>/` exists in this repo for it — the post
+  predates the git-based pipeline, so there is no real hero to package, only the placeholder;
+  (2) whether the draft state is a deliberate human revert (e.g. pending the hero fix) or the
+  original publish never actually completed is unknowable from repo/Asana state alone, and this
+  stage's rule is to stop and report on ambiguity rather than guess; (3) publishing over a
+  placeholder image is explicitly disallowed regardless.
+- Posted a correction comment on the Asana task (story `1218508134542500`) laying out the actual
+  WordPress state and asking for a human decision. Left the card in Approved Blogs — did not ask
+  for a move to Posted Blogs, since the post is not actually posted.
+- No other cards in Approved Blogs. No image checks, no WordPress writes, no SharePoint writes,
+  no card moves attempted this run.
+- Blocked: **needs a human to say what actually happened to post 14114** (intentional revert vs.
+  a publish that silently never completed) and to confirm the real hero image plan, before any
+  future run touches this post again.
+- Next run (Publish stage) should: re-check this card's WordPress status fresh rather than
+  trusting either the Asana note or this entry — if a human has since set a real hero and
+  republished it, treat it as already live and just request the card move; otherwise leave it
+  alone pending the human decision above.
