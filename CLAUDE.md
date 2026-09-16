@@ -22,6 +22,14 @@ For drafting work, also read `pipeline/DRAFTING.md` and `pipeline/VOICE.md` — 
   post, not a moved card.
 - **Append to `pipeline/STATE.md` every run,** including quiet ones.
 
+## Writing to HubSpot
+
+Anything that writes to the HubSpot portal — the WhatConverts lead sync in
+`integrations/whatconverts-hubspot/`, or any future integration — must follow
+`CRM-CONVENTIONS.md`. It holds the naming and attribution rules and the verified portal
+behaviour (string stage ids, asynchronous name backfill, which association type to use).
+Do not re-derive any of it.
+
 ## Conventions
 
 - Prose files are Markdown, wrapped at ~90 characters.
