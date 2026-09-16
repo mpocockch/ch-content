@@ -61,9 +61,8 @@ label maker and a few minutes. Reconstructing one years later, for an entire pan
 facility, means tracing circuits with a toner and receiver one at a time, coordinating with
 every affected department before a breaker can be switched, and scheduling a shutdown window for
 anything that can't be traced safely energized. None of that scales the way updating one circuit
-at a time does. Bill Concannon's framing of this from the original pitch holds up well: it's
-easier to stay ready than to get ready. A directory kept current breaker-by-breaker never turns
-into a facility-wide tracing project.
+at a time does. A directory kept current breaker-by-breaker never turns into a facility-wide
+tracing project: it's easier to stay ready than to get ready.
 
 ## The Safety Case: What a Wrong Directory Actually Costs
 

@@ -131,6 +131,33 @@ information — what C&H sees in the field, what it is certified to — rather t
 
 ---
 
+## Never narrate the review process in the copy
+
+The article is for readers, not a record of how it came together. Never write a sentence that
+credits or describes an internal comment, note, or pitch — from Matt, Bill, any reviewer, or
+the original Teams idea post — even in passing. A real defect found in a published draft:
+
+> Bill Concannon's framing of this from the original pitch holds up well: it's easier to stay
+> ready than to get ready.
+
+This fails even though the underlying line is good, because the reader has no idea who Bill
+Concannon is, was never shown "the original pitch," and the sentence reads as an internal
+editing note that leaked into the copy rather than something written for them.
+
+If a phrase or framing from an idea, a pitch, or a review comment belongs in the piece, use it
+— just drop the internal attribution and let the article say it in its own voice:
+
+> A directory kept current breaker-by-breaker never turns into a facility-wide tracing
+> project: it's easier to stay ready than to get ready.
+
+**The only exception is a literal quote you were explicitly given to use** — a client
+testimonial, a named external expert, a standard's own text — quoted because the quote itself
+is the point, sourced and attributed the way any other citation would be. Matt or Bill saying
+something in review, in an idea post, or in a Teams message is never that kind of quote unless
+they hand you the exact words and say to use them as a quote.
+
+---
+
 ## Calls to action
 
 **Conditional, not automatic.** Per the strategy: a CTA is used only when the topic directly
@@ -176,6 +203,9 @@ better answer for intervals and categories; decoration is not data.
 - CTA is conditional and, if present, mid-article; post closes on Final thoughts.
 - 3+ internal link placeholders.
 - Banned-phrase check per `VOICE.md`, **excluding your own notes and the word list itself**.
+- No sentence credits or describes an internal comment, pitch, or review note (Matt's, Bill's,
+  a reviewer's, or the original idea post's) — the substance can stay, the attribution to the
+  internal source cannot, unless it's a literal quote you were told to use as one.
 
 ## Output layout
 

@@ -31,6 +31,12 @@ Follow `DRAFTING.md` exactly. The things most often got wrong:
   C&H post and the two most often skipped.
 - **CTA only if the topic intersects a C&H service**, placed mid-article, and close on
   Final thoughts.
+- **Never credit or describe an internal comment, pitch, or review note in the copy** — not
+  Matt's, not Bill's, not the original Teams idea post's, even in passing ("Bill's framing from
+  the pitch holds up well"). The reader was never shown that context and it reads as an editing
+  artifact. If the underlying idea is good, use it in the article's own voice with no internal
+  attribution. See `DRAFTING.md`'s "Never narrate the review process" section for the real
+  defect this rule was written to stop.
 
 Verify what standards actually say before asserting it. A claim a practitioner can falsify
 destroys the piece. If a figure cannot be verified, leave it out of the body and note why in
@@ -42,6 +48,10 @@ When implementing reviewer edits, work from the reviewer's actual words — the 
 the Word doc markup. Ambiguous feedback gets a clarifying reply on the card, not a guess.
 Treat a direct question from Matt or Bill as work to be done: answer it in a reply comment
 before drafting, since their input often decides the angle or the target keyword.
+
+Pull the substance of a review comment or idea-post note into the piece, never the fact that it
+was said in review. "Bill wants more on the safety angle" becomes a safety section — it does
+not become a sentence telling the reader that Bill wanted more on the safety angle.
 
 ## Finishing
 
