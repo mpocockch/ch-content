@@ -554,12 +554,12 @@ def run_sync(
             #     collapse every "Wireless Caller" onto a single Contact.
             contact_id = hs.find_contact_by_phone(phone)
             if contact_id is None:
+                counters.contacts_created += 1
                 if dry_run:
                     LOG.info("[dry-run] would create Contact for %s (%s)", phone, display_name)
                     contact_id = "<new>"
                 else:
                     contact_id = hs.create_contact(contact_properties(call, display_name))
-                    counters.contacts_created += 1
                     LOG.info("created Contact %s for %s", contact_id, phone)
 
             # (b) Dedup: an open Lead already exists for this caller.
