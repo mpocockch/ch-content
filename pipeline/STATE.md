@@ -410,11 +410,14 @@ confirmed via `sharepoint_search` (structured `name`/`id` fields) or a `read_res
 echoes the filename, before any destructive call.
 
 Recovery: the file is in the site recycle bin, recoverable for 93 days, but this connector has
-**no restore tool** — it needs a human in the SharePoint UI (Site contents → Recycle bin →
-select → Restore), which also preserves its version history. An apparently identical copy also
-exists in Matt's OneDrive at `Marketing MP/Contextual Docs/Blog Posts/` (same filename, same
-2026-03-16 modified time) and could be copied back instead, though that would create a fresh
-item without the original's history. Awaiting Matt's choice; not restored either way yet.
+**no restore tool**. Matt chose to restore it himself from the SharePoint UI (Site contents →
+Recycle bin → select → Restore), which puts the original item back with its version history and
+original item ID intact — better fidelity than the alternative, which was copying the
+apparently identical duplicate in his OneDrive (`Marketing MP/Contextual Docs/Blog Posts/`, same
+filename and same 2026-03-16 modified time) into the Blog folder as a fresh, history-less item.
+
+**Open for Matt: perform that restore.** Nothing else in the pipeline depends on it, and no
+agent can do it.
 
 ### Also noticed, not acted on
 
