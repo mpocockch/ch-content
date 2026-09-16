@@ -105,15 +105,27 @@ data -- 47 of 279 recent records are literally "Wireless Caller" and another 87
 are `City ST` strings. Matching on it would collapse dozens of unrelated callers
 onto one Contact.
 
-**Lead names come from the call summary when possible.** `caller_name` is a real
-person's name only about half the time, and even then it can be the account
-holder rather than the caller (one record's CNAM says "Mario Malangone" while
-the summary says "Dana from Malangorn Electric called"). With `ANTHROPIC_API_KEY`
-set, the summary and transcript are read to identify the caller, returning
-nothing unless confident -- summaries also name C&H staff, the person the caller
-asked for, and companies. Without the key it falls back to a `caller_name`
-heuristic, then the phone number. An extracted name is display text only; it
-never affects Contact matching, so a bad extraction is cosmetic.
+**Leads are created without a name unless one is known confidently.** HubSpot
+accepts a Lead with no `hs_lead_name` and does not derive one from the
+associated contact, so the field stays visibly empty for someone to fill in.
+
+`caller_name` is deliberately not used. It is carrier CNAM data: 47 of 279
+recent records read "Wireless Caller", another 87 are `City ST` strings, and
+when it does look like a name it can be the account holder rather than the
+caller -- one call here reads "Mario Malangone" for a caller the summary and the
+matching CRM contact both identify as Dana. A blank field prompts someone to
+look; a plausible wrong name gets trusted. The raw CNAM value is recorded on the
+call note regardless.
+
+With `ANTHROPIC_API_KEY` set, the call summary and transcript are read to
+identify the caller, returning nothing unless confident -- summaries also name
+C&H staff, the person the caller asked for, and companies. An extracted name is
+display text only and never affects Contact matching, so a bad extraction is
+cosmetic.
+
+Lead names are the person, not the company: HubSpot carries company identity
+separately via the company association and `hs_associated_company_name`, which
+can be shown as its own column in the Leads list view.
 
 **Open-lead detection uses `hs_lead_is_open`** rather than a hardcoded list of
 open stage ids, so adding a pipeline stage doesn't silently break dedup.

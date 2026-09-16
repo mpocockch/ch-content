@@ -406,15 +406,25 @@ def extract_name_via_claude(lead: dict[str, Any]) -> str | None:
     return None
 
 
-def resolve_lead_name(lead: dict[str, Any], use_claude: bool) -> str:
+def resolve_lead_name(lead: dict[str, Any], use_claude: bool) -> str | None:
+    """The caller's name, or None when it is not confidently known.
+
+    None means hs_lead_name is left unset: HubSpot accepts a Lead without a name
+    and does not derive one from the associated contact, so the field stays
+    visibly empty for someone to fill in.
+
+    caller_name is deliberately not used as a fallback. It is carrier CNAM data
+    and names the account holder rather than the caller often enough to be worse
+    than nothing -- one call here shows "Mario Malangone" for a caller the
+    summary and the matching CRM contact both identify as Dana. A blank field
+    prompts someone to look; a plausible wrong name gets trusted. The raw CNAM
+    value is still recorded on the call note either way.
+    """
     if use_claude:
         extracted = extract_name_via_claude(lead)
         if extracted:
             return extracted
-    caller_name = lead.get("caller_name")
-    if looks_like_person(caller_name):
-        return str(caller_name).strip()
-    return str(lead.get("caller_number") or f"WhatConverts lead {lead.get('lead_id')}")
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -435,9 +445,9 @@ def _phone_variants(e164: str) -> list[str]:
     return [v for v in variants if v]
 
 
-def contact_properties(lead: dict[str, Any], display_name: str) -> dict[str, str]:
+def contact_properties(lead: dict[str, Any], display_name: str | None) -> dict[str, str]:
     props: dict[str, str] = {"phone": str(lead.get("caller_number") or "")}
-    if looks_like_person(display_name):
+    if display_name and looks_like_person(display_name):
         parts = display_name.split()
         props["firstname"] = parts[0]
         if len(parts) > 1:
@@ -556,7 +566,10 @@ def run_sync(
             if contact_id is None:
                 counters.contacts_created += 1
                 if dry_run:
-                    LOG.info("[dry-run] would create Contact for %s (%s)", phone, display_name)
+                    LOG.info(
+                        "[dry-run] would create Contact for %s (name: %s)",
+                        phone, display_name or "<none>",
+                    )
                     contact_id = "<new>"
                 else:
                     contact_id = hs.create_contact(contact_properties(call, display_name))
@@ -582,11 +595,12 @@ def run_sync(
 
             # (c) + (d) Lead, then the call note.
             lead_props = {
-                "hs_lead_name": display_name,
                 "hs_pipeline": pipeline_id,
                 "hs_pipeline_stage": new_stage_id,
                 "whatconverts_lead_id": wc_id,
             }
+            if display_name:
+                lead_props["hs_lead_name"] = display_name
             if dry_run:
                 LOG.info("[dry-run] would create Lead %r on contact %s", lead_props, contact_id)
                 LOG.info("[dry-run] would add note: %s", body[:200])
@@ -596,7 +610,10 @@ def run_sync(
             lead_id = hs.create_lead(lead_props, contact_id)
             hs.create_note(body, stamp, contact_id)
             counters.leads_created += 1
-            LOG.info("created Lead %s (%s) for WhatConverts %s", lead_id, display_name, wc_id)
+            LOG.info(
+                "created Lead %s (name: %s) for WhatConverts %s",
+                lead_id, display_name or "<none, to be filled in>", wc_id,
+            )
 
         except SyncError as exc:
             # One bad record must not strand the rest of the batch.
@@ -630,7 +647,7 @@ def main(argv: list[str] | None = None) -> int:
 
     use_claude = bool(os.environ.get("ANTHROPIC_API_KEY"))
     if not use_claude:
-        LOG.info("ANTHROPIC_API_KEY not set -- falling back to caller_name heuristics")
+        LOG.info("ANTHROPIC_API_KEY not set -- Leads will be created without a name")
 
     wc = WhatConverts(os.environ["WC_TOKEN"], os.environ["WC_SECRET"])
     hs = HubSpot(os.environ["HUBSPOT_TOKEN"])
