@@ -80,9 +80,11 @@ python sync.py                           # live
 1. **Contact** -- matched on `caller_number` only, created if absent.
 2. **Dedup** -- if that Contact already has a Lead in an open stage, no second
    Lead is created; the call is attached as a note instead.
-3. **Lead** -- `hs_pipeline_stage = 1318266061` ("New"), `whatconverts_lead_id`
-   set for dedup on later runs.
-4. **Note** -- call metadata plus the AI call summary, on the Contact.
+3. **Attribution** -- the contact's Original Traffic Source (`hs_analytics_source`)
+   is set from the call's WhatConverts source and medium, before the Lead is
+   created so the Lead's own `hs_lead_source` inherits it.
+4. **Lead** -- New stage, `whatconverts_lead_id` set for dedup on later runs.
+5. **Note** -- call metadata plus the AI call summary, on the Contact.
 
 ## Design notes
 
@@ -135,6 +137,26 @@ cosmetic.
 Lead names are the person, not the company: HubSpot carries company identity
 separately via the company association and `hs_associated_company_name`, which
 can be shown as its own column in the Leads list view.
+
+**Traffic source is mapped from `lead_medium`, with `lead_source` deciding the
+AI and direct cases.** The mapping covers all 279 calls in the last 90 days:
+
+| WhatConverts | HubSpot Original Traffic Source | 90-day calls |
+| --- | --- | --- |
+| medium `cpc` / `ppc` / `paid` | Paid Search | 70 |
+| medium `organic` (gmb, google, bing) | Organic Search | 199 |
+| source `(direct)` or medium `(none)` | Direct Traffic | 7 |
+| medium `referral` | Referrals | 2 |
+| source contains `chatgpt`, `perplexity`, … | AI Referrals | 1 |
+
+Note that `gmb/organic` -- calls placed from the Google Business Profile listing
+-- is 182 of those 279 and is counted as Organic Search. If Organic Search is
+read as a measure of SEO performance, that inflates it; moving GBP to Referrals
+or Direct Traffic is a one-line change to `MEDIUM_TO_SOURCE`.
+
+A contact that already carries real attribution keeps it. Only HubSpot's
+`OFFLINE` placeholder -- what it records for anything entered by hand in the CRM
+-- is replaced, so the sync never overwrites a genuine first-touch source.
 
 **Open-lead detection uses `hs_lead_is_open`** rather than a hardcoded list of
 open stage ids, so adding a pipeline stage doesn't silently break dedup.

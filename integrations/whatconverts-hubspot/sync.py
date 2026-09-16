@@ -49,6 +49,24 @@ NEW_STAGE_LABEL = "New"
 NEW_STAGE_ID_ALIAS = "1318266061"
 
 DEFAULT_LOOKBACK_DAYS = 30
+
+# WhatConverts attribution -> HubSpot "Original Traffic Source"
+# (hs_analytics_source on the Contact). Keyed on lead_medium, which covers 277
+# of the last 279 calls; lead_source only decides the AI and direct cases.
+MEDIUM_TO_SOURCE = {
+    "cpc": "PAID_SEARCH",
+    "ppc": "PAID_SEARCH",
+    "paid": "PAID_SEARCH",
+    "organic": "ORGANIC_SEARCH",
+    "referral": "REFERRALS",
+    "email": "EMAIL_MARKETING",
+    "social": "SOCIAL_MEDIA",
+}
+AI_SOURCES = ("chatgpt", "perplexity", "claude.ai", "copilot", "gemini")
+# Existing contacts keep whatever attribution they already have, except this
+# placeholder: HubSpot records OFFLINE for anything typed into the CRM by hand,
+# which carries no real attribution and is worth replacing.
+REPLACEABLE_SOURCES = {None, "", "OFFLINE"}
 WC_PAGE_SIZE = 250
 
 # A caller_name that is carrier CNAM junk rather than a person. WhatConverts
@@ -294,6 +312,19 @@ class HubSpot:
 
     # -- writes ------------------------------------------------------------
 
+    def contact_traffic_source(self, contact_id: str) -> str | None:
+        url = f"{HS_BASE}/crm/v3/objects/contacts/{contact_id}"
+        props = _request(
+            self._session, "GET", url, params={"properties": "hs_analytics_source"}
+        ).json().get("properties") or {}
+        return props.get("hs_analytics_source")
+
+    def set_contact_traffic_source(self, contact_id: str, source: str) -> None:
+        url = f"{HS_BASE}/crm/v3/objects/contacts/{contact_id}"
+        _request(
+            self._session, "PATCH", url, json={"properties": {"hs_analytics_source": source}}
+        )
+
     def create_contact(self, props: dict[str, str]) -> str:
         url = f"{HS_BASE}/crm/v3/objects/contacts"
         return str(_request(self._session, "POST", url, json={"properties": props}).json()["id"])
@@ -452,12 +483,30 @@ def contact_properties(lead: dict[str, Any], display_name: str | None) -> dict[s
         props["firstname"] = parts[0]
         if len(parts) > 1:
             props["lastname"] = " ".join(parts[1:])
+    source = traffic_source(lead)
+    if source:
+        props["hs_analytics_source"] = source
     # WhatConverts exposes city/state but no postal code for phone leads.
     if lead.get("city"):
         props["city"] = str(lead["city"])
     if lead.get("state"):
         props["state"] = str(lead["state"])
     return props
+
+
+def traffic_source(lead: dict[str, Any]) -> str | None:
+    """Map a WhatConverts lead to a HubSpot Original Traffic Source value."""
+    source = str(lead.get("lead_source") or "").strip().lower()
+    medium = str(lead.get("lead_medium") or "").strip().lower()
+
+    if any(marker in source for marker in AI_SOURCES):
+        return "AI_REFERRALS"
+    mapped = MEDIUM_TO_SOURCE.get(medium)
+    if mapped:
+        return mapped
+    if source in ("(direct)", "direct", "") or medium in ("(none)", "none", ""):
+        return "DIRECT_TRAFFIC"
+    return None
 
 
 def note_body(lead: dict[str, Any]) -> str:
@@ -574,6 +623,33 @@ def run_sync(
                 else:
                     contact_id = hs.create_contact(contact_properties(call, display_name))
                     LOG.info("created Contact %s for %s", contact_id, phone)
+
+            # Attribution. Done before the Lead is created, because HubSpot
+            # derives the Lead's own hs_lead_source from the contact at creation
+            # time -- setting it afterwards would leave the Lead unattributed.
+            # An existing contact keeps any real attribution it already has;
+            # only HubSpot's OFFLINE placeholder (what it records for anything
+            # entered by hand in the CRM) is replaced.
+            source = traffic_source(call)
+            if source and contact_id != "<new>":
+                current = hs.contact_traffic_source(contact_id)
+                if current in REPLACEABLE_SOURCES:
+                    if dry_run:
+                        LOG.info(
+                            "[dry-run] would set contact %s traffic source %s -> %s",
+                            contact_id, current or "<unset>", source,
+                        )
+                    else:
+                        hs.set_contact_traffic_source(contact_id, source)
+                        LOG.info(
+                            "contact %s traffic source %s -> %s",
+                            contact_id, current or "<unset>", source,
+                        )
+                else:
+                    LOG.debug(
+                        "contact %s keeps existing traffic source %r (call was %s)",
+                        contact_id, current, source,
+                    )
 
             # (b) Dedup: an open Lead already exists for this caller.
             open_leads = [] if contact_id == "<new>" else hs.open_leads_for_contact(contact_id)
