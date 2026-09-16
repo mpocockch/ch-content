@@ -183,6 +183,21 @@ deeper, not clustered at the end.
 
 ---
 
+## LinkedIn post
+
+**Every draft ships with a LinkedIn post that links out to the article.** It is part of the
+draft deliverable, not a follow-up task — write it in the same run, hand it off with the draft,
+and let it be reviewed alongside the copy.
+
+The full standard is `pipeline/LINKEDIN.md`: the five-move structure, the arrow-bullet device,
+the link-close phrasings already in use, and the published exemplars to match. Short version —
+120–250 words, a one-line hook, short paragraphs, three to five concrete specifics from the
+article, one standard or code anchor, then the link. Tease the piece, don't summarize it.
+
+Output goes to `drafts/<slug>/linkedin.md`, post body first and pasteable as-is.
+
+---
+
 ## Charts
 
 Include an inline hand-authored SVG chart only if the topic has **3+ genuinely comparable data
@@ -206,6 +221,8 @@ better answer for intervals and categories; decoration is not data.
 - No sentence credits or describes an internal comment, pitch, or review note (Matt's, Bill's,
   a reviewer's, or the original idea post's) — the substance can stay, the attribution to the
   internal source cannot, unless it's a literal quote you were told to use as one.
+- `linkedin.md` written, 120–250 words, checked against `LINKEDIN.md` — hook, arrow list,
+  one standard anchor, link close, no hashtags, body pasteable as-is.
 
 ## Output layout
 
@@ -216,6 +233,7 @@ draft.md          metadata block, then the post
 sources.md        every citation with tier and URL
 image-brief.md    hero image spec (see IMAGE-BRIEF.md)
 hero.jpg          16:9, generated per PLAYBOOK.md §6
+linkedin.md       the LinkedIn post (see LINKEDIN.md)
 ```
 
 Commit and push this folder **before** attempting any SharePoint upload.

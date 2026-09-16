@@ -7,6 +7,7 @@ draft.md          the post, with front matter
 sources.md        citations with tier and URL
 image-brief.md    hero image spec
 hero.jpg|.png     16:9 hero image - generated, or added by a human
+linkedin.md       LinkedIn post linking out to the article
 ```
 
 Folders stay here after publishing — this is the content archive. `draft.md` front matter
