@@ -476,3 +476,54 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   human: three consecutive runs (09-12, 09-13, 09-14) reported a false blocker because they
   checked a stale SharePoint item ID instead of re-searching by filename — worth deciding whether
   future runs should always re-search by name rather than reuse a remembered item ID.
+
+## 2026-09-16 12:40 UTC — Review Loop
+
+- Did: checked the single card in Waiting Approval (Panel Schedules, gid `1217697187018391`) for
+  genuine reviewer feedback since the last recorded check (2026-09-15 12:41 UTC). Delegated the
+  full story-history read to a subagent rather than re-reading everything inline; it confirmed no
+  story on the card postdates the 2026-09-15T12:41:22Z entry, which is itself the pipeline's own
+  prior state comment. No genuine reviewer comment or direct question from Matt/Bill anywhere —
+  every story on this card, across its entire history, is agent self-narration (git commits,
+  SharePoint mechanics, "Next run should…") attributed to Matt Pocock only via the connector's
+  own-identity artifact (§4). No new revision to implement.
+- Also checked the SharePoint doc directly rather than trusting Asana alone: "Panel Schedules Are
+  an NEC Requirement, Not Paperwork.docx" still shows `lastModifiedDateTime`
+  2026-09-11T19:30:58Z — unchanged, so no new Word-doc edit either.
+- Checked `Approved Ideas` too: "How to Ensure Electrical Equipment Room Reliability" (gid
+  `1217698634586206`) is still sitting there, untouched by a reviewer, and has been since
+  2026-08-21 (~26 days) despite a ready draft uploaded and a review-request email attempted on
+  2026-09-11. It was never dragged to Waiting Approval by a human. This card is outside stage 09's
+  scope (it's not in Waiting Approval) and outside the §8 stall-alert's literal scope too, since
+  that rule only watches Waiting Approval — flagging it here because nothing in the current
+  playbook design notices a card stalling in Approved Ideas after its draft is ready.
+- **Confirmed a standing blocker that's now spanned at least three runs (09-11, 09-14, 09-15,
+  09-16): this session's Microsoft 365 connector still exposes no send-capable Outlook tool**
+  (`outlook_send_mail`/`outlook_send_draft` — searched by exact name and by keyword, neither
+  resolves; `ListConnectors` shows Microsoft 365 `connected: true, enabledInChat: true`, so this
+  isn't a toggle-off, it looks like a missing scope/capability on the connector itself). Read both
+  standing unsent drafts back via `read_resource` to check whether a human had sent them by hand:
+  both still show `isDraft: true` —
+  - "Blog draft ready for review: How Do You Ensure Reliability in an Electrical Equipment Room?"
+    (created 2026-09-11T16:21Z) — still unsent, 5 days now.
+  - "Blog draft revised, ready for another look: What Is Panel Schedule Compliance..." (created
+    2026-09-15T12:41Z) — still unsent, 1 day.
+  Did not create a third/duplicate draft — the two that exist already say what's needed and
+  adding another wouldn't fix the root cause.
+- Stall check (§8): card entered Waiting Approval 2026-09-11T14:39:24.912Z; now (2026-09-16
+  12:40:03Z) that's 4 days 22 hours — under the 5-day threshold. No nudge sent.
+- Blocked: **the email handoff channel has been non-functional for 5+ days across every run that
+  has checked it.** Two ready-to-review drafts (Equipment Room, Panel Schedules revision) have
+  had their notification emails silently stuck in Drafts the whole time, and neither reviewer has
+  been told outside of Asana comments that Asana itself suppresses as self-notifications (§4).
+  This is no longer a one-run transient — it needs a human to either (a) send the two existing
+  Outlook drafts by hand, and (b) grant/restore Mail.Send capability on the Microsoft 365
+  connector used by these Routines so future runs can send directly.
+- No Asana comment posted and no email sent this run — nothing new to report on the card itself,
+  and per §7b/§5 a run should never send an email (or claim readiness) it did not itself newly
+  earn.
+- Next run should: same check-for-genuine-comment routine. If a human confirms they've sent the
+  two stuck Outlook drafts, note that in this file. If a send-capable tool is available in a
+  future session, use it directly rather than drafting. Also worth a human decision: should the
+  Equipment Room card be dragged from Approved Ideas to Waiting Approval now that its draft has
+  been ready since 09-11, even though no reviewer has formally started on it?
