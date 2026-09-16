@@ -105,9 +105,18 @@ data -- 47 of 279 recent records are literally "Wireless Caller" and another 87
 are `City ST` strings. Matching on it would collapse dozens of unrelated callers
 onto one Contact.
 
-**Leads are created without a name unless one is known confidently.** HubSpot
-accepts a Lead with no `hs_lead_name` and does not derive one from the
-associated contact, so the field stays visibly empty for someone to fill in.
+**Leads are created without a name unless one is known confidently**, and
+HubSpot then fills one in only when it can. Verified against the portal:
+
+| Associated contact | Result |
+| --- | --- |
+| Has a name | HubSpot backfills `<contact name> <YYYY-MM>` about 8s after creation |
+| Has no name | `hs_lead_name` stays empty (observed over 36s) |
+
+So a known caller gets the right name from the CRM record matched by phone, and
+an unknown caller gets a blank name that flags the record for a human. Note the
+backfill is asynchronous: reading the Lead back immediately after the POST shows
+`null` even when a name is coming.
 
 `caller_name` is deliberately not used. It is carrier CNAM data: 47 of 279
 recent records read "Wireless Caller", another 87 are `City ST` strings, and
