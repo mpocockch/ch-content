@@ -42,7 +42,11 @@ CONTACT_TYPE = "0-1"
 LEAD_TYPE = "0-136"
 NOTE_TYPE = "0-46"
 
-NEW_STAGE_ID = "1318266061"
+# This portal's lead pipeline uses symbolic stage ids ("new-stage-id"), not the
+# numeric ids quoted in the original spec, so the stage is resolved from the API
+# by label and the numeric id is kept only as an alias for portals that use it.
+NEW_STAGE_LABEL = "New"
+NEW_STAGE_ID_ALIAS = "1318266061"
 
 DEFAULT_LOOKBACK_DAYS = 30
 WC_PAGE_SIZE = 250
@@ -179,10 +183,17 @@ class HubSpot:
         results = _request(self._session, "GET", url).json().get("results") or []
         if not results:
             raise SyncError(f"no association types between {from_type} and {to_type}")
-        # Prefer the unlabeled HubSpot-defined primary association.
-        chosen = next(
-            (r for r in results if r.get("category") == "HUBSPOT_DEFINED" and not r.get("label")),
-            results[0],
+        # Lead -> Contact exposes both a "Primary" association (which makes the
+        # contact the lead's primary contact, populating hs_primary_contact_id)
+        # and a plain unlabeled one. Prefer Primary; the unlabeled type would
+        # associate the records without marking the contact as primary.
+        chosen = (
+            next((r for r in results if str(r.get("label") or "").strip().lower() == "primary"), None)
+            or next(
+                (r for r in results if r.get("category") == "HUBSPOT_DEFINED" and not r.get("label")),
+                None,
+            )
+            or results[0]
         )
         type_id = int(chosen["typeId"])
         self._assoc_cache[key] = type_id
@@ -256,14 +267,30 @@ class HubSpot:
                 open_ids.append(str(result.get("id")))
         return open_ids
 
-    def lead_pipeline_id(self) -> str:
-        """Resolve the pipeline that owns the New stage, instead of hardcoding it."""
+    def resolve_new_stage(self) -> tuple[str, str]:
+        """Return (pipeline_id, stage_id) for the New stage of the lead pipeline.
+
+        Matches on the stage label, falling back to the numeric id from the
+        original spec. Hardcoding either alone is wrong: this portal's stage ids
+        are strings like "new-stage-id", but another portal may use the numeric
+        form.
+        """
         url = f"{HS_BASE}/crm/v3/pipelines/{LEAD_TYPE}"
-        for pipeline in _request(self._session, "GET", url).json().get("results") or []:
+        pipelines = _request(self._session, "GET", url).json().get("results") or []
+        for pipeline in pipelines:
             for stage in pipeline.get("stages") or []:
-                if str(stage.get("id")) == NEW_STAGE_ID:
-                    return str(pipeline["id"])
-        raise SyncError(f"no lead pipeline contains stage {NEW_STAGE_ID}")
+                stage_id = str(stage.get("id"))
+                label = str(stage.get("label") or "").strip().lower()
+                if stage_id == NEW_STAGE_ID_ALIAS or label == NEW_STAGE_LABEL.lower():
+                    return str(pipeline["id"]), stage_id
+        available = [
+            f"{p.get('label')}: " + ", ".join(str(s.get("label")) for s in p.get("stages") or [])
+            for p in pipelines
+        ]
+        raise SyncError(
+            f"no lead pipeline has a stage labelled {NEW_STAGE_LABEL!r} or with id "
+            f"{NEW_STAGE_ID_ALIAS}. Found -- {'; '.join(available) or 'no pipelines'}"
+        )
 
     # -- writes ------------------------------------------------------------
 
@@ -494,7 +521,7 @@ def run_sync(
         return counters
 
     synced = hs.leads_by_whatconverts_ids([c["lead_id"] for c in calls])
-    pipeline_id = hs.lead_pipeline_id()
+    pipeline_id, new_stage_id = hs.resolve_new_stage()
 
     if dry_run:
         # The association lookups are read-only, but they are only reached from
@@ -503,7 +530,7 @@ def run_sync(
         # surface on the first live write.
         LOG.info(
             "resolved pipeline=%s lead->contact assoc=%s note->contact assoc=%s",
-            pipeline_id,
+            f"{pipeline_id}/{new_stage_id}",
             hs.association_type_id(LEAD_TYPE, CONTACT_TYPE),
             hs.association_type_id(NOTE_TYPE, CONTACT_TYPE),
         )
@@ -557,7 +584,7 @@ def run_sync(
             lead_props = {
                 "hs_lead_name": display_name,
                 "hs_pipeline": pipeline_id,
-                "hs_pipeline_stage": NEW_STAGE_ID,
+                "hs_pipeline_stage": new_stage_id,
                 "whatconverts_lead_id": wc_id,
             }
             if dry_run:
