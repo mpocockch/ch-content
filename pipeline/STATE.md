@@ -476,3 +476,28 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   human: three consecutive runs (09-12, 09-13, 09-14) reported a false blocker because they
   checked a stale SharePoint item ID instead of re-searching by filename — worth deciding whether
   future runs should always re-search by name rather than reuse a remembered item ID.
+
+## 2026-09-16 11:34 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the last Idea Capture entry (2026-09-12) — Original message id
+  `1787259801114` ("How to Ensure Electrical Equipment Room Reliability", 2026-08-20). Read the
+  Teams channel newest-to-oldest and stopped as soon as that id appeared, without paging further
+  back. Exactly one message sat above the watermark: Bill Concannon's "Testing after a flood"
+  (2026-09-15), a genuine topic pitch about testing/re-energizing equipment after the recent CT
+  flash floods. Captured it near-verbatim to Unapproved Ideas (gid `1218543513344101`), Source
+  set to Bill Concannon, with a link back to the original Teams message.
+- Note on the write: `asana_create_task`'s `html_notes` parameter rejected every payload tried
+  (including a minimal one) with "XML is invalid" — worth a human's attention if it recurs, since
+  the tool's own doc examples look well-formed. Worked around it by creating the task with plain
+  `notes` instead (the task briefly existed as a bare placeholder for a few seconds before
+  `asana_update_task` filled in the real name/notes — no separate stray task was left behind, and
+  no delete was needed).
+- Today is Wednesday, so the Monday research pass (PLAYBOOK.md §8) did not apply.
+- Queue-depth check: Unapproved Ideas now holds 11 untriaged topics (10 unchanged since
+  2026-08-14, plus today's capture) — still at/over the ten-topic line in §8. Not actionable
+  today since no research pass runs on a Wednesday, but worth flagging: the backlog has not
+  moved since 2026-08-14, so Thursday triage promoting some out is the actual unblock, not
+  anything this Routine can do.
+- Blocked: nothing.
+- Next run should: proceed normally. If Monday, apply the queue-depth rule above before adding
+  any researched candidates.
