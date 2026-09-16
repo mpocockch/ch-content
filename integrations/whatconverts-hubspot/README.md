@@ -6,8 +6,24 @@ phone call a rep has marked `quotable = Yes`. Replaces the Zapier integration.
 ## How it runs
 
 `.github/workflows/whatconverts-hubspot-sync.yml` runs `sync.py` every 30
-minutes, 11:00-23:30 UTC, Mon-Fri -- 07:00-19:30 Eastern in summer. Run it by
-hand from the Actions tab ("Run workflow"), which defaults to a dry run.
+minutes, 11:00-23:30 UTC, Mon-Fri -- 07:00-19:30 Eastern in summer. You can
+also run it by hand from the Actions tab ("Run workflow"), which defaults to a
+dry run.
+
+**Scheduled runs are dry by default.** They write to HubSpot only once the
+repository variable `DRY_RUN` is explicitly set to `false`. Any other value --
+unset, `true`, `False`, junk -- leaves the job in dry-run mode. Merging the
+workflow therefore cannot by itself start writing to the production portal.
+
+### Going live
+
+1. Merge to the default branch. Scheduled runs begin, but stay dry.
+2. Actions tab -> this workflow -> **Run workflow**, leave dry-run ticked.
+   Read the log and confirm the records it *would* create look right.
+3. Settings -> Secrets and variables -> Actions -> **Variables** ->
+   `DRY_RUN` = `false`.
+4. To pause writes again, set `DRY_RUN` back to `true`. No code change, no
+   redeploy.
 
 ## Setup
 
@@ -28,6 +44,12 @@ Settings -> Secrets and variables -> Actions:
 | `WHATCONVERTS_SECRET` | WhatConverts API secret |
 | `HUBSPOT_PRIVATE_APP_TOKEN` | Token from step 1 |
 | `ANTHROPIC_API_KEY` | Optional -- enables caller-name extraction |
+
+And under the **Variables** tab (not Secrets):
+
+| Variable | Value |
+| --- | --- |
+| `DRY_RUN` | `false` to let scheduled runs write. Omit it until you have read a dry-run log. |
 
 ### 3. Custom property
 

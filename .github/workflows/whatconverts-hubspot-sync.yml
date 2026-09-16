@@ -38,13 +38,40 @@ jobs:
 
       - run: pip install -r integrations/whatconverts-hubspot/requirements.txt
 
+      - name: Determine run mode
+        id: mode
+        # Scheduled runs are DRY BY DEFAULT. They only write once the repository
+        # variable DRY_RUN is explicitly set to "false" (Settings -> Secrets and
+        # variables -> Actions -> Variables). This means merging the workflow
+        # cannot itself start writing to the production portal.
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT_DRY: ${{ inputs.dry_run }}
+          VAR_DRY: ${{ vars.DRY_RUN }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            dry="$INPUT_DRY"
+          elif [ "$VAR_DRY" = "false" ]; then
+            dry=false
+          else
+            dry=true
+          fi
+          echo "dry=$dry" >> "$GITHUB_OUTPUT"
+          if [ "$dry" = "true" ]; then
+            echo "::notice::DRY RUN -- no records will be written to HubSpot."
+          else
+            echo "::warning::LIVE RUN -- writing to production HubSpot portal 48530303."
+          fi
+
       - name: Run sync
         env:
           WC_TOKEN: ${{ secrets.WHATCONVERTS_TOKEN }}
           WC_SECRET: ${{ secrets.WHATCONVERTS_SECRET }}
           HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_PRIVATE_APP_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY: ${{ steps.mode.outputs.dry }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '30' }}
         run: |
-          python integrations/whatconverts-hubspot/sync.py \
-            --lookback-days "${{ inputs.lookback_days || '30' }}" \
-            ${{ inputs.dry_run == true && '--dry-run' || '' }}
+          args=(--lookback-days "$LOOKBACK_DAYS")
+          [ "$DRY" = "true" ] && args+=(--dry-run)
+          python integrations/whatconverts-hubspot/sync.py "${args[@]}"
