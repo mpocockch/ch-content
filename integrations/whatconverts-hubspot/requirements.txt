@@ -1,0 +1,5 @@
+requests>=2.31,<3
+# Optional: caller-name extraction from the call summary. The sync degrades to
+# caller_name heuristics when these are absent or ANTHROPIC_API_KEY is unset.
+anthropic>=1.0,<2
+pydantic>=2.0,<3

@@ -1,0 +1,77 @@
+name: WhatConverts -> HubSpot lead sync
+
+on:
+  schedule:
+    # Every 30 minutes, 11:00-23:30 UTC, Mon-Fri.
+    # That is 07:00-19:30 Eastern in summer (EDT) and 06:00-18:30 in winter
+    # (EST) -- cron does not follow daylight saving. The drift is harmless:
+    # the sync reads a rolling 30-day window and is idempotent, so an extra or
+    # missed run changes nothing.
+    - cron: "0,30 11-23 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Read only -- log intended writes without making them"
+        type: boolean
+        default: true
+      lookback_days:
+        description: "Days of WhatConverts history to re-read"
+        default: "30"
+
+concurrency:
+  # Never let a slow run overlap the next tick and double-create records.
+  group: whatconverts-hubspot-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: integrations/whatconverts-hubspot/requirements.txt
+
+      - run: pip install -r integrations/whatconverts-hubspot/requirements.txt
+
+      - name: Determine run mode
+        id: mode
+        # Scheduled runs are DRY BY DEFAULT. They only write once the repository
+        # variable DRY_RUN is explicitly set to "false" (Settings -> Secrets and
+        # variables -> Actions -> Variables). This means merging the workflow
+        # cannot itself start writing to the production portal.
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT_DRY: ${{ inputs.dry_run }}
+          VAR_DRY: ${{ vars.DRY_RUN }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            dry="$INPUT_DRY"
+          elif [ "$VAR_DRY" = "false" ]; then
+            dry=false
+          else
+            dry=true
+          fi
+          echo "dry=$dry" >> "$GITHUB_OUTPUT"
+          if [ "$dry" = "true" ]; then
+            echo "::notice::DRY RUN -- no records will be written to HubSpot."
+          else
+            echo "::warning::LIVE RUN -- writing to production HubSpot portal 48530303."
+          fi
+
+      - name: Run sync
+        env:
+          WC_TOKEN: ${{ secrets.WHATCONVERTS_TOKEN }}
+          WC_SECRET: ${{ secrets.WHATCONVERTS_SECRET }}
+          HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DRY: ${{ steps.mode.outputs.dry }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '30' }}
+        run: |
+          args=(--lookback-days "$LOOKBACK_DAYS")
+          [ "$DRY" = "true" ] && args+=(--dry-run)
+          python integrations/whatconverts-hubspot/sync.py "${args[@]}"
