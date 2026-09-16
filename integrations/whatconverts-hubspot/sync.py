@@ -259,7 +259,11 @@ class HubSpot:
         }
         url = f"{HS_BASE}/crm/v3/objects/contacts/search"
         results = _request(self._session, "POST", url, json=body).json().get("results") or []
-        return results[0]["id"] if results else None
+        if not results:
+            return None, None
+        props = results[0].get("properties") or {}
+        name = " ".join(x for x in (props.get("firstname"), props.get("lastname")) if x).strip()
+        return str(results[0]["id"]), (name or None)
 
     def open_leads_for_contact(self, contact_id: str) -> list[str]:
         """Return ids of Leads on this Contact that sit in an open stage."""
@@ -437,12 +441,21 @@ def extract_name_via_claude(lead: dict[str, Any]) -> str | None:
     return None
 
 
-def resolve_lead_name(lead: dict[str, Any], use_claude: bool) -> str | None:
+def resolve_lead_name(
+    lead: dict[str, Any], use_claude: bool, contact_name: str | None = None
+) -> str | None:
     """The caller's name, or None when it is not confidently known.
 
-    None means hs_lead_name is left unset: HubSpot accepts a Lead without a name
-    and does not derive one from the associated contact, so the field stays
-    visibly empty for someone to fill in.
+    A matched contact's own name wins: it is the name C&H already recorded for
+    that phone number, so it is the most trustworthy source available.
+
+    Setting it explicitly also keeps the name clean. Left empty, HubSpot fills
+    the field in itself about 8 seconds later as "<contact name> <YYYY-MM>";
+    a name written at creation is not touched.
+
+    None means hs_lead_name is left unset. HubSpot only auto-names a Lead whose
+    contact has a name, so a Lead for an unknown caller stays visibly empty for
+    someone to fill in.
 
     caller_name is deliberately not used as a fallback. It is carrier CNAM data
     and names the account holder rather than the caller often enough to be worse
@@ -451,6 +464,8 @@ def resolve_lead_name(lead: dict[str, Any], use_claude: bool) -> str | None:
     prompts someone to look; a plausible wrong name gets trusted. The raw CNAM
     value is still recorded on the call note either way.
     """
+    if contact_name and looks_like_person(contact_name):
+        return contact_name.strip()
     if use_claude:
         extracted = extract_name_via_claude(lead)
         if extracted:
@@ -607,11 +622,10 @@ def run_sync(
                 counters.errors.append(f"lead {wc_id}: no caller_number")
                 continue
 
-            display_name = resolve_lead_name(call, use_claude)
-
             # (a) Contact: matched on phone only. Matching on caller_name would
             #     collapse every "Wireless Caller" onto a single Contact.
-            contact_id = hs.find_contact_by_phone(phone)
+            contact_id, contact_name = hs.find_contact_by_phone(phone)
+            display_name = resolve_lead_name(call, use_claude, contact_name)
             if contact_id is None:
                 counters.contacts_created += 1
                 if dry_run:

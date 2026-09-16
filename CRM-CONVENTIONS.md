@@ -22,7 +22,13 @@ did the reasonable-looking thing and it was wrong.
   name it could be the account holder rather than the caller — one call reads "Mario
   Malangone" for a caller both the transcript and the matching CRM contact identify as
   Dana. A blank name prompts someone to look; a plausible wrong one gets trusted.
-- **Blank beats wrong.** Leave a name empty rather than guess it.
+- **Take the name from the matched contact, and set it explicitly.** When a phone number
+  matches a contact that already has a name, that is the name C&H recorded for that number
+  and is the best source available. Write it at creation: left empty, HubSpot fills the
+  field in itself about 8 seconds later as `<contact name> <YYYY-MM>`, and nobody wants a
+  date in a name field. A name written at creation is not touched.
+- **Blank beats wrong.** With no trustworthy source, leave the name empty rather than
+  guess it.
 
 ## Attribution
 
@@ -53,7 +59,7 @@ otherwise without re-testing.
 | Behaviour | Detail |
 | --- | --- |
 | Lead pipeline and stage ids are **strings** | `hs_pipeline` is `lead-pipeline-id`, `hs_pipeline_stage` is `new-stage-id`. Numeric ids that appear inside property *names* (e.g. `hs_v2_date_exited_new_stage_id_1318266061`) are something else and are not valid stage values. Resolve stages from `/crm/v3/pipelines/0-136` by label. |
-| `hs_lead_name` is backfilled **asynchronously** | About 8 seconds after creation, as `<contact name> <YYYY-MM>` — but only when the associated contact has a name. With a nameless contact it stays empty. Reading a Lead back immediately after the POST shows `null` even when a name is coming. |
+| `hs_lead_name` is backfilled **asynchronously** | About 8 seconds after creation, as `<contact name> <YYYY-MM>` — but only when the associated contact has a name, and only when the field was left empty. A name supplied at creation is left alone. With a nameless contact the field stays empty. Reading a Lead back immediately after the POST shows `null` even when a name is coming. |
 | Lead → Contact has **two** association types | `578` "Primary" makes the contact the lead's primary contact; `608` is unlabeled and does not. Prefer Primary. |
 | `hs_lead_source` on a Lead is always `OFFLINE` via the API | HubSpot assigns Offline Sources to anything created through the API, regardless of the contact's analytics source and whenever it was set. It is not settable. Attribution lives on the contact. |
 | A Lead **requires** an association | To a Contact or Company, supplied at creation. |

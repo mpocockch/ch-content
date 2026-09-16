@@ -106,8 +106,12 @@ data -- 47 of 279 recent records are literally "Wireless Caller" and another 87
 are `City ST` strings. Matching on it would collapse dozens of unrelated callers
 onto one Contact.
 
-**Leads are created without a name unless one is known confidently**, and
-HubSpot then fills one in only when it can. Verified against the portal:
+**A Lead is named after the contact matched by phone**, written at creation time. That
+name is what C&H already recorded for the number, and setting it explicitly keeps it
+clean -- HubSpot's own backfill would otherwise append the year and month.
+
+When no name is available the field is left empty, and HubSpot then fills one in only if
+it can. Verified against the portal:
 
 | Associated contact | Result |
 | --- | --- |
