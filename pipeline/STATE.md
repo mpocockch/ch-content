@@ -527,3 +527,31 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   future session, use it directly rather than drafting. Also worth a human decision: should the
   Equipment Room card be dragged from Approved Ideas to Waiting Approval now that its draft has
   been ready since 09-11, even though no reviewer has formally started on it?
+
+## 2026-09-16 13:30 UTC — Blog: Publish
+
+- Did: read `Approved Blogs` (2 tasks). Skipped "Replace placeholder hero on published ultrasonic
+  testing post" — it self-identifies as a chore, not a blog topic, per instruction. For "What is
+  Ultrasonic Testing in Electrical Systems? Process Explained" (gid `1217369002256407`), checked
+  WordPress directly before doing anything, per the publish stage's precondition: post 14114 is
+  still `post_status = draft` (unchanged since 2026-09-03T16:09:34), and the "live" URL in the
+  card's own notes (`https://chelectric.com/ultrasonic-testing-electrical-systems-explained/`)
+  returns a confirmed 404. Featured image is still attachment 14113, the known 260x145
+  placeholder. This is the same finding two prior runs already recorded on the card itself
+  (2026-09-11 and 2026-09-15 stories) — nothing has changed since the 09-15 correction, so no new
+  Asana comment was posted (would be a duplicate of an already-standing report).
+- Confirmed there is still no `drafts/<slug>/` folder in this repo for this post (it predates the
+  git-based pipeline), so there is no `hero.*` to package even if the post were to be republished
+  now — the only image on file anywhere is the known placeholder. Did not publish, did not touch
+  WordPress, did not move the card.
+- No other card in `Approved Blogs` to act on.
+- Blocked: **unchanged, now confirmed on a third consecutive Publish run.** This card has said
+  "PUBLISHED" in its own notes since 2026-08-11, but the post has actually been sitting in draft,
+  unreachable at its published-looking URL, since at least 2026-09-03 — over two weeks. Because
+  Asana suppresses notifications on the agent's own (Matt-attributed) comments (§4), the two prior
+  correction comments on this card were very likely never actually seen by Matt or Bill. Needs a
+  human decision: either this was an intentional unpublish pending the hero-image chore (in which
+  case the card notes should be corrected to stop claiming "PUBLISHED"), or it should be
+  republished once a real, non-placeholder hero image is available.
+- Next run should: same precondition check before touching this card. If a human has set a real
+  hero image and confirmed the post should go live, republish then. Otherwise nothing changes.
