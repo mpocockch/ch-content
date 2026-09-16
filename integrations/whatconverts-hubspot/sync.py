@@ -496,6 +496,18 @@ def run_sync(
     synced = hs.leads_by_whatconverts_ids([c["lead_id"] for c in calls])
     pipeline_id = hs.lead_pipeline_id()
 
+    if dry_run:
+        # The association lookups are read-only, but they are only reached from
+        # create_lead/create_note -- which a dry run skips. Resolve them here so
+        # a dry run actually covers them, rather than leaving a broken lookup to
+        # surface on the first live write.
+        LOG.info(
+            "resolved pipeline=%s lead->contact assoc=%s note->contact assoc=%s",
+            pipeline_id,
+            hs.association_type_id(LEAD_TYPE, CONTACT_TYPE),
+            hs.association_type_id(NOTE_TYPE, CONTACT_TYPE),
+        )
+
     for call in calls:
         wc_id = str(call.get("lead_id"))
         try:
