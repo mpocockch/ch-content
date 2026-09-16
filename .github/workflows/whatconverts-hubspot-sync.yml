@@ -67,7 +67,7 @@ jobs:
         env:
           WC_TOKEN: ${{ secrets.WHATCONVERTS_TOKEN }}
           WC_SECRET: ${{ secrets.WHATCONVERTS_SECRET }}
-          HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_PRIVATE_APP_TOKEN }}
+          HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DRY: ${{ steps.mode.outputs.dry }}
           LOOKBACK_DAYS: ${{ inputs.lookback_days || '30' }}

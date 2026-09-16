@@ -27,12 +27,21 @@ workflow therefore cannot by itself start writing to the production portal.
 
 ## Setup
 
-### 1. HubSpot private app
+### 1. HubSpot service key
 
-Settings -> Integrations -> Private apps -> Create. Grant read **and** write on
-Contacts, Leads, and Notes (the scopes are named `crm.objects.contacts.*`,
-`crm.objects.leads.*` and `crm.objects.notes.*`; tick the matching boxes in the
-UI rather than typing them). Copy the access token.
+Development -> Keys -> **Service Keys** -> **Create service key** (may also
+appear under Settings -> Integrations -> Service Keys). Name it
+`whatconverts-lead-sync` and grant read **and** write on Contacts, Leads and
+Notes. Copy the key.
+
+A service key can only be granted scopes the creating user already holds, so
+create it as a Super Admin or it will come out short.
+
+Service keys replace legacy private apps, which HubSpot stops letting you
+create on 26 October 2026 for accounts of this age. Either credential works
+here -- both are sent as `Authorization: Bearer <token>` -- so an existing
+private app token can go straight into the same secret. Service keys do not
+support webhooks, which this sync does not use.
 
 ### 2. Repository secrets
 
@@ -42,7 +51,7 @@ Settings -> Secrets and variables -> Actions:
 | --- | --- |
 | `WHATCONVERTS_TOKEN` | WhatConverts API token (profile 172135) |
 | `WHATCONVERTS_SECRET` | WhatConverts API secret |
-| `HUBSPOT_PRIVATE_APP_TOKEN` | Token from step 1 |
+| `HUBSPOT_TOKEN` | Service key (or private app token) from step 1 |
 | `ANTHROPIC_API_KEY` | Optional -- enables caller-name extraction |
 
 And under the **Variables** tab (not Secrets):
