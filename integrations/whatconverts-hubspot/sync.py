@@ -624,9 +624,12 @@ def run_sync(
                     contact_id = hs.create_contact(contact_properties(call, display_name))
                     LOG.info("created Contact %s for %s", contact_id, phone)
 
-            # Attribution. Done before the Lead is created, because HubSpot
-            # derives the Lead's own hs_lead_source from the contact at creation
-            # time -- setting it afterwards would leave the Lead unattributed.
+            # Attribution, set on the Contact. The Lead's own hs_lead_source is
+            # NOT affected: HubSpot reports OFFLINE for every Lead created
+            # through the API, whatever the contact's analytics source and
+            # whenever it was set -- verified on a contact created with
+            # PAID_SEARCH already on it. Attribution therefore lives on the
+            # contact record, read through the Lead's contact association.
             # An existing contact keeps any real attribution it already has;
             # only HubSpot's OFFLINE placeholder (what it records for anything
             # entered by hand in the CRM) is replaced.

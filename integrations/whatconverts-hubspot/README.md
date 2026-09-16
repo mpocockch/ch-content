@@ -81,8 +81,7 @@ python sync.py                           # live
 2. **Dedup** -- if that Contact already has a Lead in an open stage, no second
    Lead is created; the call is attached as a note instead.
 3. **Attribution** -- the contact's Original Traffic Source (`hs_analytics_source`)
-   is set from the call's WhatConverts source and medium, before the Lead is
-   created so the Lead's own `hs_lead_source` inherits it.
+   is set from the call's WhatConverts source and medium.
 4. **Lead** -- New stage, `whatconverts_lead_id` set for dedup on later runs.
 5. **Note** -- call metadata plus the AI call summary, on the Contact.
 
@@ -153,6 +152,12 @@ Note that `gmb/organic` -- calls placed from the Google Business Profile listing
 -- is 182 of those 279 and is counted as Organic Search. If Organic Search is
 read as a measure of SEO performance, that inflates it; moving GBP to Referrals
 or Direct Traffic is a one-line change to `MEDIUM_TO_SOURCE`.
+
+The Lead's own `hs_lead_source` is unaffected and always reads `Offline
+Sources`: HubSpot assigns that to anything created through the API regardless of
+the contact's analytics source, verified on a contact created with `PAID_SEARCH`
+already set. Attribution lives on the contact record and is read from the Lead
+through its contact association.
 
 A contact that already carries real attribution keeps it. Only HubSpot's
 `OFFLINE` placeholder -- what it records for anything entered by hand in the CRM
