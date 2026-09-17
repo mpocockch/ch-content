@@ -527,3 +527,70 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   future session, use it directly rather than drafting. Also worth a human decision: should the
   Equipment Room card be dragged from Approved Ideas to Waiting Approval now that its draft has
   been ready since 09-11, even though no reviewer has formally started on it?
+
+## 2026-09-17 13:05 UTC — Review Loop — reviewer rewrote the Word doc directly; revision implemented and handed off
+
+- Checked Waiting Approval (Panel Schedules, gid `1217697187018391`) for new Asana comments or new
+  SharePoint Word-doc edits since the last recorded check (2026-09-16 12:40 UTC). No new Asana
+  story since the 2026-09-15T12:41:22Z entry (the pipeline's own prior comment). But the doc's
+  `lastModifiedDateTime` had moved to **2026-09-16T13:36:00Z** — a genuine new edit since the last
+  check, made directly in SharePoint with no accompanying Asana comment. Read the live doc's full
+  text and diffed it against the git draft: a reviewer had rewritten roughly a third of the
+  article by hand, dropping the NFPA 70E arc-flash-label / NFPA 70B EMP framing throughout ("What
+  Panel Schedule Compliance Involves," "Standards and Compliance," "Misconceptions," "Recent
+  Trends," the how-to-build list) and replacing it with a legibility/digitization framing
+  (handwritten directories, updating from a phone/tablet/desktop at the panel). No Word comments
+  or tracked changes were visible — this connector has no raw-download tool, only
+  `read_resource`'s flattened text extraction, so a comment or tracked-change layer (if any
+  exists) is not something this pipeline can currently see; treated the resulting body text as
+  the reviewer's actual words per the drafting standard, same as an Asana-comment instruction
+  would be treated.
+- Implemented that direction in `drafts/2026-09-panel-schedule-compliance/draft.md`, matching it
+  to house structure (bold lead sentences, heading hierarchy), fixed one em-dash pileup introduced
+  by the merge, updated `sources.md` (dropped the now-unused 70E/70B citations, kept on record in
+  case a future revision restores them) and `linkedin.md` (previously led with the now-removed
+  arc-flash-label point). Self-check passed: 2,606 body words, banned-phrase clean, 4 internal
+  links, no other em-dash pileups.
+- Committed and pushed to `claude/blog-automation-process-flbewl` (commit `034ebad`), verified as
+  an ancestor of the remote branch via `git fetch` + `git merge-base --is-ancestor`.
+- Rebuilt the `.docx` with the `docx` npm library (LinkedIn post appended per the standard),
+  generated its base64 with a script and pasted it from a `Read` of that file rather than
+  retyping it, to avoid the transcription risk documented in this file's 2026-09-11 entries.
+  Fitting the ~2,600-word revision under the connector's practical upload ceiling (PLAYBOOK.md §4)
+  required shrinking the embedded hero preview to 110×61px/quality 22 (~1.4 KB) — total 17,721
+  bytes sent. `sharepoint_update_file` hit one transient 423-style 412 conflict on the first
+  attempt (documented pattern, sensitivity-label precondition race); retried once after 5s and it
+  succeeded, reporting a stored size of 24,796 bytes — larger than what was sent, which is this
+  file's documented signal for a clean save. Read the file back afterward: it converts cleanly and
+  matches the intended text and LinkedIn section word-for-word.
+- Posted a "ready for another look" Asana comment explaining the SharePoint-edit discovery and
+  what changed, and flagging that the embedded preview is too small for the PPE check this time.
+  **Email**: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name and keyword) — the same gap standing since 2026-09-11.
+  Rather than add a third stuck draft alongside the two already sitting unsent since 09-11/09-15,
+  updated the existing 09-15 "ready for another look" draft in place (same subject, same
+  recipients) with current content, since its old body described a now-superseded revision.
+  Delivered `draft.md`, `sources.md`, `linkedin.md` and the full-resolution `hero.jpg` via
+  `SendUserFile` so the PPE check has a usable image regardless of the tiny doc preview.
+- Stall check (§8): card has been in Waiting Approval since 2026-09-11 14:39 UTC — about 6 days,
+  over the 5-day threshold. Did not send a stall nudge: the SharePoint edit found this run is a
+  genuine, dated reviewer action from within the last 24 hours, so the card reads as actively
+  engaged, not stalled. Said so on the card.
+- **New, undocumented Asana state:** the project now has a sixth section, **"Blog Drafts"**
+  (gid `1216997967900171`), sitting between Approved Ideas and Waiting Approval — not in
+  PLAYBOOK.md §2's stage map or §3's section-ID table. The Equipment Room card (gid
+  `1217698634586206`, previously stalled in Approved Ideas since 08-21) is now in this new
+  section as of `2026-09-16T13:57:53Z` — same day as the Panel Schedules Word-doc edit, so likely
+  the same human session reorganizing the board. This is outside stage 09's scope (Equipment Room
+  isn't in Waiting Approval) and I made no changes to it or to the new section. Flagging plainly:
+  **PLAYBOOK.md needs a human update to say what "Blog Drafts" means and where it sits in the
+  stage map**, because every routine's section-ID table (§3) and stage-reading logic assumes only
+  the original five sections, and a routine that doesn't know about this section could
+  misinterpret or ignore a card sitting in it.
+- Blocked: (1) the revision email is an updated Outlook Drafts item, not sent — same standing
+  Mail.Send gap as prior runs. (2) the new "Blog Drafts" Asana section is undocumented — see
+  above; no action taken on it this run.
+- Next run should: check whether a human has sent the (now-updated) Outlook draft or restored
+  Mail.Send capability. If PLAYBOOK.md has been updated to explain "Blog Drafts," read that before
+  assuming anything about cards sitting in it. Otherwise, continue treating only Waiting Approval
+  as this stage's scope.
