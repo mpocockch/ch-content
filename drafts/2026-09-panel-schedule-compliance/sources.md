@@ -3,11 +3,26 @@
 | Claim | Tier | Source |
 |---|---|---|
 | Full 408.4(A) circuit directory text: identification wording, "spare" allowance, directory location by equipment type, ban on transient-occupancy descriptions | 1 | NFPA 70 (NEC) 2023 §408.4(A) |
-| Arc-flash field label required for equipment likely serviced energized; must show voltage, arc-flash boundary, plus incident energy/working distance or PPE category or minimum arc rating | 1 | NFPA 70E 2024 §130.5(H) (this requirement was §130.5(D) in the 2018 edition; renumbered in the 2021/2024 cycle — confirm edition in use at the facility before citing a section number to a reader) |
-| Arc-flash risk assessment reviewed periodically, interval not to exceed 5 years, or sooner on a system change | 1 | NFPA 70E 2024 §130.5(C) |
-| NFPA 70B became a mandatory standard (converted from recommended practice) with the 2023 edition; requires a documented Electrical Maintenance Program | 1 | NFPA 70B 2023 edition |
 | OSHA control-of-hazardous-energy (lockout/tagout) standard requires isolating and verifying absence of energy before service work | 1 | 29 CFR 1910.147 |
 | "It's easier to stay ready than to get ready" framing; original topic pitch | — | Bill Concannon, Teams `Blog Ideas` channel, posted 2026-08-17 |
+
+## Revision note, 2026-09-17
+
+A reviewer edited the Word doc directly in SharePoint (no Asana comment) sometime before
+2026-09-16T13:36 UTC, dropping the entire NFPA 70E arc-flash-label / NFPA 70B EMP framing from
+"What Panel Schedule Compliance Involves," "Standards and Compliance," "Misconceptions," "Recent
+Trends" and the how-to-build list, and replacing it with a legibility/digitization framing
+(handwritten directories, phone/tablet/desktop updates, who can make a field change). This run
+implemented that direction in `draft.md`, matching the reviewer's wording to house structure
+(bold lead sentences, heading hierarchy). Removed the 70E 130.5(H)/(C) and 70B 2023 citations
+below accordingly, since neither standard is asserted in the body anymore. If a future revision
+wants the arc-flash-label angle back, the citations were:
+- NFPA 70E 2024 §130.5(H) — arc-flash field label required for equipment likely serviced
+  energized (renumbered from §130.5(D) in the 2018 edition).
+- NFPA 70E 2024 §130.5(C) — arc-flash risk assessment reviewed periodically, interval not to
+  exceed 5 years, or sooner on a system change.
+- NFPA 70B 2023 edition — became a mandatory standard (from a recommended practice), requires a
+  documented Electrical Maintenance Program.
 
 ## Verification notes
 
