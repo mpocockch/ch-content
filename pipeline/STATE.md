@@ -594,3 +594,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Mail.Send capability. If PLAYBOOK.md has been updated to explain "Blog Drafts," read that before
   assuming anything about cards sitting in it. Otherwise, continue treating only Waiting Approval
   as this stage's scope.
+
+## 2026-09-17 — Publish
+
+- Did: read PLAYBOOK.md (§11-12 stage map, §5 failure handling). Confirmed current section list
+  via `asana_get_project_sections` (includes the undocumented "Blog Drafts" section noted by the
+  2026-09-17 13:05 Review Loop entry, gid `1216997967900171` — not this stage's scope). Checked
+  `Approved Blogs` (gid `1216997967900172`) via `asana_get_tasks`: empty. No card has reached
+  final human approval yet, so there is nothing to publish this run.
+- Blocked: nothing — this is the expected quiet path, not a failure. Stage 10 (final approval by
+  Matt & Bill) hasn't happened for any card yet; Panel Schedules is still in Waiting Approval per
+  the 2026-09-17 13:05 Review Loop entry, and Equipment Room sits in the undocumented "Blog
+  Drafts" section.
+- Next run should: re-check `Approved Blogs` fresh — do not assume this run's "empty" result
+  still holds. No WordPress or hero-image work was needed or attempted this run.
