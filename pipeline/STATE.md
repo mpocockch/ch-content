@@ -527,3 +527,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   future session, use it directly rather than drafting. Also worth a human decision: should the
   Equipment Room card be dragged from Approved Ideas to Waiting Approval now that its draft has
   been ready since 09-11, even though no reviewer has formally started on it?
+
+## 2026-09-17 11:34 UTC — Blog: Idea Capture
+
+- Did: found the watermark directly from Asana rather than trusting this file's last Idea
+  Capture entry — queried `Unapproved Ideas` and `Approved Ideas` for the most recently created
+  task with an `Original message` link. That is "Testing after a flood" (gid
+  `1218543513344101`, Source: Bill Concannon, created 2026-09-16T11:33 UTC, Original message id
+  `1789480885808`). Read only the newest page of the Teams channel (10 messages, no full-thread
+  dump) and confirmed that message is itself the newest thing posted in the channel — nothing
+  above the watermark, so nothing new to capture. (That task was evidently added between this
+  file's last Idea Capture entry on 2026-09-12 and today, most likely by a human directly in
+  Asana rather than by a Routine firing — no Idea Capture entry covers 09-13 through 09-16.)
+- Today is Thursday, not Monday, so the research pass in PLAYBOOK.md section 8 did not apply.
+- Also confirmed `Approved Ideas` is empty (both backlog cards have moved on to later stages
+  since the last capture check), and `Unapproved Ideas` now holds 11 untriaged topics — still
+  at/over the queue-depth line in section 8, relevant for the next Monday research pass.
+- Blocked: nothing.
+- Next run should: proceed normally. Watermark for the next run is message id
+  `1789480885808` ("Testing after a flood") unless a newer task supersedes it by then.
