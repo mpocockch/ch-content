@@ -728,3 +728,30 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   been dragged there. If a human confirms what happened to the Equipment Room task, note it here.
   If Mail.Send is restored, use it directly for the next real revision handoff instead of falling
   back to a Drafts-folder draft.
+
+## 2026-09-18 13:41 UTC — Publish (stages 11–12) — stopped before publishing, unresolved internal links
+
+- Did: checked `Approved Blogs` (gid `1216997967900172`) — one card, Panel Schedules (gid
+  `1217697187018391`), no chore-only tasks to skip. Confirmed via WordPress (`novamira`
+  connector, `execute-php`/`$wpdb` search) that no post exists at slug `panel-schedule-compliance`
+  or with a matching title — not already live, so the double-publish guard is clear. Confirmed
+  `drafts/2026-09-panel-schedule-compliance/hero.jpg` exists and its bytes are a genuine JPEG
+  (1376x768), matched by the `hero.*` glob per PLAYBOOK.md §6.
+- Blocked: **`draft.md` still carries four unresolved `[[internal link: <topic>]]` placeholders**
+  (DRAFTING.md §"Internal linking" — marked, never invented, and evidently never resolved before
+  final approval). Checked each against live WordPress: "breaker testing" resolves cleanly to the
+  existing `/what-is-breaker-testing/` post; "electrical equipment room reliability" has no live
+  URL (that sibling draft was never published, and its Asana card has since gone inaccessible —
+  see the 12:37/12:41 UTC entries above); "digital panel schedule documentation" (appears twice)
+  has no confident match — the closest title hit, `/osha-electrical-documentation/`, is not the
+  same topic and wasn't linked. Publishing as-is would put literal bracket placeholder text on a
+  live page, which is not reversible the way a draft edit is, so per this stage's explicit
+  instruction to stop rather than guess on anything ambiguous about the post's state, no publish
+  was attempted. No WordPress write of any kind was made. Posted a comment on the Asana task
+  naming exactly which links resolve and which don't, and what a human needs to decide.
+- Next run should: nothing to retry until a human resolves or explicitly waives the two
+  "digital panel schedule documentation" placeholders and the "electrical equipment room
+  reliability" placeholder in `draft.md`. Once instructed, insert the confirmed breaker-testing
+  link, handle the rest per that instruction, commit/push, then publish and complete stage 12
+  (move to Posted Blogs — remember the Asana connector still can't move sections itself, so ask
+  for the drag as usual).
