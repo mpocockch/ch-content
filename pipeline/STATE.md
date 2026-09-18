@@ -728,3 +728,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   been dragged there. If a human confirms what happened to the Equipment Room task, note it here.
   If Mail.Send is restored, use it directly for the next real revision handoff instead of falling
   back to a Drafts-folder draft.
+
+## 2026-09-18 — Equipment Room Reliability: resolved, not an anomaly
+
+- Matt confirmed directly (live chat, in response to this run's push notification): the team
+  **decided to kill the "Electrical Equipment Room Reliability" topic**, which is why the Asana
+  task now 403s — it was deleted, not a permissions/access bug. The 2026-09-18 12:37/12:41 UTC
+  entries above and PLAYBOOK.md's implicit assumption that a 403 means an access problem were
+  wrong for this case; no further investigation needed on that task.
+- Removed the stale `drafts/2026-09-electrical-equipment-room-reliability/` folder from the repo
+  (draft.md, hero.jpg, image-brief.md, linkedin.md, sources.md) since the topic is dead — recovers
+  from git history if ever needed.
+- **Not touched, flagged for a human instead:** the SharePoint copy, "How Do You Ensure
+  Reliability in an Electrical Equipment Room.docx", is still sitting in the Blog folder
+  (`lastModifiedDateTime` 2026-09-11T19:30:58Z). Deleting a shared SharePoint file is not something
+  this run does unprompted — a human should delete or archive it directly if the topic is truly
+  dead, so a reviewer doesn't stumble onto a doc for a killed post.
+- Next run should: treat this topic as closed. No further "Equipment Room" flagging needed unless
+  a human reopens it.
