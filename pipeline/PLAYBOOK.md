@@ -120,6 +120,20 @@ Waiting Approval at 14:39. Two things are working against it:
    Pocock`. Asana does not notify you about your own comment or your own assignment, so the
    handoff is invisible to the very person it is addressed to.
 
+**Posting to Teams directly is not an option either — this was checked properly on 2026-09-18
+and the answer is no.** The obvious workaround, having a run post its own message into the
+Teams channel instead of relying on the Asana→Teams integration, cannot be done with this
+connector. `get_granted_scopes` returns only read permissions for Teams: `Channel.ReadBasic.All`,
+`ChannelMessage.Read.All`, `Chat.Read`, `Chat.ReadBasic`, `ChatMember.Read`, `ChatMessage.Read`.
+There is no `ChannelMessage.Send` and no chat-write scope, and the corresponding tools
+(`teams_send_channel_message`, `teams_reply_channel_message`, `teams_send_chat_message`) are
+absent from the session — the read tools' own descriptions refer to them as "write-gated tools,
+when available." Adding them needs an admin to consent to new scopes, so treat Teams as closed
+unless someone has done that. A **Teams Incoming Webhook** on the channel is the one route that
+sidesteps Graph entirely (a URL a run POSTs JSON to, no scopes involved); it needs a human to
+create it once, somewhere to store the URL, and the egress proxy to allow the webhook host.
+Nobody has set this up yet — do not assume it exists.
+
 Until §7 is configured, a completed draft sits silently until someone happens to look. Treat
 the "please drag this card" line in the run's comment as the actual handoff mechanism, and know
 that nobody is told it is there.
@@ -406,18 +420,51 @@ problems at once: the card move, and the Teams alert that depends on it (§4). A
 move is performed by Asana itself rather than by the agent-as-Matt, so the existing Teams
 integration fires normally.
 
-If the Rule route is unavailable, the fallback is to notify out of band rather than through
-Asana: `mcp__Microsoft_365__outlook_send_mail` is available to these Routines and can email
-Matt and Bill directly with the SharePoint link. Less tidy, but it does not depend on Asana's
-notification wiring or on who the connector authenticates as.
+If the Rule route is unavailable, the intended fallback is to notify out of band rather than
+through Asana — email Matt and Bill directly with the SharePoint link, which does not depend on
+Asana's notification wiring or on who the connector authenticates as. **That fallback is
+currently not working: the send tool is not exposed to these Routines even though `Mail.Send` is
+granted. See §7b for the real diagnosis and the fix, and do not repeat the "restore Mail.Send"
+advice.**
 
 ---
 
 ## 7b. Reviewer notification by email — the working handoff
 
-Because the Teams alert cannot fire (§4), **email is the handoff mechanism** until §7 is
-configured. Verified 2026-09-11: the Microsoft 365 connector holds `Mail.Send`, so
-`mcp__Microsoft_365__outlook_send_mail` works from a Routine session.
+Because the Teams alert cannot fire (§4), **email is the intended handoff mechanism** until §7
+is configured. It is currently broken, and the reason is narrower than earlier entries here
+claimed — read this before acting on it.
+
+**The scope is granted. The tool is not exposed. These are different problems.** Verified
+2026-09-18 with `mcp__Microsoft-365__get_granted_scopes`, which returned `Mail.Send` among the
+granted delegated permissions. So Entra consent is *not* the blocker, and **"grant/restore
+Mail.Send" is the wrong fix** — that advice appeared in this file and in several `STATE.md`
+entries between 09-11 and 09-18 and would send someone to an admin consent screen that is
+already correct.
+
+What is actually missing is the connector's *send tools*. In every Routine session checked so
+far, `mcp__Microsoft-365__outlook_send_mail` and `outlook_send_draft` are absent from the tool
+catalog — confirmed by `ToolSearch` on the exact names (returns "No matching deferred tools
+found") and by keyword. Note the shape of the gap: **every other Outlook write tool is present**
+— `outlook_create_draft`, `outlook_update_draft`, `outlook_delete_draft`, `outlook_create_filter`,
+`outlook_create_label`, `outlook_set_vacation`, `outlook_trash_thread`,
+`outlook_batch_delete_messages`. Only the two operations that actually transmit a message are
+missing. The same pattern holds for Teams (§4). That is a deliberate gate on message-sending
+tools, not a permissions failure and not a broken connector.
+
+**The fix is a human one, in the claude.ai connector settings** — the Microsoft 365 connector's
+enabled-tools/permissions list, where sending tools can be toggled separately from the rest.
+Nothing inside a Routine session can change it: `ListConnectors` is read-only and no tool
+modifies connector configuration. Until someone flips it:
+
+- A run that reaches the handoff should create the notification as an **Outlook draft** addressed
+  to Matt and Bill (`outlook_create_draft`), record plainly that it is unsent, and move on. Do
+  not treat it as blocking the Asana half of the handoff, which does work.
+- **Do not create a fresh duplicate draft** if one for the same event is already sitting unsent —
+  update the existing one instead. Several had accumulated by 09-18.
+- There is no legitimate workaround from inside a session. Inbox rules deliberately refuse
+  forward/redirect actions, the vacation responder only fires on inbound mail and would hit
+  everyone, and no session holds a Graph token it could call directly. Do not attempt these.
 
 **Recipients** (confirmed from their own mail signatures, not guessed):
 

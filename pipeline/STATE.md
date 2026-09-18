@@ -746,3 +746,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   dead, so a reviewer doesn't stumble onto a doc for a killed post.
 - Next run should: treat this topic as closed. No further "Equipment Room" flagging needed unless
   a human reopens it.
+
+## 2026-09-18 13:05 UTC — Correction (interactive, follow-up to the Weekly Draft run)
+
+- **The email blocker has been misdiagnosed since 09-11, including by both of this day's earlier
+  runs (12:37 Weekly Draft and 12:41 Review Loop, which both recorded it as a missing
+  capability).** Asked
+  whether the notification could go to Teams instead, checked properly, and the check corrected
+  something bigger. `mcp__Microsoft-365__get_granted_scopes` returns **`Mail.Send` as granted**.
+  So Entra consent was never the problem, and every "grant/restore Mail.Send capability" line in
+  this file (09-11, 09-14, 09-15, 09-16, 09-17, 09-18) pointed at a fix that was already in place.
+  The real gap is that the connector does not *expose* `outlook_send_mail`/`outlook_send_draft` to
+  these sessions, while exposing every other Outlook write tool (create/update/delete draft,
+  filters, labels, vacation, trash, batch delete). Only the message-transmitting operations are
+  gated. Fix lives in the claude.ai connector's enabled-tools settings — a human action; nothing
+  in a session can change it (`ListConnectors` is read-only, no tool writes connector config).
+- **Teams is closed too, and now checked rather than assumed.** Granted Teams scopes are read-only
+  (`Channel.ReadBasic.All`, `ChannelMessage.Read.All`, `Chat.Read`, `Chat.ReadBasic`,
+  `ChatMember.Read`, `ChatMessage.Read`); no send scope, and `teams_send_channel_message` /
+  `teams_reply_channel_message` / `teams_send_chat_message` are absent. Posting to Teams needs new
+  admin-consented scopes, or an Incoming Webhook on the channel (no scopes, but needs one-time
+  human setup, somewhere to keep the URL, and an egress-proxy allowance). Neither exists today.
+- Did: rewrote PLAYBOOK.md §7b with the correct diagnosis and the "do not chase Mail.Send" warning,
+  added the Teams scope evidence to §4 so nobody re-explores that route, and fixed §7's stale
+  "outlook_send_mail is available to these Routines" claim.
+- Blocked: unchanged in effect — the handoff email still cannot be sent from a run, and the
+  09-18 draft is still sitting unsent in Outlook. What changed is that the fix is now pointed at
+  the right place.
+- Next run should: still create the notification as a draft and say plainly it is unsent, but
+  **update an existing unsent draft for the same event rather than adding another** — several have
+  accumulated. If `outlook_send_mail` has appeared in the tool catalog, the setting was flipped:
+  use it directly and note here that the gap closed.
