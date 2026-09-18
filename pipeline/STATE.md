@@ -594,3 +594,88 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Mail.Send capability. If PLAYBOOK.md has been updated to explain "Blog Drafts," read that before
   assuming anything about cards sitting in it. Otherwise, continue treating only Waiting Approval
   as this stage's scope.
+
+## 2026-09-18 12:37 UTC — Weekly Draft (stages 04–07)
+
+- Resume check first: read `drafts/` (both existing folders — Equipment Room Reliability and
+  Panel Schedule Compliance — were already complete, nothing to finish) and recent Asana comments
+  on Approved Ideas / Waiting Approval / the undocumented "Blog Drafts" section. Waiting Approval
+  and Blog Drafts are both now empty. Traced why: Panel Schedules progressed normally (a human/
+  system action moved it Waiting Approval → Approved Blogs on 2026-09-17T15:24:41Z — outside this
+  stage's scope, no action taken). **Equipment Room Reliability (gid 1217698634586206) has
+  disappeared: `asana_get_task` and `asana_get_stories_for_task` both return 403 forbidden, and it
+  is absent from every section of the project**, including Approved Blogs and Posted Blogs. This
+  is not explained by any normal pipeline action recorded here or in Asana's own stories. Flagged
+  directly on the NFPA 70E card's run-status comment and again here: a human should check the
+  Asana web UI or workspace audit log, since this connector's Asana account isn't Premium (search
+  unavailable) and typeahead search found nothing. No genuine human comments/questions were found
+  on any task checked (all stories were either agent self-narration or Asana's own system-
+  generated section-move/assignment text) — nothing pending to answer before drafting.
+- Took the oldest (and only) topic in Approved Ideas: "NFPA 70E 2027 Is Already in Effect..."
+  (gid 1217455522370190, approved by Bill 2026-09-17). **Before drafting, fact-checked the card's
+  central claim** — that the 2027 edition "took effect May 6, 2026" — since a practitioner-
+  falsifiable claim destroys a piece's credibility (DRAFTING.md). It does not hold up: NFPA's own
+  published development calendar for this cycle (per NETA World Journal and EC&M coverage) puts
+  the membership Technical Meeting in June 2026 and Standards Council issuance expected only in
+  fall 2026; the "May 6" date appears to be an artifact propagated across a cluster of similarly-
+  styled SEO content-mill pages, not traceable to NFPA. Confirmed `nfpa.org` and top trade-press
+  domains (ecmag.com, ecmweb.com, netaworldjournal.org) are blocked by this environment's egress
+  proxy (`WebFetch` → `EGRESS_BLOCKED`), so every claim rests on `WebSearch` synthesis one step
+  removed from primary text, not a direct read — documented plainly in `sources.md`, with numbers
+  that couldn't be cross-confirmed (specific article numbers for the DC-hazard coverage, several
+  section numbers) deliberately left out of the body per that same discipline.
+  Reframed the article from "already in effect" to "in the final stages of NFPA's process, here's
+  what's changing and how to prepare," and named the false premise directly as a Misconception
+  rather than quietly avoiding it — the more useful and defensible article. Wrote
+  `drafts/2026-09-nfpa-70e-2027-changes/{draft.md, sources.md, image-brief.md, linkedin.md}`.
+  Self-check passed: 2,361 body words, metadata block, hook + roadmap, bolded section-opening
+  sentences, Misconceptions + Recent trends present, banned-phrase clean, no em-dash pileups
+  (found and fixed 9 paired-dash sentences before finalizing), 4 internal-link placeholders, CTA
+  conditional/mid-article/closes on Final thoughts, LinkedIn post 200 words matching `LINKEDIN.md`.
+- Generated the hero image via `pipeline/bin/generate-hero-image.py` (key mode,
+  `gemini-3-pro-image-preview`, exit 0) — two workers in full arc-flash PPE (hooded suits, face
+  shields, layered insulating/leather gloves) at an open switchgear cabinet, one performing
+  energized diagnostic testing and one positioned outside the work zone as the second-person
+  observer the article covers. Eyeballed the PPE per PLAYBOOK.md §6: reads as correct — full
+  suit and hood on both figures, properly layered gloves — a cleaner result than the PPE issue
+  flagged in an earlier verification run.
+- Committed (`d5feb31`) and pushed to `claude/blog-automation-process-flbewl`; verified via
+  `git fetch` + `git merge-base --is-ancestor` that the commit landed on the remote branch.
+  Delivered the full draft folder via `SendUserFile` regardless (per §5, always deliver).
+- Built the `.docx` with the `docx` npm library (installed fresh into a scratch dir), embedding
+  the LinkedIn post under its own heading per the skill's handoff instructions. Sized the
+  embedded hero preview to 110×61px/quality 30 (~1.6 KB) to fit PLAYBOOK.md §4's practical
+  upload ceiling — final file 17,317 bytes, base64 23,092 chars, comfortably under the ~25,000
+  char limit. **Validated before upload**: `unzip -t` reported no errors, and all 18 XML/rels
+  parts parsed cleanly with `xml.dom.minidom`. Uploaded to the SharePoint Blog folder; the tool
+  reported a stored size of 24,370 bytes — larger than the 17,317 sent, which is this file's
+  documented signal for a clean save (SharePoint opened and re-stamped the file). Read the
+  uploaded file back via `read_resource`: full text and the LinkedIn section match the intended
+  draft word-for-word (Graph's PDF-conversion text extraction just collapses some hyphens/dashes
+  into spaced characters — a read-back artifact, not a doc defect).
+- **Handoff (upload succeeded, so all three per the playbook)**: assigned Matt and added Bill as
+  a follower on the Asana task (both confirmed in the returned task object). Posted the
+  ready-for-review comment with the SharePoint link, the PPE-check reminder (pointing reviewers
+  to the full-res `hero.jpg` rather than the doc's tiny thumbnail), the "please drag to Waiting
+  Approval" note, and a full explanation of the premise correction so reviewers aren't surprised
+  by the reframed angle. Posted a second, separate run-status comment per step 7 naming exactly
+  what completed.
+  **Email**: confirmed (by exact-name AND keyword search, plus `ListConnectors` showing
+  Microsoft 365 `connected: true, enabledInChat: true`) that this session's connector still has
+  no `outlook_send_mail`/`outlook_send_draft` tool — the same gap standing in this file since
+  2026-09-11. Created an Outlook Drafts-folder draft addressed to Matt and Bill with the
+  SharePoint and Asana links and the premise-correction heads-up, rather than treating this as
+  blocking the already-completed Asana handoff (per §5, tool-absent is transient).
+- Blocked: (1) the handoff email is an unsent Outlook Drafts item — needs a human to send it, or
+  a future run with a send-capable Microsoft 365 connector (now 5+ real-world weeks of runs
+  hitting this same gap: 09-11, 09-14, 09-15, 09-16, 09-17, 09-18). (2) The Equipment Room
+  Reliability task has vanished from Asana (403 forbidden, absent from every section) — see
+  above; this needs direct human investigation in the Asana web UI or audit log, since the API
+  gives no way to distinguish "deleted" from "access revoked" and this connector's Asana plan
+  has no search to fall back on.
+- Next run should: check whether a human sent the new Outlook draft (subject "Blog draft ready
+  for review: What Is Changing in NFPA 70E's Next Edition?") or restored Mail.Send. Check whether
+  a human has resolved the Equipment Room Reliability disappearance. Approved Ideas is now empty
+  again — if no new topic has been promoted by the next Friday run, that's the throttle working,
+  not a failure (per PLAYBOOK.md's cadence note), so post the empty-queue comment and stop per
+  step 2 rather than treating it as a problem.
