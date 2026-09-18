@@ -594,3 +594,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Mail.Send capability. If PLAYBOOK.md has been updated to explain "Blog Drafts," read that before
   assuming anything about cards sitting in it. Otherwise, continue treating only Waiting Approval
   as this stage's scope.
+
+## 2026-09-18 11:35 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the most-recently-created task in `Unapproved Ideas` (gid
+  `1218543513344101`, "Testing after a flood", created 2026-09-16T11:33:46Z, `Source: Bill
+  Concannon`, Original message id `1789480885808`). Listed the Teams channel's top-level
+  messages (single page, 20 messages, no full `read_resource` dump) and confirmed that message
+  is still the newest one in the channel — nothing posted since. Created no Asana tasks; nothing
+  new to capture. Today is Friday, so the Monday research pass did not apply.
+- **Ledger gap found, not caused by this run:** that watermark task was created 2026-09-16, but
+  no `Blog: Idea Capture` entry for 2026-09-16 exists anywhere in this file, and `git log` shows
+  no commit touching this file on that date either — the run that captured "Testing after a
+  flood" (if it was a run and not a manual add) never recorded its ledger entry, or recorded it
+  and never pushed. The note format on the task (`Source:` / `Original message:`) matches this
+  pipeline's own capture template, so it reads as agent-created, not manually typed. Flagging
+  per PLAYBOOK.md §1 design rule 2 — future runs should not assume a quiet-looking gap here means
+  nothing happened that day.
+- Blocked: nothing.
+- Next run should: proceed normally, watermark is message id `1789480885808`. `Unapproved
+  Ideas` holds exactly 10 untriaged topics (confirmed count, not an estimate) — at/over the
+  queue-depth line in PLAYBOOK.md §8, so a Monday research pass should keep adding nothing until
+  Thursday triage promotes some out.
