@@ -679,3 +679,52 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   again — if no new topic has been promoted by the next Friday run, that's the throttle working,
   not a failure (per PLAYBOOK.md's cadence note), so post the empty-queue comment and stop per
   step 2 rather than treating it as a problem.
+
+## 2026-09-18 12:41 UTC — Review Loop — Waiting Approval is empty; Panel Schedules advanced to Approved Blogs; Equipment Room card now inaccessible
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) for genuine reviewer activity since the
+  last recorded check (2026-09-17 13:05 UTC). **The section is empty — 0 tasks.** Cross-checked
+  against a full project task listing (15 tasks total: 10 Unapproved Ideas, 1 Approved Ideas, 1
+  Approved Blogs, 3 Posted Blogs, 0 Waiting Approval, 0 Blog Drafts) to confirm this wasn't a
+  section-id mismatch. No card in scope for this stage this run, so no revision, no stall check
+  (§8 only watches Waiting Approval), and per step 7 no email on a quiet run.
+- **Panel Schedules ("Panel Schedules — Compliance, Safety, and the Cost of Playing Catch-Up (from
+  Bill)", gid `1217697187018391`) is no longer in Waiting Approval — it moved to `Approved Blogs`
+  at 2026-09-17T15:24:41Z**, about 2h19m after the 09-17 run's own "ready for another look" comment
+  (13:05:50Z) and with nothing human-readable in between: the only two stories after the 09-17
+  cutoff are that pipeline comment and a bare system story, "Matt Pocock moved this task from
+  'Waiting Approval' to 'Approved Blogs'." Per PLAYBOOK.md §4 the Asana connector cannot move a
+  task between sections by API, so this move can only have been done by a human in the Asana UI —
+  i.e. this reads as genuine final approval (stage 10) even though no distinguishable "approved"
+  comment exists (the connector's own-identity artifact makes a human's action and the pipeline's
+  indistinguishable in the story feed by attribution alone; the move itself, not the attribution,
+  is the evidence here). This card is now out of stage 09's scope and into stage 10/11 territory —
+  flagging for whichever run next handles Approved Blogs / Publish, since nothing here moved it or
+  acted on it further.
+- **New anomaly: "How to Ensure Electrical Equipment Room Reliability" (gid `1217698634586206`)
+  now returns `403 forbidden` ("You do not have access to this task") from both
+  `asana_get_task` and `asana_get_stories_for_task`, using the same session/connector that read
+  every other task in the project fine.** This card was readable as recently as the 2026-09-17
+  13:05 UTC run (then sitting in the undocumented "Blog Drafts" section). A 403 is not the
+  signature of a completed or archived task (those still return 200 with `completed: true`) or a
+  deleted one (`not_found`) — it looks like the task was moved out of a project/workspace this
+  connector's identity can see, or had its permissions changed directly. Also could not search for
+  it by name: `asana_search_tasks` returned `payment_required` ("Search is only available to
+  premium users"), which is itself worth a human's attention since it removes a normal fallback for
+  exactly this situation. Nobody but a human with full Asana access can currently confirm what
+  happened to this task or where it went.
+- Tool check: `outlook_send_mail`/`outlook_send_draft` are still absent from this session (checked
+  by exact name via ToolSearch) — same standing gap since 2026-09-11, now 8 days across every run
+  that has checked. Moot this run since no revision needed sending, but the two Outlook drafts from
+  09-11 and 09-17 (updated in place) are presumably still sitting unsent — not re-checked this run
+  since there is no reason to believe a human sent them given nothing was said about a fix.
+- Blocked: (1) the Equipment Room task access anomaly above — needs a human to check the task
+  directly in the Asana web UI and confirm whether it's been moved, made private, or something
+  else changed; PLAYBOOK.md §2's section-ID table doesn't cover a task disappearing from connector
+  access entirely, so no run can self-diagnose this further. (2) Mail.Send capability is still not
+  present on the Microsoft 365 connector used by this session — same standing blocker as every run
+  since 2026-09-11.
+- Next run should: re-check Waiting Approval as normal — it may be empty again if no new topic has
+  been dragged there. If a human confirms what happened to the Equipment Room task, note it here.
+  If Mail.Send is restored, use it directly for the next real revision handoff instead of falling
+  back to a Drafts-folder draft.
