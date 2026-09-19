@@ -802,3 +802,27 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check Waiting Approval as normal. If Approved Ideas' one topic (NFPA 70E 2027,
   gid `1217455522370190`) gets drafted and lands in Waiting Approval by a future Weekly Draft run,
   that's the next card this stage will act on.
+
+## 2026-09-19 13:39 UTC — Publish (stages 11–12) — still blocked, same unresolved internal links
+
+- Did: checked `Approved Blogs` (gid `1216997967900172`) — one card, Panel Schedules (gid
+  `1217697187018391`), not a chore, nothing else in the section. Re-verified from scratch (per
+  this stage's double-publish guard) rather than trusting the prior run's note: queried WordPress
+  directly via `novamira/execute-php` for a post with slug `panel-schedule-compliance` or a
+  matching title — zero rows. Not live. Confirmed `drafts/2026-09-panel-schedule-compliance/hero.jpg`
+  is still present (matched by the `hero.*` glob per PLAYBOOK.md §6).
+- Blocked: `draft.md` still carries all four `[[internal link: ...]]` placeholders the 2026-09-18
+  13:41 UTC run flagged (lines 139, 250, 256, 268 — confirmed via `grep`, byte-for-byte the same
+  set: "digital panel schedule documentation" ×2 with no live target, "breaker testing" which
+  resolves cleanly to `/what-is-breaker-testing/`, and "electrical equipment room reliability"
+  with no live target since that sibling topic was killed). Checked the task's full story history
+  (every comment since 2026-08-20) for a human reply to yesterday's ask — **none exists**; the
+  09-18 13:41 UTC comment asking for a decision is still the last activity on the card. Nothing
+  has changed since yesterday's stop, so publishing as-is would still ship literal bracket text
+  onto a live page. Did not publish. Did not post a second Asana comment repeating the same ask —
+  yesterday's comment already names exactly what's needed and is unanswered, so a duplicate would
+  just be noise (same principle PLAYBOOK.md §7b applies to not duplicating an unsent email draft).
+- Next run should: keep checking for a human reply on the Asana task resolving or waiving the
+  three unresolved placeholders. Once that lands, insert the confirmed breaker-testing link,
+  handle the rest per the human's instruction, commit/push, then publish and move the card to
+  Posted Blogs (remembering the connector still can't move sections itself — ask for the drag).
