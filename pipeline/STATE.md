@@ -777,3 +777,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   **update an existing unsent draft for the same event rather than adding another** — several have
   accumulated. If `outlook_send_mail` has appeared in the tool catalog, the setting was flipped:
   use it directly and note here that the gap closed.
+
+## 2026-09-19 11:35 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the newest-created Unapproved/Approved Ideas task ("Testing after
+  a flood", gid `1218543513344101`, created 2026-09-16, Original message id `1789480885808`) —
+  found by requesting only `name,created_at` across both sections rather than pulling full notes
+  for all 11 tasks. Read the Teams channel top of thread via `read_resource` and found that
+  message is itself the newest one in the channel — nothing posted since 2026-09-15. Created no
+  Asana tasks; nothing new to capture. Today is Saturday, so the Monday research pass did not
+  apply.
+- Blocked: nothing.
+- Next run should: proceed normally. `Unapproved Ideas` holds 10 untriaged topics (unchanged
+  since 2026-08-14, plus the 09-16 flood-testing idea) and `Approved Ideas` holds 1 — still at
+  the queue-depth line in PLAYBOOK.md §8, so a Monday research pass here should keep adding
+  nothing until Thursday triage promotes some out.
