@@ -777,3 +777,28 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   **update an existing unsent draft for the same event rather than adding another** — several have
   accumulated. If `outlook_send_mail` has appeared in the tool catalog, the setting was flipped:
   use it directly and note here that the gap closed.
+
+## 2026-09-19 12:39 UTC — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) for genuine reviewer activity since the
+  last recorded check (2026-09-18 12:41 UTC). **The section is empty — 0 tasks**, confirmed both
+  directly and via a full 15-task project pull (10 Unapproved Ideas, 1 Approved Ideas, 0 Waiting
+  Approval, 1 Approved Blogs, 3 Posted Blogs). No card in scope for this stage, so no revision work,
+  no hero-image check, and no stall alert (§8 only watches Waiting Approval).
+- Also confirmed the "Blog Drafts" section flagged as undocumented on 2026-09-17/18 **does not
+  exist** as a live section (`asana_get_project_sections` lists exactly the five sections in
+  PLAYBOOK.md §2) — it was a one-off resting place for the now-deleted Equipment Room card, not a
+  standing part of the board. No playbook change needed on that point.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail` and `outlook_send_draft` are still absent from
+  this session (checked by exact name via `ToolSearch`), while `ListConnectors` shows Microsoft 365
+  `connected: true, enabledInChat: true` — same standing gap as every run since 2026-09-11, now 8
+  days. Moot this run since nothing needed sending. Did not re-check the accumulated unsent Outlook
+  drafts (09-11, 09-15/09-17 updated-in-place) since there was no new event to fold into them and no
+  reason to believe a human has sent them given nothing was reported.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b); (2)
+  Asana still cannot move a task between sections by API (§4).
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check Waiting Approval as normal. If Approved Ideas' one topic (NFPA 70E 2027,
+  gid `1217455522370190`) gets drafted and lands in Waiting Approval by a future Weekly Draft run,
+  that's the next card this stage will act on.
