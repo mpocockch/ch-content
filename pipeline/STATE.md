@@ -802,3 +802,28 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check Waiting Approval as normal. If Approved Ideas' one topic (NFPA 70E 2027,
   gid `1217455522370190`) gets drafted and lands in Waiting Approval by a future Weekly Draft run,
   that's the next card this stage will act on.
+
+## 2026-09-20 11:34 UTC — Blog: Idea Capture
+
+- Did: established the watermark from the newest already-captured task rather than re-reading the
+  full channel — checked all 15 project tasks' notes for their Original-message permalinks, then
+  listed the Teams channel's top-level messages in one page (10 messages, no pagination needed, no
+  `read_resource` full-thread dump). The newest channel message, "Testing after a flood" (id
+  `1789480885808`, posted 2026-09-15 by Bill Concannon), is itself already sitting in `Unapproved
+  Ideas` as task `1218543513344101` — confirmed via a section-scoped task list. That message is the
+  most recent thing posted to the channel, so the watermark and the top of the channel coincide:
+  **nothing above it, nothing new to capture.** Note this task's capture isn't logged anywhere in
+  this ledger (last recorded Idea Capture run was 2026-09-12, watermarked at the 08-20 Equipment
+  Room message) — it must have been added outside a logged Routine firing, but its presence in
+  Asana is what matters for the watermark, not how it got there.
+- Also noted in passing, not acted on: the 2026-08-20 "How to Ensure Electrical Equipment Room
+  Reliability" message is still in the channel, but per the 2026-09-18 entry above the team
+  explicitly killed that topic and its Asana task was deleted on purpose — it sits below the
+  watermark regardless, so this run did not need to (and did not) touch it.
+- Today is Sunday, not Monday, so the §8 research pass does not apply this run. (For the record,
+  `Unapproved Ideas` still holds exactly 10 untriaged topics, at the queue-depth line, so a Monday
+  run should still add nothing per §8 until Thursday triage promotes some out.)
+- Created no Asana tasks. No Asana comment posted, no email sent — nothing to hand off.
+- Blocked: nothing. Tool check not needed this run (no writes attempted beyond this ledger).
+- Next run should: proceed normally. If Monday's run lands with the queue still at/near 10 and
+  little promoted since, add nothing per §8 and say so.
