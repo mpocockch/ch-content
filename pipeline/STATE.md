@@ -824,3 +824,40 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - No Asana comment posted and no email sent — a quiet run, nothing new to report.
 - Next run should: re-check Waiting Approval as normal. If NFPA 70E 2027 gets drafted and lands in
   Waiting Approval by a future Weekly Draft run, that's the next card this stage will act on.
+
+## 2026-09-20 13:43 UTC — Publish — Panel Schedules re-checked, still blocked, no change since 09-18
+
+- Did: read `Approved Blogs` (gid `1216997967900172`) — one task, Panel Schedules (gid
+  `1217697187018391`), not a chore, correct scope for this stage. Confirmed it is not already
+  live: queried WordPress directly (`novamira/execute-php`, read-only — `get_page_by_path` on
+  slug `panel-schedule-compliance` plus two `WP_Query` searches on the title/keyword), no
+  matching post at any status. Confirmed a hero image exists and is real:
+  `drafts/2026-09-panel-schedule-compliance/hero.jpg`, valid JPEG, 1376x768.
+- **Both publish preconditions (not live, hero present) are met, but publish did not proceed.**
+  `drafts/2026-09-panel-schedule-compliance/draft.md` still carries the same 4 unresolved
+  `[[internal link: <topic>]]` placeholders a prior Publish run (2026-09-18 13:41 UTC, recorded
+  only as an Asana comment on the card, not previously logged here) already found and stopped
+  on: two for "digital panel schedule documentation" (no matching live post — closest candidate,
+  `/osha-electrical-documentation/`, isn't a confident match), one for "breaker testing" (resolves
+  cleanly to the live `/what-is-breaker-testing/`), and one for "electrical equipment room
+  reliability" (that sibling topic was killed 2026-09-18 per the entry above in this file — no
+  target exists or ever will). Nothing has changed on the card or in the repo since that 09-18
+  stop; no human has resolved or waived the placeholders. PLAYBOOK.md/DRAFTING.md are explicit
+  that these mark where a real URL belongs and must not be invented, and publishing literal
+  bracket text to a live page isn't something a later run can quietly undo — so this run held to
+  the same stop rather than guessing or partially resolving just the one confident match.
+- Did not touch draft.md, did not publish, did not move the card (it stays in Approved Blogs).
+  Posted a short confirming comment on the Asana task (rather than repeating the full 09-18
+  writeup) since Asana's own notification is invisible to Matt/Bill for a comment the connector
+  attributes to Matt (the same own-identity gap documented throughout this file) — sent a push
+  notification instead so this reaches a human through a channel that isn't affected by that gap.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` still absent from this
+  session — unrelated to this run's blocker, noted for continuity only.
+- Blocked: content decision only a human can make — resolve or explicitly waive the "digital
+  panel schedule documentation" (×2) and "electrical equipment room reliability" internal-link
+  placeholders in `drafts/2026-09-panel-schedule-compliance/draft.md`. Once that's done, a future
+  Publish run can insert the confirmed breaker-testing link, apply whatever the human decided for
+  the other three, and publish normally.
+- Next run should: re-check `Approved Blogs` as normal. If the placeholders have been resolved
+  (in the repo or by a clear instruction on the Asana card), proceed with publish per the normal
+  stages 11–12 procedure; if not, hold the same stop rather than re-litigating it.
