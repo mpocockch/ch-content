@@ -802,3 +802,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check Waiting Approval as normal. If Approved Ideas' one topic (NFPA 70E 2027,
   gid `1217455522370190`) gets drafted and lands in Waiting Approval by a future Weekly Draft run,
   that's the next card this stage will act on.
+
+## 2026-09-20 12:30 UTC — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) for genuine reviewer activity since the
+  last recorded check (2026-09-19 12:39 UTC). **The section is empty — 0 tasks**, confirmed both
+  directly and via a full 15-task project pull (10 Unapproved Ideas, 1 Approved Ideas, 0 Waiting
+  Approval, 1 Approved Blogs, 3 Posted Blogs). No card in scope for this stage, so no revision work,
+  no hero-image check, and no stall alert (§8 only watches Waiting Approval).
+- Confirmed the project's sections still match PLAYBOOK.md §2/§3 exactly (five sections, no
+  resurfaced "Blog Drafts"). Panel Schedules (gid `1217697187018391`) remains in Approved Blogs,
+  out of this stage's scope. NFPA 70E 2027 (gid `1217455522370190`) is still the sole Approved
+  Ideas topic, waiting on a future Weekly Draft run — not this stage's job.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name via `ToolSearch`), while `ListConnectors` shows both Asana and
+  Microsoft 365 `connected: true, enabledInChat: true` — same standing gap as every run since
+  2026-09-11, now 9 days. Moot this run since nothing needed sending.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b); (2)
+  Asana still cannot move a task between sections by API (§4).
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check Waiting Approval as normal. If NFPA 70E 2027 gets drafted and lands in
+  Waiting Approval by a future Weekly Draft run, that's the next card this stage will act on.
