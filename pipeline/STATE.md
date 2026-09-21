@@ -824,3 +824,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - No Asana comment posted and no email sent — a quiet run, nothing new to report.
 - Next run should: re-check Waiting Approval as normal. If NFPA 70E 2027 gets drafted and lands in
   Waiting Approval by a future Weekly Draft run, that's the next card this stage will act on.
+
+## 2026-09-21 11:35 UTC — Blog: Idea Capture
+
+- Did: read the watermark from `Unapproved Ideas` (newest Original-message id `1789480885808`,
+  "Testing after a flood", posted by Bill Concannon 2026-09-15, captured as task
+  `1218543513344101`; `Approved Ideas`' one task has no Teams link to check). Read the Teams
+  channel via `read_resource` (page 1 only, 10 messages) and found that same message is the
+  newest thing in the channel — nothing posted since. Created no Asana tasks. Today is Monday, so
+  checked the research-pass queue-depth rule (§8): `Unapproved Ideas` holds exactly 10 untriaged
+  topics, and only one topic has been promoted to `Approved Ideas` in the five-plus weeks since
+  (NFPA 70E 2027, `1217455522370190`, created 2026-08-13, still undrafted). At the "~10 or more,
+  few promoted recently" line, so per §8 the research pass added nothing.
+- Blocked: nothing.
+- Next run should: proceed normally, re-reading the watermark from `Unapproved Ideas`/`Approved
+  Ideas` notes rather than the full Teams history. If Thursday triage promotes topics out of
+  `Unapproved Ideas`, next Monday's research pass can likely resume adding candidates.
