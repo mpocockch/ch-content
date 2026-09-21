@@ -825,6 +825,36 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check Waiting Approval as normal. If NFPA 70E 2027 gets drafted and lands in
   Waiting Approval by a future Weekly Draft run, that's the next card this stage will act on.
 
+## 2026-09-21 12:31 UTC — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) for genuine reviewer activity since the
+  last recorded check (2026-09-20 12:30 UTC). **The section is empty — 0 tasks**, confirmed both
+  directly and via a full 15-task project pull (10 Unapproved Ideas, 1 Approved Ideas, 1 Approved
+  Blogs, 3 Posted Blogs, 0 Waiting Approval — unchanged from the prior two runs). No card in scope
+  for this stage, so no revision work, no hero-image check, and no stall alert (§8 only watches
+  Waiting Approval).
+- Checked the NFPA 70E 2027 card (gid `1217455522370190`) directly since it's the one card with a
+  completed draft sitting outside Waiting Approval: still in `Approved Ideas`, no story since the
+  09-18 12:37 UTC run-status comment (its own last entry). It has been ready for review — Word doc
+  uploaded, Matt assigned, Bill following, "please drag to Waiting Approval" said plainly on the
+  card — for **3 days** with no human having dragged it over yet. Not this stage's scope by the
+  playbook's literal terms (§8's stall rule only watches Waiting Approval, and stage 09's job here
+  is explicitly "Waiting Approval"), so no action taken and no card touched — flagging only in this
+  ledger, same as 09-19/09-20 did, so the gap doesn't silently compound.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name via `ToolSearch`), while `ListConnectors` shows both Asana and
+  Microsoft 365 `connected: true, enabledInChat: true` — same standing gap as every run since
+  2026-09-11, now 10 days. Moot this run since nothing needed sending.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b); (2)
+  Asana still cannot move a task between sections by API (§4), which is why NFPA 70E 2027 is still
+  sitting in Approved Ideas 3 days after its draft was handed off.
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check Waiting Approval as normal. If a human drags NFPA 70E 2027 into Waiting
+  Approval, that's the next card this stage will act on. Worth a human decision if the card keeps
+  sitting untouched in Approved Ideas much longer: whether to nudge Matt/Bill about the drag step
+  itself, even though §8's stall rule as written doesn't cover this section.
+
 ## 2026-09-21 11:35 UTC — Blog: Idea Capture
 
 - Did: read the watermark from `Unapproved Ideas` (newest Original-message id `1789480885808`,
