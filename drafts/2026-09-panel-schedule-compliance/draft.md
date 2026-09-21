@@ -133,10 +133,10 @@ circuit on it happens to be correct. Legibility is not a housekeeping preference
 it's the operative word in the sentence.
 
 This is the practical argument for digitizing the schedule rather than maintaining it in pen. A
-digital record stays typeset and readable through any number of revisions, keeps one version
-everyone is working from instead of a panel copy and an office copy that disagree, retains a
-history of who changed what and when, and can be viewed from a phone, tablet, or desktop right
-at the equipment. [[internal link: digital panel schedule documentation]]
+[digital record](https://chelectric.com/osha-electrical-documentation/) stays typeset and
+readable through any number of revisions, keeps one version everyone is working from instead of
+a panel copy and an office copy that disagree, retains a history of who changed what and when,
+and can be viewed from a phone, tablet, or desktop right at the equipment.
 
 ## How Often Should a Panel Schedule Be Updated?
 
@@ -246,14 +246,16 @@ once.**
    this list from ever becoming necessary.
 2. **Digitize the schedule** so an update can be made at the panel from a phone, tablet, or
    desktop. Removing the friction is what makes step 1 realistic instead of aspirational.
-3. **Give every trade that touches a panel access to the record**, so the person who makes the
-   change is the person who logs it. [[internal link: digital panel schedule documentation]]
+3. **Give every trade that touches a panel access to the
+   [record](https://chelectric.com/osha-electrical-documentation/)**, so the person who makes the
+   change is the person who logs it.
 4. **Prioritize verification on the panels a lockout/tagout procedure or emergency response would
    touch first, such as life-safety loads and critical process equipment**, over a flat,
    alphabetical audit schedule.
 5. **If directories have drifted for years, scope reconstruction as its own project** with a
-   shutdown window, rather than squeezing it into routine PM time where it will keep losing to
-   higher-priority work. [[internal link: breaker testing]]
+   shutdown window, rather than squeezing it into
+   [routine PM time](https://chelectric.com/what-is-breaker-testing/) where it will keep losing
+   to higher-priority work.
 
 ## Final Thoughts
 
@@ -264,5 +266,3 @@ space, and by then the citation is the least of anyone's problems. Treating the 
 live safety document, digitized so it stays legible, updated from the field the day a circuit
 changes, and prioritized by consequence rather than convenience, is what keeps a facility from
 finding out the hard way that its panel schedule was wrong.
-
-[[internal link: electrical equipment room reliability]]
