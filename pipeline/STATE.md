@@ -870,3 +870,27 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: proceed normally, re-reading the watermark from `Unapproved Ideas`/`Approved
   Ideas` notes rather than the full Teams history. If Thursday triage promotes topics out of
   `Unapproved Ideas`, next Monday's research pass can likely resume adding candidates.
+
+## 2026-09-21 13:40 UTC — Blog: Publish
+
+- Did: checked `Approved Blogs` — one card, "Panel Schedules — Compliance, Safety, and the Cost
+  of Playing Catch-Up" (`1217697187018391`). Re-ran the double-publish guard: no WordPress post
+  matches "Panel Schedule" or slug `panel-schedule-compliance` — not live. Hero image present and
+  valid (`drafts/2026-09-panel-schedule-compliance/hero.jpg`, 1376x768 JPEG). But `draft.md` still
+  carries the same 4 unresolved `[[internal link: ...]]` placeholders first flagged 2026-09-18 and
+  reconfirmed 2026-09-20: two for "digital panel schedule documentation" (no matching live post),
+  one for "breaker testing" (resolves cleanly to `/what-is-breaker-testing/`), one for "electrical
+  equipment room reliability" (topic killed, no target exists or ever will). No new Asana comment
+  or draft edit since the 09-20 stop, so nothing changed to act on.
+- Did not publish — literal bracket placeholder text would ship on a live page, and publishing
+  is not reversible. Posted a status comment on the Asana card (third consecutive Publish run to
+  stop here) restating the two open decisions needed.
+- Blocked: same as 09-18/09-20 — needs a human call on (a) whether to drop the "electrical
+  equipment room reliability" link entirely, (b) what to point "digital panel schedule
+  documentation" at, or drop it too. The confirmed breaker-testing link can go in automatically
+  once those two are resolved.
+- Next run should: re-check the card fresh (don't assume the block persists) — if `draft.md` has
+  been edited to resolve or drop the remaining placeholders, insert the confirmed breaker-testing
+  URL, publish, record the live URL in git front matter and the Asana task, and move the card to
+  `Posted Blogs` (noting the Asana move-by-API limit in §4 — ask for the drag if it can't be
+  done). If nothing has changed, stop again rather than guessing.
