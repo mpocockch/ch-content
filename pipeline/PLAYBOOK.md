@@ -206,6 +206,71 @@ Consequences, all of them real:
 If reviewers need to see the hero at full quality before approval, the image has to reach them
 by some route other than a SharePoint upload. See §6.
 
+**This session's network egress cannot reach `chelectric.com` directly.** Verified 2026-09-21: a
+plain `curl -I https://chelectric.com` through the agent proxy returns a hard `403
+connect_rejected` (org network policy), not a transient failure. This kills the documented
+`novamira/create-upload-link` flow for the hero image, since that ability's curl examples assume
+an external tool with its own network path to the site — this session doesn't have one.
+
+**Working alternative: have the WordPress server pull the file, instead of pushing it from here.**
+The draft and hero image are already committed to this repo, which is public on
+`raw.githubusercontent.com`, and `chelectric.com`'s own outbound network is not behind this
+session's proxy. So:
+
+1. Commit and push whatever needs to reach WordPress (hero image, and the built post-body HTML —
+   see below) to this repo first, as always.
+2. Call `novamira/execute-php` with `download_url()` to have the WordPress server fetch it from
+   `https://raw.githubusercontent.com/mpocockch/ch-content/<branch>/<path>`.
+3. **Verify a SHA-256 hash match against the local file before trusting the download** — this is
+   the same "confirm the byte count/hash, don't just trust a reported success" discipline §5
+   requires for every write, and it's what confirms the server-side fetch didn't get an error page
+   or a partial file instead of the real content.
+4. For the hero image: `media_handle_sideload()` on the downloaded temp file creates the
+   attachment directly; re-verify the hash of the resulting attached file.
+5. For the post body: a plain `wp_remote_get()` + hash check is enough; no attachment needed.
+
+Do not attempt to route around the `chelectric.com` block itself (e.g. via a different proxy or
+retry loop) — per §5, a proxy policy denial is not retried. The fetch-from-git pattern above
+isn't a workaround of that policy, it just never touches the blocked host from this session's
+side. If `chelectric.com` is later added to this environment's allowed egress, the
+`create-upload-link` flow becomes usable directly and this pattern is no longer required.
+
+**Publishing the post body: match existing posts' Gutenberg block markup, built server-side.**
+There's no CMS field for pasting Markdown — the post body has to be real Gutenberg block-comment
+HTML (`<!-- wp:paragraph -->`, `<!-- wp:heading -->`, `<!-- wp:list -->`, `<!-- wp:table -->`,
+`<!-- wp:quote -->`) or the block editor won't recognize the content as blocks. Before building it,
+read a couple of existing published posts' `post_content` (via `execute-php` and `get_post()`) to
+match the exact markup shape currently in use — it has drifted before and will again. Build via
+`wp_insert_post()` with `post_status: publish`, not through the Gutenberg queue abilities (those
+are for interactive editor sessions with a human keeping a queue page open, not for a scheduled
+Routine).
+
+**Every post needs the "News and Resources" tag (`post_tag` term id 24), or the front-end
+formatting breaks.** Confirmed by Matt 2026-09-21. This is a plain `post_tag`, separate from the
+"News and Resources" *category* (term id 49) that all existing blog posts also carry — a post
+needs both. Set it explicitly with `wp_set_post_tags($post_id, ['News and Resources'], true)`;
+don't rely on any implicit/default-term behavior to apply it (this site has no `post_tag` default
+term configured, so nothing will add it automatically). Set the category the same way existing
+posts have it: `post_category: [49]` in the `wp_insert_post()` call.
+
+**Other fields to set, matching the existing published posts' convention** (checked several via
+`execute-php` on 2026-09-21 — re-verify if this ever looks wrong, conventions on this site have
+drifted before):
+
+- `post_author`: `9` (Matt Pocock / `mpocock`) — every existing post uses this author ID.
+- `comment_status` / `ping_status`: `closed` on every existing post.
+- Featured image: `set_post_thumbnail($post_id, $attachment_id)` — standard WP featured image,
+  confirmed in use on several (not all) existing posts.
+- Yoast fields: `_yoast_wpseo_metadesc` (the draft's Meta description) and `_yoast_wpseo_focuskw`
+  (the draft's Main keyword), as post meta.
+- Attachment alt text: `update_post_meta($attachment_id, '_wp_attachment_image_alt', <alt text>)`
+  — `media_handle_sideload()` does not set this from its `$desc` argument.
+
+**Verify live, not just written.** A `wp_insert_post()` success return is the database write
+succeeding, not proof the page renders. Follow it with a server-side `wp_remote_get()` of the
+actual public permalink and confirm HTTP 200 plus the expected title/image markers in the body —
+this is what actually satisfies "never report a publish that did not return success."
+
 ---
 
 ## 5. Failure handling

@@ -936,3 +936,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: nothing pending on this card besides the drag. If `chelectric.com` gets added
   to this environment's allowed egress, the `create-upload-link` route becomes usable directly and
   the server-side-fetch workaround above is no longer needed for future publishes.
+
+## 2026-09-21 14:45 UTC — Publish defect found and fixed: missing WordPress tag
+
+- Did: Matt reviewed the live Panel Schedules post and flagged that the publish step hadn't set a
+  `post_tag` — the post had the "News and Resources" *category* (from `post_category: [49]`) but
+  no *tag*, and the front-end formatting depends on a tag being present. Confirmed the post_tag
+  taxonomy has no default-term configured on this site, so nothing was going to add it
+  automatically. Set it explicitly (`wp_set_post_tags(14430, ['News and Resources'], true)` —
+  term id 24, the standard tag already used on 42 other posts) and confirmed it stuck.
+- Documented this as a standing requirement in `PLAYBOOK.md` (new subsection under §4, after the
+  hero-image ceiling notes): every publish must set both the "News and Resources" category (id
+  49) and the "News and Resources" tag (id 24) explicitly, plus author, comment/ping status,
+  featured image, and Yoast fields — matching what existing published posts carry. Also
+  documented this run's `chelectric.com` egress block and the server-side-fetch-from-git
+  workaround as the standing publish procedure, so the next run doesn't have to rediscover either.
+- Blocked: nothing new.
+- Next run should: follow the new PLAYBOOK.md publishing-mechanics guidance directly rather than
+  re-deriving the Gutenberg format or the tag/category requirement from scratch.
