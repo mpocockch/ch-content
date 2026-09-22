@@ -870,3 +870,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: proceed normally, re-reading the watermark from `Unapproved Ideas`/`Approved
   Ideas` notes rather than the full Teams history. If Thursday triage promotes topics out of
   `Unapproved Ideas`, next Monday's research pass can likely resume adding candidates.
+
+## 2026-09-22 11:33 UTC — Blog: Idea Capture
+
+- Did: read the watermark from `Unapproved Ideas` (newest Original-message id `1789480885808`,
+  "Testing after a flood", posted by Bill Concannon 2026-09-15, captured as task
+  `1218543513344101` — unchanged from the 2026-09-21 run). Read the Teams channel via
+  `read_resource` (page 1 only, 10 messages) and confirmed that same message is still the newest
+  thing in the channel — nothing posted since 09-21. Created no Asana tasks. Today is Tuesday, not
+  Monday, so the §8 research pass does not apply this run.
+- Blocked: nothing.
+- Next run should: proceed normally, re-reading the watermark from `Unapproved Ideas`/`Approved
+  Ideas` notes rather than the full Teams history.
