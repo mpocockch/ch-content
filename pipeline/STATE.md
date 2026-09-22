@@ -476,3 +476,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   human: three consecutive runs (09-12, 09-13, 09-14) reported a false blocker because they
   checked a stale SharePoint item ID instead of re-searching by filename — worth deciding whether
   future runs should always re-search by name rather than reuse a remembered item ID.
+
+## 2026-09-22 — Blog: Publish
+
+- Did: read `pipeline/PLAYBOOK.md` per the stage-11/12 precondition, then queried Asana directly
+  (not git history) for the `Approved Blogs` section (gid `1216997967900172`) of project
+  `1216998438394279`. `asana_get_tasks` returned zero tasks — the section is empty.
+- No card met the final-human-approval signal this run, so no WordPress publish, no hero-image
+  check, no front-matter update and no card move were attempted. Nothing to check for
+  already-live before writing, because there was nothing to write.
+- Housekeeping note, not a blocker: this session's designated working branch
+  (`claude/kind-newton-7th4l5`) had drifted into a separate, never-pushed lineage with STATE.md
+  entries dated through 2026-09-22 that do not exist on `claude/blog-automation-process-flbewl`
+  (the actual repo default, confirmed from this run's setup instructions). That orphaned
+  lineage's last common ancestor with the default branch was `31a5c1a` (2026-09-22-dated commit
+  message, but built on stale 09-14 content); the default branch's own tip was `8063d9c`,
+  last touched 2026-09-15. Since the orphaned commits were never pushed to `origin` and the
+  default branch already contained newer versions of everything they touched, this run reset
+  the working branch to `origin/claude/blog-automation-process-flbewl` before doing anything
+  else, per this repo's "restart from latest default, keep the branch name" convention. Worth a
+  human noting: the default branch's own STATE.md has no recorded runs between 2026-09-15 and
+  today (2026-09-22) — seven days with no Idea Capture / Weekly Draft / Review Loop entries on
+  this branch, consistent with PLAYBOOK.md §10 still showing all four Routines as disabled as of
+  the last edit. If the Routines are meant to be live now, worth confirming connectors are still
+  attached (§8) and checking whether any of those four produced state that, like this session's
+  starting branch, never made it back to the default branch.
+- Blocked: nothing for this stage. Nothing in `Approved Blogs` to act on.
+- Next run should: re-check `Approved Blogs` as normal. If a card lands there, follow stage
+  11/12 in full (verify not already live, confirm hero image present as `hero.*`, publish via
+  Novamira, record the live URL in the Asana task and in `drafts/<slug>/draft.md` front matter,
+  commit and push, then move the card to `Posted Blogs` and report the move as blocked if the
+  connector still can't perform it per §4).
