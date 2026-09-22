@@ -870,3 +870,39 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: proceed normally, re-reading the watermark from `Unapproved Ideas`/`Approved
   Ideas` notes rather than the full Teams history. If Thursday triage promotes topics out of
   `Unapproved Ideas`, next Monday's research pass can likely resume adding candidates.
+
+## 2026-09-22 12:33 UTC — Review Loop
+
+- **NFPA 70E 2027 (gid `1217455522370190`) is now in `Waiting Approval`** — a human (Matt) dragged
+  it over at 2026-09-21T14:00:21Z, about 3 days after the 09-18 handoff, per the card's story
+  history (`section_changed`, no accompanying comment). This is the first card in this stage's
+  scope since Panel Schedules left it on 09-17/09-18.
+- Did: read the full story history since the last recorded check (2026-09-21 12:31 UTC). The only
+  story after that timestamp is the section-move itself — no genuine reviewer comment, no question
+  from Matt or Bill to answer. Cross-checked the live SharePoint doc ("What Is Changing in NFPA
+  70E's Next Edition.docx", Blog folder) directly by reading its content: it matches the packaged
+  draft from `drafts/2026-09-nfpa-70e-2027-changes/draft.md` word-for-word (checked the opening
+  hook, the timing-correction section and the second-person-rule section) — no reviewer edit made
+  directly in the Word doc, unlike the Panel Schedules incident on 09-16. (Could not get a
+  `lastModifiedDateTime` for this specific file — `sharepoint_folder_search` doesn't index it by
+  name for some reason, and a direct `read_resource` file read returns flattened text with no
+  metadata — so this is a content-diff check, not a timestamp check; worth having a more reliable
+  per-file modified-time lookup for future runs.)
+- So: no revision to implement this run. Hero image was already embedded and PPE-checked at
+  packaging (09-18); nothing new to embed. No clarifying question needed since there was no
+  ambiguous feedback — there was no feedback at all yet, just the drag into review.
+- Stall check (§8): card entered `Waiting Approval` 2026-09-21T14:00:21Z — under a day old, nowhere
+  near the 5-day threshold. No nudge sent. (No other card in `Waiting Approval` to check.)
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name via `ToolSearch`), while `ListConnectors` shows both Asana and
+  Microsoft 365 `connected: true, enabledInChat: true` — same standing gap since 2026-09-11, now 11
+  days. Moot this run since nothing needed sending.
+- No Asana comment posted and no email sent — a quiet run for revision purposes, though the card's
+  section did change since last check (noted above for the record).
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b); (2)
+  Asana still cannot move a task between sections by API (§4, moot for this card now that a human
+  did it manually).
+- Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
+  If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
+  SharePoint save, then the Asana comment + revision email per §7b).
