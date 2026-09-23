@@ -906,3 +906,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
   If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
   SharePoint save, then the Asana comment + revision email per §7b).
+
+## 2026-09-23 11:33 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the newest task in `Unapproved Ideas` (gid `1218543513344101`,
+  "Testing after a flood", Original-message id `1789480885808`, posted by Bill Concannon
+  2026-09-15). Read the Teams channel via `read_resource` (first page, 10 messages) and found
+  that same message (id `1789480885808`) is still the newest item in the channel — nothing
+  posted since. Created no Asana tasks. Today is Wednesday, so the Monday research pass did
+  not apply.
+- Blocked: nothing.
+- Next run should: proceed normally, re-reading the watermark from `Unapproved Ideas`'
+  newest task rather than the full Teams history. `Unapproved Ideas` is unchanged at 10
+  untriaged topics since 2026-08-14 — still at/over the queue-depth line in PLAYBOOK.md §8 for
+  whenever the research pass next applies (Monday 2026-09-28), unless Thursday triage promotes
+  some out first.
