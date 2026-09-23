@@ -960,3 +960,62 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   reaches `Approved Blogs` by a future Review Loop / human approval, that's the next card this
   stage will act on — check WordPress for the slug/title first (a card in Approved Blogs is not
   proof it's unpublished) before uploading the hero and publishing.
+
+## 2026-09-23 ~13:45 UTC — Blog: Publish — URGENT: durable-store finding, human action needed
+
+- **This session was assigned a fresh, disposable git branch (`claude/kind-newton-thad7z`) by the
+  invoking harness, distinct from this repo's actual default/working branch
+  (`claude/blog-automation-process-flbewl`), and is restricted from pushing anywhere else.** While
+  checking why my quiet-run entry above would even be visible to the next run, I found this is not
+  new — it appears to be the standing failure mode for the Publish stage specifically.
+- **`git branch -a` on this repo currently lists 13 branches named `claude/kind-newton-*`** (this
+  session's own included) that are not merged into the default branch. At least three were
+  inspected directly:
+  - **`claude/kind-newton-1bisk3` contains a real, completed publish** — Panel Schedules, the same
+    card this playbook's own Asana board shows sitting in `Posted Blogs` today. Its six commits
+    (2026-09-21) show: the four `[[internal link: ...]]` placeholders resolved per a live decision
+    from Matt, the post built as Gutenberg block HTML and published via `novamira/execute-php`
+    (WordPress post 14430, live at `https://chelectric.com/panel-schedule-compliance/`, verified
+    with a server-side `wp_remote_get` of the live permalink), `draft.md` front matter updated to
+    `status: published` with the live URL, and — critically — **a ~65-line addition to
+    `pipeline/PLAYBOOK.md` §4** documenting the `chelectric.com` egress block and the
+    fetch-from-git/`download_url()` workaround, the exact Gutenberg block conventions to match, and
+    the required `post_tag`/category/author/Yoast fields (the missing-tag defect Matt caught and
+    had fixed live). **None of this reached `claude/blog-automation-process-flbewl`.** The live
+    `PLAYBOOK.md` I read at the start of this run does not contain any of it — I would have had to
+    rediscover all of it myself had a card actually needed publishing today.
+  - **`claude/kind-newton-t2sat1`** and **`claude/kind-newton-vzm5lf`** hold single "still blocked"
+    quiet-run commits (2026-09-19 Panel Schedules, and an earlier ultrasonic-testing run) — lower
+    stakes, but the same pattern.
+  - The published ultrasonic-testing post is a worse case: **there is no `drafts/*ultrasonic*/`
+    folder and no STATE.md mention of it anywhere on the default branch at all**, even though it is
+    live (`chelectric.com`, WordPress post 14114 per `kind-newton-vzm5lf`'s note) and its Asana card
+    sits in `Posted Blogs`. Its git history is not just unmerged — I could not find which branch (of
+    several more `claude/kind-newton-*` and `claude/beautiful-mayer-*` branches not yet inspected)
+    holds it, if any surviving branch does.
+  - I attempted to merge `claude/kind-newton-1bisk3`'s six commits into this session's branch to at
+    least recover the orphaned PLAYBOOK.md mechanics and the Panel Schedules publish record
+    somewhere reachable — **the harness's own auto-mode classifier blocked the merge as "Modify
+    Shared Resources."** So even recovery from within a session is not available; this needs a
+    human (or a session with explicit permission) to merge the outstanding branches.
+- **Why this matters for stage 11/12 specifically:** PLAYBOOK.md §1.2 states "state lives in this
+  repo... a run may assume nothing about what previous runs know," and §5 requires every write to
+  finish with a verified push. Every affected run *did* verify its own push — against its own
+  disposable branch, which is not the branch the playbook or the next run actually reads from. That
+  verification step gives false confidence; it doesn't prove the next run can see the work.
+- **This run's own commits** (the quiet-run entry above, and this one) are pushed to
+  `claude/kind-newton-thad7z` for the same structural reason and are at identical risk of being
+  orphaned unless a human merges this branch too.
+- Blocked: recovering/merging the orphaned branches — needs a human with repo-merge access, or a
+  session explicitly authorized to push to `claude/blog-automation-process-flbewl`.
+- Human action needed: (1) merge `claude/kind-newton-1bisk3` (and ideally this branch,
+  `claude/kind-newton-thad7z`) into `claude/blog-automation-process-flbewl`, reconciling the
+  `pipeline/STATE.md` history; (2) find and recover whatever branch holds the ultrasonic-testing
+  draft/publish record, if one survives; (3) fix whatever in the Publish routine's configuration is
+  causing each firing to land on a fresh disposable branch instead of the shared one the other
+  three routines apparently write to directly (their STATE.md entries appear on
+  `claude/blog-automation-process-flbewl` without this problem) — check the routine's own
+  "Select a repository" / branch setting per PLAYBOOK.md §5.
+- Next run should: re-check `Approved Blogs` as normal for its actual job, but also check whether
+  a human has merged the outstanding branches before trusting that `PLAYBOOK.md` here is complete —
+  the §4 publishing-mechanics section may still be missing pending that merge.
