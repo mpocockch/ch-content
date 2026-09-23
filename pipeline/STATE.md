@@ -906,3 +906,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
   If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
   SharePoint save, then the Asana comment + revision email per §7b).
+
+## 2026-09-23 ~11:32 UTC — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) — still just the one card, NFPA 70E
+  2027 (gid `1217455522370190`). Read its full story history: nothing posted after the
+  2026-09-21T14:00:21Z section-move story (no comment was posted by the 09-22 run either, so that
+  move is still the most recent event). No genuine reviewer comment or direct question from Matt
+  or Bill to act on.
+- Also read the live SharePoint doc ("What Is Changing in NFPA 70E's Next Edition.docx", itemId
+  `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`) directly and diffed its full text against
+  `drafts/2026-09-nfpa-70e-2027-changes/draft.md`: word-for-word match (aside from the same
+  PDF-conversion spacing artifacts noted in the 09-22 entry) — no reviewer edit made directly in
+  the Word doc. No revision to implement this run.
+- No hero-image action needed: `hero.jpg` has been embedded and PPE-checked since 09-18, and no
+  new `hero.*` arrived in `drafts/2026-09-nfpa-70e-2027-changes/`.
+- Stall check (§8): card entered `Waiting Approval` 2026-09-21T14:00:21Z — about 1 day 21 hours
+  old, well under the 5-day threshold. No nudge sent.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name via `ToolSearch`, both return "No matching deferred tools
+  found"), while a keyword search for "outlook send mail draft" resolves every other Outlook write
+  tool (`create_draft`, `update_draft`, `delete_draft`, reply-draft variants, filters, labels,
+  batch-modify) but no send tool — same standing gap since 2026-09-11, now 12 days. Moot this run
+  since nothing needed sending.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b); (2)
+  Asana still cannot move a task between sections by API (§4, moot for this card since a human
+  already dragged it into Waiting Approval on 09-21).
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
+  If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
+  SharePoint save, then the Asana comment + revision email per §7b).
