@@ -937,3 +937,26 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
   If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
   SharePoint save, then the Asana comment + revision email per §7b).
+
+## 2026-09-23 ~13:30 UTC — Blog: Publish
+
+- Did: read `pipeline/PLAYBOOK.md` per precondition, then checked `Approved Blogs` (gid
+  `1216997967900172`) — **0 tasks**, confirmed both directly and via a full 14-task project pull
+  (10 Unapproved Ideas, 0 Approved Ideas, 1 Waiting Approval, 0 Approved Blogs, 4 Posted Blogs).
+  Sections match PLAYBOOK.md §2/§3 exactly. No card holds the final human approval signal this
+  stage acts on, so nothing to publish, no WordPress-already-live check, no hero-image check, and
+  no card move.
+  - NFPA 70E 2027 (gid `1217455522370190`) is still in `Waiting Approval`, unchanged since the
+    09-22 Review Loop entry — not this stage's scope until it reaches `Approved Blogs`.
+  - Panel Schedules (gid `1217697187018391`) is already in `Posted Blogs` — previously published,
+    out of scope.
+- Confirmed via `ListConnectors` that Asana, Microsoft 365 and novamira-chelectric-com are all
+  `connected: true, enabledInChat: true` — nothing blocked by tooling this run; the run was quiet
+  because there was no card in scope, not because a connector was unavailable.
+- No Asana comment posted, no WordPress write attempted, no card moved — a quiet run, nothing new
+  to report.
+- Blocked: nothing.
+- Next run should: re-check `Approved Blogs` as normal. If NFPA 70E 2027 (or any other card)
+  reaches `Approved Blogs` by a future Review Loop / human approval, that's the next card this
+  stage will act on — check WordPress for the slug/title first (a card in Approved Blogs is not
+  proof it's unpublished) before uploading the hero and publishing.
