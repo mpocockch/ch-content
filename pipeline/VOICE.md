@@ -54,4 +54,7 @@ which is the opposite of the point.
 - Sentence case for headings.
 - Numbers as digits from 10 up; spell out below, except with units (`4 hours`, `480V`).
 - Standards on first mention in full, then short: `NFPA 70E` → `70E`.
-- No em-dash pileups; one per sentence at most.
+- **No em dashes (—) in copy, ever.** Not one per sentence, none. This covers the article, the
+  meta description and the LinkedIn post. Use a period, colon, comma or parentheses instead,
+  and split the sentence if that reads better. En dashes in number ranges (`2,000–2,500`) and
+  hyphens in compound words (`de-energized`, `arc-flash`) are fine. Set by Matt 2026-09-24.

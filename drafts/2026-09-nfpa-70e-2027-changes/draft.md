@@ -9,8 +9,8 @@ Meta description   Learn what is changing in NFPA 70E's next edition, including 
 A crew that has run an energized work permit the same way for a decade is about to find out
 that "the way we've always done it" has an expiration date. NFPA 70E's next edition adds
 requirements that touch who can be in the room during energized work, what PPE a battery room
-actually needs, and how a facility proves a circuit is dead — and none of it is optional once
-it lands.
+actually needs, and how a facility proves a circuit is dead. None of it is optional once it
+lands.
 
 This article breaks down what's actually changing in the next edition of NFPA 70E, why the
 timing is more complicated than a lot of what's circulating online suggests, and what a
@@ -36,16 +36,16 @@ more than it sounds, because it's also where a lot of the confusion below comes 
 **Content claiming the next edition of NFPA 70E has "already taken effect" is circulating, and
 facilities that plan around it risk building a compliance program around the wrong deadline.**
 NFPA's own published development calendar for this cycle put the membership Technical Meeting in
-mid-2026, with Standards Council issuance expected afterward — a timeline that does not support
-an edition being finalized and enforceable months earlier, whatever date a given article
-attaches to it.
+mid-2026, with Standards Council issuance expected afterward. That timeline does not support an
+edition being finalized and enforceable months earlier, whatever date a given article attaches
+to it.
 
 That distinction is not academic. A facility that believes a new requirement is already binding
 may divert budget and training hours away from what the 2024 edition actually requires today. A
 facility that assumes the next edition is years away may get caught flat-footed once it is
 issued. The safer posture is the one C&H Electric takes with clients: **treat the 2024 edition as
 the current legal and contractual baseline, and treat the next edition's changes as things to
-prepare for on a known, structured timeline** — not as a rule to ignore, and not as a rule already
+prepare for on a known, structured timeline**, not as a rule to ignore and not as a rule already
 in force.
 
 ## The New Second-Person Requirement for Energized Work
@@ -80,7 +80,7 @@ always prove a circuit is dead.**
 
 Shock protection and burn protection are not the same requirement, and the next edition draws
 that line more explicitly. A worker's hands can be protected from electric shock by rubber
-insulating gloves and still be exposed to a contact-thermal burn hazard — a hot surface or
+insulating gloves and still be exposed to a contact-thermal burn hazard: a hot surface or
 component that can burn on contact regardless of whether current is flowing. Battery rooms and
 similar equipment are the settings drafting participants have pointed to most often: rubber
 insulating gloves satisfy the shock-protection requirement, but they do not, by themselves,
@@ -92,7 +92,7 @@ in these spaces should expect that assumption to be tested.
 
 Article 120's requirement to test for absence of voltage before treating a circuit as
 de-energized is being expanded with a new exception for situations where a voltage reading alone
-doesn't reliably confirm the circuit is dead — current-transformer secondary circuits and series
+doesn't reliably confirm the circuit is dead. Current-transformer secondary circuits and series
 airfield lighting circuits are the examples that keep coming up in the drafting discussion. Where
 that exception applies, the next edition calls for an additional verification method, such as
 testing for absence of current, rather than treating a zero-voltage reading as sufficient on its
@@ -116,14 +116,14 @@ cycles that don't map cleanly onto AC assumptions.
 without updating the electrical safety program that governs the rest of the site.** [[internal
 link: arc flash risk assessment]] A safety program that was written for switchgear and
 panelboards doesn't automatically cover a battery room, and the next edition is a signal that
-regulators and standards bodies are catching up to that gap — which means an audit of DC
-equipment against the current program is worth doing well before the edition forces the issue.
+regulators and standards bodies are catching up to that gap. An audit of DC equipment against
+the current program is worth doing well before the edition forces the issue.
 
 ## Standards and Compliance
 
 **NFPA 70E works alongside NFPA 70B and OSHA's General Duty Clause, and the next edition
 reinforces that connection rather than replacing either one.** [[internal link: NFPA 70B
-electrical maintenance program]] NFPA 70B governs the electrical maintenance program itself —
+electrical maintenance program]] NFPA 70B governs the electrical maintenance program itself:
 inspection intervals, testing, documentation. NFPA 70E governs the safety practices around
 working on or near that same equipment. OSHA does not adopt NFPA 70E by reference wholesale, but
 inspectors routinely point to it, along with NFPA 70B, when evaluating whether an employer met
@@ -167,7 +167,7 @@ planning for it.
 
 Energized Electrical Work Permits, PPE selection tables and lockout/tagout procedures all need to
 be reviewed and, in most cases, rewritten to reflect new provisions. Doing that once, deliberately,
-is far cheaper than doing it twice — once informally in anticipation, and again for real once
+is far cheaper than doing it twice: once informally in anticipation, and again for real once
 the edition is issued and the details are locked.
 
 ## Misconceptions About the Next Edition
@@ -181,20 +181,20 @@ This is circulating widely, often with a specific date attached, and it does not
 published development calendar for this cycle. As of this writing, the current enforceable
 edition of NFPA 70E is 2024. The next edition was still working through NFPA's Technical Meeting
 and Standards Council review process. Treating an unissued edition as binding risks building a
-program around requirements that could still change before final issuance — and risks neglecting
-2024-edition obligations that remain fully in force today.
+program around requirements that could still change before final issuance. It also risks
+neglecting 2024-edition obligations that remain fully in force today.
 
 ### "Rubber insulating gloves are enough hand protection in a battery room"
 
 Insulating gloves address shock protection. They do not, on their own, address a contact-thermal
-burn hazard from a hot surface or component — a distinct hazard the next edition calls out more
-explicitly. A hazard assessment that stops at "shock protection" for DC and battery equipment is
+burn hazard from a hot surface or component, which is a distinct hazard the next edition calls
+out more explicitly. A hazard assessment that stops at "shock protection" for DC and battery equipment is
 incomplete.
 
 ### "A zero-voltage reading always proves a circuit is dead"
 
 For most circuits, testing for absence of voltage is the correct and sufficient method. It is not
-universal — current-transformer secondary circuits and series circuits are examples where a
+universal. Current-transformer secondary circuits and series circuits are examples where a
 voltage reading alone can be misleading, which is exactly why the next edition adds an exception
 requiring an additional verification method in those specific situations.
 

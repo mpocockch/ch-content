@@ -218,6 +218,8 @@ better answer for intervals and categories; decoration is not data.
 - CTA is conditional and, if present, mid-article; post closes on Final thoughts.
 - 3+ internal link placeholders.
 - Banned-phrase check per `VOICE.md`, **excluding your own notes and the word list itself**.
+- Zero em dashes (`—`) in `draft.md` and in the post body of `linkedin.md`. Check with
+  `grep -c "—"`, don't eyeball it.
 - No sentence credits or describes an internal comment, pitch, or review note (Matt's, Bill's,
   a reviewer's, or the original idea post's) — the substance can stay, the attribution to the
   internal source cannot, unless it's a literal quote you were told to use as one.

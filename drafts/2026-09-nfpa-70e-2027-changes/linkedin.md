@@ -26,6 +26,6 @@ ready before it lands. Read the full guide here: <URL>
 Notes (not part of the post)
 - Link is provisional until the article is live: https://chelectric.com/nfpa-70e-2027-changes/
 - Flag for reviewer: the post (and the article) deliberately debunk the "already in effect since
-  May 6, 2026" claim that was in the original Approved Ideas research note — see sources.md for
+  May 6, 2026" claim that was in the original Approved Ideas research note. See sources.md for
   why. Worth confirming this framing lands the way we want before it goes out, since it's a more
   contrarian angle than a typical "here's what's new" post.
