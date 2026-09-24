@@ -4,6 +4,8 @@ Title              What Is Panel Schedule Compliance, and Why Does It Matter for
 Meta description   Learn what panel schedule compliance requires under NEC 408.4(A), why an
                    inaccurate directory is a safety hazard during lockout/tagout and
                    emergencies, and what it costs to let one drift out of date.
+Status             published
+Live URL           https://chelectric.com/panel-schedule-compliance/
 
 # What Is Panel Schedule Compliance, and Why Does It Matter for Safety?
 

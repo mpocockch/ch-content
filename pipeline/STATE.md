@@ -973,3 +973,49 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   faster than a full content diff — reuse it). If either appears, implement per the standard
   stage-09 flow (blog-draft skill, commit/push, SharePoint save, then the Asana comment +
   revision email per §7b).
+
+## 2026-09-24 13:46 UTC — Blog: Publish (stages 11–12) — first-ever run, quiet
+
+- Read PLAYBOOK.md per the precondition before doing anything else.
+- **`Approved Blogs` (gid `1216997967900172`) is empty** — confirmed both directly and via a full
+  15-task project pull (10 Unapproved Ideas, 1 Waiting Approval [NFPA 70E 2027], 0 Approved
+  Blogs, 4 Posted Blogs). No card sat in this stage's scope, so no publish action, no
+  double-publish check, and no hero-image check were needed this run.
+- **This is the first `Blog: Publish` run ever logged** — no prior entry in this file, and no
+  commit history mentions publishing. Yet Panel Schedules (gid `1217697187018391`) is already in
+  `Posted Blogs`, `completed: true`, with a live URL recorded in its Asana notes
+  (`https://chelectric.com/panel-schedule-compliance/`, "published 2026-09-21"). Verified this
+  directly against WordPress (`novamira/execute-php`, `get_page_by_path`): post ID 14430, status
+  `publish`, live at that URL, with a real featured image set (not a placeholder). So this post
+  went live and moved through stages 11–12 **without this Routine ever having run** — almost
+  certainly a human publishing it directly in WordPress and dragging the card themselves, since
+  the Asana connector cannot move cards by API (§4) and no Publish-stage tooling has a git
+  footprint before today.
+- **Found and fixed a record-keeping gap**: `drafts/2026-09-panel-schedule-compliance/draft.md`
+  had never received the `status:`/live-URL front matter that `drafts/README.md` documents as
+  the standing convention (`status:` one of `drafting`/`in-review`/`approved`/`published`, plus
+  the live URL once published) — in fact, checking both existing draft folders, **no draft in
+  this repo has ever carried that field**, so this isn't unique to Panel Schedules. Added
+  `Status  published` and `Live URL  https://chelectric.com/panel-schedule-compliance/` to that
+  file's metadata block (matching its existing `Main keyword` / `URL` / `Title` / `Meta
+  description` table style) so the git archive matches what's actually live, per the
+  non-negotiable that git is the durable record. Did not touch the Asana card or WordPress —
+  both already reflect the correct, verified state.
+- **Flagging for a human, not acting on it**: the "ISO 45000 / arc flash compliance" card (gid
+  `1217455792661086`) also sits in `Posted Blogs` with `completed: true`, but its notes are still
+  the original Teams-capture text with a "CAPTURE NOTE" flag — no live URL, and no matching
+  `drafts/` folder exists in this repo. That doesn't look like a real published post; it reads
+  like a card marked complete and moved by mistake. Out of this stage's scope to fix (nothing in
+  `Approved Blogs` names it, and guessing at a correction risks compounding the error), so
+  recording it here for a human to check directly in Asana.
+- Committed and pushed the front-matter fix to `claude/blog-automation-process-flbewl`, verified
+  by fetching and confirming the commit is an ancestor of the remote branch.
+- Blocked: nothing this run needed a connector that wasn't present. Standing blockers unchanged
+  from Review Loop's recent entries: no send-capable Outlook tool exposed to this connector
+  (§7b), and Asana still cannot move a task between sections by API (§4) — moot for every card
+  currently in scope.
+- Next run should: when a card eventually reaches `Approved Blogs`, this is the first time this
+  stage's actual publish flow (WordPress-live check, hero-image match on `hero.*`, upload +
+  publish, front-matter + Asana-description update, commit/push, then the "please drag to Posted
+  Blogs" comment) will be exercised for real — follow PLAYBOOK.md §§5–6 exactly since it's
+  untested in practice. Also worth a human decision on the ISO 45000 card noted above.
