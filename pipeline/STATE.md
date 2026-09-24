@@ -937,3 +937,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
   If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
   SharePoint save, then the Asana comment + revision email per §7b).
+
+## 2026-09-24 11:33 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the 09-21 entry (newest Original-message id `1789480885808`,
+  "Testing after a flood", posted by Bill Concannon 2026-09-15, captured as task
+  `1218543513344101`). Read the Teams channel via `read_resource` (page 1 only) and confirmed
+  that same message is still the newest item at the top of the newest-first list — nothing
+  posted to the channel since 09-21. Created no Asana tasks.
+- Today is Thursday, not Monday, so the research pass (§8) did not run.
+- Blocked: nothing.
+- Next run should: proceed normally, re-reading the watermark from this entry rather than the
+  full Teams history.
