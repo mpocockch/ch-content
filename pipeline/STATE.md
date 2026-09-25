@@ -1069,3 +1069,62 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   is now empty again — if no new topic has been promoted by the next Friday run, that's the
   throttle working, not a failure, per PLAYBOOK.md's cadence note. NFPA 70E 2027 remains the only
   card in Waiting Approval, unchanged, for the daily Review Loop to keep checking.
+
+## 2026-09-25 12:44 UTC — Review Loop
+
+- Checked `Waiting Approval` (gid `1216997967900170`): still just the one card, NFPA 70E 2027
+  (gid `1217455522370190`). Pulled its full story history end to end (not just since the last
+  recorded check) to be certain: nothing posted after the 2026-09-21T14:00:21Z section-move story.
+  Both narrative comments on the task (2026-09-18) are the pipeline's own self-authored
+  draft-ready/run-status reports, not reviewer feedback — confirmed by content (first-person
+  "I verified," git commit hashes, tool-availability diagnostics), consistent with every prior
+  run's read of this card. No genuine reviewer comment and no direct question from Matt or Bill to
+  act on.
+- Checked the live SharePoint doc for a direct edit: `sharepoint_search` with a `fileType`/
+  `folderName` filter (the technique the 2026-09-24 run recommended) came up empty for this file
+  today — the search index isn't reliably surfacing it by keyword right now, unlike 09-24. Fell
+  back to reading the file directly via `read_resource` on the known driveId/itemId from prior
+  entries (`b!rFOk2NgZLUanLuEhSAQO6XVd1ws0aSJIhZeZ6Guiew2nCeXLAPUoQ41jyCucuNy_` /
+  `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`) and diffing content instead. **The SharePoint copy is
+  unedited by a reviewer** (word-for-word the same body text as the 2026-09-18 upload) but **it is
+  now stale against git**: it still carries roughly a dozen em dashes, the exact text
+  `85d40c9` (2026-09-24) stripped from `drafts/2026-09-nfpa-70e-2027-changes/draft.md` under the
+  same-day zero-em-dash rule in `VOICE.md`. That fix landed one hour after the 2026-09-24 Review
+  Loop run's own check (per STATE.md's own timestamps), so no run has had a chance to reconcile it
+  until now. This is not reviewer feedback and triggers no SharePoint write under this run's
+  mandate (§9 step 2 is for implementing reviewer asks) — flagging it here rather than acting on it
+  unprompted, since a docx rebuild + re-upload is real, non-trivial write work for content nobody
+  asked to change today, and PLAYBOOK.md §4's tight upload ceiling makes an unforced rebuild worth
+  doing deliberately, not as a side effect of a quiet run. A reviewer opening the doc today would
+  still see the old em-dash punctuation; worth a future run (or a human) re-uploading the current
+  git version.
+- No hero-image action needed: `drafts/2026-09-nfpa-70e-2027-changes/hero.jpg` last touched in git
+  2026-09-18 (commit `d5feb31`), already embedded-and-PPE-checked note on the card, no new `hero.*`
+  arrived.
+- Stall check (§8): card entered `Waiting Approval` 2026-09-21T14:00:21Z — about 3 days 23 hours
+  old as of this run (now 2026-09-25T12:44Z), still under the 5-day threshold. No nudge sent.
+- Checked `Approved Ideas` (gid `1216997967900169`): one card, "Testing after a flood"
+  (gid `1218543513344101`) — this morning's Weekly Draft output. It is not yet in Waiting Approval
+  (the connector still cannot move a task between sections, PLAYBOOK.md §4; that run's own comment
+  already asked a human to drag it). Out of this run's scope since it hasn't reached Waiting
+  Approval yet — nothing to check for reviewer feedback on a card with no reviewers looking at it
+  yet.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name via `ToolSearch`, "No matching deferred tools found") — same
+  standing gap since 2026-09-11, now about two weeks. Moot this run since nothing needed sending.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b);
+  (2) Asana still cannot move a task between sections by API (§4) — affects both the NFPA 70E 2027
+  card (moot, a human already dragged it 09-21) and the new flood-damage card (not moot, still
+  sitting in Approved Ideas); (3) new this run, non-blocking: the NFPA 70E 2027 SharePoint doc is
+  stale against git's zero-em-dash punctuation fix (see above) — doesn't block review, since the
+  reviewer can still read and approve the text, but the punctuation a reviewer sees doesn't match
+  what would actually publish.
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
+  If either appears, implement per the standard stage-09 flow (blog-draft skill, commit/push,
+  SharePoint save, then the Asana comment + revision email per §7b). Separately, consider
+  re-uploading the current git version of the NFPA 70E 2027 draft to SharePoint to clear the
+  em-dash staleness noted above (not done this run since it's not reviewer-requested work and the
+  upload path is worth doing carefully, not reactively). Also watch the flood-damage card for a
+  human dragging it into Waiting Approval and for the unsent Outlook draft being sent.
