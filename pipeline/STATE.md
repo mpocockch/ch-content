@@ -973,3 +973,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   faster than a full content diff — reuse it). If either appears, implement per the standard
   stage-09 flow (blog-draft skill, commit/push, SharePoint save, then the Asana comment +
   revision email per §7b).
+
+## 2026-09-25 11:33 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the last recorded Idea Capture run (2026-09-21) — newest
+  Original-message id `1789480885808`, "Testing after a flood" (Bill Concannon), already
+  captured as Asana task `1218543513344101`. Read page 1 (10 messages, newest first) of the
+  Teams channel via `read_resource`: the newest message in the channel is that same id — nothing
+  posted since 09-15. No new ideas to capture, so no Asana tasks created. Today is Friday, not
+  Monday, so the §8 research pass does not apply this run.
+- Blocked: nothing.
+- Next run should: proceed normally, re-reading the watermark from the last Idea Capture entry
+  here (still `1789480885808`) rather than the full Teams history.
