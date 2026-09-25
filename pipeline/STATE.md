@@ -1128,3 +1128,47 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   em-dash staleness noted above (not done this run since it's not reviewer-requested work and the
   upload path is worth doing carefully, not reactively). Also watch the flood-damage card for a
   human dragging it into Waiting Approval and for the unsent Outlook draft being sent.
+
+## 2026-09-25 13:30 UTC — Blog: Publish (stages 11–12)
+
+- Read PLAYBOOK.md first per the precondition; proceeded since it was reachable.
+- Did: checked `Approved Blogs` (gid `1216997967900172`) for cards needing publish. **Confirmed
+  empty two ways**: a direct section query returned zero tasks, and a full 14-task project pull
+  (9 Unapproved Ideas, 1 Approved Ideas, 1 Waiting Approval, 0 Approved Blogs, 4 Posted Blogs)
+  cross-checked it. No card was in scope for this stage, so no WordPress query, no image check,
+  no publish, and no card move — a quiet run by design, not a failure.
+- Noted for the record, no action taken (out of this stage's scope, not touched): "Panel
+  Schedules — Compliance, Safety, and the Cost of Playing Catch-Up" (gid `1217697187018391`),
+  which sat in Approved Blogs as recently as the 2026-09-20 Review Loop check, is now in
+  `Posted Blogs` and marked `completed: true`. **This is the first ledger evidence that a
+  publish for this card ever happened** — no prior `Blog: Publish` entry exists anywhere in this
+  file (grepped the full ledger before writing this entry), so either an unlogged Publish run
+  did it (the same class of gap as the 2026-09-24 13:41 UTC untracked em-dash-ban commit) or a
+  human published/moved it by hand outside the pipeline. Did not verify its live URL or front
+  matter this run since the card is outside Approved Blogs and therefore outside this stage's
+  job as scoped by the playbook; flagging only so a human can confirm the publish was genuine
+  and that `drafts/2026-09-panel-schedule-compliance/draft.md` front matter and the Asana task
+  description carry the live URL, since no prior ledger entry recorded either.
+- Tool check (per §5, before concluding "nothing to do"): confirmed the Asana section-read tools
+  and the `novamira-chelectric-com` connector's abilities were both present and responsive this
+  run (used to query Approved Blogs and to discover WordPress abilities), so the empty section is
+  not a connector-absence false negative.
+- **Branch note for a human:** this session's repository setup assigned branch
+  `claude/kind-newton-y280xk` for this run's commits (per this session's own "Git Development
+  Branch Requirements", which take precedence over pushing to the shared
+  `claude/blog-automation-process-flbewl` branch every prior ledger entry used). This commit
+  therefore lands on `claude/kind-newton-y280xk`, not the pipeline's usual shared branch. A human
+  should merge it into `claude/blog-automation-process-flbewl` (or reconfigure this Routine's
+  repository branch setting) so the next scheduled run — which will check out the shared
+  branch per its own setup — can see this entry. Flagging this explicitly rather than silently
+  diverging the ledger.
+- Blocked: nothing this run required a write beyond this ledger entry, since there was no card to
+  publish. Standing organizational items unchanged from prior entries (no send-capable Outlook
+  tool; Asana still cannot move a task between sections by API) are not this stage's concern
+  today and are already tracked above.
+- Next run should: re-check `Approved Blogs` as normal. If NFPA 70E 2027 or the flood-damage
+  draft is approved and dragged into `Approved Blogs` by a human, that is the next card this
+  stage acts on — follow the standard publish flow (confirm not already live, check for
+  `drafts/<slug>/hero.*`, publish via Novamira, record the live URL in both the Asana description
+  and the draft's front matter, commit and push, then move the card to `Posted Blogs` and report
+  if the move cannot be done by API).
