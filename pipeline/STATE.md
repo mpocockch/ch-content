@@ -973,3 +973,99 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   faster than a full content diff — reuse it). If either appears, implement per the standard
   stage-09 flow (blog-draft skill, commit/push, SharePoint save, then the Asana comment +
   revision email per §7b).
+
+## 2026-09-24 13:41 UTC — Untracked: em dashes banned in VOICE.md, not logged at the time
+
+- Not this run's entry, but flagged here since it postdates the last logged entry above and no
+  ledger entry was written for it. A commit landed on the shared branch (`85d40c9`, "Ban em
+  dashes in copy; strip them from the NFPA 70E draft") that changed `VOICE.md` from "one em dash
+  per sentence at most" to zero em dashes anywhere in copy, added a `grep -c "—"` self-check step
+  to `DRAFTING.md`, and rewrote the NFPA 70E 2027 draft's 11 em dashes as periods/colons/commas
+  (wording otherwise unchanged). Whoever ran that session skipped the "append to STATE.md every
+  run" rule. Not investigated further this run since it was already committed and consistent with
+  a Matt-directed change (VOICE.md itself says "Set by Matt 2026-09-24"); noting it here so the
+  gap in the ledger doesn't look like a missed day.
+
+## 2026-09-25 12:27 UTC — Weekly Draft (stages 04–07) — Testing electrical equipment after a flood
+
+- Resume check first: read recent comments on Approved Ideas and Waiting Approval, and checked
+  `drafts/` for an unfinished topic. Neither existing draft folder (NFPA 70E 2027, Panel Schedule
+  Compliance) was incomplete — both are already past stage 04. Approved Ideas held exactly one
+  topic, "Testing after a flood" (gid `1218543513344101`, promoted by Matt from Unapproved Ideas
+  at 2026-09-24T15:28:58Z, today's Thursday triage). Bill Concannon had left a guidance comment on
+  it (de-energizing, utility involvement, testing by equipment type, safe re-energizing) — not a
+  question, so folded into the draft as coverage points rather than answered with a reply. Also
+  checked the NFPA 70E 2027 card in Waiting Approval per the resume instructions even though it's
+  Review Loop's normal scope: no reviewer activity since the 2026-09-21 section move, live
+  SharePoint doc still matches the git draft (matches the 2026-09-24 Review Loop run's own check,
+  not re-verified byte-for-byte again this run).
+- Wrote `drafts/2026-09-flood-damaged-electrical-equipment/{draft.md, sources.md, image-brief.md,
+  linkedin.md}` against the current `DRAFTING.md`/`VOICE.md` (including the 2026-09-24 zero-em-dash
+  rule, which this draft was written to satisfy from the start rather than fixed after the fact).
+  2,094 words, metadata block, hook + roadmap, bolded section-opening sentences, Misconceptions +
+  Recent trends present, table for the equipment/test mapping, numbered re-energizing sequence, 4
+  internal-link placeholders, conditional CTA placed after Standards and compliance, closes on
+  Final thoughts, zero em dashes (`grep -c "—"` on both files), no banned phrases, no internal
+  review-process narration. Sourced from live `WebSearch` this run (NEMA GD 1's
+  replace-vs-recondition guidance for submerged low-voltage/electronic-trip equipment, OSHA's
+  flood-cleanup de-energize/don't-re-energize-until-serviced guidance, NETA insulation-resistance
+  testing practice, NOAA's Connecticut/Northeast heavy-rainfall trend data including the August
+  2024 Oxford, CT event) — full citation trail and what was deliberately left unverified (a
+  universal NETA megohm threshold, specific NFPA 70B flood-specific article numbers, any
+  percentage/dollar figures) in `sources.md`.
+- Generated the hero image via `pipeline/bin/generate-hero-image.py` (key mode,
+  `gemini-3-pro-image-preview`, exit 0): a technician testing an open, tagged-out flood-damaged
+  panel with a visible water line. PPE-checked per PLAYBOOK.md §6: correct for a confirmed
+  de-energized testing scene (lockout tag visible and unambiguous, gloves/hard hat/glasses
+  appropriate, not staged as live work) — full arc-flash PPE wasn't the right bar to check against
+  here since the scene itself is de-energized, and said so in the image brief for the reviewer.
+- Committed (`8c67741`) and pushed to `claude/blog-automation-process-flbewl`; verified via
+  `git fetch` + `git merge-base --is-ancestor` that the commit landed on the remote branch.
+  Delivered all five artifacts via `SendUserFile` regardless of push outcome (push succeeded).
+- Packaging defect found and fixed: the first local `.docx` build (via the `docx` npm library,
+  v9.7.2) passed `unzip -t` and an XML parse of every part, but the embedded image's media file
+  landed with a literal `.undefined` extension with no matching `Content_Types.xml` Default entry
+  — the same invalid-OOXML failure class as the 2026-09-11 Equipment Room corruption, and exactly
+  what those five-part checks don't catch. Root cause: `ImageRun` needs an explicit `type: "jpg"`
+  option in this docx version; without it the library can't infer the extension. Fixed and
+  reverified (media file lands as `.jpg`, `Content_Types.xml` has a matching Default entry,
+  `_rels/.rels` carries a proper officeDocument relationship) — recording here since this bites
+  the *next* run's local build too if the same omission is copied forward.
+- Upload defect (separate from the above, this run only): the first upload attempt, with a
+  260x144 embedded hero preview (16,900 bytes / 22,536 base64 characters), was rejected by
+  `sharepoint_upload_file` as malformed base64 (whitespace, only 12,995 of the intended 22,536
+  characters received) — this was a transcription failure in reproducing that much base64 into a
+  single tool-call argument by hand, not a problem with the built file itself (confirmed clean by
+  `unzip -t`, XML parse, and a local base64 round-trip with no whitespace). Rebuilt the `.docx`
+  without the embedded hero image (15,007 bytes / 20,012 base64 characters) to shrink the payload,
+  re-read it fresh from disk, and pasted it as one block without retyping. That attempt succeeded:
+  reported stored size 22,154 bytes against 15,007 sent (larger than sent, the documented clean-save
+  signal), and a `read_resource` read-back matched the intended text and LinkedIn section
+  word-for-word. Net effect: this run's SharePoint copy has no embedded hero image, only a note
+  pointing reviewers to the full-resolution `hero.jpg` delivered via `SendUserFile`/git — same
+  fallback the playbook already allows for a missing image, used here for a reliability tradeoff
+  instead. Worth a future run trying the embedded-image version again with more care, since the
+  underlying built file was fine; the base64 ceiling in PLAYBOOK.md §4 is about final file size,
+  not about this separate hand-transcription risk, and the two shouldn't be conflated.
+- Handoff (upload succeeded, so all three per the playbook, step 6): assigned Matt and added Bill
+  as a follower on the Asana task (confirmed in the returned task objects). Posted the
+  ready-for-review comment with the SharePoint link, the "please drag to Waiting Approval" note,
+  and a pointer to the full-res `hero.jpg` for the PPE check since the doc itself has no image
+  this run. Posted a separate run-status comment naming exactly what completed.
+  **Email**: confirmed again (exact-name `ToolSearch` and keyword search) that
+  `outlook_send_mail`/`outlook_send_draft` are still absent from this session's Microsoft 365
+  connector — same standing gap since 2026-09-11, now roughly two weeks. Created a new Outlook
+  Drafts-folder draft (not a duplicate of any existing unsent one, since this is a new
+  topic/event) addressed to Matt and Bill with the SharePoint and Asana links and the PPE
+  reminder.
+- Blocked: (1) the handoff email is an unsent Outlook Drafts item — needs a human to send it, or a
+  future run with a send-capable connector (standing gap, unchanged). (2) This run's SharePoint
+  doc has no embedded hero image (see upload defect above) — not a blocker to review, since the
+  full-res image was delivered another way and the playbook explicitly allows text review without
+  the image, but worth a human knowing why this doc's thumbnail is blank compared to earlier
+  drafts.
+- Next run should: check whether a human sent the new Outlook draft (subject "Blog draft ready for
+  review: Testing electrical equipment after a flood") or restored send capability. Approved Ideas
+  is now empty again — if no new topic has been promoted by the next Friday run, that's the
+  throttle working, not a failure, per PLAYBOOK.md's cadence note. NFPA 70E 2027 remains the only
+  card in Waiting Approval, unchanged, for the daily Review Loop to keep checking.
