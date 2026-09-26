@@ -1166,3 +1166,23 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit,
   and treat it as due for the stall nudge if still untouched (the 5-day threshold will have passed
   by then). If either a revision or a nudge is needed, follow the standard stage-09/§8 flow.
+
+## 2026-09-26 13:42 UTC — Publish
+
+- Did: read PLAYBOOK.md per precondition, confirmed system IDs unchanged (`asana_get_project_sections`
+  on project `1216998438394279` returned the same five section gids as §3), then pulled
+  `Approved Blogs` (gid `1216997967900172`) directly — **empty, zero tasks**. Per stage map §2,
+  this is the only section this stage acts on, so there was nothing to double-check against
+  WordPress, no hero image to verify, and no publish to attempt. NFPA 70E 2027 (gid
+  `1217455522370190`) is still in `Waiting Approval` per today's Review Loop entry above — it has
+  not reached final human approval (stage 10) yet, so it is correctly out of this stage's scope,
+  not a card this run should touch or move.
+- Blocked: nothing — this run's only "blocker" is upstream: no card has reached `Approved Blogs`
+  for a human to trigger stage 11 on. Standing blockers from other stages (no send-capable
+  Outlook tool; Asana move-between-sections still unsupported by API) are unchanged and not
+  exercised this run since nothing was published or moved.
+- No Asana comment posted, no WordPress write attempted, no card moved — a quiet run, nothing to
+  report.
+- Next run should: pull `Approved Blogs` again fresh (never assume this run's empty result still
+  holds) and, for any card found there, run the full double-publish check against WordPress before
+  touching anything.
