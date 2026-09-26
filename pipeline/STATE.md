@@ -1128,3 +1128,41 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   em-dash staleness noted above (not done this run since it's not reviewer-requested work and the
   upload path is worth doing carefully, not reactively). Also watch the flood-damage card for a
   human dragging it into Waiting Approval and for the unsent Outlook draft being sent.
+
+## 2026-09-26 12:41 UTC — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) — a full project task pull confirms it
+  still holds exactly one card, NFPA 70E 2027 (gid `1217455522370190`); everything else is
+  unchanged (9 Unapproved Ideas, 1 Approved Ideas — "Testing after a flood" still not dragged over,
+  4 Posted Blogs including Panel Schedules, which left this stage's scope on 09-17/09-18). Read the
+  card's full story history end to end: nothing posted after the 2026-09-21T14:00:21Z section-move
+  story — no genuine reviewer comment and no direct question from Matt or Bill to act on.
+- Read the live SharePoint doc directly (itemId `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`) and compared
+  it word-for-word against `drafts/2026-09-nfpa-70e-2027-changes/draft.md`: **unchanged since the
+  2026-09-18 upload** — still the pre-zero-em-dash text, matching every prior run's finding since
+  09-22. `sharepoint_search` did return a `lastModifiedDateTime` this run (2026-09-24T22:15:00Z),
+  the first time that metadata has resolved since 09-23, but since the full-text diff shows no
+  content change at all, that timestamp move looks like a SharePoint-side metadata touch (e.g.
+  reindexing) rather than an edit — treating it as inconclusive rather than as evidence of a
+  reviewer action, since content is dispositive here and the content didn't move. No revision to
+  implement this run.
+- No hero-image action needed: `drafts/2026-09-nfpa-70e-2027-changes/hero.jpg` unchanged in git
+  since 2026-09-18 (commit `d5feb31`), already embedded and PPE-checked; no new `hero.*` arrived.
+- Stall check (§8): card entered `Waiting Approval` 2026-09-21T14:00:21Z — 4 days 22h41m old as of
+  this run (2026-09-26T12:41Z), still under the 5-day threshold by about 1h20m. No nudge sent. The
+  next Review Loop run (tomorrow) will cross 5 days and should nudge if this card is still sitting
+  here untouched, checking its history first per §8 so the nudge isn't a repeat.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` still resolve to "No
+  matching deferred tools found" via `ToolSearch` by exact name — same standing gap since
+  2026-09-11, now 15 days. Moot this run since nothing needed sending.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b);
+  (2) the NFPA 70E 2027 SharePoint doc remains stale against git's zero-em-dash punctuation fix
+  (non-blocking, flagged since 09-25 — a reviewer reading it today still sees the old em-dash
+  punctuation, not what would actually publish); (3) the flood-damage card ("Testing after a
+  flood", gid `1218543513344101`) is still sitting in Approved Ideas, not yet dragged to Waiting
+  Approval, so out of this stage's scope.
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit,
+  and treat it as due for the stall nudge if still untouched (the 5-day threshold will have passed
+  by then). If either a revision or a nudge is needed, follow the standard stage-09/§8 flow.
