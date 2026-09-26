@@ -1128,3 +1128,20 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   em-dash staleness noted above (not done this run since it's not reviewer-requested work and the
   upload path is worth doing carefully, not reactively). Also watch the flood-damage card for a
   human dragging it into Waiting Approval and for the unsent Outlook draft being sent.
+
+## 2026-09-26 11:34 UTC — Blog: Idea Capture
+
+- Did: read the watermark from `Unapproved Ideas`/`Approved Ideas` notes rather than the full
+  Teams history — newest captured Teams link across both sections is message id
+  `1789480885808` ("Testing after a flood", Bill Concannon, captured as Approved Ideas task
+  `1218543513344101`). Listed the channel's top-level messages
+  (`teams_list_channel_messages`, one page, no cursor): that same message is the newest item
+  returned, so nothing has been posted to the channel since. Created no Asana tasks. Today is
+  Saturday, not Monday, so the §8 research pass does not apply this run (queue depth in
+  `Unapproved Ideas` is 9, for reference, only one topic promoted to `Approved Ideas` since
+  08-13).
+- Blocked: nothing.
+- Next run should: proceed normally, re-reading the watermark from the section notes rather
+  than the full Teams history (per the efficiency note this Routine now follows). Next Monday's
+  research pass should re-check the queue-depth rule against whatever Thursday triage promotes
+  out of `Unapproved Ideas` by then.
