@@ -1206,3 +1206,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   If it's still untouched, do NOT nudge again before 2026-10-04 (one nudge per card per week, per
   §8) — check this entry's timestamp before nudging. If a human confirms they sent the stall-nudge
   draft, note it here.
+
+## 2026-09-27 13:42 UTC — Publish
+
+- Did: read `pipeline/PLAYBOOK.md` first per precondition. Confirmed section IDs against a live
+  `asana_get_project_sections` call on project `1216998438394279` (all five match §3 exactly).
+  Queried `Approved Blogs` (gid `1216997967900172`) directly via `asana_get_tasks` rather than
+  trusting this ledger's memory of where cards sit — **the section is empty**, so there is nothing
+  at the final-approval gate for this stage to act on. No WordPress query, no hero-image check, no
+  publish attempt was needed or made, per §5 (never build on an assumption the stage doesn't need).
+- This is consistent with the same-day 12:43 UTC Review Loop entry above: NFPA 70E 2027 was still
+  in `Waiting Approval` (5 days 22h+ old, stall-nudged that run) and the flood-damage card still in
+  `Approved Ideas`, neither yet promoted to `Approved Blogs` by a human.
+- Blocked: nothing new. Standing blockers unchanged and out of this stage's scope: (1) no
+  send-capable Outlook tool exposed to this connector (§7b, since 2026-09-11); (2) Asana cannot
+  move a task between sections by API (§4); (3) the stall-nudge email for NFPA 70E 2027 sits
+  unsent in Outlook Drafts, needs a human to send it.
+- Next run should: query `Approved Blogs` fresh again — do not assume it is still empty just
+  because it was this run. If a card is there, run the full double-publish check (query WordPress
+  by slug/title) before writing anything, per this stage's precondition.
