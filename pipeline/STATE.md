@@ -1166,3 +1166,43 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit,
   and treat it as due for the stall nudge if still untouched (the 5-day threshold will have passed
   by then). If either a revision or a nudge is needed, follow the standard stage-09/§8 flow.
+
+## 2026-09-27 12:43 UTC — Review Loop — stall nudge sent on NFPA 70E 2027
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) — still just the one card, NFPA 70E
+  2027 (gid `1217455522370190`). Read its full story history end to end: nothing posted after the
+  2026-09-21T14:00:21Z section-move story. No genuine reviewer comment or direct question from Matt
+  or Bill to act on, so no revision this run.
+- Checked the live SharePoint doc content directly (itemId `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`):
+  `lastModifiedDateTime` unchanged at 2026-09-24T22:15:00Z, and a full-text read confirms the body
+  is still word-for-word the pre-zero-em-dash-rule text (still carries "—" throughout) — no
+  reviewer edit made directly in the doc. The em-dash staleness against git flagged since 09-25
+  remains unresolved (not reviewer-requested work, so still not acted on unprompted).
+- No hero-image action needed: `hero.jpg` unchanged in git since 2026-09-18 (commit `d5feb31`),
+  already embedded and PPE-checked.
+- **Stall check (§8): card entered `Waiting Approval` 2026-09-21T14:00:21Z — 5 days 22h43m old as
+  of this run, over the 5-day threshold, with zero comments/edits since the section move and no
+  prior stall nudge on this card.** Per §8, posted one Asana comment on the task (story
+  `1218901823696267`) tagging Matt Pocock and Bill Concannon, naming the 6-day wait plainly and
+  linking the SharePoint doc, and stated it will not repeat within a week.
+- **Attempted the email half of the nudge.** `mcp__Microsoft-365__outlook_send_mail`/
+  `outlook_send_draft` are still absent from this session (checked by exact name via `ToolSearch`)
+  — same standing gap since 2026-09-11, now 16 days. Per §5 (tool absent → transient), created a
+  new Outlook Drafts-folder draft ("Reminder: NFPA 70E blog draft still awaiting review") addressed
+  to Matt and Bill with the SharePoint/Asana links, the PPE reminder, and a plain note that it
+  could not be sent automatically. This is a distinct event from the existing 2026-09-18
+  ready-for-review draft on the same card, so a new draft was created rather than updating that
+  one.
+- Checked `Approved Ideas` (gid `1216997967900169`): "Testing after a flood" (gid
+  `1218543513344101`) is still sitting there, unmoved, even though its own 2026-09-25
+  ready-for-review comment already said the draft is ready — out of this stage's scope until a
+  human drags it to Waiting Approval.
+- Blocked: (1) the stall-nudge email is sitting as an unsent Outlook draft, not sent — needs a
+  human to send it from Drafts, or a future run with a send-capable Microsoft 365 connector
+  (standing gap since 2026-09-11). (2) The NFPA 70E 2027 SharePoint doc is still stale against
+  git's zero-em-dash fix (non-blocking, unchanged since 09-25). (3) The flood-damage card remains
+  in Approved Ideas, not yet dragged to Waiting Approval.
+- Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
+  If it's still untouched, do NOT nudge again before 2026-10-04 (one nudge per card per week, per
+  §8) — check this entry's timestamp before nudging. If a human confirms they sent the stall-nudge
+  draft, note it here.
