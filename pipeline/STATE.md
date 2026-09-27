@@ -1166,3 +1166,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit,
   and treat it as due for the stall nudge if still untouched (the 5-day threshold will have passed
   by then). If either a revision or a nudge is needed, follow the standard stage-09/§8 flow.
+
+## 2026-09-27 11:33 UTC — Blog: Idea Capture
+
+- Did: read the watermark directly off task `1218543513344101` ("Testing after a flood," now in
+  `Approved Ideas` after Thursday triage) rather than re-scanning `Unapproved Ideas` — its
+  `Original message` link gives id `1789480885808`, the same watermark the 09-21 run recorded.
+  This is the first `Idea Capture` firing since 09-21 (a 6-day gap; only Review Loop and Draft runs
+  landed in between, consistent with the Routines having sat disabled/re-enabled rather than a
+  missed firing on this stage's own cadence). Read the Teams `Blog Ideas` channel via
+  `read_resource` (one page, 10 messages, newest first): the top message **is** the watermark
+  itself (`1789480885808`, "Testing after a flood," Bill Concannon, 2026-09-15) — nothing has been
+  posted to the channel since. No genuinely new idea to capture; created no Asana tasks.
+- Today is Sunday, not Monday — skipped the research pass (§8) per this stage's own instructions.
+- Blocked: nothing.
+- Next run should: continue reading the watermark from the most-recently-captured task's
+  `Original message` link (currently `1789480885808` / task `1218543513344101`) rather than paging
+  through full Teams history, per the efficiency note this Routine carries. If Thursday triage
+  promotes further topics, re-derive the watermark from whatever the newest-remaining
+  Unapproved/Approved Ideas task's note points to.
