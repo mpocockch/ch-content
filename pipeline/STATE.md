@@ -1206,3 +1206,39 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   If it's still untouched, do NOT nudge again before 2026-10-04 (one nudge per card per week, per
   §8) — check this entry's timestamp before nudging. If a human confirms they sent the stall-nudge
   draft, note it here.
+
+## 2026-09-28 12:43 UTC — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) for genuine reviewer activity since the
+  last recorded check (2026-09-27 12:43 UTC). Still exactly one card, NFPA 70E 2027 (gid
+  `1217455522370190`). Read its full story history end to end: the only story after the cutoff is
+  the pipeline's own 2026-09-27T12:43:12Z stall-nudge comment (self-identifies as "an automated
+  stall check per the pipeline playbook") — pipeline self-narration, not reviewer feedback. No
+  genuine comment or direct question from Matt or Bill since the section move on 2026-09-21. No
+  revision to implement this run.
+- Checked the live SharePoint doc directly (`sharepoint_search`, itemId
+  `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`): `lastModifiedDateTime` unchanged at 2026-09-24T22:15:00Z
+  — same as the 09-26/09-27 checks — so no reviewer edit made directly in the Word doc either. The
+  em-dash staleness against git flagged since 09-25 remains unresolved (not reviewer-requested
+  work, so still not acted on unprompted).
+- No hero-image action needed: `hero.jpg` unchanged in git since 2026-09-18 (commit `d5feb31`),
+  already embedded and PPE-checked.
+- Stall check (§8): card entered `Waiting Approval` 2026-09-21T14:00:21Z — now 7 days old, but a
+  nudge was already sent yesterday (2026-09-27, story `1218901823696267`). Per the one-nudge-per-
+  week rule and that entry's own instruction, did NOT nudge again — next eligible date is
+  2026-10-04.
+- Checked `Approved Ideas` (gid `1216997967900169`): "Testing after a flood" (gid
+  `1218543513344101`) is still sitting there, unmoved to Waiting Approval, so out of this stage's
+  scope.
+- Tool check: `mcp__Microsoft-365__outlook_send_mail`/`outlook_send_draft` are still absent from
+  this session (checked by exact name and by keyword via `ToolSearch`) — same standing gap since
+  2026-09-11, now 17 days. Moot this run since nothing needed sending.
+- Blocked: nothing new. Standing blockers unchanged: (1) no send-capable Outlook tool exposed to
+  this connector — human fix needed in the claude.ai connector's enabled-tools settings (§7b);
+  (2) the NFPA 70E 2027 SharePoint doc remains stale against git's zero-em-dash punctuation fix
+  (non-blocking, unchanged since 09-25); (3) the flood-damage card remains in Approved Ideas, not
+  yet dragged to Waiting Approval.
+- No Asana comment posted and no email sent — a quiet run, nothing new to report.
+- Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
+  Do NOT send another stall nudge on this card before 2026-10-04. Watch the flood-damage card for
+  a human dragging it into Waiting Approval.
