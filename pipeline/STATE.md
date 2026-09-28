@@ -1206,3 +1206,27 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   If it's still untouched, do NOT nudge again before 2026-10-04 (one nudge per card per week, per
   §8) — check this entry's timestamp before nudging. If a human confirms they sent the stall-nudge
   draft, note it here.
+
+## 2026-09-28 11:33 UTC — Blog: Idea Capture
+
+- Did: read the watermark from the last-captured `Unapproved Ideas` note (Original-message id
+  `1789480885808`, "Testing after a flood", posted by Bill Concannon 2026-09-15, task
+  `1218543513344101`). Read the Teams channel via `read_resource` (page 1, 10 messages, newest
+  first): that same message is still the newest thing in the channel — nothing posted since
+  09-15. Created no Asana tasks.
+- Today is Monday, so checked the research-pass queue-depth rule (§8): pulled `Unapproved Ideas`
+  (gid `1216998438394303`) directly — 9 untriaged topics, down from 10 on 09-21 because "Testing
+  after a flood" was promoted to `Approved Ideas` at the 09-24/09-25 Thursday triage (it now sits
+  there, task `1218543513344101`, created 2026-09-16, still not dragged to Waiting Approval per
+  the last few Review Loop entries). That's one promotion since the last research-pass check on
+  09-21, and NFPA 70E 2027 (08-13) before that — still "roughly ten, few promoted recently" by
+  §8's own framing. Per §8, the research pass added nothing this run; padding a 9-deep queue
+  against one promotion in six weeks is not progress.
+- Blocked: nothing new. Standing blockers unchanged from prior runs: (1) no send-capable Outlook
+  tool exposed to this connector (§7b); (2) Asana still cannot move a task between sections by API
+  (§4) — the flood-damage card remains in Approved Ideas awaiting a human drag.
+- No Asana writes and no email — a quiet run, nothing new to report.
+- Next run should: proceed normally, re-reading the watermark from the newest `Unapproved
+  Ideas`/`Approved Ideas` note rather than the full Teams history. If Thursday triage promotes
+  more topics out of `Unapproved Ideas`, a future Monday's research pass can likely resume adding
+  candidates once the "few promoted recently" condition clears.
