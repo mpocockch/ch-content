@@ -1259,3 +1259,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   connector tool settings, §7b); SharePoint doc stale against git's em-dash fix (non-blocking).
 - No Asana comment and no email: quiet run.
 - Next run should: re-check for reviewer activity; nudge only on or after 2026-10-04.
+
+## 2026-09-29 — Publish
+
+- Did: read `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty: no card awaiting
+  publish, so no WordPress query, hero check, upload or publish was attempted.
+- Nothing published, nothing written to Asana, no card moved.
+- Blocked: nothing new. Standing blockers are unchanged (Asana cannot move cards, §4; no
+  send-capable Outlook tool, §7b).
+- Next run should: check `Approved Blogs` again. The NFPA 70E 2027 card is still in
+  `Waiting Approval` and needs Matt/Bill's final approval and a drag to `Approved Blogs`.
+  When a card does arrive, query WordPress for slug and title before writing anything.
