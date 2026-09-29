@@ -1242,3 +1242,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
   Do NOT send another stall nudge on this card before 2026-10-04. Watch the flood-damage card for
   a human dragging it into Waiting Approval.
+
+## 2026-09-29 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` channel (first page only). The newest message, "Testing after a
+  flood" (Bill Concannon, id `1789480885808`), is already captured as Asana task
+  `1218543513344101` in Approved Ideas — that is the watermark, so nothing sits above it. No new
+  ideas; 0 tasks created.
+- Not a Monday (Tuesday), so no research pass. Unapproved Ideas holds 9 untriaged topics.
+- Blocked: nothing. Quiet run.
+- Next run should: start from watermark message id `1789480885808`.
