@@ -1242,3 +1242,20 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check NFPA 70E 2027 for genuine reviewer comments or a direct Word-doc edit.
   Do NOT send another stall nudge on this card before 2026-10-04. Watch the flood-damage card for
   a human dragging it into Waiting Approval.
+
+## 2026-09-29 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). Still one card, NFPA 70E 2027 (gid
+  `1217455522370190`). Full story history read: no story since the pipeline's own 2026-09-27
+  stall nudge (self-narration, not reviewer feedback). No genuine comment or question from Matt
+  or Bill. No revision to implement.
+- SharePoint doc (itemId `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`) `lastModifiedDateTime` unchanged
+  at 2026-09-24T22:15:00Z, so no direct Word edit. Hero image unchanged in git since 09-18.
+- Stall check (§8): card is 8 days in Waiting Approval, but the last nudge was 2026-09-27. Did
+  NOT nudge; next eligible 2026-10-04.
+- `outlook_send_mail` still absent from the tool catalog (standing gap since 2026-09-11). Moot:
+  nothing needed sending.
+- Blocked: nothing new. Standing: no send-capable Outlook tool (human fix in the claude.ai
+  connector tool settings, §7b); SharePoint doc stale against git's em-dash fix (non-blocking).
+- No Asana comment and no email: quiet run.
+- Next run should: re-check for reviewer activity; nudge only on or after 2026-10-04.
