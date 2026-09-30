@@ -1259,3 +1259,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   connector tool settings, §7b); SharePoint doc stale against git's em-dash fix (non-blocking).
 - No Asana comment and no email: quiet run.
 - Next run should: re-check for reviewer activity; nudge only on or after 2026-10-04.
+
+## 2026-09-30 11:32 UTC — Blog: Idea Capture
+
+- Did: read the Teams channel via `read_resource` (page 1, 10 messages). Newest real message is
+  still `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15), already captured
+  as task `1218543513344101` — the watermark. Nothing posted since. Created no Asana tasks.
+  Today is Wednesday, so no research pass. `Unapproved Ideas` holds 10 tasks (one, "NFPA 70E
+  update - interaction with 70B and OSHA GDC", `1218987294592844`, created 2026-09-29 with no
+  Teams origin in this channel; left untouched).
+- Blocked: nothing.
+- Next run should: nothing pending. Next Monday (2026-10-05) apply the §8 queue-depth rule
+  before any research pass.
