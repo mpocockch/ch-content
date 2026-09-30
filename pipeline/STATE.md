@@ -1283,3 +1283,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   nfpa.org access should verify the rule text.
 - Next run should: watch for Bill/Matt replies or Word edits on this card (doc lastModified
   after 2026-09-30 12:46Z). Do not re-nudge before 2026-10-04.
+
+## 2026-09-30 — Publish
+
+- Did: read PLAYBOOK. Queried `Approved Blogs` (gid `1216997967900172`) via Asana: zero tasks.
+  Nothing to publish; no WordPress query or write made.
+- Blocked: nothing. Standing gaps unchanged (Asana cannot move sections; no Outlook send tool).
+- Quiet run: no Asana comment, no email.
+- Next run should: re-check `Approved Blogs`. NFPA 70E 2027 is still in Waiting Approval.
