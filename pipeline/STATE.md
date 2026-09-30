@@ -1259,3 +1259,27 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   connector tool settings, §7b); SharePoint doc stale against git's em-dash fix (non-blocking).
 - No Asana comment and no email: quiet run.
 - Next run should: re-check for reviewer activity; nudge only on or after 2026-10-04.
+
+## 2026-09-30 — Review Loop
+
+- Did: found genuine reviewer feedback on NFPA 70E 2027 (gid `1217455522370190`): Bill Concannon,
+  2026-09-29T13:45Z, asked for a rewrite narrowed to the new Second Person Requirement for
+  energized work in the 2027 edition. Rewrote `drafts/2026-09-nfpa-70e-2027-changes/` (draft.md
+  ~2,150 words, linkedin.md, sources.md, image-brief.md title); hero.jpg unchanged. Zero em
+  dashes, banned-phrase check clean. Committed and pushed before upload (verified ancestor of remote).
+- SharePoint: saved over the SAME file (itemId `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`) as a
+  trimmed 9,003-byte .docx (no embedded image, minimal package); stored size 17,756 bytes (larger
+  than sent, the good-upload signal) and read-back returned the new text. First attempt got a
+  412 label CONFLICT, second identical attempt succeeded. File name still says "What Is Changing in
+  NFPA 70E's Next Edition" (renaming would break the link).
+- Asana: posted revision-ready comment (story `1219030304494979`) with summary and a
+  verify-against-primary-text flag (nfpa.org blocked; body cites no section numbers).
+- Email: `outlook_send_mail` still absent (ToolSearch by exact name). Created an Outlook DRAFT to
+  Matt and Bill instead; it is UNSENT and needs a human to send it.
+- Stall alert: not applicable, a reviewer comment arrived. Prior nudge 2026-09-27; next eligible
+  2026-10-04 only if the revised card again sits with no genuine comment.
+- Blocked: (1) no send-capable Outlook tool (human fix in claude.ai connector tool settings, §7b);
+  the revision email is an unsent draft. (2) Draft details rest on secondary sources; a human with
+  nfpa.org access should verify the rule text.
+- Next run should: watch for Bill/Matt replies or Word edits on this card (doc lastModified
+  after 2026-09-30 12:46Z). Do not re-nudge before 2026-10-04.
