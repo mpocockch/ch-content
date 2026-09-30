@@ -1,4 +1,4 @@
-# Hero image brief — "What Is Changing in NFPA 70E's Next Edition?"
+# Hero image brief: "What Is the NFPA 70E Second-Person Requirement for Energized Work?"
 
 ## Generation prompt
 
@@ -35,8 +35,8 @@ anywhere in the shot.
 
 ## Alt text
 
-"Two electricians in full arc-flash PPE at an open switchgear cabinet — one performing energized
-diagnostic testing, the second positioned outside the work zone as a safety observer."
+"Two electricians in full arc-flash PPE at an open switchgear cabinet. One performing energized
+diagnostic testing, and the second positioned outside the work zone as a safety observer."
 
 ## Text warning
 

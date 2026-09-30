@@ -1,4 +1,20 @@
-# Sources — "What Is Changing in NFPA 70E's Next Edition?"
+# Sources: "What Is the NFPA 70E Second-Person Requirement for Energized Work?"
+
+## Revision 2026-09-30 (narrowed topic)
+
+Reviewer direction: rewrite to focus only on the new second-person requirement in the 2027
+edition. The thermal-PPE, absence-of-voltage and DC-hazard sections were removed. Re-verified
+via WebSearch (primary domains still blocked): multiple independent sources (Tyndale, Brainfiller,
+NFPA Xchange, ECMag) agree the provision is in Article 130 (reported as 130.2(A)(2)); applies when
+an energized electrical work permit is required and specifies shock and/or arc flash PPE; the
+additional person must hold the emergency response training in 110.4(C)(1) (described as contact
+release training) and be in the vicinity but outside the limited approach or arc flash boundary,
+whichever is greater; described as a standby rescuer, not a helper. Body still omits section
+numbers (secondary sources only). Issuance still "expected fall 2026"; status unconfirmed, so the
+body hedges and tells the reader to confirm with NFPA. Claims about exact CPR/first-aid content
+of the training were left out as unverified. A human with nfpa.org access should confirm the text.
+
+# (Original sources for the first draft follow)
 
 ## Editorial note on the topic's original framing
 

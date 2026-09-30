@@ -1,31 +1,21 @@
-Your energized work permit might already be out of date.
+One person at an open cabinet. Nobody else in the room.
 
-Not because you did anything wrong. Because the next edition of NFPA 70E is close to landing, and
-it changes who has to be in the room when energized work happens.
+That is how a lot of energized work gets done today. The 2027 edition of NFPA 70E is written to end it.
 
-A lot of what's circulating about this update gets the timing wrong. That matters, because
-planning around the wrong deadline means missing the real one.
+The new second-person requirement says that when an Energized Electrical Work Permit is required, a trained additional person has to be on hand. Not to help. To rescue.
 
-Here's what's actually changing:
-→ A trained additional person required during certain energized work, positioned outside the
-approach and arc-flash boundaries
-→ New PPE language separating shock protection from contact-thermal burn protection, especially
-in battery rooms
-→ A new exception for circuits where a voltage reading alone doesn't prove they're de-energized
-→ Expanded coverage for DC hazards from batteries, solar and other equipment that didn't exist in
-the same numbers when the standard was last written
+Here is what that means on the floor:
+→ The additional person stands outside the limited approach boundary or the arc flash boundary, whichever is greater
+→ They need emergency response training, not just a willingness to help
+→ A coworker working alongside at the cabinet does not count
+→ Permits will need to show who fills the role
 
-The current, enforceable edition of NFPA 70E is still 2024. The next one is in the final stages
-of NFPA's own process, not "already in effect" as some content out there claims.
+The 2024 edition is still the enforceable one. The next edition is in the final stages of NFPA's process, so the time to sort out staffing and training is before it lands.
 
-We broke down what's actually changing, what's just noise, and how to get your permits and PPE
-ready before it lands. Read the full guide here: <URL>
+We broke down what the second-person requirement says and how to prepare your crews. Read the full guide here: https://chelectric.com/nfpa-70e-second-person-requirement/
 
 ---
 
 Notes (not part of the post)
-- Link is provisional until the article is live: https://chelectric.com/nfpa-70e-2027-changes/
-- Flag for reviewer: the post (and the article) deliberately debunk the "already in effect since
-  May 6, 2026" claim that was in the original Approved Ideas research note. See sources.md for
-  why. Worth confirming this framing lands the way we want before it goes out, since it's a more
-  contrarian angle than a typical "here's what's new" post.
+- Link is provisional until the article is live: https://chelectric.com/nfpa-70e-second-person-requirement/
+- Rewritten 2026-09-30 to the narrower second-person topic. The earlier broader "what is changing" post is superseded.
