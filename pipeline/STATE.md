@@ -1303,3 +1303,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   and need a human check against NFPA's text.
 - No Asana comment and no email: quiet run.
 - Next run should: re-check for Bill/Matt replies or Word edits (size change from 17,756 bytes).
+
+## 2026-10-01 — Publish
+
+- Approved Blogs held two cards: "Testing after a flood" (gid `1218543513344101`) and NFPA 70E
+  second-person (gid `1217455522370190`, moved in 2026-10-01 12:59Z).
+- WordPress check (slug + title LIKE): neither post exists, published or draft. Both have
+  `hero.jpg` in git. NOTHING was published, uploaded or written to WordPress.
+- Flood: STOPPED. Bill's 9/29 edits (paragraph removed, "Contact us today" CTA removed) live only
+  in the SharePoint Word doc; git `draft.md` still has the CTA. Also 4 unresolved
+  `[[internal link: ...]]` placeholders.
+- NFPA 70E: STOPPED. 4 unresolved `[[internal link: ...]]` placeholders; the 09-30 revision asked
+  for a human check of the rule wording against NFPA's text and no reviewer reply confirms it.
+- Asana: comment posted on each card. Cards not moved (nothing published); no front matter change.
+- Blocked / human action: (a) sync Bill's approved Word text into the flood `draft.md`;
+  (b) decide internal-link placeholders (supply URLs or remove); (c) confirm NFPA wording check.
+- Next run should: re-check both cards for replies, re-query WordPress before any write.
