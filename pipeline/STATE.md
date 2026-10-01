@@ -1283,3 +1283,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   nfpa.org access should verify the rule text.
 - Next run should: watch for Bill/Matt replies or Word edits on this card (doc lastModified
   after 2026-09-30 12:46Z). Do not re-nudge before 2026-10-04.
+
+## 2026-10-01 — Idea Capture
+
+- Did: read the newest 15 top-level messages in `Blog Ideas`. Newest real pitch is Bill's "Testing
+  after a flood" (id `1789480885808`, 2026-09-15), already an Asana card (gid
+  `1218543513344101`, now in Approved Blogs). Every earlier pitch (Panel Schedules, Equipment
+  Room, ISO 45000, Power Quality) is also already carded. Nothing above the watermark, so
+  nothing captured. Remaining messages seen were deleted or system events, skipped.
+- Research pass: not run, today is Thursday (Mondays only). For the record, Unapproved Ideas
+  holds 10 cards and `Approved Ideas` is empty, so the queue-depth rule would block it anyway.
+- Note: the watermark by `Original message` permalink only matches one card (Power Quality).
+  Later cards carry no permalink, so I matched by title and date. Not a blocker.
+- Blocked: nothing.
+- Next run should: treat 1789480885808 as the watermark; on Monday 2026-10-05 skip research
+  unless Unapproved Ideas has been triaged below ~10.
