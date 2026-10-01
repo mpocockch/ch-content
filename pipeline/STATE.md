@@ -1283,3 +1283,23 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   nfpa.org access should verify the rule text.
 - Next run should: watch for Bill/Matt replies or Word edits on this card (doc lastModified
   after 2026-09-30 12:46Z). Do not re-nudge before 2026-10-04.
+
+## 2026-10-01 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). Still one card, NFPA 70E 2027 (gid
+  `1217455522370190`). Full story history read: newest story is the pipeline's own 2026-09-30
+  revision-ready comment. No new comment or question from Matt or Bill since Bill's 2026-09-29
+  request, which the 09-30 run already implemented.
+- SharePoint doc (itemId `01W45A5EXWIY5KLCM46BDLKUGZ75ULPQVT`) is still 17,756 bytes, the same
+  stored size recorded after the 09-30 save, so no direct Word edit detected. (The connector's
+  folder listing exposes size, not modified time.) Hero image unchanged.
+- Stall check (§8): revision posted yesterday, so the card has been waiting on review for 1 day.
+  Not stalled; did NOT nudge. Last nudge was 2026-09-27; next eligible 2026-10-04 only if the
+  revised card again sits with no genuine comment.
+- `outlook_send_mail` still absent (ToolSearch by exact name). Moot: nothing needed sending. The
+  09-30 revision email remains an UNSENT Outlook draft needing a human to send it.
+- Blocked: nothing new. Standing: no send-capable Outlook tool (human fix in claude.ai connector
+  tool settings, §7b); revision email is an unsent draft; draft details rest on secondary sources
+  and need a human check against NFPA's text.
+- No Asana comment and no email: quiet run.
+- Next run should: re-check for Bill/Matt replies or Word edits (size change from 17,756 bytes).
