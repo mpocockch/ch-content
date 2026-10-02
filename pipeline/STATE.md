@@ -1332,3 +1332,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: not redraft this topic. Watch for reviewer replies; if the card is in Waiting
   Approval, Review Loop picks it up. Note the older NFPA 70E card (`1217455522370190`) is still in
   Waiting Approval per the 10-01 ledger, although Asana shows that section empty today.
+
+## 2026-10-02 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). It is empty. The older NFPA 70E 2027 card
+  (`1217455522370190`) now sits in `Approved Blogs` (a human moved it 2026-10-01), so it is out of
+  this stage. The new card (`1218987294592844`, NFPA 70E / 70B / OSHA GDC) is still in
+  `Approved Ideas` awaiting a human drag; its story history holds only the pipeline's own
+  2026-10-02 comments, no reviewer feedback yet.
+- Nothing to revise, no hero image pending, no stall to alert on (no card in Waiting Approval).
+- No Asana comment and no email: quiet run.
+- Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
+  no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
+- Next run should: re-check Waiting Approval; if the new card has arrived, watch for Bill/Matt comments.
