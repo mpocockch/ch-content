@@ -1303,3 +1303,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   and need a human check against NFPA's text.
 - No Asana comment and no email: quiet run.
 - Next run should: re-check for Bill/Matt replies or Word edits (size change from 17,756 bytes).
+
+## 2026-10-02 — Idea Capture
+
+- Did: read the newest 15 Teams `Blog Ideas` messages (newest first). The top message
+  (`1789480885808`, Bill, "Testing after a flood", 2026-09-15) is already captured as Asana
+  task `1218543513344101`, so it is the watermark and nothing sits above it. No new ideas.
+- Created 0 Asana tasks. Skipped nothing (no messages above the watermark).
+- Monday research pass: not applicable (today is Friday).
+- Blocked: nothing.
+- Next run should: start from watermark message `1789480885808`.
