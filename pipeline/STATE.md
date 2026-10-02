@@ -1303,3 +1303,32 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   and need a human check against NFPA's text.
 - No Asana comment and no email: quiet run.
 - Next run should: re-check for Bill/Matt replies or Word edits (size change from 17,756 bytes).
+
+## 2026-10-02 — Weekly Draft (Friday)
+
+- Topic: "NFPA 70E update - interaction with 70B and OSHA GDC" (Asana gid `1218987294592844`, the
+  only card in Approved Ideas; promoted by Bill 2026-10-01). Waiting Approval was empty.
+- Did: answered Bill's inline question in the card notes ("Should we quote the standard?") with a
+  reply comment (story `1219107072523258`): no verbatim quotes, nfpa.org is blocked, no section
+  numbers. Wrote `drafts/2026-10-nfpa-70e-70b-osha-general-duty-clause/` (draft.md ~2,550 words,
+  sources.md, image-brief.md, linkedin.md 167 words). Zero em dashes, banned-phrase grep clean.
+  Hero generated via `generate-hero-image.py` (exit 0, `hero.jpg`, 1376x768, 644,878 bytes).
+  Committed and pushed to the shared branch before upload (commit verified as ancestor of remote).
+- Delivered with SendUserFile: draft.md, hero.jpg, linkedin.md.
+- SharePoint: uploaded a text-only 8,685-byte .docx (no embedded image, kept under the ~10 KB
+  ceiling in section 4) with LinkedIn post appended; itemId `01W45A5EVCSFPV7WURNRD22MRRJSIXIJPP`.
+  Stored size 17,015 bytes, larger than sent (good-upload signal). Validated zip + XML parse first.
+- Handoff: Matt assigned, Bill added as follower, ready-for-review comment posted (story
+  `1219107237243243`) asking for the card to be dragged to Waiting Approval. Card is STILL in
+  Approved Ideas.
+- Email: `outlook_send_mail` absent (ToolSearch by exact name). Created an Outlook DRAFT to Matt
+  and Bill instead; it is UNSENT and needs a human to send it.
+- Reviewer asks: check the hero PPE; verify the 70E condition-of-maintenance / Annex S wording
+  against NFPA's text (sources were secondary). The card's claim that the new edition "adds
+  language" tying maintenance records to 70E risk assessments is stronger than sources support;
+  the draft uses the milder informational-note-to-Annex-S framing.
+- Blocked: no send-capable Outlook tool (human fix in claude.ai connector tool settings, section 7b);
+  card move needs a human drag.
+- Next run should: not redraft this topic. Watch for reviewer replies; if the card is in Waiting
+  Approval, Review Loop picks it up. Note the older NFPA 70E card (`1217455522370190`) is still in
+  Waiting Approval per the 10-01 ledger, although Asana shows that section empty today.
