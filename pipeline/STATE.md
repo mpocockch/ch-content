@@ -1356,3 +1356,20 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-03 — Publish (stages 11–12)
+
+- Did: read `Approved Blogs` (gid `1216997967900172`): two cards. Checked WordPress for both slugs
+  and keyword searches: neither `nfpa-70e-second-person-requirement` nor
+  `flood-damaged-electrical-equipment` exists in any status, so nothing is live. Both have
+  `hero.jpg`. Published nothing; wrote nothing to WordPress.
+- Stopped, card `1217455522370190` (NFPA 70E second-person): `draft.md` still has 4
+  `[[internal link: ...]]` placeholders, and no reviewer has confirmed the NFPA wording check
+  asked for in the 09-30 revision comment. No new Asana comments since the 10-01 publish run.
+- Stopped, card `1218543513344101` (flood testing): `draft.md` still has Bill's rejected "Contact
+  us today" CTA (line 115) and the 4 placeholders; Bill's 09-29 edits exist only in the SharePoint
+  Word doc. Publishing from git would ship text he removed.
+- Blocked: no send tool; card moves need a human drag (not reached).
+- Needed from a human: (1) sync Bill's approved Word text into the flood `draft.md` (or tell a run
+  to); (2) say whether the internal-link placeholders become real URLs or are removed; (3) one-line
+  confirmation that the NFPA 70E wording was checked. Next run re-checks and publishes if resolved.
