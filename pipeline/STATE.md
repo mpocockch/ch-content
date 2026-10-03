@@ -1345,3 +1345,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the new card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-03 — Idea Capture
+
+- Did: read the Blog Ideas channel newest first. The newest message (`1789480885808`, Bill,
+  "Testing after a flood", 2026-09-15) is already captured as Asana card `1218543513344101`, so it
+  is the watermark and nothing sits above it. No new ideas, no cards created.
+- Used `teams_list_channel_messages` (limit 15) instead of the full `read_resource` dump to save
+  tokens; the first page reached the watermark. Asana `search_tasks` is premium-only (402), so
+  watermark was checked by listing the section cards directly.
+- Research pass: skipped, today is Saturday (Mondays only).
+- Observation, not acted on: Matt's 2026-08-20 post "How to Ensure Electrical Equipment Room
+  Reliability" (`1787259801114`, title-only body) is older than the watermark and has no Asana
+  card with its permalink in any section; a draft for it may be what the playbook calls the
+  Equipment Room draft. Left alone per watermark rule.
+- Blocked: nothing.
+- Next run should: start from watermark `1789480885808`.
