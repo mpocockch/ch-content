@@ -1356,3 +1356,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-04 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). It is empty. The NFPA 70E / 70B / OSHA
+  GDC card (`1218987294592844`) is still in `Approved Ideas`; its story history holds only the
+  pipeline's own 2026-10-02 comments, no reviewer feedback and no new activity since.
+- Nothing to revise, no hero image pending, no stall to alert on (no card in Waiting Approval).
+- No Asana comment and no email: quiet run.
+- Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
+  no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
+- Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
