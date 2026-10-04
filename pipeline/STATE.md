@@ -1367,3 +1367,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-04 — Publish (stages 11–12)
+
+- Did: read `Approved Blogs` (gid `1216997967900172`). Two blog cards: "Testing after a flood"
+  (`1218543513344101`) and NFPA 70E second-person (`1217455522370190`). Queried WordPress by
+  slug/title/keyword: neither post exists (nothing live, no double-publish risk). Both have
+  `hero.jpg` (JPEG, 1376x768).
+- Published: nothing. Both cards are still blocked exactly as on 2026-10-01, with no new Asana
+  comments since:
+  - Flood: draft.md still has Bill's rejected "Contact us today" CTA (line 115) and his removed
+    paragraph (his edits live only in the SharePoint Word doc); 4 unresolved `[[internal link: ...]]`
+    placeholders.
+  - NFPA 70E: 4 unresolved `[[internal link: ...]]` placeholders; no reviewer confirmation that the
+    second-person wording was checked against NFPA's text.
+- No Asana comments added (the 10-01 blocking comments on both cards still stand); no card moves.
+- Blocked / human action needed: (1) sync Bill's approved Word text into the flood draft.md (or tell
+  a run to); (2) say whether internal-link placeholders become real chelectric.com URLs or are
+  removed; (3) one-line comment on the NFPA card confirming the 2027 wording was verified.
+- Next run should: re-read both cards' stories; publish a card only once its items are answered.
