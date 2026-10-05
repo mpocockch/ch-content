@@ -1412,3 +1412,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   testing goes deeper on the methods."); the other three link existing words.
 - Draft is now publish-ready but NOT published. Awaiting Matt's go-ahead; Asana card still in
   Approved Blogs. Next run: re-check WordPress, then publish if the card is still there.
+
+## 2026-10-05 — Publish (flood post) — BLOCKED at image upload, NOT published
+
+- Matt said "publish it". Re-checked WordPress: no duplicate (no flood/re-energize post exists).
+  Precedent post 14430 (panel schedule): Gutenberg blocks, hero image block first, category
+  News and Resources (49), author 9, Yoast focuskw/metadesc set.
+- Blocker: the hero image (`hero.jpg`, 789,736 bytes, real JPEG 1376x768) cannot reach WordPress.
+  `novamira/create-upload-link` needs an HTTP PUT to chelectric.com, and the egress proxy denies
+  `chelectric.com:443` (CONNECT 403, organization policy). Not retried, not routed around.
+  Base64 through a tool call is past the ~18 KB ceiling (§4).
+- Publishing without the featured image is not allowed, so nothing was created or published in
+  WordPress. Card still in Approved Blogs.
+- Unblock (human): allow `chelectric.com` in the cloud environment's network policy for this
+  environment (`env_01Ez371HQbzkEd8jfxtaAf3x`), or upload `hero.jpg` to the WP media library by
+  hand and give the attachment ID/URL. Next run then publishes without further input.
