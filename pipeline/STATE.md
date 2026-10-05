@@ -1378,3 +1378,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-05 — Publish (stages 11–12)
+
+- Approved Blogs (gid `1216997967900172`) holds two cards, neither a chore: "Testing after a flood"
+  (`1218543513344101`) and "NFPA 70E 2027..." second-person rule (`1217455522370190`).
+- WordPress checked (slug/title query): neither post exists, so nothing is live. Both have
+  `hero.jpg`. **Nothing published, no card moved.**
+- Both stopped again, same blockers as 2026-10-01, no new Asana comments since:
+  - Flood: Bill's 9/29 Word edits not synced into `draft.md` (CTA still at line 115); 4
+    `[[internal link: ...]]` placeholders unresolved.
+  - NFPA: 4 internal-link placeholders unresolved; no confirmation the rule wording was
+    checked against NFPA's text.
+- Commented on both cards with the specific asks.
+- Next run should: re-read both cards' stories; if a human has replied, sync/resolve and publish
+  (re-check WordPress first); else stop quietly.
