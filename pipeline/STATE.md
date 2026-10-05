@@ -1367,3 +1367,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-05 — Blog: Idea Capture
+
+- Did: read the Teams `Blog Ideas` thread. Newest real message (Bill, "Testing after a flood",
+  id `1789480885808`, 2026-09-15) is already captured as card `1218543513344101`, so the
+  watermark is the top of the thread: nothing new. Skipped system events and two
+  null-body attachment-only messages.
+- Monday research pass: added nothing. `Unapproved Ideas` holds 9 untriaged topics, the newest
+  dated 2026-08-14, and none has been promoted since — the queue-depth rule applies (§8).
+- Blocked: nothing.
+- Next run should: nothing pending. Note for the Thursday triage: all 9 Unapproved cards are
+  7+ weeks old and unreviewed.
