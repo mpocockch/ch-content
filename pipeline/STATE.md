@@ -1479,3 +1479,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   to `drafts/2026-10-nfpa-70e-70b-osha-general-duty-clause/hero.jpg`, NOT this post's hero
   (`drafts/2026-09-nfpa-70e-2027-changes/hero.jpg`, 811,269 bytes). Publishing would put another
   post's image on this one. Needs the correct file uploaded (expect 811,269 bytes).
+
+## 2026-10-05 — Publish (NFPA 70E second-person post) — PUBLISHED
+
+- Correction: the earlier CTA edit ("Contact us to speak with an expert.") did not apply the
+  first time (the old line wraps across two lines, so `sed` missed it) although the ledger said
+  it did. Fixed and verified in this commit; live post carries the new CTA, not the old one.
+- Matt re-uploaded the correct hero: attachment 14495, 811,269 bytes, MD5 identical to
+  `drafts/2026-09-nfpa-70e-2027-changes/hero.jpg` (checked in PHP before publishing).
+- Slug was free. Created post 14496 (publish), slug `nfpa-70e-second-person-requirement`,
+  author 9, category 49, featured image 14495, Yoast focus keyword and meta description set.
+  Stored content 18,554 chars, identical to the converted draft.
+- Live URL: https://chelectric.com/nfpa-70e-second-person-requirement/
+- Asana card `1217455522370190` still in Approved Blogs; connector cannot move it. Needs a drag.
+- Left over: attachment 14494 (hero for the OSHA General Duty Clause draft) sits unattached in
+  the media library; the flood card `1218543513344101` also still needs a drag to Posted Blogs.

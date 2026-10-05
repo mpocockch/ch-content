@@ -1,3 +1,6 @@
+status           published
+Live URL         https://chelectric.com/nfpa-70e-second-person-requirement/
+Published        2026-10-05 (WordPress post 14496, featured image attachment 14495)
 Main keyword       NFPA 70E second person requirement
 URL                nfpa-70e-second-person-requirement
 Title              What Is the NFPA 70E Second-Person Requirement for Energized Work?
@@ -120,8 +123,7 @@ question crew by crew rather than by policy, which is exactly how the gaps get m
 
 If your permits, staffing plans or lockout/tagout procedures have not been reviewed against
 changes like this, a focused electrical safety program review can show where a single-person
-assumption is baked in before the requirement becomes enforceable. Contact us today to get
-started!
+assumption is baked in before the requirement becomes enforceable. Contact us to speak with an expert.
 
 ## How the second-person requirement fits with NFPA 70B and OSHA
 
