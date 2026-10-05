@@ -1,3 +1,6 @@
+status           published
+Live URL         https://chelectric.com/flood-damaged-electrical-equipment/
+Published        2026-10-05 (WordPress post 14493, featured image attachment 14492)
 Main keyword       flood-damaged electrical equipment
 URL                flood-damaged-electrical-equipment
 Title              What Should You Test Before Re-Energizing Electrical Equipment After a Flood?

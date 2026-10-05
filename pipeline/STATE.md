@@ -1445,3 +1445,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   merged draft. Needs: allow chelectric.com in the environment network settings (or upload
   hero.jpg to the media library and supply the attachment ID), merge apfj72 into the default
   branch, and a human reply on the NFPA card.
+
+## 2026-10-05 — Publish (flood post) — PUBLISHED
+
+- Matt uploaded `hero.jpg` to the WP media library by hand (attachment 14492, 789,736 bytes,
+  1376x768, matches the repo file exactly), since the environment's custom network allowlist
+  (only app.whatconverts.com, api.hubapi.com) blocks chelectric.com for the upload link.
+- Re-checked WordPress first: slug free. Created post 14493 (publish), slug
+  `flood-damaged-electrical-equipment`, author 9, category 49 (News and Resources), featured
+  image 14492, Yoast focus keyword and meta description set, hero alt text set on the media item.
+  Content stored 15,571 chars, identical to the converted draft (Bill's edits, 4 links resolved).
+- Live URL: https://chelectric.com/flood-damaged-electrical-equipment/
+- Matt had already dragged the card to Posted Blogs (before it was live). Asana not moved by me.
+- Standing: add `chelectric.com` to the cloud environment's allowed domains so future runs can use
+  the Novamira upload link. NFPA 70E second-person card still blocked on human items.
