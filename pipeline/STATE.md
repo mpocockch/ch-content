@@ -1459,3 +1459,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Matt had already dragged the card to Posted Blogs (before it was live). Asana not moved by me.
 - Standing: add `chelectric.com` to the cloud environment's allowed domains so future runs can use
   the Novamira upload link. NFPA 70E second-person card still blocked on human items.
+
+## 2026-10-05 — Publish follow-up (NFPA 70E second-person post)
+
+- Matt confirmed the second-person rule wording was checked against NFPA's text.
+- Resolved the 4 `[[internal link]]` placeholders in `drafts/2026-09-nfpa-70e-2027-changes/draft.md`
+  (no dedicated pages exist for the topics, so these are best-fit; Matt asked to be told):
+  permit sentence -> /osha-compliance/ (only page that mentions work permits); 70B ->
+  /what-is-nfpa-70b/; safety program review -> /nfpa-70e-six-keys-to-compliance/; job briefing
+  checklist -> removed (no suitable page). All URLs verified published in WordPress.
+- Not published: needs hero image in WP media library (chelectric.com egress still blocked) and
+  Matt's go-ahead. Draft still ends a section with "Contact us today to get started!" which Bill
+  removed from the flood post; asked Matt whether to keep.

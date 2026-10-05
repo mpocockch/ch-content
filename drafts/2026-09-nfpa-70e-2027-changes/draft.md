@@ -80,7 +80,8 @@ electrically safe work condition, are outside its reach.
 
 What does change is the character of the permit itself. A permit is no longer only a record of
 who approved a hazard. It is also the document that has to show who is filling the additional
-person role for the task. [[internal link: energized work permit process]]
+person role for the task. Our guide to [OSHA compliance and NFPA 70E](https://chelectric.com/osha-compliance/)
+explains where permits fit in a facility's program.
 
 ## Why did NFPA add a second-person requirement?
 
@@ -125,7 +126,7 @@ started!
 ## How the second-person requirement fits with NFPA 70B and OSHA
 
 **NFPA 70E governs safe work practices, NFPA 70B governs the maintenance program, and OSHA
-inspectors routinely point to both.** [[internal link: NFPA 70B electrical maintenance program]]
+inspectors routinely point to both.** For the maintenance side, see [what NFPA 70B requires](https://chelectric.com/what-is-nfpa-70b/).
 OSHA does not adopt 70E wholesale by reference. Still, when an employer's General Duty Clause
 obligation to maintain a workplace free of recognized hazards is in question, 70E is the
 recognized consensus standard an inspector reaches for.
@@ -228,7 +229,7 @@ where they will be positioned relative to the boundaries.
 ### Step 4: Define the position in the job briefing
 
 Have the crew agree before work starts on exactly where the observer will stand, how they will
-call for help, and who has authority to stop the job. [[internal link: electrical job briefing checklist]]
+call for help, and who has authority to stop the job.
 
 ### Step 5: Settle contractor responsibilities in writing
 
@@ -247,4 +248,4 @@ someone works on energized equipment under a permit, someone else trained to res
 outside the boundary. The 2024 edition remains the enforceable baseline today, and the new
 requirement is not yet in force. But a facility that counts its single-person jobs, trains its
 observers and updates its permits now will meet the requirement when it arrives instead of
-scrambling to staff it. [[internal link: electrical safety program review]]
+scrambling to staff it. The [six keys to NFPA 70E compliance](https://chelectric.com/nfpa-70e-six-keys-to-compliance/) are a good place to start that review.
