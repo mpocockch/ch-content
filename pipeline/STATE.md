@@ -1427,3 +1427,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Unblock (human): allow `chelectric.com` in the cloud environment's network policy for this
   environment (`env_01Ez371HQbzkEd8jfxtaAf3x`), or upload `hero.jpg` to the WP media library by
   hand and give the attachment ID/URL. Next run then publishes without further input.
+## 2026-10-05 — Publish (second run of the day)
+
+- Did: read `Approved Blogs` (gid `1216997967900172`). Two blog cards, nothing published, no WordPress write made.
+- Flood card `1218543513344101`: hero.jpg present (JPEG, 1376x768). Not live on WordPress per
+  the earlier run today. Still blocked: the hero upload needs a request to chelectric.com and the
+  egress proxy returns 403 for that host (re-tested this run, `CONNECT tunnel failed, response 403`).
+  Not routed around; not publishing without the featured image. NOTE: Bill's synced edits and the
+  resolved internal links are committed only on `origin/claude/kind-newton-apfj72` (commits
+  71ffc44, d705b46). They are NOT on the default branch or this one, where draft.md still has the
+  CTA (line 115) and 4 `[[internal link]]` placeholders. That branch must be merged first.
+- NFPA 70E second-person card `1217455522370190`: unchanged blockers from 10-01 (NFPA wording
+  check unconfirmed, 4 internal-link placeholders unresolved). Not published.
+- No Asana comments added (the 10-05 comments already state these blockers; no new information).
+- Card moves: none. Asana cannot move cards (PLAYBOOK section 4).
+- Next run should: re-test chelectric.com egress; if open, publish the flood post from the
+  merged draft. Needs: allow chelectric.com in the environment network settings (or upload
+  hero.jpg to the media library and supply the attachment ID), merge apfj72 into the default
+  branch, and a human reply on the NFPA card.
