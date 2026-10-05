@@ -1393,3 +1393,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Commented on both cards with the specific asks.
 - Next run should: re-read both cards' stories; if a human has replied, sync/resolve and publish
   (re-check WordPress first); else stop quietly.
+
+## 2026-10-05 — Publish follow-up (flood post sync)
+
+- On Matt's instruction, synced Bill's 9/29 approved Word text into
+  `drafts/2026-09-flood-damaged-electrical-equipment/draft.md`: removed the "Recent trends in
+  flood-damaged equipment response" section and the "Contact us today to get started." CTA
+  (the only two differences found against the SharePoint doc).
+- Not published. 4 `[[internal link: ...]]` placeholders remain unresolved (they are in Bill's
+  Word doc too); needs real URLs or a decision to remove them. Not moved from Approved Blogs.

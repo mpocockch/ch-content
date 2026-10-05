@@ -112,7 +112,7 @@ proven otherwise.
 If your facility has flood-affected switchgear, panelboards, or transformers and you are not
 certain what needs testing versus replacement, a documented post-flood electrical assessment from
 a qualified testing provider is the fastest way to get a defensible answer before anything is
-re-energized. Contact us today to get started.
+re-energized.
 
 ## Common challenges after a flood
 
@@ -149,20 +149,6 @@ A circuit staying energized only confirms that the specific conductors carrying 
 still making a complete path. It says nothing about insulation resistance on an adjacent circuit
 that was also submerged, or about a splice underwater long enough to start corroding without yet
 failing outright.
-
-## Recent trends in flood-damaged equipment response
-
-**Facilities in Connecticut are testing flood-affected equipment more often simply because
-heavy rainfall events are happening more often.** NOAA's climate data for the region shows the
-Connecticut River basin has seen more than double the number of heavy rainfall events over the
-past 60 years, and extreme precipitation events across the Northeast have grown substantially
-more common over the same period. That trend showed up directly in August 2024, when a single
-storm dropped record-setting rainfall totals near Oxford, Connecticut, on the order of a
-once-in-a-thousand-year event by NOAA's own point precipitation estimates. Alongside that,
-insurance carriers and facility owners are pushing for better documentation before and after a
-flood event, which is driving wider adoption of condition-based monitoring, like periodic
-insulation resistance trending and moisture sensors in equipment rooms prone to water intrusion,
-rather than waiting for a flood to trigger the first test an aging panel has had in years.
 
 ## How to safely re-energize after testing
 
