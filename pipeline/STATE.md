@@ -1471,3 +1471,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Not published: needs hero image in WP media library (chelectric.com egress still blocked) and
   Matt's go-ahead. Draft still ends a section with "Contact us today to get started!" which Bill
   removed from the flood post; asked Matt whether to keep.
+
+## 2026-10-05 — Publish follow-up (NFPA 70E second-person post) — HELD, wrong hero uploaded
+
+- CTA changed per Matt: "Contact us to speak with an expert." (draft.md, pushed).
+- Not published. Attachment 14494 ("hero", 644,878 bytes) that Matt uploaded is byte-size identical
+  to `drafts/2026-10-nfpa-70e-70b-osha-general-duty-clause/hero.jpg`, NOT this post's hero
+  (`drafts/2026-09-nfpa-70e-2027-changes/hero.jpg`, 811,269 bytes). Publishing would put another
+  post's image on this one. Needs the correct file uploaded (expect 811,269 bytes).
