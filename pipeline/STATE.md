@@ -1402,3 +1402,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   (the only two differences found against the SharePoint doc).
 - Not published. 4 `[[internal link: ...]]` placeholders remain unresolved (they are in Bill's
   Word doc too); needs real URLs or a decision to remove them. Not moved from Approved Blogs.
+
+## 2026-10-05 — Publish follow-up (flood post links)
+
+- Resolved the 4 internal-link placeholders in the flood `draft.md` with live chelectric.com URLs
+  supplied by Matt (verified all exist in WordPress): /breaker-testing/,
+  /electrical-maintenance-plan/, /panel-schedule-compliance/ (published 2026-09-21),
+  /electrical-infrared-thermography-inspection-ct/. One sentence added ("Our guide to breaker
+  testing goes deeper on the methods."); the other three link existing words.
+- Draft is now publish-ready but NOT published. Awaiting Matt's go-ahead; Asana card still in
+  Approved Blogs. Next run: re-check WordPress, then publish if the card is still there.

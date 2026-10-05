@@ -71,8 +71,8 @@ assume power is off before anyone approaches the service equipment.
 ## What tests each type of equipment actually needs
 
 **Different equipment types need different tests after a flood, and the right test depends on
-what the equipment does and what water does to its specific construction.** [[internal link:
-breaker testing]] The table below covers the categories that come up most often on a commercial
+what the equipment does and what water does to its specific construction.** Our guide
+to [breaker testing](https://chelectric.com/breaker-testing/) goes deeper on the methods. The table below covers the categories that come up most often on a commercial
 or industrial site.
 
 | Equipment | What water affects | Typical test |
@@ -99,9 +99,8 @@ with electronic components is direct: replace it.** NEMA's published guidelines 
 panelboard interiors, circuit breakers with electronic trip units, fuse blocks, disconnect
 switches, and similar devices that have been submerged should be replaced rather than cleaned and
 returned to service, because there is no reliable way to confirm a life-safety device like a
-breaker will still trip correctly once its internals have been contaminated. [[internal link:
-NFPA 70B electrical maintenance program]] NFPA 70B's framework for electrical equipment
-maintenance supports the same underlying principle even without flood-specific provisions:
+breaker will still trip correctly once its internals have been contaminated. NFPA 70B's framework for [electrical equipment
+maintenance](https://chelectric.com/electrical-maintenance-plan/) supports the same underlying principle even without flood-specific provisions:
 equipment condition has to be verified before it is relied on, and a flood is exactly the kind of
 event that resets what "verified" means for everything it touched. OSHA's guidance for flood
 cleanup is blunt on the re-energizing question: do not plug in or attempt to use equipment that
@@ -120,9 +119,9 @@ re-energized.
 and replacement lead time usually are.** Equipment rooms that flood are often also the rooms
 hardest to get equipment or test technicians into while cleanup is underway, and testing has to
 happen before power is restored, which puts real pressure on a timeline the rest of the facility
-wants to move faster. [[internal link: panel schedules]] Insurance carriers increasingly want a
+wants to move faster. Insurance carriers increasingly want a
 documented basis for what was tested, what failed, and what was replaced, and a facility without
-current panel schedules or equipment records going into the flood has a harder time producing
+current [panel schedules](https://chelectric.com/panel-schedule-compliance/) or equipment records going into the flood has a harder time producing
 that documentation afterward. Replacement parts for older switchgear or breakers with
 discontinued electronic trip units can also have long lead times, which is worth knowing before
 a facility commits to a return-to-service date it cannot actually meet.
@@ -168,9 +167,9 @@ of the real risk sits.**
    a post-test reading looks.
 5. **Document everything.** Test results, replacement decisions, and photos of the damage support
    both the return-to-service decision and any insurance claim tied to the event.
-6. [[internal link: electrical infrared thermography]] **Re-energize incrementally and verify
+6. **Re-energize incrementally and verify
    under load.** Bring circuits back one section at a time rather than the whole service at once,
-   and follow up with a thermal scan after equipment has been running under normal load, since a
+   and follow up with an [infrared thermography scan](https://chelectric.com/electrical-infrared-thermography-inspection-ct/) after equipment has been running under normal load, since a
    connection weakened by corrosion often shows up as a hot spot before it shows up as a failure.
 
 ## Final thoughts
