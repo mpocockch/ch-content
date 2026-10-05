@@ -1378,3 +1378,52 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   no send-capable Outlook tool (section 7b), so the 10-02 handoff email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-05 — Publish (stages 11–12)
+
+- Approved Blogs (gid `1216997967900172`) holds two cards, neither a chore: "Testing after a flood"
+  (`1218543513344101`) and "NFPA 70E 2027..." second-person rule (`1217455522370190`).
+- WordPress checked (slug/title query): neither post exists, so nothing is live. Both have
+  `hero.jpg`. **Nothing published, no card moved.**
+- Both stopped again, same blockers as 2026-10-01, no new Asana comments since:
+  - Flood: Bill's 9/29 Word edits not synced into `draft.md` (CTA still at line 115); 4
+    `[[internal link: ...]]` placeholders unresolved.
+  - NFPA: 4 internal-link placeholders unresolved; no confirmation the rule wording was
+    checked against NFPA's text.
+- Commented on both cards with the specific asks.
+- Next run should: re-read both cards' stories; if a human has replied, sync/resolve and publish
+  (re-check WordPress first); else stop quietly.
+
+## 2026-10-05 — Publish follow-up (flood post sync)
+
+- On Matt's instruction, synced Bill's 9/29 approved Word text into
+  `drafts/2026-09-flood-damaged-electrical-equipment/draft.md`: removed the "Recent trends in
+  flood-damaged equipment response" section and the "Contact us today to get started." CTA
+  (the only two differences found against the SharePoint doc).
+- Not published. 4 `[[internal link: ...]]` placeholders remain unresolved (they are in Bill's
+  Word doc too); needs real URLs or a decision to remove them. Not moved from Approved Blogs.
+
+## 2026-10-05 — Publish follow-up (flood post links)
+
+- Resolved the 4 internal-link placeholders in the flood `draft.md` with live chelectric.com URLs
+  supplied by Matt (verified all exist in WordPress): /breaker-testing/,
+  /electrical-maintenance-plan/, /panel-schedule-compliance/ (published 2026-09-21),
+  /electrical-infrared-thermography-inspection-ct/. One sentence added ("Our guide to breaker
+  testing goes deeper on the methods."); the other three link existing words.
+- Draft is now publish-ready but NOT published. Awaiting Matt's go-ahead; Asana card still in
+  Approved Blogs. Next run: re-check WordPress, then publish if the card is still there.
+
+## 2026-10-05 — Publish (flood post) — BLOCKED at image upload, NOT published
+
+- Matt said "publish it". Re-checked WordPress: no duplicate (no flood/re-energize post exists).
+  Precedent post 14430 (panel schedule): Gutenberg blocks, hero image block first, category
+  News and Resources (49), author 9, Yoast focuskw/metadesc set.
+- Blocker: the hero image (`hero.jpg`, 789,736 bytes, real JPEG 1376x768) cannot reach WordPress.
+  `novamira/create-upload-link` needs an HTTP PUT to chelectric.com, and the egress proxy denies
+  `chelectric.com:443` (CONNECT 403, organization policy). Not retried, not routed around.
+  Base64 through a tool call is past the ~18 KB ceiling (§4).
+- Publishing without the featured image is not allowed, so nothing was created or published in
+  WordPress. Card still in Approved Blogs.
+- Unblock (human): allow `chelectric.com` in the cloud environment's network policy for this
+  environment (`env_01Ez371HQbzkEd8jfxtaAf3x`), or upload `hero.jpg` to the WP media library by
+  hand and give the attachment ID/URL. Next run then publishes without further input.
