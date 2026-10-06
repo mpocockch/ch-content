@@ -1494,3 +1494,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Asana card `1217455522370190` still in Approved Blogs; connector cannot move it. Needs a drag.
 - Left over: attachment 14494 (hero for the OSHA General Duty Clause draft) sits unattached in
   the media library; the flood card `1218543513344101` also still needs a drag to Posted Blogs.
+
+## 2026-10-06 — Blog: Idea Capture
+
+- Did: read the Teams channel via `read_resource` (page 1, 10 messages). Newest real message is
+  still `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15, already captured as
+  `1218543513344101`, now in Posted Blogs). Nothing posted since, so no new ideas and no Asana
+  tasks created. Listed the project's tasks with names/sections only. Today is Tuesday, so no
+  research pass.
+- Blocked: nothing.
+- Next run should: proceed normally from watermark `1789480885808`. Note the watermark task now
+  sits in Posted Blogs, so check all sections, not just Unapproved/Approved Ideas.
