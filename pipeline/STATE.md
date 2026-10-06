@@ -1507,3 +1507,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   no send-capable Outlook tool (section 7b, re-confirmed by ToolSearch), so the 10-02 handoff
   email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-06 — Publish
+
+- Did: read `Approved Blogs` (gid `1216997967900172`). One card: `1217455522370190` (NFPA 70E
+  second-person post). Already live: WordPress post 14496, status `publish`, slug
+  `nfpa-70e-second-person-requirement`, featured image 14495 (checked read-only this run).
+  Live URL is already in the Asana description and `draft.md` is `status: published`.
+- Published nothing, wrote nothing to WordPress. The other drafts in `drafts/`
+  (panel-schedule-compliance, OSHA GDC) have no card in Approved Blogs and were left alone.
+- Blocked: card `1217455522370190` is still in Approved Blogs; the connector cannot move cards
+  (PLAYBOOK section 4). Needs a human drag to Posted Blogs.
+- Next run should: skip that card if it is still there (already live); act only on new cards.
