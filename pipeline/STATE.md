@@ -1494,3 +1494,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Asana card `1217455522370190` still in Approved Blogs; connector cannot move it. Needs a drag.
 - Left over: attachment 14494 (hero for the OSHA General Duty Clause draft) sits unattached in
   the media library; the flood card `1218543513344101` also still needs a drag to Posted Blogs.
+
+## 2026-10-06 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). It is empty. The NFPA 70E / 70B / OSHA
+  GDC card (`1218987294592844`) is still in `Approved Ideas`; its story history holds only the
+  pipeline's own 2026-10-02 comments, no reviewer feedback and no new activity since. The other
+  two cards in the project are in `Approved Blogs` / `Posted Blogs`, out of this stage.
+- Nothing to revise, no hero image pending, no stall to alert on (no card in Waiting Approval).
+- No Asana comment and no email: quiet run.
+- Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
+  no send-capable Outlook tool (section 7b, re-confirmed by ToolSearch), so the 10-02 handoff
+  email is an unsent draft.
+- Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
