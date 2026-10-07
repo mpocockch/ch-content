@@ -1507,3 +1507,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   no send-capable Outlook tool (section 7b, re-confirmed by ToolSearch), so the 10-02 handoff
   email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-07 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`) via Asana. It is empty. Card
+  `1218987294592844` (NFPA 70E / 70B / OSHA GDC) is still in `Approved Ideas`; its history holds
+  only the pipeline's own 2026-10-02 comments, no reviewer feedback, no new activity.
+- Nothing to revise, no hero image pending, no stall to alert on. No Asana comment, no email.
+- Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
+  the 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b).
+- Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
