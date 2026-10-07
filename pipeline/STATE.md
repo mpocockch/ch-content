@@ -1517,3 +1517,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nothing new. Standing: card `1218987294592844` needs a human drag to Waiting Approval;
   the 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b).
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-07 — Publish
+
+- Did: read PLAYBOOK, checked `Approved Blogs` (gid `1216997967900172`) via Asana. It is empty,
+  so nothing to publish, no WordPress query and no writes were needed.
+- No Asana comment, no email: quiet run.
+- Blocked: nothing new. Standing: flood card `1218543513344101` and the NFPA 70E second-person
+  card `1217455522370190` may still need a human drag to Posted Blogs (see 2026-10-0x entries).
+- Next run should: re-check Approved Blogs.
