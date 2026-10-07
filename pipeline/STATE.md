@@ -1507,3 +1507,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   no send-capable Outlook tool (section 7b, re-confirmed by ToolSearch), so the 10-02 handoff
   email is an unsent draft.
 - Next run should: re-check Waiting Approval; if the card has arrived, watch for Bill/Matt comments.
+
+## 2026-10-07 — Blog: Idea Capture
+
+- Did: read the Teams channel via `read_resource` (page 1, 10 messages). Newest real message is
+  `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15), already captured as task
+  `1218543513344101` (now in Posted Blogs). All older topic pitches (Panel Schedules, ISO 45000,
+  Power Quality, Equipment Room) are likewise already in Asana. Nothing new since the 09-21 run.
+  Created no Asana tasks. Skipped the uncaptioned null-body messages and system events.
+- Not Monday (Wednesday), so no research pass. For reference, `Unapproved Ideas` holds 9 topics and
+  `Approved Ideas` holds 1 (`1218987294592844`, NFPA 70E / 70B / OSHA GDC).
+- Blocked: nothing.
+- Next run should: proceed normally; watermark is `1789480885808`.
