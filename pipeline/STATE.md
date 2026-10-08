@@ -1530,3 +1530,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   the session, section 7b), so Matt and Bill may not know the draft awaits review.
 - Next run should: watch the card for Bill/Matt comments; stall clock starts 2026-10-07, so first
   possible nudge is after 2026-10-12.
+
+## 2026-10-08 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` thread. Newest message (`1789480885808`, Bill, "Testing after a
+  flood", 2026-09-15) is already the watermark (captured as card `1218543513344101`). Nothing above it.
+- Captured: 0 new ideas. Today is Thursday, so no research pass.
+- Blocked: nothing. Quiet run.
+- Next run should: start from watermark `1789480885808`.
