@@ -1541,3 +1541,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   No Asana comment, no email: quiet run.
 - Blocked: nothing new. The 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b).
 - Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-08 — Publish
+
+- Did: read PLAYBOOK; checked `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty,
+  so no WordPress query, upload, publish or card move was attempted. All connectors (Asana, Novamira,
+  Microsoft 365) were present.
+- Nothing published, nothing written to Asana or WordPress: quiet run.
+- Blocked: nothing. (The one card in the pipeline, `1218987294592844`, is still in Waiting Approval.)
+- Next run should: re-check `Approved Blogs`; for any card there, check WordPress for the slug first.
