@@ -1530,3 +1530,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   the session, section 7b), so Matt and Bill may not know the draft awaits review.
 - Next run should: watch the card for Bill/Matt comments; stall clock starts 2026-10-07, so first
   possible nudge is after 2026-10-12.
+
+## 2026-10-08 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). One card, `1218987294592844` (NFPA 70E / 70B /
+  OSHA GDC), moved in 2026-10-07 16:19 UTC. Story history holds only the pipeline's own 2026-10-02
+  comments and system events; no genuine reviewer comment since. SharePoint search (by title, and by
+  Blog folder since 10-01) did not return the card's Word doc, so edits could not be confirmed either way.
+- Nothing to revise, no hero image pending, no stall (day 1 of 5; first possible nudge after 2026-10-12).
+  No Asana comment, no email: quiet run.
+- Blocked: nothing new. The 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b).
+- Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
