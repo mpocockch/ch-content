@@ -1556,3 +1556,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   handoff email is still an unsent Outlook draft (no send tool).
 - Next run should: draft card `1217369002256411` once the PDF is readable (proxy allowlist for
   asanausercontent.com, or PDF text committed under drafts/2026-10-insurance-electrical-testing/).
+
+## 2026-10-09 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). One card, `1218987294592844` (NFPA 70E / 70B /
+  OSHA GDC), there since 2026-10-07 16:19 UTC. Story history holds only the pipeline's own 2026-10-02
+  comments and system events; no genuine reviewer comment. The Word doc (found by title search) shows
+  lastModified 2026-10-08 17:18 UTC, but its text matches `draft.md` with no visible reviewer edits
+  (no tracked changes or comment text are exposed by the connector), so nothing was revised.
+- Nothing to revise, no hero image pending, no stall (day 2 of 5; first possible nudge after 2026-10-12).
+  No Asana comment, no email: quiet run.
+- Blocked: nothing new. The 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b),
+  so Matt and Bill may not know the draft is waiting. Standing: Friday draft for card `1217369002256411`
+  is blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
+- Next run should: re-check comments; if the doc's lastModified moves again, compare against `draft.md`;
+  stall nudge due after 2026-10-12 if still silent.
