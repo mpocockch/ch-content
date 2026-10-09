@@ -1571,3 +1571,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   is blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments; if the doc's lastModified moves again, compare against `draft.md`;
   stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-09 — Publish
+
+- Did: read PLAYBOOK.md; Asana, Novamira and Microsoft 365 tools all present. Checked `Approved Blogs`
+  (gid `1216997967900172`): zero tasks, so nothing to publish, no WordPress query or write made.
+- Nothing published, no cards moved, no Asana comments, no email: quiet run.
+- Blocked: nothing.
+- Next run should: re-check `Approved Blogs`; for any card, query WordPress for slug/title before writing
+  and confirm `drafts/<slug>/hero.*` exists.
