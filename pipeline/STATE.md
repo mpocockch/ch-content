@@ -1541,3 +1541,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   No Asana comment, no email: quiet run.
 - Blocked: nothing new. The 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b).
 - Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-09 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` thread via the Microsoft 365 `read_resource` (the generic
+  `ReadMcpResourceTool` returned "not found" for the same URI). Newest real message is Bill's
+  2026-09-15 flood post (`1789480885808`), already captured as the Posted Blogs card "Testing after a
+  flood" (`1218543513344101`). Nothing above the watermark: no new ideas, 0 tasks created.
+- Not run: Monday research pass (today is Friday). Queue check: Unapproved Ideas holds 9 cards.
+- Noted, not touched: Unapproved card `1219275969007078` "Electrical testing" (empty notes, created
+  2026-10-08 by Matt directly in Asana, not from Teams) — likely a stub needing detail.
+- Blocked: nothing. Asana `search_tasks` is premium-only, so the watermark was matched by card
+  name/date rather than by permalink text.
+- Next run should: stop at the 2026-09-15 message unless newer ones appear.
