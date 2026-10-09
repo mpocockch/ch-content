@@ -1541,3 +1541,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   No Asana comment, no email: quiet run.
 - Blocked: nothing new. The 10-02 handoff email is still an unsent Outlook draft (no send tool, section 7b).
 - Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-09 — Weekly Draft (Friday)
+
+- Did: resumed-work check (no prior draft for the topic, no pending questions in Approved Ideas or
+  Waiting Approval comments). Oldest Approved Ideas card is `1217369002256411` ("What Electrical
+  testing Requirements Do Insurance Companies have?"), which names the attached FM Global PDF
+  (`FMDS0520 3.pdf`) as the primary reference.
+- Blocked: the PDF download from asanausercontent.com returned HTTP 403 from the egress proxy;
+  fm.com does not resolve. Not routed around (section 5). Web search returned no FM DS 5-20 text,
+  only vendor blogs, so no insurer claims could be sourced. Nothing drafted; no image, no Word doc,
+  no email, no assignment. Card stays in Approved Ideas.
+- Standing: card `1218987294592844` (70E/70B/OSHA) is in Waiting Approval since 2026-10-07; its
+  handoff email is still an unsent Outlook draft (no send tool).
+- Next run should: draft card `1217369002256411` once the PDF is readable (proxy allowlist for
+  asanausercontent.com, or PDF text committed under drafts/2026-10-insurance-electrical-testing/).
