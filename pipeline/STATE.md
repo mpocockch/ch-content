@@ -1571,3 +1571,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   is blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments; if the doc's lastModified moves again, compare against `draft.md`;
   stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-10 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). One card, `1218987294592844` (NFPA 70E / 70B /
+  OSHA GDC), there since 2026-10-07 16:19 UTC. Story history holds only the pipeline's own 2026-10-02
+  comments and system events; no genuine reviewer comment. Card modified_at unchanged (10-07). Title
+  searches did not surface the Word doc this run, so SharePoint edits could not be re-checked (last known
+  lastModified 2026-10-08 17:18 UTC, no visible reviewer edits).
+- Nothing to revise, no hero image pending, no stall yet (day 3 of 5; first possible nudge after
+  2026-10-12). No Asana comment, no email: quiet run.
+- Blocked: nothing new. `outlook_send_mail` still absent (ToolSearch by exact name), so the 10-02
+  handoff email remains an unsent Outlook draft (section 7b). Standing: Friday draft for card
+  `1217369002256411` blocked on the FM Global PDF (proxy 403).
+- Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
