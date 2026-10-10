@@ -1585,3 +1585,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   handoff email remains an unsent Outlook draft (section 7b). Standing: Friday draft for card
   `1217369002256411` blocked on the FM Global PDF (proxy 403).
 - Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-10 — Publish
+
+- Did: read PLAYBOOK; checked `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty,
+  so nothing to publish. No WordPress writes, no Asana writes, no card moves.
+- Blocked: nothing new.
+- Next run should: re-check `Approved Blogs`. The NFPA 70E / 70B / OSHA GDC card `1218987294592844`
+  is still in `Waiting Approval` awaiting human review/approval.
