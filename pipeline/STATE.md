@@ -1571,3 +1571,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   is blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments; if the doc's lastModified moves again, compare against `draft.md`;
   stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-10 — Idea Capture
+
+- Did: read Teams `Blog Ideas` (12 messages, newest first). Newest message `1789480885808`
+  (Bill, "Testing after a flood", 2026-09-15) is already an Asana card (`1218543513344101`, now in
+  Posted Blogs), so it is the watermark and nothing sits above it. Older topic pitches
+  (`1786996973248`, `1786538150003`, `1786468264820`) are also captured; the rest are system
+  events or null-body attachments (skipped). Nothing new; no Asana writes.
+- Research pass: not run (Saturday, not Monday).
+- Note: `Unapproved Ideas` holds 11 cards. One, `1219275969007078` "Electrical testing " (created
+  2026-10-08, empty notes, no Teams link), was not created by this pipeline and needs a human to
+  fill in or delete. Asana search is premium-only, so the check used `get_tasks` on the project.
+- Blocked: nothing.
+- Next run should: start from watermark `1789480885808`. Monday 2026-10-12 research pass: queue is
+  already over ten untriaged, so expect to add nothing.
