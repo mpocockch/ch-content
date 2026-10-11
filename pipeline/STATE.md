@@ -1585,3 +1585,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   handoff email remains an unsent Outlook draft (section 7b). Standing: Friday draft for card
   `1217369002256411` blocked on the FM Global PDF (proxy 403).
 - Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-11 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). One card, `1218987294592844` (NFPA 70E / 70B /
+  OSHA GDC), there since 2026-10-07 16:19 UTC. Story history holds only the pipeline's own 2026-10-02
+  comments and system events; no genuine reviewer comment. Word doc found by title search; lastModified
+  still 2026-10-08 17:18 UTC (unchanged since the 10-09 check), so no new edits.
+- Nothing to revise, no hero image pending, no stall yet (day 4 of 5; nudge due once the card passes
+  5 days, i.e. from 2026-10-12 16:19 UTC). No Asana comment, no email: quiet run.
+- Blocked: nothing new. `outlook_send_mail` still absent, so the 10-02 handoff email remains an unsent
+  Outlook draft (section 7b). Standing: Friday draft for card `1217369002256411` blocked on the FM Global
+  PDF (proxy 403 on asanausercontent.com).
+- Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
+  Matt and Bill, plus short email if a send tool exists, else draft) if still silent after 2026-10-12 16:19 UTC.
