@@ -1585,3 +1585,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   handoff email remains an unsent Outlook draft (section 7b). Standing: Friday draft for card
   `1217369002256411` blocked on the FM Global PDF (proxy 403).
 - Next run should: re-check comments; stall nudge due after 2026-10-12 if still silent.
+
+## 2026-10-11 11:35 UTC — Blog: Idea Capture
+
+- Did: read the Teams `Blog Ideas` channel via `read_resource` (one page, 10 messages). Newest
+  message is `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15) — the same
+  watermark recorded 2026-09-21, already captured as task `1218543513344101`. Nothing posted
+  since, so no Asana tasks created. Did not read Asana notes this run.
+- Today is Sunday, so no research pass.
+- Blocked: nothing.
+- Next run should: proceed normally; watermark is still `1789480885808` unless a newer message
+  appears. Monday 2026-10-12 research pass must re-check the §8 queue-depth rule.
