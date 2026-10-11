@@ -1599,3 +1599,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
   Matt and Bill, plus short email if a send tool exists, else draft) if still silent after 2026-10-12 16:19 UTC.
+
+## 2026-10-11 — Publish
+
+- Did: read PLAYBOOK; checked `Approved Blogs` (gid `1216997967900172`) via Asana: empty, so nothing to
+  publish. No WordPress writes, no card moves, no comments.
+- Blocked: nothing new.
+- Next run should: re-check `Approved Blogs`; for any card, check WordPress for slug/title before writing
+  and confirm `drafts/<slug>/hero.*` exists.
