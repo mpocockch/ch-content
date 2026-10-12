@@ -1599,3 +1599,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
   Matt and Bill, plus short email if a send tool exists, else draft) if still silent after 2026-10-12 16:19 UTC.
+
+## 2026-10-12 — Blog: Idea Capture
+
+- Did: watermark is Teams message `1789480885808` ("Testing after a flood", Bill Concannon,
+  2026-09-15). Read page 1 of the channel (10 messages, newest first): it is still the newest
+  message, so nothing new since the last capture. Created no Asana tasks. Today is Monday, so
+  applied the research-pass queue-depth rule (section 8): `Unapproved Ideas` holds 9 topics, 8 of them
+  Agent Research cards from 2026-08-11/14 still untriaged after two months, so the bottleneck is
+  review capacity. Research pass added nothing.
+- Noted, not touched: `Unapproved Ideas` card `1219275969007078` ("Electrical testing", created
+  2026-10-08, empty notes, no Teams link) was added by hand in Asana, not from Teams.
+- Blocked: nothing.
+- Next run should: proceed normally; resume Monday research only after Thursday triage clears the queue.
