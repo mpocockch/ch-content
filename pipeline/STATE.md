@@ -1599,3 +1599,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
   Matt and Bill, plus short email if a send tool exists, else draft) if still silent after 2026-10-12 16:19 UTC.
+
+## 2026-10-12 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). One card, `1218987294592844` (NFPA 70E / 70B /
+  OSHA GDC), moved in 2026-10-07 16:19 UTC. Story history unchanged: only the pipeline's own 2026-10-02
+  comments and system events; no genuine reviewer comment. Title search did not surface the Word doc this
+  run, so SharePoint edits could not be re-checked (last known lastModified 2026-10-08 17:18 UTC, no visible
+  reviewer edits).
+- Nothing to revise, no hero image pending. Stall: 4.85 days at 12:43 UTC, just under the 5-day threshold, so
+  no nudge yet. No Asana comment, no email: quiet run.
+- Blocked: nothing new. `outlook_send_mail` still absent (ToolSearch by exact name), so the 10-02 handoff
+  email remains an unsent Outlook draft (section 7b). Standing: Friday draft for card `1217369002256411`
+  blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
+- Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
+  Matt and Bill, plus email if a send tool exists, else an Outlook draft) if still silent — due 2026-10-13.
