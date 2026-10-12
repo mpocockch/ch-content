@@ -1614,3 +1614,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
   Matt and Bill, plus email if a send tool exists, else an Outlook draft) if still silent — due 2026-10-13.
+
+## 2026-10-12 — Publish
+
+- Did: read PLAYBOOK.md; checked `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty (no
+  tasks returned), so nothing to publish and nothing to check against WordPress.
+- Published: nothing. No card moves, no Asana comments, no email: quiet run.
+- Blocked: nothing new for this stage. Standing: Asana connector still cannot move cards between sections (section 4).
+- Next run should: re-check `Approved Blogs`; for any blog card, check WordPress for slug/title before
+  writing, require `drafts/<slug>/hero.*`, then publish.
