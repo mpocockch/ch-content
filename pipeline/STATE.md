@@ -1614,3 +1614,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified; post the one stall nudge (Asana comment tagging
   Matt and Bill, plus email if a send tool exists, else an Outlook draft) if still silent — due 2026-10-13.
+
+## 2026-10-13 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` thread via read_resource. Newest message is Bill Concannon's
+  "Testing after a flood" (1789480885808, 2026-09-15), already captured as Posted Blogs card
+  `1218543513344101`, so the watermark hit on the first message. Panel Schedules and ISO 45000 also
+  already have cards. Asana checked across all sections (names only plus Unapproved/Approved notes).
+- Captured: 0 new ideas. Not captured: none. Today is Tuesday, so no research pass.
+- Observation (not acted on): Matt's 2026-08-20 heading-only post "How to Ensure Electrical Equipment
+  Room Reliability" (1787259801114) has no card of its own; a draft by that name exists in `drafts/`, so
+  it is presumably covered. Also, Unapproved Ideas holds 9 topics, near the ten-topic queue limit.
+- Blocked: nothing.
+- Next run should: start from watermark 1789480885808; Monday run applies the queue-depth rule (9 now).
