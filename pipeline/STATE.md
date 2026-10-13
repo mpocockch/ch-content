@@ -1628,3 +1628,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nudge email needs a human to send the draft. Standing: Friday draft for card `1217369002256411`
   blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified. Do NOT nudge again before 2026-10-20.
+
+## 2026-10-13 — Publish
+
+- Did: checked `Approved Blogs` (gid `1216997967900172`) via Asana; the section is empty (0 tasks). Novamira
+  connector reachable (discover-abilities succeeded) but no WordPress query or write was needed.
+- Nothing published, no cards moved, no Asana comments: quiet run.
+- Blocked: nothing new.
+- Next run should: re-check `Approved Blogs`. For any card found, query WordPress for slug and title before
+  writing, and check for `drafts/<slug>/hero.*` first.
