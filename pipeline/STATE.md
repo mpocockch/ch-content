@@ -1628,3 +1628,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Blocked: nudge email needs a human to send the draft. Standing: Friday draft for card `1217369002256411`
   blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified. Do NOT nudge again before 2026-10-20.
+
+## 2026-10-14 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` thread newest-first. The newest message, 1789480885808 (Bill Concannon,
+  "Testing after a flood", 2026-09-15), is already captured as Asana card `1218543513344101` (now in
+  Posted Blogs) — that is the watermark, so nothing above it is new. No messages since 2026-09-15.
+- Captured: 0 new ideas. Skipped: none (no new messages to skip).
+- Research pass: not run — today is Wednesday. For reference, Unapproved Ideas holds 9 cards.
+- Blocked: nothing. Note: card `1219275969007078` "Electrical testing" was created in Unapproved Ideas on
+  2026-10-08 with no Teams origin; left untouched. `asana_search_tasks` needs a premium plan (use
+  `asana_get_tasks` by section instead).
+- Next run should: start from the same watermark (message 1789480885808).
