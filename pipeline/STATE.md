@@ -1642,3 +1642,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   nudge email remain unsent Outlook drafts (section 7b); a human must send them. Standing: Friday draft for
   card `1217369002256411` blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified. Do NOT nudge again before 2026-10-20.
+
+## 2026-10-15 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` thread. Newest message (Bill, "Testing after a flood", id
+  `1789480885808`, 2026-09-15) is already captured as Asana card `1218543513344101` (Posted Blogs), so it is
+  the watermark and nothing sits above it. No new ideas; no Asana writes.
+- Research pass: not run (Thursday, not Monday).
+- Note: the 2026-08-20 Matt message "How to Ensure Electrical Equipment Room Reliability" (id
+  `1787259801114`) sits below the watermark and has no card under that name; not re-opened this run (the
+  Equipment Room draft exists per PLAYBOOK §4). Asana `search_tasks` is premium-only, so watermark checks
+  use `get_tasks` on the project.
+- Blocked: nothing new. Standing items from 10-14 unchanged.
