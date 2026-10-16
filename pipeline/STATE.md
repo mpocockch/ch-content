@@ -1656,3 +1656,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   10-13 nudge email remain unsent Outlook drafts (section 7b); a human must send them. Standing: Friday draft
   for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified. Do NOT nudge again before 2026-10-20.
+
+## 2026-10-16 — Idea Capture
+
+- Did: read the Teams `Blog Ideas` channel (newest first). The newest message, `1789480885808`
+  (Bill, "Testing after a flood", 2026-09-15), is already captured as Asana task `1218543513344101`
+  (now in Posted Blogs), so the watermark was the very first message and nothing is new. No Asana
+  writes made.
+- Monday research pass: not run (today is Friday). For the record, Unapproved Ideas holds 9 tasks.
+- Blocked: nothing for this stage.
+- Next run should: start from watermark `1789480885808`.
