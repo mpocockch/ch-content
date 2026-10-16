@@ -1656,3 +1656,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   10-13 nudge email remain unsent Outlook drafts (section 7b); a human must send them. Standing: Friday draft
   for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified. Do NOT nudge again before 2026-10-20.
+
+## 2026-10-16 — Weekly Draft (Friday)
+
+- Did: resume check. Approved Ideas holds one card, `1217369002256411` (insurer electrical testing
+  requirements); no new comments or questions from Matt or Bill. Waiting Approval holds only
+  `1218987294592844`. No prior draft exists for the topic.
+- Blocked: same as 2026-10-09. The card's FM Global PDF (`FMDS0520 3.pdf`) still returns HTTP 403
+  from the egress proxy (CONNECT to asanausercontent.com). Not routed around (section 5). Nothing
+  drafted; no image, Word doc, assignment or email. Card stays in Approved Ideas.
+- Standing: `outlook_send_mail` still absent (ToolSearch by exact name).
+- Next run should: draft the card once the PDF is readable (allowlist asanausercontent.com, or commit
+  the PDF text as drafts/2026-10-insurance-electrical-testing/source-fmds0520.md on this branch).
