@@ -1695,3 +1695,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   10-13 nudge email remain unsent Outlook drafts (section 7b); a human must send them. Standing: Friday draft
   for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc lastModified. Do NOT nudge again before 2026-10-20.
+
+## 2026-10-17 — Publish
+
+- Did: checked `Approved Blogs` (gid `1216997967900172`) via `asana_get_tasks`: empty. Nothing to publish,
+  so no WordPress query, upload or card move was attempted. Asana, Novamira (ability discovery) and
+  GitHub tools were all present.
+- Nothing blocked. Quiet run: no Asana comment, no email.
+- Next run should: re-check `Approved Blogs`; card `1218987294592844` is still in `Waiting Approval`.
