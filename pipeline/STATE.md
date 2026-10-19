@@ -1709,3 +1709,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   10-13 nudge email remain unsent Outlook drafts (section 7b); a human must send them. Standing: Friday draft
   for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc content. Next nudge no sooner than 2026-10-20.
+
+## 2026-10-19 11:35 UTC — Blog: Idea Capture
+
+- Did: read the Teams `Blog Ideas` channel via `read_resource` (one page). Newest real message is
+  still `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15), already captured as
+  task `1218543513344101` (now in Posted Blogs) — nothing newer in the channel. Created no Asana
+  tasks. Monday research pass (§8): `Unapproved Ideas` holds 9 untriaged topics (newest added
+  2026-10-08), while one card sits unreviewed in `Waiting Approval` since 10-07 and one in
+  `Approved Ideas` is blocked on a source PDF. Review capacity, not idea supply, is the
+  bottleneck, so the research pass added nothing.
+- Blocked: nothing.
+- Next run should: nothing pending. Resume research candidates only once the queue drops below
+  ~8 and the Waiting Approval / Approved Ideas cards clear.
