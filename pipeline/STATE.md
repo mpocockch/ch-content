@@ -1740,3 +1740,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on
   asanausercontent.com).
 - Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
+
+## 2026-10-20 — Publish
+
+- Did: read PLAYBOOK; checked `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty, so
+  nothing to publish and no WordPress writes were made.
+- Quiet run. No Asana comment, no card move, no email.
+- Blocked: nothing for this stage.
+- Next run should: re-check `Approved Blogs`. Card `1218987294592844` (NFPA 70E / 70B / OSHA GDC) is still
+  in `Waiting Approval` awaiting review.
