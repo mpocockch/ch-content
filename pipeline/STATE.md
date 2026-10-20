@@ -1724,3 +1724,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on asanausercontent.com).
 - Next run should: re-check comments and doc edits. A nudge is allowed from 2026-10-20 if still no genuine
   reviewer comment.
+
+## 2026-10-20 — Idea Capture
+
+- Did: read the Blog Ideas channel via the PLAYBOOK §3 URI (10 messages total). Newest message is Bill's
+  "Testing after a flood" (1789480885808, 2026-09-15), already captured as Asana card `1218543513344101`
+  and since published. Every other topic message (Equipment Room, Panel Schedules, ISO 45000, Power
+  Quality) predates it, so nothing sits above the watermark. Two null-body messages and three system
+  events skipped. Captured 0 new ideas.
+- Asana (read only): Unapproved Ideas holds 10 cards, Approved Ideas holds 1. One untriaged card,
+  "Electrical testing" (`1219275969007078`, created 2026-10-08, empty notes, no Teams link), was added
+  by hand in Asana; left untouched.
+- Research pass: not run, today is Tuesday. Queue is already at ~10 anyway.
+- Blocked: nothing.
