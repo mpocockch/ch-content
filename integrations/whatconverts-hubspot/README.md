@@ -5,10 +5,19 @@ phone call a rep has marked `quotable = Yes`. Replaces the Zapier integration.
 
 ## How it runs
 
-`.github/workflows/whatconverts-hubspot-sync.yml` runs `sync.py` every 30
-minutes, 11:00-23:30 UTC, Mon-Fri -- 07:00-19:30 Eastern in summer. You can
-also run it by hand from the Actions tab ("Run workflow"), which defaults to a
-dry run.
+`.github/workflows/whatconverts-hubspot-sync.yml` runs `sync.py` every 15
+minutes at :07, :22, :37 and :52, 11:00-23:52 UTC, Mon-Fri -- 07:00-19:52
+Eastern in summer. You can also run it by hand from the Actions tab ("Run
+workflow"), which defaults to a dry run.
+
+**Treat this schedule as a safety net, not a clock.** GitHub documents
+`schedule` as best-effort: delayed under load, and dropped outright when the
+load is high enough. Measured over 9 weekdays it delivered 35 of 234 requested
+slots, a median 3.2 hours apart, and one real lead took 4 hours to reach
+HubSpot. The odd minutes above avoid the top-of-hour congestion GitHub names,
+and the higher frequency buys more delivered runs from the same drop rate, but
+neither makes it dependable. The webhook relay in `relay/` is what makes a lead
+arrive in seconds; this schedule repairs whatever the webhook misses.
 
 **Scheduled runs are dry by default.** They write to HubSpot only once the
 repository variable `DRY_RUN` is explicitly set to `false`. Any other value --

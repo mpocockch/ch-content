@@ -2,12 +2,25 @@ name: WhatConverts -> HubSpot lead sync
 
 on:
   schedule:
-    # Every 30 minutes, 11:00-23:30 UTC, Mon-Fri.
-    # That is 07:00-19:30 Eastern in summer (EDT) and 06:00-18:30 in winter
-    # (EST) -- cron does not follow daylight saving. The drift is harmless:
-    # the sync reads a rolling 30-day window and is idempotent, so an extra or
-    # missed run changes nothing.
-    - cron: "0,30 11-23 * * 1-5"
+    # Every 15 minutes, 11:00-23:52 UTC, Mon-Fri -- 07:00-19:52 Eastern in
+    # summer (EDT), an hour earlier in winter, since cron does not follow
+    # daylight saving. The drift is harmless: the sync reads a rolling 30-day
+    # window and is idempotent, so an extra or missed run changes nothing.
+    #
+    # The odd minutes are deliberate. GitHub documents `schedule` as
+    # best-effort -- delayed under load, and "if the load is sufficiently high,
+    # some queued jobs may be dropped" -- and names the start of every hour as
+    # a high-load window. This workflow previously asked for :00 and :30, the
+    # two most congested minutes on the platform, and over 9 weekdays GitHub
+    # delivered 35 of 234 slots, a median 3.2 hours apart.
+    #
+    # So this asks off-peak, and asks more often: if drops are load-driven and
+    # roughly random, four times the slots should yield roughly four times the
+    # runs. It is mitigation, not a fix. GitHub guarantees nothing here, which
+    # is why the webhook relay in integrations/whatconverts-hubspot/relay/
+    # exists -- this schedule is the safety net beneath it, not the clock a
+    # sales callback depends on.
+    - cron: "7,22,37,52 11-23 * * 1-5"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -28,9 +41,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip

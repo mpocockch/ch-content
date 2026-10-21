@@ -262,7 +262,8 @@ class HubSpot:
         if not results:
             return None, None
         props = results[0].get("properties") or {}
-        name = " ".join(x for x in (props.get("firstname"), props.get("lastname")) if x).strip()
+        name = " ".join(x for x in (props.get("firstname"), props.get("lastname")) if x)
+        name = re.sub(r"\s+", " ", name).strip()
         return str(results[0]["id"]), (name or None)
 
     def open_leads_for_contact(self, contact_id: str) -> list[str]:
@@ -443,7 +444,7 @@ def extract_name_via_claude(lead: dict[str, Any]) -> str | None:
 
 def resolve_lead_name(
     lead: dict[str, Any], use_claude: bool, contact_name: str | None = None
-) -> str | None:
+) -> str:
     """The caller's name, or None when it is not confidently known.
 
     A matched contact's own name wins: it is the name C&H already recorded for
@@ -453,9 +454,13 @@ def resolve_lead_name(
     the field in itself about 8 seconds later as "<contact name> <YYYY-MM>";
     a name written at creation is not touched.
 
-    None means hs_lead_name is left unset. HubSpot only auto-names a Lead whose
-    contact has a name, so a Lead for an unknown caller stays visibly empty for
-    someone to fill in.
+    When no name is known the caller's phone number is used instead. Leaving the
+    field empty was tried and failed in practice: HubSpot only auto-names a Lead
+    whose contact has a name, so a Lead for an unknown caller stayed genuinely
+    blank, and a blank row in the Leads list is invisible rather than inviting.
+    Nobody fills in a name they cannot see. A phone number is unmistakably not a
+    person's name, and it is the one thing a rep can act on without opening the
+    record.
 
     caller_name is deliberately not used as a fallback. It is carrier CNAM data
     and names the account holder rather than the caller often enough to be worse
@@ -470,7 +475,7 @@ def resolve_lead_name(
         extracted = extract_name_via_claude(lead)
         if extracted:
             return extracted
-    return None
+    return format_phone(str(lead.get("caller_number") or ""))
 
 
 # --------------------------------------------------------------------------
@@ -489,6 +494,16 @@ def _phone_variants(e164: str) -> list[str]:
             f"{national[:3]}-{national[3:6]}-{national[6:]}",
         })
     return [v for v in variants if v]
+
+
+def format_phone(e164: str) -> str:
+    """Render a phone number for display, falling back to whatever we were given."""
+    digits = re.sub(r"\D", "", e164 or "")
+    if len(digits) == 11 and digits.startswith("1"):
+        digits = digits[1:]
+    if len(digits) == 10:
+        return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+    return e164
 
 
 def contact_properties(lead: dict[str, Any], display_name: str | None) -> dict[str, str]:
@@ -629,10 +644,7 @@ def run_sync(
             if contact_id is None:
                 counters.contacts_created += 1
                 if dry_run:
-                    LOG.info(
-                        "[dry-run] would create Contact for %s (name: %s)",
-                        phone, display_name or "<none>",
-                    )
+                    LOG.info("[dry-run] would create Contact for %s (%s)", phone, display_name)
                     contact_id = "<new>"
                 else:
                     contact_id = hs.create_contact(contact_properties(call, display_name))
@@ -688,12 +700,11 @@ def run_sync(
 
             # (c) + (d) Lead, then the call note.
             lead_props = {
+                "hs_lead_name": display_name,
                 "hs_pipeline": pipeline_id,
                 "hs_pipeline_stage": new_stage_id,
                 "whatconverts_lead_id": wc_id,
             }
-            if display_name:
-                lead_props["hs_lead_name"] = display_name
             if dry_run:
                 LOG.info("[dry-run] would create Lead %r on contact %s", lead_props, contact_id)
                 LOG.info("[dry-run] would add note: %s", body[:200])
@@ -703,10 +714,7 @@ def run_sync(
             lead_id = hs.create_lead(lead_props, contact_id)
             hs.create_note(body, stamp, contact_id)
             counters.leads_created += 1
-            LOG.info(
-                "created Lead %s (name: %s) for WhatConverts %s",
-                lead_id, display_name or "<none, to be filled in>", wc_id,
-            )
+            LOG.info("created Lead %s (%s) for WhatConverts %s", lead_id, display_name, wc_id)
 
         except SyncError as exc:
             # One bad record must not strand the rest of the batch.
@@ -740,7 +748,9 @@ def main(argv: list[str] | None = None) -> int:
 
     use_claude = bool(os.environ.get("ANTHROPIC_API_KEY"))
     if not use_claude:
-        LOG.info("ANTHROPIC_API_KEY not set -- Leads will be created without a name")
+        LOG.info(
+            "ANTHROPIC_API_KEY not set -- unmatched callers will be named by phone number"
+        )
 
     wc = WhatConverts(os.environ["WC_TOKEN"], os.environ["WC_SECRET"])
     hs = HubSpot(os.environ["HUBSPOT_TOKEN"])
