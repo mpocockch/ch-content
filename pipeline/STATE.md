@@ -1740,3 +1740,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on
   asanausercontent.com).
 - Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
+
+## 2026-10-21 — Blog: Idea Capture
+
+- Did: read the Teams `Blog Ideas` channel via `read_resource` (first page). Newest real message is
+  `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15), already captured as task
+  `1218543513344101` (now in `Posted Blogs`), so that is the watermark and nothing is newer. Older
+  pitches on the page (Panel Schedules, ISO 45000, Power Quality, Equipment Room) are also already
+  captured. Skipped two null-body attachment-only messages and system events. Created no Asana tasks.
+- Not Monday (Wednesday), so no research pass.
+- Blocked: nothing.
+- Observation: `Unapproved Ideas` holds 9 cards, including an untitled-source `Electrical testing`
+  (`1219275969007078`, created 2026-10-08, empty notes, no Teams link). Not touched; a human may want
+  to flesh it out or remove it.
+- Next run should: proceed normally from the same watermark.
