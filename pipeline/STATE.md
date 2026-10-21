@@ -1754,3 +1754,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on
   asanausercontent.com).
 - Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
+
+## 2026-10-21 — Publish
+
+- Did: read PLAYBOOK, checked `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty, so
+  nothing to publish. No WordPress writes, no card moves, no Asana comments.
+- Blocked: nothing for this stage. Standing items from other stages unchanged (card in `Waiting Approval`
+  awaiting reviewer; unsent Outlook drafts, section 7b).
+- Next run should: re-check `Approved Blogs`; for any card, verify slug/title not already live in WordPress
+  and that `drafts/<slug>/hero.*` exists before publishing.
