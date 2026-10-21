@@ -1740,3 +1740,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on
   asanausercontent.com).
 - Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
+
+## 2026-10-21 — Review Loop
+
+- Did: checked `Waiting Approval` (gid `1216997967900170`). One card, `1218987294592844` (NFPA 70E / 70B /
+  OSHA GDC), in since 2026-10-07 16:19 UTC, card modified_at 2026-10-20 (the pipeline's own nudge). Story
+  history: only the pipeline's own comments and system events; no genuine reviewer comment. SharePoint search
+  with afterDateTime 2026-10-09 returned nothing, so no edits since the 2026-10-08 save.
+- Nothing to revise, no hero image pending. Stall nudge not due (last 10-20; next no sooner than 2026-10-27).
+  No Asana comment, no email: quiet run.
+- Blocked: `outlook_send_mail` still absent (section 7b); the 10-02 handoff email and nudge emails remain
+  unsent Outlook drafts; a human must send them or enable the send tools in the M365 connector settings.
+  Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy 403 on
+  asanausercontent.com).
+- Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
