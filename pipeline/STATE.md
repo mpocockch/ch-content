@@ -1782,3 +1782,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: draft this card as soon as asanausercontent.com is allowed through the proxy, or
   `drafts/2026-10-insurance-electrical-testing/source-fmds0520.md` is committed to this branch; or take
   whichever card is oldest if a different topic is promoted.
+
+## 2026-10-22 (later) — Weekly Draft (Friday), resumed after PDF supplied
+
+- Did: Matt supplied the FM Global PDF directly in the session, unblocking card `1217369002256411`.
+  Drafted "What Electrical Testing Do Insurance Companies Expect in Commercial Facilities?" in
+  `drafts/2026-10-insurance-electrical-testing/` (draft.md ~2,570 words incl. tables, sources.md,
+  image-brief.md, linkedin.md 163-word body, hero.jpg 1376x768 via gemini-3-pro-image-preview). Pushed
+  to the shared branch (commit 7f5c57e, verified ancestor of remote). Draft, hero and LinkedIn delivered
+  with SendUserFile. The FM PDF is copyrighted and NOT committed; the body paraphrases it.
+- Self-check: zero em dashes, no banned phrases, 5 internal link placeholders, mid-article CTA after the
+  interval table, Misconceptions and Recent trends present. No chart (no comparable numeric series).
+- FAILED: SharePoint upload. A 15.9 KB .docx (with 240px preview) was rejected by the connector as
+  damaged (base64 altered when retyped through the model); a second attempt with an 11 KB docx without
+  the preview was truncated by the run itself and rejected as invalid base64. Nothing was written to
+  SharePoint. No .docx exists in the Blog folder for this topic.
+- Handoff NOT done: nobody assigned, no ready-for-review comment, no email. Card stays in Approved Ideas.
+  `outlook_send_mail` is also absent (ToolSearch by exact name), so the email could not have been sent
+  in any case (section 7b).
+- Next run should: NOT redraft or regenerate the image. Rebuild the .docx from draft.md (docx npm lib,
+  strip theme/footnotes/fontTable/settings/docProps parts, ~11 KB without the image) and retry the upload,
+  or have Matt upload it. Only after a successful upload: assign Matt, follow Bill, comment, draft the
+  handoff email.
