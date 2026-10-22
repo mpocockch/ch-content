@@ -1804,3 +1804,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   strip theme/footnotes/fontTable/settings/docProps parts, ~11 KB without the image) and retry the upload,
   or have Matt upload it. Only after a successful upload: assign Matt, follow Bill, comment, draft the
   handoff email.
+
+## 2026-10-22 (resumed again) — Weekly Draft (Friday), SharePoint upload succeeded
+
+- Did: resumed card `1217369002256411`; did NOT redraft or regenerate the image. Rebuilt the .docx from
+  draft.md with only three parts ([Content_Types], _rels, document.xml), 7,754 bytes, no hero preview.
+  Validated (zip integrity plus XML parse of every part) and uploaded to the Blog folder as
+  `Insurance-Electrical-Testing-Draft.docx`. Upload returned success with a stored size of 16,340 bytes,
+  larger than the 7,754 sent, so SharePoint opened it (section 4 signal).
+- Handoff: Matt assigned, Bill added as follower, ready-for-review comment posted (says the card needs
+  dragging to Waiting Approval). The .docx is text only; the full hero.jpg stays in git and went to Matt via chat.
+- Email NOT sent: `outlook_send_mail` is absent (ToolSearch by exact name). Saved as an unsent Outlook
+  draft to Matt and Bill instead (section 7b). A human must send it.
+- Human actions: drag the card Approved Ideas -> Waiting Approval; send the Outlook draft; check hero PPE.
+- Next run should: leave the card alone (still in Approved Ideas until dragged); Review Loop picks it up.
