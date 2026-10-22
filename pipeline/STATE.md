@@ -1768,3 +1768,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   connector settings. Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy
   403 on asanausercontent.com).
 - Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
+
+## 2026-10-22 — Weekly Draft (Friday)
+
+- Did: read PLAYBOOK. `Approved Ideas` holds one card, `1217369002256411` ("What Electrical testing
+  Requirements Do Insurance Companies have?"). No prior partial draft in `drafts/` for it; no reviewer
+  questions in its comments.
+- Blocked: the card names the attached FM Global PDF (`FMDS0520 3.pdf`) as the primary reference. Download
+  from asanausercontent.com again returned HTTP 403 (CONNECT tunnel failed); no source text in the repo.
+  Not routed around (section 5); insurer requirements will not be written from vendor blogs.
+- Produced: nothing. No draft, image, Word doc, or email. Card left in Approved Ideas, nobody assigned.
+  Asana comment posted with the unblock options.
+- Next run should: draft this card as soon as asanausercontent.com is allowed through the proxy, or
+  `drafts/2026-10-insurance-electrical-testing/source-fmds0520.md` is committed to this branch; or take
+  whichever card is oldest if a different topic is promoted.
