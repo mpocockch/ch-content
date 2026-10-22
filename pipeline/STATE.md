@@ -1768,3 +1768,10 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   connector settings. Standing: Friday draft for card `1217369002256411` blocked on the FM Global PDF (proxy
   403 on asanausercontent.com).
 - Next run should: re-check comments and doc edits. Next nudge no sooner than 2026-10-27.
+
+## 2026-10-22 — Publish
+
+- Did: read PLAYBOOK; queried `Approved Blogs` (gid `1216997967900172`) via Asana. Section is empty, so
+  nothing to publish and no WordPress writes were made.
+- Quiet run: no Asana comment, no notification.
+- Next run should: re-check `Approved Blogs`.
