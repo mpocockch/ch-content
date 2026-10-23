@@ -1818,3 +1818,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   draft to Matt and Bill instead (section 7b). A human must send it.
 - Human actions: drag the card Approved Ideas -> Waiting Approval; send the Outlook draft; check hero PPE.
 - Next run should: leave the card alone (still in Approved Ideas until dragged); Review Loop picks it up.
+
+## 2026-10-23 UTC — Blog: Idea Capture
+- Did: read the Teams channel via `read_resource` (one page, 10 messages). Newest message is
+  `1789480885808` ("Testing after a flood", Bill Concannon, 2026-09-15), already captured as task
+  `1218543513344101` (now in Posted Blogs) — nothing posted since. Created no Asana tasks. Today is
+  Friday, so no research pass.
+- Blocked: nothing
+- Next run should: nothing pending
