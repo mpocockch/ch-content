@@ -1839,3 +1839,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-23 — Publish (stages 11–12), HELD
+
+- Approved Blogs (gid `1216997967900172`) holds one blog card: "NFPA 70E update - interaction with
+  70B and OSHA GDC" (`1218987294592844`), moved there 2026-10-22 15:54 UTC. Draft is
+  `drafts/2026-10-nfpa-70e-70b-osha-general-duty-clause/`.
+- WordPress checked (slug and title/keyword query across posts, pages, drafts): not live.
+  `hero.jpg` present (JPEG, 1376x768). chelectric.com egress is open now (upload endpoint answers).
+- **Nothing published, no WordPress write made, card not moved.** Blockers: 7
+  `[[internal link: ...]]` placeholders unresolved in `draft.md`; no reviewer confirmation that the
+  Annex S / condition-of-maintenance paraphrase was checked against NFPA's text.
+- Commented on the card with both asks. `draft.md` status left as is (no live URL to record).
+- Human actions: supply URLs (or "remove") for the 7 links and confirm the Annex S wording; after it
+  is live, drag the card to Posted Blogs (the connector cannot move it).
+- Next run should: re-read the card's stories; if answered, resolve links, re-check WordPress,
+  upload hero via the Novamira upload link, publish, record URL; else stop quietly.
