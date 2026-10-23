@@ -1818,3 +1818,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   draft to Matt and Bill instead (section 7b). A human must send it.
 - Human actions: drag the card Approved Ideas -> Waiting Approval; send the Outlook draft; check hero PPE.
 - Next run should: leave the card alone (still in Approved Ideas until dragged); Review Loop picks it up.
+
+## 2026-10-23 — Weekly Draft (Friday), nothing new to draft
+
+- Did: read the playbook, Approved Ideas and Waiting Approval. Approved Ideas holds one card
+  (`1217369002256411`, insurance electrical testing), already drafted, uploaded and handed off on
+  2026-10-22. Waiting Approval is empty. No unanswered questions from Matt or Bill in its comments.
+- Not done, by design: no new draft, no image, no upload, no new Asana comment, no email. Redoing
+  the handoff would duplicate it.
+- Still waiting on humans: drag the card Approved Ideas -> Waiting Approval; send the unsent Outlook
+  draft to Matt and Bill (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
+- Next run should: take the oldest card in Approved Ideas; if it is still this one, stop quietly.
