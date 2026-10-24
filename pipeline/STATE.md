@@ -1849,3 +1849,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-24 — Publish, blocked (nothing published)
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`). One blog card: `1218987294592844`
+  (NFPA 70E / 70B / OSHA General Duty Clause). WordPress queried by slug and title via
+  `novamira/execute-php`: no matching post in any status, so it is not live. `hero.jpg` is present
+  (JPEG, 1376x768).
+- Not published: `draft.md` still has 7 unresolved `[[internal link: ...]]` placeholders, and there is
+  still no reviewer reply on the card confirming the 70E condition-of-maintenance / Annex S paraphrase.
+  Neither question from the 2026-10-23 comment has been answered. No new Asana comment (would duplicate).
+- Not done, by design: no upload, no publish, no card move.
+- Human actions to unblock: reply on the card with a chelectric.com URL per placeholder (or "remove the
+  ones with no good page") and a yes on the Annex S wording. Once it is live, drag the card to Posted Blogs.
+- Next run should: re-read the card comments; if both answers are there, resolve links, publish, record URL.
