@@ -1839,3 +1839,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-24 11:39 UTC — Blog: Idea Capture, quiet run
+
+- Did: read the Teams Blog Ideas channel. The newest message (1789480885808, Bill, "Testing after a
+  flood") is already captured as a card (now in Posted Blogs), so it is the watermark and nothing is
+  above it. No Asana tasks created. Today is Saturday, so no research pass.
+- Noted: card `1219275969007078` "Electrical testing" (Unapproved Ideas, created 2026-10-08, empty
+  notes, no Teams permalink) was added by a human directly in Asana; left untouched.
+- Blocked: nothing.
+- Next run should: nothing pending. Monday's run does the research pass; Unapproved Ideas holds 10
+  cards, so the queue-depth rule applies unless some have been promoted.
