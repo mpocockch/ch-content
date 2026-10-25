@@ -1860,3 +1860,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft; check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-25 — Publish, blocked (no publish)
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`). One blog card:
+  `1218987294592844` (NFPA 70E / 70B / OSHA GDC). Checked WordPress first: no post with slug
+  `nfpa-70e-70b-osha-general-duty-clause` in any status, and no title match, so nothing is live.
+  `hero.jpg` is present (644,878 bytes).
+- Not published: `draft.md` still has 7 unresolved `[[internal link: ...]]` placeholders, and the
+  card has no reply to the 2026-10-23 blocker comment (no URLs, no Annex S sign-off). Publishing
+  would ship raw markers. No new Asana comment (the 10-23 one still stands), no WordPress write.
+- Unblock: reply on the card with a chelectric.com URL per placeholder (or "remove those with no
+  good page") and a yes that the Annex S paraphrase may ship.
+- Standing: once live, the card needs a human drag Approved Blogs -> Posted Blogs.
+- Next run should: re-read the card's comments; if the reply is there, resolve the links, publish,
+  record the URL; otherwise stop quietly.
