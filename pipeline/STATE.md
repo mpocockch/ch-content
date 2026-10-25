@@ -1849,3 +1849,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-25 — Review Loop, quiet run
+
+- Did: read the playbook and Waiting Approval (`1216997967900170`). The section is empty, so there
+  are no cards to review, no hero images to embed, and no stall clock running. The drafted card
+  (`1217369002256411`) is presumably still in Approved Ideas.
+- Not done, by design: no revisions, no SharePoint save, no Asana comment, no email.
+  `outlook_send_mail` is still absent (ToolSearch by exact name), section 7b.
+- Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
+  draft; check the hero PPE.
+- Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
