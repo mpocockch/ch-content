@@ -1849,3 +1849,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-25 — Idea Capture, quiet run
+
+- Did: read the playbook and the Teams `Blog Ideas` channel. The newest message (Bill, "Testing after a
+  flood", `1789480885808`, 2026-09-15) is already captured as Asana task `1218543513344101` (Posted
+  Blogs), so it is the watermark and nothing sits above it. Nothing new to capture.
+- Monday research pass: not run (today is Sunday).
+- Not done, by design: no Asana writes.
+- Still waiting on humans (unchanged): drag card `1217369002256411` Approved Ideas -> Waiting Approval;
+  send the unsent Outlook draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
+- Next run should: start from the same watermark unless a newer message appears.
