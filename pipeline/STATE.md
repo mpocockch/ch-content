@@ -1860,3 +1860,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft; check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-26 — Idea Capture, quiet run (Monday)
+
+- Did: read the playbook and the Teams `Blog Ideas` channel. The newest real message
+  (`1789480885808`, Bill, "Testing after a flood", 2026-09-15) is already captured as Asana task
+  `1218543513344101` (now in Posted Blogs), so it is the watermark and nothing sits above it.
+  No new ideas captured.
+- Research pass (Monday): added nothing. `Unapproved Ideas` (`1216998438394303`) holds 9 untriaged
+  cards, most of them Agent Research candidates untouched since 2026-08-11 to 08-14. Review
+  capacity is the bottleneck, not idea supply (section 8 queue-depth rule).
+- Not done, by design: no Asana writes, no email.
+- Still waiting on humans: triage the Unapproved Ideas backlog at the Thursday 1:1. Two cards have
+  empty notes (`1217369002256409` "Surge protection...", `1219275969007078` "Electrical testing").
+- Next run should: read Teams down to `1789480885808` only; anything newer is new.
