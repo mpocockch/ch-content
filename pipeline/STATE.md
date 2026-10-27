@@ -1880,3 +1880,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-27 — Interactive fix: broken tables in the insurance draft .docx
+
+- Matt reported both tables in `Insurance-Electrical-Testing-Draft.docx` rendering in Word Online
+  as one-character-wide columns. Cause: cells written with auto width and no table grid. Recorded
+  in PLAYBOOK section 4.
+- Rebuilt with fixed widths (7,966 bytes, zip and XML checks pass). Confirmed first via read_resource
+  that the SharePoint copy's text still matched draft.md (no reviewer edits; the 10-27 19:02
+  modified time was an autosave on open).
+- Replace upload REFUSED: HTTP 423 resourceLocked, because the doc was open in Word. Nothing written;
+  the broken copy is still in place. Retry the replace once the doc is closed.

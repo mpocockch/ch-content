@@ -184,6 +184,16 @@ over ~10 KB as ready for review.
 the require fails) rather than hand-assembling XML — that part of the earlier entry stands on
 its own merits, even though hand-assembled XML was not the cause here.
 
+**Tables need explicit widths or Word Online collapses them.** Observed 2026-10-27 on the
+insurance draft: a table whose cells were written with `w:tcW w:w="0" w:type="auto"` and no
+`w:tblGrid` rendered in Word for the web as columns one character wide, with the text running
+vertically down the page. The server-side PDF conversion laid out the same file correctly, so
+the zip and XML checks passed and only a human opening it in the browser caught it. Every
+table must carry `w:tblW` (9360 dxa for a letter page with 1-inch margins), `w:tblLayout
+w:type="fixed"`, a `w:tblGrid` with one `w:gridCol` per column, and a matching `w:tcW` in dxa on
+every cell. With the `docx` npm library that means setting `columnWidths` and a `width` on the
+table; do not rely on its auto layout.
+
 **Binary uploads to SharePoint are capped at roughly 18 KB in practice.** Verified against the
 tool schema 2026-09-11: `sharepoint_upload_file` accepts only `content` (text) or
 `contentBase64` (one unbroken base64 string in the tool call). There is no file-path argument
