@@ -1870,3 +1870,14 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; send the unsent Outlook
   draft (`outlook_send_mail` is not exposed, section 7b); check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-27 — Idea Capture, quiet run
+
+- Did: read the playbook and the Teams Blog Ideas thread. Newest real message is "Testing after a
+  flood" (Bill Concannon, `1789480885808`), already captured as Asana task `1218543513344101`
+  (now in Posted Blogs). That is the watermark, so nothing above it is new. The two null-body
+  messages (`1786981828000`, `1786025647591`) and the system events were skipped.
+- Created: no tasks. Tuesday, so no research pass.
+- Observation: Unapproved Ideas holds 9 topics, so the Monday queue-depth rule would apply
+  next Monday.
+- Next run should: stop at `1789480885808` unless a newer message appears.
