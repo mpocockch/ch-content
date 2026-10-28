@@ -1902,3 +1902,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; replace the broken
   insurance .docx once closed in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-28 — Publish, blocked (no publish)
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`). One blog card: `1218987294592844`
+  (NFPA 70E / 70B / OSHA General Duty Clause). Checked WordPress first: no post with the slug or a
+  matching title exists, so nothing is live. hero.jpg is present.
+- NOT published: draft.md still has 7 unresolved `[[internal link: ...]]` placeholders and no reviewer
+  reply has answered the 10-23 / 10-27 comments (links, plus OK to ship the Annex S paraphrase).
+- Wrote: one Asana comment restating the blocker. No WordPress write, card not moved.
+- Still waiting on humans: reply on the card with link URLs (or "remove") and the Annex S yes.
+- Next run should: re-check the card for a reply; if present, resolve links, publish, record URL;
+  the card then needs dragging to Posted Blogs by hand.
