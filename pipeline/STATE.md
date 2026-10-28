@@ -1891,3 +1891,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   modified time was an autosave on open).
 - Replace upload REFUSED: HTTP 423 resourceLocked, because the doc was open in Word. Nothing written;
   the broken copy is still in place. Retry the replace once the doc is closed.
+
+## 2026-10-28 — Idea Capture, BLOCKED (Asana tools absent)
+
+- Did: read the playbook and the Teams `Blog Ideas` thread (read_resource worked). Newest topic
+  pitch is Bill Concannon's "Testing after a flood" (2026-09-15, message `1789480885808`);
+  older pitches follow it back to 2026-08-06.
+- Not done: nothing captured. The Asana connector reports `connected: true, enabledInChat: true`
+  but exposes no tools (`ToolSearch` by keyword and exact name, repeated; `SearchMcpRegistry`
+  lists `tools: []`). Without Asana I cannot find the watermark (which Teams message IDs are
+  already tasks) or create tasks, so I did not guess and risk duplicates. Monday research pass
+  not applicable (today is Wednesday).
+- Needs a human: check the Asana connector's tool permissions in claude.ai connector settings;
+  tools set to Needs approval or Blocked are removed from Routine runs.
+- Next run should: confirm Asana tools are present first, then walk Teams back to the watermark.
+  Candidates to check against Asana: `1789480885808` (flood testing), `1787259801114`,
+  `1786996973248` (panel schedules), `1786538150003` (ISO 45000), `1786468264820` (power quality).
