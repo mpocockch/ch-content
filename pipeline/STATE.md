@@ -1902,3 +1902,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; replace the broken
   insurance .docx once closed in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-29 11:39 UTC — Blog: Idea Capture
+
+- Did: watermark is Teams message `1789480885808` ("Testing after a flood", Bill Concannon,
+  2026-09-15, task `1218543513344101`). Read the channel via `read_resource`: that message is
+  still the newest in the channel, so nothing new. Created no Asana tasks. Today is Thursday, so
+  the Monday research pass did not apply.
+- Blocked: nothing.
+- Next run should: nothing pending.
