@@ -24,7 +24,7 @@ Read the table by row and the documents look independent. Read it by column and 
 
 ## What does NFPA 70B require?
 
-**NFPA 70B requires a facility to run an electrical maintenance program: a documented, ongoing process for inspecting, testing and servicing electrical equipment on defined intervals.** Since the 2023 edition, 70B is a full standard rather than the recommended practice it was for decades, which changed its language from "should" to "shall" and moved it from a reference document to something a facility can be measured against. [[internal link: NFPA 70B electrical maintenance program]]
+**NFPA 70B requires a facility to run [an electrical maintenance program](https://chelectric.com/what-is-electrical-maintenance-program/): a documented, ongoing process for inspecting, testing and servicing electrical equipment on defined intervals.** Since the 2023 edition, 70B is a full standard rather than the recommended practice it was for decades, which changed its language from "should" to "shall" and moved it from a reference document to something a facility can be measured against.
 
 In practical terms, a 70B-based program rests on a few building blocks:
 
@@ -37,7 +37,7 @@ That last item is the one that matters most for this article. 70B treats documen
 
 ## What does NFPA 70E require?
 
-**NFPA 70E requires employers to establish an electrical safety program and to use risk assessment to decide how, and whether, work on or near exposed energized parts may proceed.** It is built around a hierarchy: eliminate the hazard by putting equipment in an electrically safe work condition first, and treat energized work as the exception that needs a justification, a permit and appropriate protection. [[internal link: NFPA 70E arc flash PPE requirements]]
+**NFPA 70E requires employers to establish an electrical safety program and to use risk assessment to decide how, and whether, work on or near exposed energized parts may proceed.** It is built around a hierarchy: eliminate the hazard by putting equipment in an electrically safe work condition first, and treat energized work as the exception that needs a justification, a permit and [appropriate protection](https://chelectric.com/arc-flash-ppe-requirements/).
 
 The standard asks a series of risk questions before anyone opens a cabinet. How much incident energy could be released? What are the shock and arc flash boundaries? What protection does the task require? Every one of those answers depends on an assumption that the equipment will behave as designed. A breaker is assumed to clear a fault in the time the arc flash study calculated. A panel is assumed to contain an arc rather than propagate it.
 
@@ -49,7 +49,7 @@ Those assumptions are where maintenance enters the picture, and 70E has a name f
 
 That is a modest change in wording and a meaningful one in practice. It does not turn 70E into a maintenance standard, and it does not make 70B compliance a prerequisite for every task. What it does is write the relationship down inside 70E itself. A facility reading its own safety standard is now pointed at its maintenance standard.
 
-Consider the arc flash calculation. An arc flash study might assume a molded-case breaker trips instantaneously at a given fault level. If that breaker has never been exercised or tested, and its trip settings were never confirmed, the incident energy label on the panel rests on an assumption nobody has checked. The PPE selected from that label may be too light for what the breaker would actually let through. Maintenance, in other words, is not separate from the 70E risk assessment. It is an input to it. [[internal link: arc flash study vs. breaker testing]]
+Consider the arc flash calculation. An arc flash study might assume a molded-case breaker trips instantaneously at a given fault level. If that breaker has never been [exercised or tested](https://chelectric.com/what-is-breaker-testing/), and its trip settings were never confirmed, the incident energy label on the panel rests on an assumption nobody has checked. The PPE selected from that label may be too light for what the breaker would actually let through. Maintenance, in other words, is not separate from the 70E risk assessment. It is an input to it.
 
 The consequence is that thin maintenance records do not only create a 70B problem. They make it harder to justify the assumptions behind a 70E risk assessment, because the evidence that the equipment is in the condition the study assumes is missing.
 
@@ -81,7 +81,7 @@ If you are not sure whether your maintenance records would hold up under that li
 
 ### Equipment condition
 
-70B drives the inspection and testing that establishes condition. 70E depends on that condition when it assumes equipment will behave as designed. A single set of infrared, ultrasonic and breaker test results can feed both. [[internal link: infrared thermography electrical inspection]]
+70B drives the inspection and testing that establishes condition. 70E depends on that condition when it assumes equipment will behave as designed. A single set of [infrared](https://chelectric.com/what-is-infrared-thermography/), ultrasonic and breaker test results can feed both.
 
 ### Protective device settings
 
@@ -125,7 +125,7 @@ It does not enforce it directly. OSHA enforces its own regulations and the Gener
 
 ### "NFPA 70B is optional guidance"
 
-That was true of the old recommended practice. The 2023 edition is a standard, and its language is mandatory in tone. It is still not law, but insurers, clients and AHJs increasingly treat it as the expectation. [[internal link: NFPA 70B 2023 changes]]
+That was true of the old recommended practice. [The 2023 edition is a standard](https://chelectric.com/nfpa-70b-2023-update-from-recommendation-to-standard/), and its language is mandatory in tone. It is still not law, but insurers, clients and AHJs increasingly treat it as the expectation.
 
 ### "If we follow 70E, maintenance is someone else's problem"
 
@@ -151,7 +151,7 @@ Third, more facilities are consolidating records. A single asset register that h
 
 ## How to build one program that satisfies all three
 
-**Start with the asset inventory and let the other pieces hang from it.** Six steps give a facility a practical sequence. [[internal link: electrical maintenance program checklist]]
+**Start with the asset inventory and let the other pieces hang from it.** Six steps give a facility a [practical sequence](https://chelectric.com/how-to-create-an-electrical-maintenance-schedule-that-meets-nfpa-osha-standards/).
 
 ### Step 1: Inventory and rank your equipment
 
@@ -179,4 +179,4 @@ Review the whole program annually and whenever the system changes, and confirm t
 
 ## Final thoughts
 
-NFPA 70E, NFPA 70B and the OSHA General Duty Clause are not three projects. They are three views of one question: can your facility show that its electrical equipment is maintained and that people work around it safely? The next edition of 70E writes the connection between maintenance and safe work into its own pages, and the General Duty Clause gives inspectors a way to hold employers to both. Facilities that manage them as one program, with maintenance records that support their safety decisions, will find that the documentation they need after an incident is the same documentation that helps prevent one. [[internal link: electrical safety program review]]
+NFPA 70E, NFPA 70B and the OSHA General Duty Clause are not three projects. They are three views of one question: can your facility show that its electrical equipment is maintained and that people work around it safely? The next edition of 70E writes the connection between maintenance and safe work into its own pages, and the General Duty Clause gives inspectors a way to hold employers to both. Facilities that manage them as one program, with maintenance records that support their safety decisions, will find that the [documentation they need after an incident](https://chelectric.com/osha-electrical-documentation/) is the same documentation that helps prevent one.
