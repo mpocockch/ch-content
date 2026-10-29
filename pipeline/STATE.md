@@ -1914,3 +1914,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: reply on the card with link URLs (or "remove") and the Annex S yes.
 - Next run should: re-check the card for a reply; if present, resolve links, publish, record URL;
   the card then needs dragging to Posted Blogs by hand.
+
+## 2026-10-29 — Publish, PUBLISHED (interactive, at Matt's direction)
+
+- Matt supplied the missing sign-off (Annex S paraphrase OK to ship) and 7 internal links were resolved
+  in draft.md earlier the same day. Re-checked WordPress: no post with the slug or title existed.
+- Published `1218987294592844` (NFPA 70E / 70B / OSHA GDC): https://chelectric.com/nfpa-70e-70b-osha-general-duty-clause/
+  Post 14656, attachment 14655 (hero.jpg, verified JPEG, md5 matched before attach), featured image set,
+  category News and Resources, Yoast meta set. Live page returns HTTP 200 with the links and no raw markers.
+- Method: hero and block-markup content sent via novamira/create-upload-link (byte counts matched), then
+  wp_insert_post via execute-php. Draft front matter now status: published with the live URL.
+- Asana: live URL added to the task description and a comment posted. Card NOT moved (connector cannot).
+- Still waiting on humans: drag card Approved Blogs -> Posted Blogs.
+- Next Publish run should: find nothing new in Approved Blogs once the card is moved; if the card is still
+  there, do NOT republish — the post is live.

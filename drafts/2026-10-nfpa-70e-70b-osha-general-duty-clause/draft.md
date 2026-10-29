@@ -1,3 +1,5 @@
+status            published
+Live URL           https://chelectric.com/nfpa-70e-70b-osha-general-duty-clause/
 Main keyword       NFPA 70E and 70B
 URL                nfpa-70e-70b-osha-general-duty-clause
 Title              How Do NFPA 70E, NFPA 70B and the OSHA General Duty Clause Work Together?
