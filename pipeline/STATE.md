@@ -1912,3 +1912,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag that card Approved Ideas -> Waiting Approval; replace the broken
   insurance .docx once closed in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check Waiting Approval again; start the 5-day stall clock only once a card is there.
+
+## 2026-10-29 — Interactive: alternate hero image for the insurance draft
+
+- On Matt's request, generated `drafts/2026-10-insurance-electrical-testing/hero-v2.jpg` (1376x768,
+  581,575 bytes, gemini-3-pro-image-preview, exit 0): loss control engineer and technician reviewing
+  closed switchgear. Prompt and alt text appended to image-brief.md. hero.jpg is kept; a human picks
+  one before publish. Delivered to Matt via SendUserFile. Not uploaded to SharePoint (size ceiling,
+  section 4).
