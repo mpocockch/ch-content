@@ -1920,3 +1920,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   closed switchgear. Prompt and alt text appended to image-brief.md. hero.jpg is kept; a human picks
   one before publish. Delivered to Matt via SendUserFile. Not uploaded to SharePoint (size ceiling,
   section 4).
+
+## 2026-10-30 — Blog: Idea Capture
+
+- Did: read the Teams thread via `read_resource` (14 messages) and walked to the watermark.
+  One new idea: Bill Concannon's 2026-10-29 "You cannot be following 70E if you aren't
+  following 70B" (message id `1793286577516`). Created Asana task `1220060114608192` in
+  Unapproved Ideas (success returned), Source: Bill Concannon, permalink included.
+- Skipped: system events and two uncaptioned/empty-body messages (08-06, 08-17); the rest were
+  already captured (flood, panel schedules, ISO 45000, power quality, equipment room).
+- Research pass: today is Friday, so not applicable. Queue is now 10 untriaged topics, so a
+  Monday pass should add nothing until triage promotes some out.
+- Blocked: nothing.
+- Next run should: use `1793286577516` as the newest captured watermark. Note the new topic
+  extends the 70E/70B/OSHA GDC post already in Posted Blogs.
