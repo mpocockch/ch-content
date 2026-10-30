@@ -1920,3 +1920,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   closed switchgear. Prompt and alt text appended to image-brief.md. hero.jpg is kept; a human picks
   one before publish. Delivered to Matt via SendUserFile. Not uploaded to SharePoint (size ceiling,
   section 4).
+
+## 2026-10-30 — Weekly Draft (Friday), quiet run: empty queue
+
+- Did: read the playbook, Approved Ideas (`1216997967900169`) and Waiting Approval. Approved Ideas is
+  empty; the insurance card (`1217369002256411`) was dragged to Waiting Approval on 10-29. No new
+  comments or questions from Matt or Bill on it. No unfinished draft to resume.
+- Posted one Asana comment flagging the empty queue. Nothing drafted, no image, no upload,
+  no assignment, no email (quiet run).
+- Next run should: draft the oldest Approved Ideas card if the Thursday triage promoted one.
