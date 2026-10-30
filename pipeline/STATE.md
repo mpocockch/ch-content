@@ -1943,3 +1943,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check for reviewer comments/edits; stall nudge is due after 2026-11-03 if there
   is still no genuine comment.
+
+## 2026-10-30 — Publish, quiet run
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`) via Asana. The section is
+  empty, so no WordPress check, upload or publish was needed.
+- Not done, by design: no publish, no Asana write, no card move.
+- Still waiting on humans: the insurance post is in Waiting Approval and needs review and a
+  drag to Approved Blogs before it can publish.
+- Next run should: re-check Approved Blogs; for any card, query WordPress for slug/title first.
