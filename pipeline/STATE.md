@@ -1943,3 +1943,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check for reviewer comments/edits; stall nudge is due after 2026-11-03 if there
   is still no genuine comment.
+
+## 2026-10-31 — Idea Capture, quiet run
+
+- Did: read the playbook and the Blog Ideas channel. The newest topic message
+  (`1793286577516`, Bill, 10-29) is already captured as Asana task `1220060114608192`, so
+  that is the watermark and nothing sits above it. No new ideas, no Asana writes.
+- Queue: Unapproved Ideas holds 11 cards; Approved Ideas is empty.
+- Research pass: skipped, today is Saturday (Mondays only). Queue is also over the ~10 cap.
+- Next run should: read from the top of the channel again and stop at `1793286577516`.
