@@ -1955,3 +1955,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; replace the broken-table insurance .docx once closed
   in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check for reviewer comments/edits; nudge if past 2026-11-03 with no comment.
+
+## 2026-10-31 — Publish, quiet run: nothing approved
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`). The section is empty, so there was
+  nothing to check against WordPress and nothing to publish. The insurance post
+  (`1217369002256411`) is still in Waiting Approval.
+- Not done, by design: no WordPress query or write, no Asana write, no email.
+- Next run should: publish any card a human has dragged into Approved Blogs, after checking
+  WordPress for the slug and title and confirming `drafts/<slug>/hero.*` exists.
