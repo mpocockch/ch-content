@@ -1955,3 +1955,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; replace the broken-table insurance .docx once closed
   in Word (10-27 HTTP 423); send the unsent Outlook draft; check the hero PPE.
 - Next run should: check for reviewer comments/edits; nudge if past 2026-11-03 with no comment.
+
+## 2026-11-01 — Idea Capture, quiet run
+
+- Did: read the playbook and the Blog Ideas thread. The newest message (Bill Concannon, 10-29,
+  id `1793286577516`, "You cannot be following 70E…") is already captured as Asana task
+  `1220060114608192`, so it is the watermark and nothing sits above it. No new ideas.
+- Monday research pass: not run (today is Sunday).
+- Queue check: Unapproved Ideas holds 11 cards (Approved Ideas is empty). Two have no notes
+  ("Surge protection + insurance…" and "Electrical testing"), left untouched. If a Monday run
+  fires, the queue-depth rule applies: add nothing.
+- Not done, by design: no Asana writes, no SharePoint, no email.
+- Next run should: start from watermark `1793286577516`.
