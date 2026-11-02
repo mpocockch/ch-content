@@ -1973,3 +1973,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   `outlook_send_mail` still absent (ToolSearch by exact name), section 7b.
 - Still waiting on humans: review the card; send the unsent Outlook draft; check the hero PPE.
 - Next run should: check the new-named .docx and Asana for feedback; nudge if past 11-03.
+
+## 2026-11-02 11:35 UTC — Blog: Idea Capture
+
+- Did: read the Teams channel (`read_resource`, first page only). Newest message is `1793286577516`
+  ("You cannot be following 70E if you aren't following 70B", Bill Concannon, 2026-10-29),
+  already captured as Asana task `1220060114608192` (created 10-30), so the watermark is the
+  newest message and nothing is new. Created no Asana tasks. Unnamed attachment-only messages
+  and system events are skipped as before.
+- Monday research pass (§8): `Unapproved Ideas` holds 10 untriaged tasks (newest few from 10-08
+  and 10-30; the rest from August), at the "~10 or more" line, and no promotions from it are
+  visible in the queue. Added nothing: review capacity is the bottleneck, not idea supply.
+- Blocked: nothing.
+- Next run should: proceed normally from the watermark `1793286577516`. If Thursday triage
+  promotes topics, a later Monday research pass can resume.
