@@ -2010,3 +2010,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   edit was); send the unsent Outlook draft; check the hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; post the one stall nudge (Asana comment tagging Matt and Bill,
   plus email if `outlook_send_mail` exists) if past 11-03 with no genuine comment.
+
+## 2026-11-03 — Blog: Publish (stages 11–12)
+
+- Did: read the playbook; confirmed Asana and Novamira tools present; listed Approved Blogs
+  (`1216997967900172`) — **empty**. Quiet run.
+- Not done, by design: no WordPress query or write, no Asana comment, no card move. Nothing
+  was published.
+- Blocked: nothing.
+- Next run should: check Approved Blogs again. The insurance post is still in Waiting Approval.
