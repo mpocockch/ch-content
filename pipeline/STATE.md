@@ -2010,3 +2010,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   edit was); send the unsent Outlook draft; check the hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; post the one stall nudge (Asana comment tagging Matt and Bill,
   plus email if `outlook_send_mail` exists) if past 11-03 with no genuine comment.
+
+## 2026-11-04 — Idea Capture, quiet run
+
+- Did: read the playbook and the Teams `Blog Ideas` thread (newest message 2026-10-29, Bill
+  Concannon, `1793286577516`). That message is already captured as Asana task `1220060114608192`
+  in Unapproved Ideas, so it is the watermark and nothing sits above it. No new ideas captured.
+- Asana: Unapproved Ideas holds 11 open cards; Approved Ideas is empty.
+- Research pass: not run — today is Wednesday (Mondays only). Queue is also over the ten-topic cap.
+- Not done: nothing blocked.
+- Next run should: start from watermark `1793286577516`.
