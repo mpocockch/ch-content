@@ -2027,3 +2027,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai
   connector settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; do not re-nudge before 11-11.
+
+## 2026-11-04 — Blog: Publish (stages 11–12)
+
+- Did: read the playbook; listed Approved Blogs (`1216997967900172`) via Asana: the section is
+  empty, so there is nothing awaiting final approval.
+- Published: nothing. No WordPress writes, no card moves, no Asana writes.
+- Blocked: nothing.
+- Next run should: check Approved Blogs again; the card in Waiting Approval still needs human review.
