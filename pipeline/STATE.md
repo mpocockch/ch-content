@@ -2010,3 +2010,20 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   edit was); send the unsent Outlook draft; check the hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; post the one stall nudge (Asana comment tagging Matt and Bill,
   plus email if `outlook_send_mail` exists) if past 11-03 with no genuine comment.
+
+## 2026-11-04 — Review Loop, stall nudge posted
+
+- Did: read the playbook, Waiting Approval (`1216997967900170`) and the card's Asana history
+  (`1217369002256411`). Newest story before this run was the 10-30 pipeline note; no genuine
+  reviewer comment or question. Tracked doc read (id `01W45A5EWLG43YGP42IBB3FB7Z4Z7IOK7Z`): body
+  unchanged in substance, the read returns no modified time, comments or tracked changes, so the
+  11-02 save remains unexplained. No hero image arrived since packaging.
+- Stall: day 6 since the 10-29 move, no genuine comment, no prior nudge. Posted ONE Asana comment
+  (story `1220210860452966`) tagging Matt and Bill. Next nudge no sooner than 2026-11-11.
+- Email: NOT sent. `outlook_send_mail` is still absent from the tool catalog (ToolSearch by exact
+  name), section 7b. The Asana comment is the only nudge, and it reaches nobody by notification
+  because it is authored as Matt.
+- Not done, by design: no revisions, no SharePoint save, no revision email.
+- Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai
+  connector settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
+- Next run should: check for feedback; do not re-nudge before 11-11.
