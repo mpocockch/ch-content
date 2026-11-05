@@ -2027,3 +2027,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai
   connector settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; do not re-nudge before 11-11.
+
+## 2026-11-05 — Idea Capture, quiet run
+
+- Did: read the playbook and the Teams `Blog Ideas` thread. Newest real message is Bill Concannon's
+  2026-10-29 "You cannot be following 70E if you aren't following 70B" (id `1793286577516`), which is
+  already captured as Asana task `1220060114608192` in Unapproved Ideas. That is the watermark, so
+  nothing above it: 0 new ideas, 0 tasks created.
+- Not a Monday (Thursday), so no research pass. Unapproved Ideas holds about 11 untriaged topics anyway.
+- Not done, by design: no Asana writes.
+- Blockers: none.
