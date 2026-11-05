@@ -2027,3 +2027,19 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai
   connector settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; do not re-nudge before 11-11.
+
+## 2026-11-05 — Review Loop, quiet run
+
+- Did: read the playbook, Waiting Approval (`1216997967900170`; one card, `1217369002256411`, card
+  modified_at 11-04 12:39 UTC = the 11-04 nudge) and the card's full Asana history. Newest story is
+  the 11-04 pipeline stall nudge (under Matt's name); no genuine reviewer comment or question since.
+- SharePoint: tracked doc `What Electrical Testing Do Insurance Companies Expect in Commercial
+  Facilities.docx` (`01W45A5EWLG43YGP42IBB3FB7Z4Z7IOK7Z`) lastModified still 2026-11-02 17:24 UTC, so
+  no new Word edits since the last check. No hero image arrived since packaging.
+- Stall: day 7 since the 10-29 move; nudge already posted 11-04 (story `1220210860452966`). Next
+  nudge no sooner than 2026-11-11.
+- Not done, by design: no revisions, no SharePoint save, no Asana comment, no email.
+  `outlook_send_mail` still absent (ToolSearch by exact name), section 7b.
+- Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai connector
+  settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
+- Next run should: check for feedback; do not re-nudge before 11-11.
