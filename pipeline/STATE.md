@@ -2043,3 +2043,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai connector
   settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; do not re-nudge before 11-11.
+
+## 2026-11-06 — Weekly Draft, quiet run (empty queue)
+
+- Did: read the playbook, Approved Ideas (`1216997967900169`) and Waiting Approval
+  (`1216997967900170`) — both empty. Checked drafts/: no unfinished topic from a prior run. The
+  insurance card (`1217369002256411`) moved Waiting Approval → Approved Blogs on 2026-11-05 16:02 UTC
+  (human action). No direct questions from Matt or Bill in its history.
+- Posted one Asana comment on that card flagging the empty queue. Throttle working, not a failure.
+- Not done, by design: no draft, no image, no upload, no assignment, no email.
+- Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
+  post before publish.
+- Next run should: take the oldest Approved Ideas card if any; otherwise stay quiet.
