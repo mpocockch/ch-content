@@ -2043,3 +2043,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: review the card; expose the Outlook send tools in the claude.ai connector
   settings; send the unsent Outlook draft; check hero PPE and pick hero.jpg or hero-v2.jpg.
 - Next run should: check for feedback; do not re-nudge before 11-11.
+
+## 2026-11-06 11:35 UTC — Blog: Idea Capture
+- Did: read the playbook and the Teams `Blog Ideas` thread. The newest message is Bill Concannon's
+  10-29 "You cannot be following 70E if you aren't following 70B" (`1793286577516`), already
+  captured as Asana task `1220060114608192` — that is the watermark, so nothing is new. Nothing
+  captured. Today is Friday, so no research pass.
+- Blocked: nothing.
+- Next run should: nothing pending.
