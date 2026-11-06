@@ -2065,3 +2065,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-06 — Publish, blocked (hero pick unresolved)
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`) — one card, insurance
+  (`1217369002256411`). Queried WordPress by slug and title: no post exists in any status, so
+  not live. Found an unattached `hero-v2.jpg` in the media library (attachment 14654, uploaded
+  2026-10-29, parent 0); not reused.
+- Did NOT publish: `hero.jpg` and `hero-v2.jpg` both exist and no human has picked one or
+  confirmed the PPE check (§6). Posted an Asana comment asking for the pick.
+- Not done, by design: no upload, no publish, no URL recorded, no card move, no email.
+- Still waiting on humans: reply on the card with the hero choice and PPE OK; after publish,
+  drag the card to Posted Blogs (connector cannot move it).
+- Next run should: check the card's comments for the pick; if present, re-verify WordPress has
+  no post, then upload the chosen hero and publish.
