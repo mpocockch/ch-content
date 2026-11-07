@@ -2075,3 +2075,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-07 — Publish, NOT published (hero image decision still missing)
+
+- Did: read the playbook; Approved Blogs (`1216997967900172`) holds one blog card, the insurance post
+  (`1217369002256411`). Checked WordPress by slug and title: not live, no draft, so no double-publish
+  risk. No human comment on the card since the 2026-11-06 Publish run asked for a hero pick.
+- Blocked: `drafts/2026-10-insurance-electrical-testing/` has two candidates, `hero.jpg` and
+  `hero-v2.jpg`, and no one has chosen one or confirmed the PPE check (PLAYBOOK §6). Publishing is
+  not reversible, so I did not pick. Nothing was uploaded or published, and the card was not moved.
+- Not done, by design: no new Asana comment (the 2026-11-06 comment already asks; repeating it
+  would be noise).
+- Human action to unblock: comment on the card "use hero.jpg" or "use hero-v2.jpg" (PPE OK).
+  After publish, the card must be dragged to Posted Blogs by hand (§4).
+- Next run should: check the card's comments for the hero choice, re-check WordPress, then publish.
