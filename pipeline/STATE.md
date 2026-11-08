@@ -2075,3 +2075,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-08 — Idea Capture, quiet run (nothing new)
+
+- Did: read the playbook and the Teams Blog Ideas channel. The newest message (`1793286577516`,
+  Bill Concannon, 2026-10-29) is already captured as Asana task `1220060114608192`, so it is the
+  watermark and nothing sits above it. Unapproved Ideas (`1216998438394303`) holds 11 cards;
+  Approved Ideas (`1216997967900169`) is empty.
+- Not a Monday (Sunday), so no research pass. Queue already at ~10+ untriaged, so it would have
+  added nothing anyway.
+- Not done, by design: no Asana writes.
+- Still waiting on humans: promote a topic at Thursday triage.
+- Next run should: start from watermark `1793286577516` unless a newer capture exists.
