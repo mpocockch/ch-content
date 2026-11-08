@@ -2085,3 +2085,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-08 — Publish, NOT published (hero pick still missing)
+
+- Did: read the playbook; Approved Blogs (`1216997967900172`) holds one blog card, insurance
+  (`1217369002256411`). Checked WordPress first (post/page, any status, slug or title match
+  "insurance"): nothing exists, so there is no double-publish risk.
+- Blocker: `drafts/2026-10-insurance-electrical-testing/` has `hero.jpg` and `hero-v2.jpg`. The card
+  has no comment since the 2026-11-06 Publish run choosing one or confirming the PPE check
+  (playbook §6). Publishing is irreversible, so I did not pick. No upload, no publish, no Asana
+  comment (the 11-06 comment still stands, so I did not repeat it), no card move.
+- Human action to unblock: comment on the card "use hero.jpg" or "use hero-v2.jpg" (PPE OK).
+  Next Publish run then publishes and records the URL; the card must then be dragged to Posted
+  Blogs by hand (§4).
+- Note: unattached copy of hero-v2.jpg is already in the WP media library (attachment 14654).
