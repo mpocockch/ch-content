@@ -2108,3 +2108,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: re-check the card's comments; if a pick is recorded, publish (reuse nothing
   from media attachment 14654 unless it is the chosen file), record the URL, then ask for the card
   to be dragged to Posted Blogs.
+
+## 2026-11-09 (later) — Publish, PUBLISHED insurance post
+
+- Trigger: Matt replied in-session with the hero to use: hero-v2.jpg (the copy already in the media
+  library, attachment 14654). Verified byte-identical to `drafts/.../hero-v2.jpg` (sha256 9c7d21ab…).
+  Matt's message is taken as the pick; PPE was not separately restated.
+- WordPress re-checked first: nothing live. Created post 14680 as draft, verified (10 h2, no
+  placeholders, featured image 14654), then published.
+  Live: https://chelectric.com/insurance-electrical-testing-requirements/ (HTTP 200, title and hero in HTML).
+  Author Matt (9), category News and Resources, Yoast focus keyword and meta description set.
+- Deviation to know about: the draft's `[[internal link: ...]]` placeholders (5) were removed; no
+  internal links were added. Add real links later if wanted.
+- Hero reused from the media library rather than re-uploaded (identical bytes).
+- Asana: live URL recorded in the task description. Card is still in Approved Blogs: the connector
+  cannot move cards. Needs a human to drag it to Posted Blogs.
