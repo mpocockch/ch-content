@@ -2094,3 +2094,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-10 — Idea Capture, quiet run (nothing new)
+
+- Did: read the playbook, walked the Teams `Blog Ideas` channel newest-first. Newest message
+  (`1793286577516`, Bill Concannon, 2026-10-29, "You cannot be following 70E…") is already the
+  watermark — captured as Asana task `1220060114608192`. Nothing above it. Captured 0 tasks.
+- Research pass: not run — today is Tuesday (Mondays only). For reference, Unapproved Ideas
+  holds 11 cards, so the queue-depth rule would have said add nothing.
+- Not done, by design: no Asana writes, no SharePoint, no WordPress.
+- Observation (not acted on): Matt Pocock's 2026-08-20 Teams post "How to Ensure Electrical
+  Equipment Room Reliability" (`1787259801114`) sits below the watermark so was not checked; it
+  has no Asana card by name search of the project list. Likely a pipeline-test post that was
+  drafted already — a human may want to confirm.
+- Next run should: start from watermark `1793286577516`.
