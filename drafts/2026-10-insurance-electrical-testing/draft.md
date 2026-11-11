@@ -1,3 +1,6 @@
+status           published
+Live URL         https://chelectric.com/insurance-electrical-testing-requirements/
+Published        2026-11-09 (WordPress post 14680, featured image attachment 14654 = hero-v2.jpg)
 Main keyword       insurance electrical testing requirements
 URL                insurance-electrical-testing-requirements
 Title              What Electrical Testing Do Insurance Companies Expect in Commercial Facilities?

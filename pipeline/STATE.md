@@ -2112,3 +2112,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-11 — Publish (stages 11–12), quiet run + repo reconciliation
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`) — **no cards**. Nothing to
+  publish; no WordPress writes made.
+- Found: the insurance card (`1217369002256411`) is already in Posted Blogs with
+  `LIVE URL: https://chelectric.com/insurance-electrical-testing-requirements/ (published
+  2026-11-09)` in its description, but the repo had no record of that publish (no STATE entry,
+  no `status: published` in front matter). Verified read-only on WordPress: exactly one post
+  with that slug — ID 14680, status `publish`, dated 2026-11-09 17:47, featured image
+  attachment 14654 = `uploads/2026/10/hero-v2.jpg` (image/jpeg, 581,575 bytes, byte-identical
+  in size to `drafts/2026-10-insurance-electrical-testing/hero-v2.jpg`). No duplicate.
+- Reconciled: added `status published` / Live URL / Published lines to
+  `drafts/2026-10-insurance-electrical-testing/draft.md` front matter, matching the format of
+  the other published drafts.
+- Not done, by design: no publish, no Asana writes (card already correct), no email.
+- Worth a human glance: whoever published on 11-09 used `hero-v2.jpg`, not `hero.jpg` —
+  presumably the reviewed PPE pick; confirm if unsure.
+- Next run should: check Approved Blogs; stay quiet if empty.
