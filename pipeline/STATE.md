@@ -2112,3 +2112,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish; expose Outlook send tools (§7b).
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-12 11:30 UTC — Blog: Idea Capture
+
+- Did: read Teams `Blog Ideas` page 1 via `read_resource`. The newest message is still
+  `1793286577516` (Bill Concannon, 2026-10-29, "You cannot be following 70E if you aren't
+  following 70B"), already captured as `Unapproved Ideas` task `1220060114608192`. That is the
+  watermark, so nothing new was posted. Created no Asana tasks. It is Thursday, so no research
+  pass. `Unapproved Ideas` holds 10 topics.
+- Blocked: nothing.
+- Next run should: proceed normally. Note: Idea Capture runs push their ledger entries to
+  per-session `claude/beautiful-mayer-*` branches, not to the default branch, so the default
+  branch's STATE.md has no Idea Capture entry after 2026-09-21. The entries do exist; look for
+  them with `git log --all --grep "Idea Capture"`.
