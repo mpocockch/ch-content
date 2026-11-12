@@ -2125,3 +2125,18 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-12 — Publish, quiet run (Approved Blogs empty)
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`) — no cards, so nothing to publish.
+- Reconciled: the insurance card (`1217369002256411`) is in Posted Blogs with the live URL in its
+  description. Re-checked WordPress read-only: post 14680 `publish`, slug
+  `insurance-electrical-testing-requirements`, featured image 14654, no duplicate post with that
+  title. Live: https://chelectric.com/insurance-electrical-testing-requirements/
+- Ledger drift found: the 11-09 publish commit (`c85731c`) and the 11-10/11-11 Publish entries live
+  only on `claude/kind-newton-dd161t` / `claude/kind-newton-17mwsv`, not on this branch or the
+  default branch. Brought the draft.md front matter (status: published, live URL) over from
+  `c85731c`; did not copy those STATE entries. Each run pushes to its own branch, so the ledger is
+  split — someone should merge the run branches into `claude/blog-automation-process-flbewl`.
+- Not done, by design: no WordPress write, no upload, no Asana write, no card move.
+- Next run should: check Approved Blogs; stay quiet if empty.
