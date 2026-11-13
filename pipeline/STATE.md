@@ -2125,3 +2125,20 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-13 11:45 UTC — Blog: Idea Capture
+
+- Did: watermark is Teams message `1793286577516` ("You cannot be following 70E if you
+  aren't following 70B", Bill Concannon, 2026-10-29), captured as task `1220060114608192`.
+  It is still the newest message in the channel, so nothing new. Created no Asana tasks.
+  Friday, so no research pass.
+- Blocked: **Idea Capture ledger entries are not reaching the default branch.** This file on
+  `claude/blog-automation-process-flbewl` has no Idea Capture entry after 2026-09-21. The
+  runs did happen, but each one pushed to its own per-session branch
+  (`claude/beautiful-mayer-*`), and 62 of those branches are not merged into the default.
+  Examples: `-1ln0is` (11-12) and `-pfrxrp` (11-11). Publish runs do the same thing on
+  `claude/kind-newton-*`. This entry is on `claude/beautiful-mayer-l6k1dw` for the same
+  reason.
+- Next run should: proceed normally. A human needs to either merge the stranded branches
+  into the default branch, or change the Routine/environment so runs push to
+  `claude/blog-automation-process-flbewl`.
