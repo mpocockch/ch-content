@@ -2125,3 +2125,16 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage; hero pick/PPE check on the insurance
   post before publish.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-13 — Weekly Draft (Friday), quiet run: empty queue
+
+- Did: read the playbook, Approved Ideas (`1216997967900169`) and Waiting Approval
+  (`1216997967900170`). Both are empty. Checked drafts/: no unfinished topic from a prior run.
+  Read the history of the last active card (`1217369002256411`, insurance post, published
+  2026-11-09 and now in Posted Blogs). It has no direct question from Matt or Bill.
+- Posted one Asana comment on that card flagging the empty queue (story `1220520276530347`).
+  This is the throttle working, not a failure.
+- Not done, by design: no draft, no image, no upload, no assignment, no email (quiet run).
+- Still waiting on humans: promote a topic at Thursday triage.
+- Next run should: draft the oldest Approved Ideas card, if there is one. `outlook_send_mail`
+  was seen present on 11-12; the first real handoff should use it and record the result.
