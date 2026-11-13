@@ -2138,3 +2138,11 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: promote a topic at Thursday triage.
 - Next run should: draft the oldest Approved Ideas card, if there is one. `outlook_send_mail`
   was seen present on 11-12; the first real handoff should use it and record the result.
+
+## 2026-11-13 — Review Loop, quiet run (Waiting Approval empty)
+
+- Did: read the playbook and Waiting Approval (`1216997967900170`) — no cards. Nothing to review,
+  revise, hero-embed, or stall-alert.
+- Not done, by design: no revisions, no SharePoint save, no Asana comment, no email (quiet run).
+- Still waiting on humans: promote a topic at Thursday triage.
+- Next run should: check Waiting Approval; stay quiet if empty.
