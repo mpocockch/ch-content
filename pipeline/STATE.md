@@ -2146,3 +2146,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Not done, by design: no revisions, no SharePoint save, no Asana comment, no email (quiet run).
 - Still waiting on humans: promote a topic at Thursday triage.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-13 — Publish, BLOCKED: Asana, novamira and Microsoft 365 all failed to connect
+
+- Fired 14:57 UTC (scheduled 13:37). Read the playbook. At session start all three connectors
+  this stage needs failed to connect with a 502 (`CLIENT_HTTP_NOT_IMPLEMENTED`):
+  `Asana`, `novamira-chelectric-com`, `Microsoft-365`. Re-ran `ToolSearch` twice (by server
+  name and by keyword) — no Asana or Novamira tools exposed. `ListConnectors` shows all three
+  `connected: true, enabledInChat: true`, so this is a session-level connection failure,
+  i.e. **transient** per §5 — not a configuration or permission problem.
+- Consequence: could not read `Approved Blogs` (`1216997967900172`), could not query
+  WordPress for live posts, could not comment on any card. Nothing published, nothing
+  uploaded, no card touched, no Asana comment (connector down — state recorded here only).
+- Repo-side context only (not authoritative — Asana is the state machine): every
+  `drafts/2026-*` folder has a `hero.jpg`; the last active card (`1217369002256411`,
+  insurance post) was recorded as published 2026-11-09 and in Posted Blogs.
+- Next run should: re-check `Approved Blogs`; for any card there, confirm not already live in
+  WordPress before publishing (§ publish step 1). If the 502 repeats, a human should reconnect
+  the three connectors in claude.ai settings.
