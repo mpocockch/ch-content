@@ -2146,3 +2146,15 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Not done, by design: no revisions, no SharePoint save, no Asana comment, no email (quiet run).
 - Still waiting on humans: promote a topic at Thursday triage.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-14 — Idea Capture, quiet run
+
+- Did: read the watermark from `Unapproved Ideas` (newest Original-message id `1793286577516`,
+  "You cannot be following 70E if you aren't following 70B", Bill Concannon 2026-10-29,
+  task `1220060114608192`). Read the Teams channel (page 1): that message is still the newest
+  in the channel. Nothing new; created no Asana tasks. Saturday, so no research pass.
+- Blocked: nothing.
+- Next run should: proceed normally. Monday 11-16 research pass: `Unapproved Ideas` holds 9
+  topics; check the queue-depth rule and recent promotions before adding anything.
+- Note: this is the first Idea Capture ledger entry since 2026-09-21, although tasks were
+  captured on 10-08 and 10-30. Earlier runs appear not to have written ledger entries.
