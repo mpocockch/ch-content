@@ -2178,3 +2178,31 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Not done, by design: no revisions, no SharePoint save, no Asana comment, no email (quiet run).
 - Still waiting on humans: promote a topic at Thursday triage.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-17 — Weekly Draft, NFPA 99 hospital testing drafted and handed off
+
+- Did: read the playbook, Approved Ideas (`1216997967900169`, one card) and Waiting Approval
+  (`1216997967900170`, empty). No unfinished draft in drafts/, no questions from Matt or Bill on the
+  card. Drafted card `1217417678444119` as "What Electrical Testing Does NFPA 99 Require in
+  Hospitals?" in `drafts/2026-11-nfpa-99-hospital-electrical-testing/` (draft.md ~2,550 body words,
+  sources.md, image-brief.md, linkedin.md 175-word body, hero.jpg 1376x768 via
+  gemini-3-pro-image-preview, exit 0). Pushed to the shared branch (b152ed7, verified ancestor).
+  Draft, hero and LinkedIn delivered with SendUserFile.
+- Self-check: zero em dashes (draft and LinkedIn body), no banned phrases ("elevators" is literal),
+  4 internal link placeholders, mid-article CTA after the interval table, Misconceptions and Recent
+  trends present. No chart (no comparable numeric series; the interval table carries it).
+- Research limits: WebFetch could not resolve any external host (ENOTFOUND, session network policy),
+  so claims were checked via WebSearch extracts only. Starred items in sources.md need a check
+  against the code text. The card's "2027 edition now published" could not be confirmed and the
+  draft does not claim it.
+- SharePoint: three-part-plus-styles/numbering .docx (docx npm lib, stripped), text only, no
+  embedded hero, 9,808 bytes; zip and XML checks passed; tables fixed-width. Uploaded as
+  `NFPA-99-Hospital-Electrical-Testing-Draft.docx` (itemId `01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`),
+  expectedBytes matched, stored 18,536 bytes (larger than sent: good-upload signal).
+- Handoff: Matt assigned, Bill follower, review comment (story `1220638785697794`) and state comment
+  (`1220638785697802`) posted. Handoff email SENT via `outlook_send_mail` (returned "Email sent to
+  2 recipient(s)"). First real send since the tool appeared; §7b's "send tools absent" is out of
+  date.
+- Still waiting on humans: drag the card Approved Ideas -> Waiting Approval; hero PPE check
+  (generator enclosure doors rendered open); spot-check starred sources.
+- Next run should: not redraft. Review Loop picks it up once dragged.
