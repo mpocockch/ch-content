@@ -2178,3 +2178,12 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Not done, by design: no revisions, no SharePoint save, no Asana comment, no email (quiet run).
 - Still waiting on humans: promote a topic at Thursday triage.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-17 — Publish, quiet run (Approved Blogs empty)
+
+- Did: read the playbook and Approved Blogs (`1216997967900172`) — no cards. Nothing to
+  publish, so no WordPress query, no image upload, no card move.
+- Not done, by design: no publish, no Asana write, no front-matter change (quiet run).
+- Still waiting on humans: promote a topic at Thursday triage.
+- Next run should: check Approved Blogs; confirm each card's post is not already live before
+  publishing.
