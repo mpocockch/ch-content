@@ -2170,3 +2170,13 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Not done, by design: no revisions, no SharePoint save, no Asana comment, no email (quiet run).
 - Still waiting on humans: promote a topic at Thursday triage.
 - Next run should: check Waiting Approval; stay quiet if empty.
+
+## 2026-11-17 11:3x UTC — Blog: Idea Capture, quiet run
+
+- Did: listed project tasks (name/section/created only). Read the Teams channel page 1; the
+  newest message (`1793286577516`, Bill Concannon, 2026-10-29, "You cannot be following 70E if
+  you aren't following 70B") is already captured as `1220060114608192` in Unapproved Ideas, so it
+  is the watermark. Nothing new. Created no Asana tasks. Tuesday, so no research pass.
+- Blocked: nothing.
+- Queue: Unapproved Ideas holds 9 topics; Approved Ideas holds 1 (NFPA 99, `1217417678444119`).
+- Next run should: proceed normally. Watermark is `1793286577516`.
