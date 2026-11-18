@@ -2206,3 +2206,24 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag the card Approved Ideas -> Waiting Approval; hero PPE check
   (generator enclosure doors rendered open); spot-check starred sources.
 - Next run should: not redraft. Review Loop picks it up once dragged.
+
+## 2026-11-18 — Review Loop, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. Last check was 2026-11-17, when Weekly Draft handed off
+  the NFPA 99 card (`1217417678444119`). The Asana MCP server failed to connect at session start
+  (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Retried three times over about a minute, still down.
+  This is a transient failure under §5: no Asana reads or writes were made this run.
+- What could not be checked: whether the card was dragged into Waiting Approval, any new Asana
+  comments or questions from Matt or Bill, and the stall alert (that card is only one day old,
+  so no nudge was due anyway).
+- SharePoint check (M365 worked): `NFPA-99-Hospital-Electrical-Testing-Draft.docx`
+  (`01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`) now reports 23,078 bytes, up from 18,536 at upload. Its
+  body text, read through the connector's PDF conversion, still matches `draft.md`: sampled
+  sentences all match and no edited prose was found. The size change may be Word Online
+  metadata from someone opening the file, or Word comments or tracked changes, which the text
+  read cannot show. Not treated as feedback.
+- Not done: no revision, no SharePoint save, no Asana comment, no email (nothing to hand off).
+  `outlook_send_mail` is present in the tool catalog.
+- Next run should: retry Asana and read the NFPA 99 card's section and comments since
+  2026-11-17. Ask on the card whether the docx size change means Word comments were left that
+  the PDF-text read cannot see.
