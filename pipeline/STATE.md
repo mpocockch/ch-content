@@ -2227,3 +2227,26 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: retry Asana and read the NFPA 99 card's section and comments since
   2026-11-17. Ask on the card whether the docx size change means Word comments were left that
   the PDF-text read cannot see.
+
+## 2026-11-18 — Publish, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed to connect at session start
+  (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED, same as this morning's Review Loop). Retried four times
+  over about two minutes and it stayed down. Transient under §5, so no Asana reads or writes this
+  run. Approved Blogs (`1216997967900172`) could not be read, so nothing was published.
+- Novamira connected. Read-only WordPress check of every repo draft not marked published:
+  - `panel-schedule-compliance`: LIVE, post 14430, published 2026-09-21, featured image 14429,
+    https://chelectric.com/panel-schedule-compliance/
+  - `nfpa-70e-70b-osha-general-duty-clause`: LIVE, post 14656, published 2026-10-29, featured
+    image 14655, https://chelectric.com/nfpa-70e-70b-osha-general-duty-clause/
+  - `insurance-electrical-testing-requirements`: LIVE, post 14680, published 2026-11-09, featured
+    image 14654, https://chelectric.com/insurance-electrical-testing-requirements/
+  - `nfpa-99-electrical-testing-requirements`: not on WordPress, no post in any status.
+- Drift found: those three live posts have no `status published` / Live URL in their `draft.md`,
+  and this ledger has no Publish entry for them (they look like publishes made outside the
+  pipeline). Left front matter alone this run: without Asana there is no card to tie them to.
+- Not done: no publish, no media upload, no Asana comment or description edit, no card move.
+- Next run should: retry Asana and read Approved Blogs. If any of those three cards is there, do
+  NOT publish it; it is already live. Record the URL on the card, update its front matter and ask
+  for the card to be dragged to Posted Blogs. NFPA 99 was handed to review on 11-17, so it should
+  not be in Approved Blogs yet.
