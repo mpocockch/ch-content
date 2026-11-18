@@ -2206,3 +2206,17 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Still waiting on humans: drag the card Approved Ideas -> Waiting Approval; hero PPE check
   (generator enclosure doors rendered open); spot-check starred sources.
 - Next run should: not redraft. Review Loop picks it up once dragged.
+
+## 2026-11-18 — Blog: Idea Capture (Asana unreachable)
+
+- Did: read the playbook. Read the top 8 Teams `Blog Ideas` roots via
+  `teams_list_channel_messages`. Newest is Bill Concannon, 2026-10-29, "You cannot be following
+  70E if you aren't following 70B" (id `1793286577516`), above the last recorded watermark
+  `1789480885808` (flood testing, captured 2026-09-21). No Idea Capture run is in this ledger
+  since 2026-09-21, so it is probably uncaptured. Not Monday, so no research pass.
+- Blocked: the Asana MCP server did not connect (HTTP 410, CLIENT_HTTP_NOT_IMPLEMENTED) across
+  every retry. Transient per §5. No watermark check and no task created.
+- Next run should: check Unapproved/Approved Ideas notes for `1793286577516`. If it is absent,
+  capture it to Unapproved Ideas, with Source "Bill Concannon" and the Teams webUrl. Check why
+  Idea Capture logged nothing between 2026-09-21 and today: is the Routine disabled, or did
+  runs fail to push?
