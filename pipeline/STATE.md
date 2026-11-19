@@ -2227,3 +2227,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: retry Asana and read the NFPA 99 card's section and comments since
   2026-11-17. Ask on the card whether the docx size change means Word comments were left that
   the PDF-text read cannot see.
+
+## 2026-11-19 — Blog: Idea Capture, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. Read the Teams `Blog Ideas` channel (page 1, newest
+  first). One message is newer than the last recorded watermark (`1789480885808`, "Testing after
+  a flood", 2026-09-15): **`1793286577516`, "You cannot be following 70E if you aren't following
+  70B", Bill Concannon, 2026-10-29 15:09 UTC.** It links to a safetyandhealthmagazine.com article
+  on NFPA 70B. Nothing newer than that.
+- Blocked: the Asana MCP server failed to connect (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED, same as
+  the 11-18 Review Loop). Four tries over a few minutes all failed. Transient under §5, so **no
+  Asana reads or writes were made.** I could not confirm whether `1793286577516` was already
+  captured: no Idea Capture entry has been logged here since 2026-09-21, so the ledger can't
+  answer that. It is probably not the existing card `1218987294592844` (NFPA 70E / 70B / OSHA
+  GDC), because that card was promoted 2026-10-01, before this message was posted.
+- Not a Monday, so no research pass was due.
+- Next run should: retry Asana. Search Unapproved and Approved Ideas notes for message id
+  `1793286577516`. If it is absent, create the Unapproved Ideas task (Source: Bill Concannon, with
+  a link to the Teams message). Also check why Idea Capture has written no ledger entry from
+  09-21 to 11-19: either the Routine stopped firing or its runs didn't push.
