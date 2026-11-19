@@ -2247,3 +2247,30 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   2026-11-17. The 11-18 follow-up still stands: ask on the card whether the docx size change
   (18,536 -> 23,078) means Word comments were left that the PDF-text read cannot see. If Asana
   is still down on 11-20, a human should reconnect the Asana connector in claude.ai settings.
+
+## 2026-11-19 — Publish, BLOCKED: Asana connector failed to connect (3rd run in a row)
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with
+  the same HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED error as the 11-18 and 11-19 Review Loop
+  runs. Retried four times over several minutes and it stayed down. Under §5 this is
+  transient. **No Asana reads or writes were made, so the Approved Blogs section could not
+  be read and nothing was published.** Approval exists only on the card, so publishing from
+  the repo alone would mean guessing.
+- WordPress check (Novamira connected, read-only `get_posts` by slug, nothing written):
+  - `nfpa-99-electrical-testing-requirements`: **not on the site** (no post in any status).
+    It is the only draft not yet live. Its card was handed to review on 2026-11-17, so it is
+    probably not in Approved Blogs yet anyway.
+  - Already live: panel-schedule-compliance (14430, 2026-09-21),
+    nfpa-70e-70b-osha-general-duty-clause (14656, 2026-10-29),
+    insurance-electrical-testing-requirements (14680, 2026-11-09), plus the flood and
+    second-person posts. Bookkeeping gap: the panel-schedule, 70E/70B and insurance
+    `draft.md` front matter does not say `status: published` with a live URL. I left those
+    files alone this run. A run that has Asana should confirm the cards are in Posted Blogs
+    and then fix the front matter.
+- Not done: no publish, no media upload, no Asana comment, no card move.
+- Next run should: retry Asana and read Approved Blogs (`1216997967900172`). If NFPA 99 is
+  there, check WordPress again (it was not live as of this run), confirm
+  `drafts/2026-11-nfpa-99-hospital-electrical-testing/hero.jpg` is present, then publish.
+  **Human action:** reconnect the Asana connector in the claude.ai connector settings, or
+  check it is attached to the Blog Routines. It has been down for three runs over two days,
+  and Review Loop and Publish do nothing until it is back.
