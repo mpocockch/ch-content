@@ -2227,3 +2227,23 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: retry Asana and read the NFPA 99 card's section and comments since
   2026-11-17. Ask on the card whether the docx size change means Word comments were left that
   the PDF-text read cannot see.
+
+## 2026-11-19 — Review Loop, BLOCKED again: Asana connector failed to connect (2nd day)
+
+- Did: read the playbook and this ledger. The last check was 2026-11-18, and that run was also
+  blocked on Asana. The Asana MCP server failed at session start with the same error, HTTP 410
+  / CLIENT_HTTP_NOT_IMPLEMENTED. I retried four times over a few minutes and it stayed down.
+  `ListConnectors` shows Asana `connected: true, enabledInChat: true` at org level, so this is
+  the session-side dial failing, not a toggle. Treated as transient under §5. No Asana reads or
+  writes were made.
+- SharePoint check (M365 worked): `NFPA-99-Hospital-Electrical-Testing-Draft.docx`
+  (`01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`) is unchanged since the last check. It is still 23,078
+  bytes, last modified 2026-11-17T20:59Z. No new Word-doc edits.
+- What could not be checked: the NFPA 99 card's (`1217417678444119`) section and any reviewer
+  comments or questions since 2026-11-17. No stall nudge was due either way: the handoff was
+  2026-11-17, so the card is at most 2 days old against the 5-day rule.
+- Not done: no revision, no SharePoint save, no Asana comment, no email (nothing to hand off).
+- Next run should: retry Asana, then read the NFPA 99 card's section and its comments since
+  2026-11-17. The 11-18 follow-up still stands: ask on the card whether the docx size change
+  (18,536 -> 23,078) means Word comments were left that the PDF-text read cannot see. If Asana
+  is still down on 11-20, a human should reconnect the Asana connector in claude.ai settings.
