@@ -2247,3 +2247,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   2026-11-17. The 11-18 follow-up still stands: ask on the card whether the docx size change
   (18,536 -> 23,078) means Word comments were left that the PDF-text read cannot see. If Asana
   is still down on 11-20, a human should reconnect the Asana connector in claude.ai settings.
+
+## 2026-11-20 — Blog: Idea Capture, BLOCKED: Asana connector failed to connect (3rd day)
+
+- Did: read the playbook and this ledger. Read the Teams `Blog Ideas` channel (page 1 only,
+  M365 worked). Newest post is `1793286577516`, "You cannot be following 70E if you aren't
+  following 70B", Bill Concannon, 2026-10-29 (links a Safety+Health article on NFPA 70B). Nothing
+  posted since then. The one before it, `1789480885808` (flood testing, 2026-09-15), is the last
+  watermark this ledger records, from the 2026-09-21 run.
+- Blocked: the Asana MCP server failed at session start with HTTP 410 /
+  CLIENT_HTTP_NOT_IMPLEMENTED, the same error as Review Loop on 11-18 and 11-19. Reconnect
+  attempts failed. Treated as transient under §5: no Asana reads or writes. So the watermark
+  could not be checked against Unapproved/Approved Ideas notes. The ledger has no Idea Capture
+  entry after 2026-09-21, so it cannot show whether `1793286577516` was ever captured. It may be
+  uncaptured. It is not the same item as the earlier 70E/70B card `1218987294592844`, which
+  predates it.
+- Friday, so no research pass.
+- Next run should: retry Asana. Search Unapproved/Approved Ideas notes for `1793286577516`. If
+  absent, capture it with Source: Bill Concannon and the Teams permalink. A human should
+  reconnect the Asana connector in claude.ai settings; it has now been down three runs in a row.
