@@ -2269,3 +2269,24 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   `Blog: Weekly Draft` manually, or let the next run pick it up.
 - Next run should: retry Asana, draft the oldest Approved Ideas card if there is one, read the
   NFPA 99 card's comments, and carry forward the 11-18 docx-size question.
+
+## 2026-11-20 — Review Loop, BLOCKED: Asana connector failed to connect (4th run in a row)
+
+- Did: read the playbook and this ledger. The last Review Loop check was 2026-11-19, which was
+  also blocked on Asana. The Asana MCP server failed at session start with the same error as
+  on 11-18, 11-19 and this morning's Weekly Draft (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). I
+  retried it several times over a few minutes and it stayed down. `ListConnectors` shows Asana
+  `connected: true, enabledInChat: true`, so the org-level connection works and only the
+  session-side dial fails. Under §5 this is transient. No Asana reads or writes were made.
+- SharePoint check (M365 worked): `NFPA-99-Hospital-Electrical-Testing-Draft.docx`
+  (`01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`) was last modified 2026-11-17T20:59Z, so it is
+  unchanged. There are no new Word-doc edits.
+- Could not check: the NFPA 99 card's (`1217417678444119`) section, any reviewer comments or
+  questions since 2026-11-17, or hero-image status on the card. No stall nudge was due: the
+  handoff was 2026-11-17, so the card is 3 days old against the 5-day rule.
+- Not done: no revision, no SharePoint save, no Asana comment, no email (nothing to hand off).
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect and reconnect). Every Asana-dependent stage has been dark since 11-18.
+- Next run should: retry Asana, then read the NFPA 99 card's section and comments since
+  2026-11-17. Carry forward the 11-18 docx-size question (18,536 -> 23,078 bytes). The 5-day
+  stall threshold for that card falls on 2026-11-22.
