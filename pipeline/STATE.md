@@ -2247,3 +2247,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   2026-11-17. The 11-18 follow-up still stands: ask on the card whether the docx size change
   (18,536 -> 23,078) means Word comments were left that the PDF-text read cannot see. If Asana
   is still down on 11-20, a human should reconnect the Asana connector in claude.ai settings.
+
+## 2026-11-20 — Weekly Draft (Friday), BLOCKED: Asana connector failed to connect (3rd day)
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with the
+  same error as on 11-18 and 11-19 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). I retried five
+  times over about two minutes with backoff, and it stayed down. `ListConnectors` shows Asana
+  `connected: true, enabledInChat: true`, so the connection works at org level and only the
+  session-side dial is failing. Under §5 this is transient. No Asana reads or writes were made.
+- Checked drafts/: there is no unfinished draft. The newest one is
+  `2026-11-nfpa-99-hospital-electrical-testing`, which was finished and handed off on 11-17. It
+  has draft, sources, image-brief, linkedin and hero.jpg.
+- Not done: no topic was drafted. Asana is the state machine, so I cannot read Approved Ideas
+  (`1216997967900169`) and will not guess a topic from the repo. No image, no upload, no
+  assignment and no email were made. An email is only sent at a real handoff.
+- Could not check: what is in the Approved Ideas queue, whether the NFPA 99 card
+  (`1217417678444119`) was dragged into Waiting Approval, and any questions from Matt or Bill
+  since 11-17.
+- HUMAN ACTION NEEDED: Asana has been unreachable from Routine sessions for three days in a
+  row. Reconnect it, or disconnect and reconnect it, in claude.ai connector settings. Then fire
+  `Blog: Weekly Draft` manually, or let the next run pick it up.
+- Next run should: retry Asana, draft the oldest Approved Ideas card if there is one, read the
+  NFPA 99 card's comments, and carry forward the 11-18 docx-size question.
