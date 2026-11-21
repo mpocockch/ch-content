@@ -2313,3 +2313,30 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   threshold is passed from 2026-11-22: send one nudge (Asana comment plus email), after first
   checking the card history for an earlier nudge. Carry forward the 11-18 docx-size question
   (18,536 -> 23,078 bytes).
+
+## 2026-11-21 — Publish, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with the
+  same error as every run since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). I made four
+  reconnect attempts over about two minutes and all of them failed. `ListConnectors` shows
+  Asana `connected: true, enabledInChat: true`, so only the session-side dial is failing. The
+  Novamira connector did connect. Under §5 this is transient. No Asana reads or writes were
+  made.
+- Not done: nothing was published. Approved Blogs (`1216997967900172`) is the only approval
+  signal for stage 11, and I could not read it. I made no WordPress writes, no media uploads
+  and no front-matter changes. I did not guess an approved post from the repo.
+- Repo note: two drafts are marked `status: published` (flood-damaged equipment, 70E
+  second-person). Four have a hero image and no published status: panel-schedule-compliance,
+  insurance-electrical-testing (hero.jpg plus hero-v2.jpg, so ask which one is final if it
+  reaches Approved Blogs), nfpa-70e-70b-osha-general-duty-clause and nfpa-99. I cannot tell
+  which of these, if any, is in Approved Blogs.
+- Ledger note: the Publish entries for 11-19 and 11-20 (commits `fdec088`, `8f290da`) and the
+  Idea Capture entries for 11-20 and 11-21 were pushed to per-session branches. They never
+  reached `claude/blog-automation-process-flbewl`, so they are missing from this file on the
+  default branch. This entry is on `claude/kind-newton-dsqp0l` and will be missing too unless
+  someone merges it.
+- HUMAN ACTION NEEDED: (1) Reconnect the Asana connector in claude.ai connector settings
+  (disconnect and reconnect). Every Asana stage has been blocked since 11-18, which makes this
+  the 4th day. (2) Merge the stranded per-session ledger branches into the default branch.
+- Next run should: retry Asana and list Approved Blogs. For each blog card there, check
+  WordPress for the slug and title before writing anything.
