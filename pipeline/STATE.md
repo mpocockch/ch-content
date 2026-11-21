@@ -2290,3 +2290,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: retry Asana, then read the NFPA 99 card's section and comments since
   2026-11-17. Carry forward the 11-18 docx-size question (18,536 -> 23,078 bytes). The 5-day
   stall threshold for that card falls on 2026-11-22.
+
+## 2026-11-21 ~11:35 UTC — Blog: Idea Capture, BLOCKED: Asana connector failed to connect (5th run in a row)
+
+- Did: read the playbook. Asana failed at session start with the same HTTP 410 /
+  CLIENT_HTTP_NOT_IMPLEMENTED error seen since 11-18, and it was still down after retries. No
+  Asana reads or writes were made. Teams (M365) worked: I read `Blog Ideas` newest-first.
+- Watermark could not be confirmed without Asana. The newest top-level post is Bill
+  Concannon's 2026-10-29 "You cannot be following 70E if you aren't following 70B" (message id
+  `1793286577516`, links a safetyandhealthmagazine.com article on NFPA 70B). This ledger has no
+  record of it being captured. The earlier 70E/70B/OSHA card (`1218987294592844`) was promoted
+  on 10-01, so it predates this post. The next post down, `1789480885808` (09-15, flood
+  testing), is the last watermark on record (09-21 entry). So `1793286577516` is probably the
+  only new idea, and it is not yet captured.
+- Not a Monday, so no research pass.
+- Also noted: this ledger has no Idea Capture entries between 09-21 and today. Either the
+  Routine was off, or it ran without pushing.
+- Next run should: retry Asana. Search Unapproved/Approved Ideas notes for `1793286577516`, and
+  create the card if it is missing (Source: Bill Concannon, link to the webUrl).
