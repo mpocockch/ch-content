@@ -2290,3 +2290,26 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
 - Next run should: retry Asana, then read the NFPA 99 card's section and comments since
   2026-11-17. Carry forward the 11-18 docx-size question (18,536 -> 23,078 bytes). The 5-day
   stall threshold for that card falls on 2026-11-22.
+
+## 2026-11-21 — Review Loop, BLOCKED: Asana connector failed to connect (5th run in a row)
+
+- Did: read the playbook and this ledger. The last Review Loop check was 2026-11-20, which was
+  also blocked on Asana. The Asana MCP server failed at session start with the same error
+  (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Three reconnect attempts with backoff all failed.
+  `ListConnectors` still shows Asana `connected: true, enabledInChat: true`. Under §5 this is
+  transient. No Asana reads or writes were made.
+- SharePoint check (M365 worked): `NFPA-99-Hospital-Electrical-Testing-Draft.docx`
+  (`01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`) was last modified 2026-11-17T20:59Z. It is unchanged,
+  so there are no new Word-doc edits.
+- Mail check: no replies from Matt or Bill to the 11-17 handoff email. The only hits for
+  "NFPA 99" since 11-17 are the sent handoff itself.
+- Stall alert: not due. The handoff was 2026-11-17, so the card is 4 days old against the
+  5-day rule. No nudge was sent. The card's comment history could not be read anyway.
+- Not done: no revision, no SharePoint save, no Asana comment, no email (nothing to hand off).
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect and reconnect). Every Asana-dependent stage has been dark since 11-18.
+- Next run should: retry Asana. If it connects, read the NFPA 99 card's (`1217417678444119`)
+  section and comments since 2026-11-17. If there is no genuine reviewer comment, the stall
+  threshold is passed from 2026-11-22: send one nudge (Asana comment plus email), after first
+  checking the card history for an earlier nudge. Carry forward the 11-18 docx-size question
+  (18,536 -> 23,078 bytes).
