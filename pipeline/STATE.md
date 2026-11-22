@@ -2313,3 +2313,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   threshold is passed from 2026-11-22: send one nudge (Asana comment plus email), after first
   checking the card history for an earlier nudge. Carry forward the 11-18 docx-size question
   (18,536 -> 23,078 bytes).
+
+## 2026-11-22 — Blog: Idea Capture, BLOCKED: Asana connector failed to connect (6th run in a row)
+
+- Did: read the playbook. Asana failed at session start with the same error as every run since
+  11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Two reconnect attempts with backoff also
+  failed. Under §5 this is transient. No Asana reads or writes were made. Today is Sunday, so
+  no research pass was due.
+- Teams read (M365 worked, read-only): the newest message in Blog Ideas is
+  `1793286577516` (Bill Concannon, 2026-10-29, "You cannot be following 70E if you aren't
+  following 70B", which links a safetyandhealthmagazine.com piece on NFPA 70B). Nothing has
+  been posted since. The last capture recorded in this ledger (09-21) had the watermark at
+  `1789480885808`. I cannot tell whether `1793286577516` was captured later, because that
+  needs Asana. It is the only candidate above the 09-21 watermark.
+- Not done: no Asana task was created and no idea was captured.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect and reconnect). Every Asana-dependent stage has been dark since 11-18.
+- Next run should: retry Asana. Check Unapproved/Approved Ideas notes for message
+  `1793286577516` and capture it if it is missing. Then capture anything newer.
