@@ -2313,3 +2313,29 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   threshold is passed from 2026-11-22: send one nudge (Asana comment plus email), after first
   checking the card history for an earlier nudge. Carry forward the 11-18 docx-size question
   (18,536 -> 23,078 bytes).
+
+## 2026-11-22 — Review Loop, BLOCKED: Asana connector failed to connect (6th run in a row)
+
+- Did: read the playbook and this ledger. The last Review Loop check was 2026-11-21, which was
+  also blocked on Asana. The Asana MCP server failed at session start with the same error
+  (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED), and three more reconnect attempts with backoff also
+  failed. `ListConnectors` still shows Asana `connected: true, enabledInChat: true`. Under §5
+  this is transient. No Asana reads or writes were made.
+- SharePoint check (M365 worked): `NFPA-99-Hospital-Electrical-Testing-Draft.docx`
+  (`01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`) is still 23,078 bytes, the same as at every check
+  since 11-18. There are no new Word-doc edits.
+- Mail check: the only "NFPA 99" mail since 11-17 is the 11-17 handoff email (the sent copy and
+  the received copy). Neither Matt nor Bill has replied.
+- Stall alert: not sent. The handoff email went out 2026-11-17T20:54Z, so at this run (about
+  12:30Z) the card is about 4.6 days old, which is short of the "more than 5 days" rule. The
+  card's section and comment history could not be read anyway, so a nudge could not be checked
+  against an earlier one.
+- Not done: no revision, no SharePoint save, no Asana comment, no email (nothing to hand off).
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Every Asana-dependent stage has been dark since 11-18, and
+  that includes the 11-20 Friday draft.
+- Next run should: retry Asana. If it connects, read the NFPA 99 card's (`1217417678444119`)
+  section and its comments since 2026-11-17. If there is no genuine reviewer comment, the card
+  is past 5 days, so send one nudge (an Asana comment plus an email), after first checking the
+  card history for an earlier nudge. Carry forward the 11-18 docx-size question (18,536 ->
+  23,078 bytes).
