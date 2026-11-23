@@ -2339,3 +2339,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   is past 5 days, so send one nudge (an Asana comment plus an email), after first checking the
   card history for an earlier nudge. Carry forward the 11-18 docx-size question (18,536 ->
   23,078 bytes).
+
+## 2026-11-23 — Blog: Idea Capture, BLOCKED: Asana connector failed to connect (7th run in a row)
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with the
+  same HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED error as every run since 11-18. Reconnect retries
+  with backoff also failed. Under §5 this is transient. No Asana reads or writes were made.
+- Teams read (M365 worked, page 1 only): there is one message above the last recorded watermark
+  (`1789480885808`, "Testing after a flood", 2026-09-15). It is Bill Concannon, 2026-10-29T15:09Z,
+  id `1793286577516`, subject "You cannot be following 70E if you aren't following 70B". It is a
+  content idea linking safetyandhealthmagazine.com/a-closer-look-at-nfpa-70b/. Nothing has been
+  posted since. I could not check whether it is already captured. The existing 70E/70B card
+  `1218987294592844` predates it (in Waiting Approval from 10-07), so that card is not this idea.
+- Ledger gap: this is the first Idea Capture entry since 2026-09-21. Either the Routine has not
+  been firing, or its runs have not been recording. Someone should check
+  `trig_01KcHdSfdZpQpgNDr8CFAGmj` in `list_triggers`.
+- Monday research pass: skipped. The §8 queue-depth check needs Asana.
+- Blocked: Asana (the capture write, the watermark check and the research pass).
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect).
+- Next run should: retry Asana. Search Unapproved/Approved Ideas notes for `1793286577516`. If it
+  is absent, capture it with Source: Bill Concannon and the Teams link. Then run the deferred
+  Monday queue-depth check only if it is Monday again.
