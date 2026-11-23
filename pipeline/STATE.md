@@ -2365,3 +2365,24 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-23 — Publish, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with
+  the same error as the Review Loop runs since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED).
+  Three reconnect attempts with backoff also failed. Under §5 this is transient. No Asana reads
+  or writes were made. The Novamira WordPress connector did connect.
+- Not done: nothing was published. Asana is the state machine, and the `Approved Blogs`
+  section (`1216997967900172`) is the only approval signal, so with Asana unreadable this run
+  cannot tell which card, if any, is approved. It did not infer approval from the repo. No
+  WordPress writes, no draft front-matter edits, no card moves.
+- Repo snapshot for the next run (not a statement of stage): the drafts not marked
+  `status: published` are panel-schedule-compliance, insurance-electrical-testing,
+  nfpa-70e-70b-osha-general-duty-clause and nfpa-99-hospital-electrical-testing. All four have
+  a `hero.jpg`, and insurance also has a `hero-v2.jpg`. If that card is approved, confirm which
+  hero the reviewers picked before uploading.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Publish, Review Loop, Idea Capture and the Friday draft are all
+  dark until it does.
+- Next run should: retry Asana and list `Approved Blogs`. For each blog card, check WordPress
+  for the slug and title before any write.
