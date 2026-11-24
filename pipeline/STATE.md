@@ -2391,3 +2391,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-24 — Publish, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with
+  the same error as the Review Loop runs since 11-18 (HTTP 410 /
+  CLIENT_HTTP_NOT_IMPLEMENTED). Five reconnect attempts with backoff also failed. Under §5
+  this is transient. Without Asana, this run cannot see which cards are in Approved Blogs.
+  Asana is the state machine, so **nothing was published** and no Asana reads or writes were
+  made.
+- Novamira connected. Ran a read-only WordPress check of the 12 most recent posts (`get_posts`
+  through `execute-php`, because `run-wp-cli` is disabled on the host: proc_open/exec is
+  off). These are live (`publish`):
+  - 14430 `panel-schedule-compliance`, 2026-09-21
+  - 14493 `flood-damaged-electrical-equipment`, 2026-10-05
+  - 14496 `nfpa-70e-second-person-requirement`, 2026-10-05
+  - 14656 `nfpa-70e-70b-osha-general-duty-clause`, 2026-10-29
+  - 14680 `insurance-electrical-testing-requirements`, 2026-11-09
+  - `nfpa-99-electrical-testing-requirements` has **no** WordPress post in any status. That
+    fits the ledger, which has it in Waiting Approval and not approved.
+- Front-matter drift (found, not fixed): the panel-schedule, 70E/70B/OSHA and insurance
+  drafts are live on WordPress, but their `draft.md` front matter has no `status: published`
+  and no live URL. Only the flood and second-person drafts carry these fields. This run left
+  them alone because the card state behind them could not be read. Once Asana is back, a
+  Publish run should confirm that those three cards are in Posted Blogs, then add `status:
+  published` and the live URL to each front matter.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). It has been failing since 11-18. Publish, Review Loop, Idea
+  Capture and the Friday draft are all blocked on it.
+- Next run should: retry Asana and list the Approved Blogs section (`1216997967900172`). For
+  each blog card, check WordPress by slug before publishing. The live-post list above is a
+  baseline for that check.
