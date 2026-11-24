@@ -2365,3 +2365,22 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-24 ~11:35 UTC — Idea Capture, BLOCKED: Asana connector failed to connect (8th day)
+
+- Did: read the playbook. Tuesday, so no research pass. The Asana MCP server failed at
+  session start (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED), and reconnect attempts failed too.
+  Under §5 that is transient. No Asana reads or writes were made. Read the Teams `Blog Ideas`
+  channel (page 1, newest first). The newest message is from Bill Concannon, 2026-10-29
+  15:09Z, id `1793286577516`, subject "You cannot be following 70E if you aren't following
+  70B". It links to safetyandhealthmagazine.com/a-closer-look-at-nfpa-70b/. Below it is
+  `1789480885808` ("Testing after a flood"), the last watermark this ledger recorded
+  (09-21). This ledger has no record of `1793286577516` being captured. It is not the 70E/70B
+  card `1218987294592844`, which is older (in Waiting Approval since 10-07).
+- Blocked: could not read the watermark from Asana notes, and could not create a task. So
+  `1793286577516` is unverified: it may already be captured, or it may be new.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Every Asana-dependent stage has been dark since 11-18.
+- Next run should: retry Asana. Search Unapproved/Approved Ideas notes for `1793286577516`.
+  If it is absent, capture it (Source: Bill Concannon, link to the webUrl). Nothing newer
+  than it was in the channel as of this run.
