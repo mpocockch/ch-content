@@ -2416,3 +2416,30 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-25 — Publish, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start
+  (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED), the same failure that has blocked every
+  Asana-dependent run since 11-18. Repeated reconnect attempts with backoff also failed. Under
+  §5 this is transient. No Asana reads or writes were made.
+- Published nothing. The Approved Blogs section is the only signal that allows publishing,
+  and it could not be read. Without it, nothing is published.
+- Read-only WordPress check (Novamira connected, `execute-php`, `get_posts` by slug with any
+  status, plus a title search). No writes were made:
+  - `panel-schedule-compliance`: post 14430, publish, 2026-09-21
+  - `nfpa-70e-70b-osha-general-duty-clause`: post 14656, publish, 2026-10-29
+  - `insurance-electrical-testing-requirements`: post 14680, publish, 2026-11-09
+  - `nfpa-99-electrical-testing-requirements`: no post in any status. It is not live. The
+    last runs recorded its card in Waiting Approval, not Approved Blogs.
+- Record drift: the three live posts above are missing `status: published` and a live URL in
+  their `drafts/*/draft.md` front matter. 14656 and 14680 also have no publish entry in this
+  ledger, so they appear to have been published outside a Publish run. I did not edit the
+  front matter, because the Asana cards could not be checked to confirm them. This is flagged
+  for a human or the next run that can reach Asana.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect).
+- Next run should: retry Asana and read section `1216997967900172` (Approved Blogs). For any
+  card there, check WordPress before writing anything: the three slugs above are already
+  live and must NOT be published again. Instead, record their live URLs on the cards and in
+  the drafts' front matter, then ask for the cards to be dragged to Posted Blogs.
