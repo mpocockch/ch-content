@@ -2441,3 +2441,23 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-26 — Publish, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with
+  the same error as every run since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Four
+  reconnect attempts with backoff also failed. Under §5 this is transient. No Asana reads or
+  writes were made.
+- Approved Blogs is the only approval signal for stage 11. It could not be read, so this run
+  did not publish anything and made no WordPress writes. Novamira did connect, but it was not
+  used, because without the approval signal there is nothing to act on.
+- Repo context, for information only and not a substitute for Asana: the flood and NFPA 70E
+  second-person posts are `status: published`. The panel-schedule, insurance, 70E/70B/GDC and
+  NFPA 99 drafts are not marked published, and each has a `hero.*`. The NFPA 99 draft was last
+  seen in Waiting Approval, not Approved Blogs.
+- Not done: no publish, no card move, no Asana comment, no front-matter change.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Every Asana-dependent stage has been dark since 11-18.
+- Next run should: retry Asana. If it connects, list the Approved Blogs section
+  (`1216997967900172`). For each blog card, check WordPress for its slug and title before
+  writing anything (§ prompt step 1).
