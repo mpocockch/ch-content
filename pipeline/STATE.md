@@ -2416,3 +2416,28 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-26 — Review Loop, BLOCKED: Asana connector failed to connect (10th run in a row)
+
+- Did: read the playbook and this ledger. The last Review Loop check was 2026-11-25, and that
+  run was also blocked on Asana. The Asana MCP server failed at session start with the same
+  error (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Three reconnect attempts with backoff also
+  failed. Under §5 this is transient. No Asana reads or writes were made.
+- SharePoint check (M365 worked): `NFPA-99-Hospital-Electrical-Testing-Draft.docx`
+  (`01W45A5EQU6QUSGHKWPNAITMYGYTY74N2N`) is still 23,078 bytes, last modified
+  2026-11-17T20:59Z. It is unchanged, so there are no new Word-doc edits.
+- Mail check: there is no "NFPA 99" or "blog" mail since 11-24. Neither Matt nor Bill has
+  replied about the draft.
+- Stall alert: not sent through the pipeline. The card is about 8.7 days past handoff. But §8
+  needs the card's section and comment history to confirm it is in Waiting Approval, has no
+  reviewer comment, and has had no earlier nudge, and Asana could not be read. The run's push
+  notification to the routine owner flags the wait instead.
+- Not done: no revision, no SharePoint save, no Asana comment, no email (nothing to hand off).
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Every Asana-dependent stage has been dark since 11-18, and
+  that includes the 11-20 Friday draft. Tomorrow's Friday draft (11-27) will also block unless
+  this is fixed. The NFPA 99 draft is still waiting on review.
+- Next run should: retry Asana. If it connects, read the NFPA 99 card's (`1217417678444119`)
+  section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
+  earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
+  docx-size question (18,536 -> 23,078 bytes).
