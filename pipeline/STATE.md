@@ -2416,3 +2416,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-26 — Blog: Idea Capture, quiet run (Asana still unreachable, nothing new anyway)
+
+- Did: read the playbook. Read the Teams `Blog Ideas` channel (M365 worked, one page). The
+  newest message is still `1793286577516` (Bill Concannon, 2026-10-29, "You cannot be following
+  70E if you aren't following 70B"). Nothing has been posted since.
+- Watermark confirmed from git, not Asana: the 10-30 Idea Capture run captured that message as
+  task `1220060114608192` (branch `claude/beautiful-mayer-hjcv8a`), and the 10-31 and 11-17 runs
+  confirmed it. So nothing is above the watermark. **This corrects the 11-25 entry** (branch
+  `claude/beautiful-mayer-vk10hp`), which said Idea Capture might not have been firing since
+  09-21. It has fired daily, but every run pushes its ledger entry to its own session branch, and
+  none of those branches are merged into `claude/blog-automation-process-flbewl`. That is why the
+  default branch's ledger shows no Idea Capture entry after 09-21. The 11-13 run flagged the same
+  stranded-branch problem.
+- Blocked: the Asana MCP server failed at session start (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED),
+  and two reconnect retries also failed. That is transient under §5. No Asana reads or writes were
+  made, and none were needed today. Thursday, so no research pass.
+- HUMAN ACTION NEEDED: (1) reconnect the Asana connector in claude.ai connector settings (it has
+  been dark since 11-18). (2) Merge or consolidate the stranded `claude/beautiful-mayer-*` ledger
+  branches into the default branch, or have the Routine push to one fixed branch, so each run sees
+  the full ledger.
+- Next run should: proceed normally. The watermark is `1793286577516` / `1220060114608192`.
