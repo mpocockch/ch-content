@@ -2441,3 +2441,25 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-27 — Blog: Idea Capture, BLOCKED: Asana connector failed to connect
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with
+  the same HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED error the Review Loop has hit since 11-18.
+  Two reconnect attempts with backoff also failed. Under §5 this is transient. No Asana reads
+  or writes were made. Today is Friday, so there was no research pass.
+- Teams read (M365 worked, page 1 only): the newest message is `1793286577516`, posted
+  2026-10-29 by Bill Concannon, "You cannot be following 70E if you aren't following 70B". It
+  links to https://www.safetyandhealthmagazine.com/a-closer-look-at-nfpa-70b/ and says 70B sits
+  "nested underneath 70E": if you aren't maintaining equipment, you can't be in 70E
+  compliance. Below it is `1789480885808` (Testing after a flood, 09-15), which is the last
+  known watermark. **This ledger has no Idea Capture entry since 09-21, so `1793286577516` may
+  never have been captured.** It could not be checked against Asana.
+- Blocked: the watermark check and task creation. The Asana connector is unavailable.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Also check why this ledger shows no Idea Capture runs between
+  09-21 and today. The Routine may have been disabled, or it may have stopped writing entries.
+- Next run should: retry Asana. Search Unapproved Ideas and Approved Ideas notes for
+  `1793286577516`. If no card has it, create one in Unapproved Ideas (Source: Bill Concannon)
+  with the body copied verbatim from the Teams message and the permalink. Then walk Teams
+  above it as usual.
