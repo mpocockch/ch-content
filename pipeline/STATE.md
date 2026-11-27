@@ -2441,3 +2441,28 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes).
+
+## 2026-11-27 — Weekly Draft (Friday), BLOCKED: Asana connector failed to connect (11th run in a row)
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with the
+  same error as every run since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Six reconnect
+  attempts over several minutes all failed. `ListConnectors` still shows Asana
+  `connected: true, enabledInChat: true`. Under §5 this is transient. No Asana reads or writes
+  were made.
+- Checked drafts/: there is no unfinished draft. The newest one is still
+  `2026-11-nfpa-99-hospital-electrical-testing`, which was handed off on 11-17.
+- Mail check (M365 worked): there is no mail containing "blog" since 11-24 and no mail from
+  Bill since 11-24, so there are no reviewer questions to answer by email.
+- `mcp__Microsoft-365__outlook_send_mail` is present in this session. Nothing was sent because
+  there was no handoff.
+- Not done: no topic was drafted. Asana is the state machine, so Approved Ideas
+  (`1216997967900169`) could not be read and a topic was not guessed. No image, no .docx, no
+  upload, no assignment, no Asana comment and no email were made. This is the second Friday
+  draft lost to the outage (11-20 and 11-27).
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Then fire `Blog: Weekly Draft` manually, because the next
+  scheduled draft run is 12-04. The NFPA 99 card (`1217417678444119`) has also been waiting
+  on review for about 10 days.
+- Next run should: retry Asana, draft the oldest Approved Ideas card if there is one, and read
+  the NFPA 99 card's comments. Note that the prompt's ~18 KB .docx limit conflicts with §4's
+  ~10 KB damage threshold. The 11-17 doc was 18.5 KB, then 23 KB, so check that it opens.
