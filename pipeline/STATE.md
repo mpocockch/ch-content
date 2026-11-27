@@ -2491,3 +2491,23 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes, above the §4 ~10 KB damage threshold).
+
+## 2026-11-27 — Publish, BLOCKED: Asana connector failed to connect (13th run in a row)
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with the
+  same error as every run since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Five reconnect
+  attempts with backoff all failed. Under §5 this is transient. No Asana reads or writes were
+  made. Novamira (WordPress) connected, but it was not used.
+- Not done: nothing was published. Asana is the state machine, so the Approved Blogs section
+  (`1216997967900172`) could not be read. Publishing is the least reversible stage, so I did
+  not guess which post is approved from the repo. Repo state for reference: two drafts have
+  front-matter `status: published` (flood, NFPA 70E second-person). Four do not: panel
+  schedule, insurance, 70E/70B/OSHA GDC and NFPA 99. All four have `hero.jpg`, and the
+  insurance draft also has a `hero-v2.jpg`. Which of them, if any, are approved is unknown
+  without Asana.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Then fire `Blog: Publish` manually if anything is waiting in
+  Approved Blogs.
+- Next run should: retry Asana and read Approved Blogs. For each card, check WordPress for
+  the slug and title before writing anything. If the insurance post is approved, confirm
+  which hero file (`hero.jpg` or `hero-v2.jpg`) is the approved one before uploading.
