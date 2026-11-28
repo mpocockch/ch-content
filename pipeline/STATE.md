@@ -2491,3 +2491,21 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes, above the §4 ~10 KB damage threshold).
+
+## 2026-11-28 — Blog: Idea Capture, BLOCKED: Asana connector failed to connect (13th run in a row)
+
+- Did: read the playbook. Read the Teams `Blog Ideas` channel (M365 worked). The newest post is
+  `1793286577516` (Bill Concannon, 2026-10-29, "You cannot be following 70E if you aren't
+  following 70B", linking safetyandhealthmagazine.com/a-closer-look-at-nfpa-70b/). There is
+  nothing newer. The last ledger watermark (09-21) was `1789480885808`, so this post is the only
+  one that might not be captured yet. Asana failed at session start with the same error as every
+  run since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED), and several reconnect attempts also
+  failed. Under §5 this is transient. No Asana reads or writes were made.
+- Not done: could not read the watermark from Unapproved/Approved Ideas, so I could not confirm
+  whether `1793286577516` has a task. No task was created, because a blind create risks a
+  duplicate. It is Saturday, so there is no research pass.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect).
+- Next run should: retry Asana. Check whether any Unapproved/Approved Ideas note links
+  `1793286577516`. If none does, capture it with Source: Bill Concannon. Monday 11-30 is a
+  research day, so apply the §8 queue-depth rule.
