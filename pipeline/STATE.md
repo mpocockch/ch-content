@@ -2518,3 +2518,34 @@ Keep entries short. The Asana card carries the detail; this file carries the seq
   section and its comments since 2026-11-17. If there is no genuine reviewer comment and no
   earlier nudge, send one nudge (an Asana comment plus an email). Carry forward the 11-18
   docx-size question (18,536 -> 23,078 bytes, above the §4 ~10 KB damage threshold).
+
+## 2026-11-28 — Publish, BLOCKED: Asana connector failed to connect (nothing published)
+
+- Did: read the playbook and this ledger. The Asana MCP server failed at session start with
+  the same error as every run since 11-18 (HTTP 410 / CLIENT_HTTP_NOT_IMPLEMENTED). Four
+  reconnect attempts with backoff also failed. Under §5 this is transient. No Asana reads or
+  writes were made. Approved Blogs is the only publish signal (§1.3), so this run could not
+  tell which cards are approved. **Nothing was published.**
+- WordPress (Novamira connected; read-only checks, no writes): the 8 most recent posts are
+  insurance-electrical-testing-requirements (14680, live 11-09),
+  nfpa-70e-70b-osha-general-duty-clause (14656, live 10-29), nfpa-70e-second-person-requirement
+  (14496), flood-damaged-electrical-equipment (14493), panel-schedule-compliance (14430, live
+  09-21), plus older non-pipeline posts. There is no post with the slug
+  `nfpa-99-electrical-testing-requirements`, and a search for "NFPA 99" found nothing in any
+  status. So the NFPA 99 post is **not live**. `novamira/run-wp-cli` fails because proc_open
+  is disabled. Use `novamira/execute-php` with get_posts for lookups instead.
+- Hero images: every draft folder has `hero.jpg`, including
+  `drafts/2026-11-nfpa-99-hospital-electrical-testing/`.
+- Drift found, NOT fixed: three posts are live on WordPress, but their `draft.md` front matter
+  does not say `status: published` or give the live URL. They are panel-schedule-compliance
+  (14430), nfpa-70e-70b-osha-general-duty-clause (14656) and
+  insurance-electrical-testing-requirements (14680). This ledger has no Publish entry for any
+  of them, so they were probably published by hand. Without Asana there is no way to check
+  their cards. They may still be sitting in Approved Blogs, which is the double-publish risk
+  the prompt warns about. Left for a run that can read Asana.
+- HUMAN ACTION NEEDED: reconnect the Asana connector in claude.ai connector settings
+  (disconnect, then reconnect). Once Asana is back, also check that the three posts above are
+  in Posted Blogs, not Approved Blogs.
+- Next run should: retry Asana and list Approved Blogs. Check every card's slug against
+  WordPress before writing anything; the three slugs above are already live. Record the live
+  URL in the front matter for the three drifted drafts.
